@@ -30,3 +30,14 @@
 | Worked example          | Concrete illustration       | `callout-example`   |
 | Warning / pitfall       | Common mistakes             | `callout-warning`   |
 */
+
+.exercise-table table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.exercise-table th,
+.exercise-table td {
+  padding: 0.3em 0.4em;
+  text-align: center;
+}
