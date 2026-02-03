@@ -158,7 +158,7 @@ Corr(X,Y) = \displaystyle \frac{\text{Covariance}(X,Y)}{SD_x SD_y}
 $$
 :::
 
-::: callout-example
+::: callout-tip
 ### Exercise: Correlation coefficients
 
 Compute the **correlation coefficient** for each of the following datasets.

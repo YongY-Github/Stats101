@@ -190,9 +190,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#the-standard-deviation" id="toc-the-standard-deviation" class="nav-link" data-scroll-target="#the-standard-deviation"><span class="header-section-number">3.2.1</span> The standard deviation</a></li>
   <li><a href="#a-numerical-example" id="toc-a-numerical-example" class="nav-link" data-scroll-target="#a-numerical-example"><span class="header-section-number">3.2.2</span> A numerical example</a></li>
-  <li><a href="#try-this-exploring-mean-and-sd" id="toc-try-this-exploring-mean-and-sd" class="nav-link" data-scroll-target="#try-this-exploring-mean-and-sd"><span class="header-section-number">3.2.3</span> Try This: Exploring Mean and SD</a></li>
-  <li><a href="#population-and-sample-standard-deviation" id="toc-population-and-sample-standard-deviation" class="nav-link" data-scroll-target="#population-and-sample-standard-deviation"><span class="header-section-number">3.2.4</span> Population and sample standard deviation</a></li>
-  <li><a href="#variance-and-the-coefficient-of-variation" id="toc-variance-and-the-coefficient-of-variation" class="nav-link" data-scroll-target="#variance-and-the-coefficient-of-variation"><span class="header-section-number">3.2.5</span> Variance and the coefficient of variation</a></li>
+  <li><a href="#population-and-sample-standard-deviation" id="toc-population-and-sample-standard-deviation" class="nav-link" data-scroll-target="#population-and-sample-standard-deviation"><span class="header-section-number">3.2.3</span> Population and sample standard deviation</a></li>
+  <li><a href="#variance-and-the-coefficient-of-variation" id="toc-variance-and-the-coefficient-of-variation" class="nav-link" data-scroll-target="#variance-and-the-coefficient-of-variation"><span class="header-section-number">3.2.4</span> Variance and the coefficient of variation</a></li>
   </ul></li>
   <li><a href="#measures-of-relative-standing" id="toc-measures-of-relative-standing" class="nav-link" data-scroll-target="#measures-of-relative-standing"><span class="header-section-number">3.3</span> Measures of relative standing</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.4</span> Exercises</a>
@@ -375,9 +374,16 @@ Since we introduced the histogram in the previous chapter—the most important g
 &amp;= \sqrt{\frac{50}{4}} = \sqrt{12.5} \approx 3.5.
 \end{aligned}
 \]</span></p>
-</section>
-<section id="try-this-exploring-mean-and-sd" class="level3 callout-example" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="try-this-exploring-mean-and-sd"><span class="header-section-number">3.2.3</span> Try This: Exploring Mean and SD</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try This: Exploring Mean and SD
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Part 1: Shifting and Scaling</strong></p>
 <p>Find the mean and standard deviation (SD) for the following lists:</p>
 <ol type="1">
@@ -393,14 +399,16 @@ Since we introduced the histogram in the previous chapter—the most important g
 <li><span class="math inline">\(5, -4, 3, -1, 7\)</span></li>
 <li><span class="math inline">\(-5, 4, -3, 1, -7\)</span></li>
 </ol>
-</section>
+</div>
+</div>
 <ul>
 <li>Adding a constant to a list does not change the standard deviation.</li>
 <li>Multiplying a list by some constant <span class="math inline">\(k\)</span> multiplies the standard deviation by <span class="math inline">\(k\)</span></li>
 <li>Changing each sign of elements in a list does not change teh standard deviation</li>
 </ul>
-<section id="population-and-sample-standard-deviation" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="population-and-sample-standard-deviation"><span class="header-section-number">3.2.4</span> Population and sample standard deviation</h3>
+</section>
+<section id="population-and-sample-standard-deviation" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="population-and-sample-standard-deviation"><span class="header-section-number">3.2.3</span> Population and sample standard deviation</h3>
 <p>It is important to distinguish between the <strong>population standard deviation</strong> and the <strong>sample standard deviation</strong>, although this distinction becomes more relevant in statistical inference.</p>
 <p>When computing the population standard deviation, we divide by <span class="math inline">\(n\)</span>, the number of observations:</p>
 <p><span id="eq-SD"><span class="math display">\[
@@ -412,8 +420,8 @@ Since we introduced the histogram in the previous chapter—the most important g
 \tag{3.3}\]</span></span></p>
 <p>We use <span class="math inline">\(\text{SD}^+\)</span> to denote the sample standard deviation. It is numerically larger than <span class="math inline">\(\text{SD}\)</span> because we divide by the smaller number <span class="math inline">\((n - 1)\)</span> rather than <span class="math inline">\(n\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
-<section id="variance-and-the-coefficient-of-variation" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="variance-and-the-coefficient-of-variation"><span class="header-section-number">3.2.5</span> Variance and the coefficient of variation</h3>
+<section id="variance-and-the-coefficient-of-variation" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="variance-and-the-coefficient-of-variation"><span class="header-section-number">3.2.4</span> Variance and the coefficient of variation</h3>
 <p>Another measure of dispersion is the <strong>variance</strong>, which is simply the square of the standard deviation. While the standard deviation is measured in the same units as the data, the variance is measured in squared units, making interpretation less direct.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>Comparing variability across variables measured in different units is often difficult. A <strong>relative measure of dispersion</strong>, known as the <strong>coefficient of variation (CV)</strong>, is sometimes used. The CV is defined as the ratio of the standard deviation to the mean, expressed as a percentage.</p>
 </section>
