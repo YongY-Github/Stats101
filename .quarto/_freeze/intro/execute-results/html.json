@@ -1,0 +1,17 @@
+{
+  "hash": "5926a42cbff62b7618d5c49cee398e5c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Introduction\n\nThis is a book created from markdown and executable code.\n\nSee @knuth84 for additional discussion of literate programming.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\n\nToday's world is full of data, which has become indispensable for informed decisions, to find solutions to problems, to better understand and strategies your approach, all to help improve the lives of individuals and communities. Although the terms ``data'' and ``information'' are often used interchangeably, these terms have distinct meanings. Data can be regarded as facts, and we shall especially be concerned with numerical facts, collected together for reference or information. Information on the other hand is knowledge communicated concerning some particular fact of interest. Simply put, statistics can be defined as a tool for getting information from data. Information is what the consumer of statistics is after so that (s)he may see through and make sense of the maze and dazzle of data.\n\nStatistics helps us create \\emph{new understanding} from data. Broadly speaking, there are two ways of doing statistics; {\\bf descriptive statistics}, which are methods of organizing, summarizing, and presenting data in a convenient and informative way, and {\\bf inferential statistics} which are methods used to make conclusions or draw inferences concerning some unknown aspect of a population based on data from a sample.\n\nDescriptive statistics include graphical summaries and numerical techniques,  while statistical inference involves the making of estimates, predictions, and/or decisions about a population based on a sample.\n",
+    "supporting": [
+      "intro_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
