@@ -140,7 +140,7 @@ $P(A_1 \mid B_1) = \displaystyle \frac{P(A_1 B_1)}{P(B_1)} = \displaystyle \frac
 
 Since $P(A_1 \mid B_1) \neq P(A_1)$, the two events are **not independent**.
 
-::: callout-example
+::: callout-tip
 ### Interpretation
 
 Becoming a CEO is related to being a GA graduate in this example.
