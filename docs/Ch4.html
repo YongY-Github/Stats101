@@ -175,6 +175,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Elementary Probability</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -268,7 +274,13 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<p>A <strong>contingency table</strong> lists the frequency of each combination of values of two categorical variables. For example, a survey of 2,237 people recording gender and handedness might produce the following table.</p>
+<p>A <strong>contingency table</strong> lists the frequency of each combination of values of two categorical variables. For example, a survey of 2,237 people recording gender and handedness might produce the following table.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div id="tbl-income" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.1: Gender and handedness
+</figcaption>
+<div aria-describedby="tbl-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -295,11 +307,18 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>When dealing with <strong>cardinal (quantitative) data</strong>, the relationship between two variables is better visualized using a <strong>scatter diagram</strong>. The figure below shows the association between the duration of eruptions of Old Faithful and the waiting time between eruptions.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/ch4/scatter_1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Waiting time and eruption duration of Old Faithful</figcaption>
+<div id="fig-oldfaithful" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-oldfaithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch4/scatter_1.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oldfaithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Waiting time and eruption duration of Old Faithful
+</figcaption>
 </figure>
 </div>
 </section>
@@ -321,7 +340,16 @@ window.Quarto = {
 </div>
 </div>
 <p>Consider a university that has offered two statistics sections, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, over several years. For each student, midterm and final exam scores (out of 200) are recorded and plotted.</p>
-<p><img src="figs/ch4/scatter-a.png" class="img-fluid" style="width:45.0%" alt="Section A students"> <img src="figs/ch4/scatter-b.png" class="img-fluid" style="width:45.0%" alt="Section B students"></p>
+<div id="fig-scatterscores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterscores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch4/scatter-ab.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterscores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Students’ score: Section A and B
+</figcaption>
+</figure>
+</div>
 <p>Points lying on the 45<span class="math inline">\(^\circ\)</span> line represent students whose midterm and final scores are the same.</p>
 <p>If there is a <strong>strong association</strong>, knowing one variable helps predict the other. If the association is weak, knowing one variable provides little predictive power.</p>
 <p>For example, a student in section <span class="math inline">\(A\)</span> who scored 150 on the midterm could plausibly score anywhere between 60 and 160 on the final. In section <span class="math inline">\(B\)</span>, a student with the same midterm score would likely score between 100 and 160. Midterm scores therefore provide better predictive information in section <span class="math inline">\(B\)</span>.</p>
@@ -365,16 +393,24 @@ Important
 <li>A negative value of <span class="math inline">\(r\)</span> indicates a <strong>negative relationship</strong></li>
 </ul>
 <p>The figures below show two variables with the same mean (3) and standard deviation (1), but different correlations.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/ch4/positive-r.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Positive correlation</figcaption>
+<div id="fig-positive-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-positive-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch4/positive-r.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-positive-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: Positive correlation
+</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/ch4/negative-r.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Negative correlation</figcaption>
+<div id="fig-negative-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-negative-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch4/negative-r.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-negative-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.4: Negative correlation
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -415,6 +451,12 @@ Important
 </div>
 <p>Now consider the five points: <span class="math inline">\((1,5), (3,9), (4,7), (5,1), (7,13)\)</span>.</p>
 <p>The mean of <span class="math inline">\(X\)</span> is 4 with <span class="math inline">\(SD_X = 2\)</span>, and the mean of <span class="math inline">\(Y\)</span> is 7 with <span class="math inline">\(SD_Y = 4\)</span>.</p>
+<div id="tbl-calculating-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-calculating-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.2: Calculating the correlation coefficient
+</figcaption>
+<div aria-describedby="tbl-calculating-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -463,6 +505,9 @@ Important
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The correlation coefficient is the <strong>average of the last column</strong>, which equals <span class="math inline">\(r = 0.4\)</span>.</p>
 </section>
 <section id="why-this-method-matters" class="level3 callout-example" data-number="4.3.2">
@@ -506,7 +551,7 @@ Corr(X,Y) = \displaystyle \frac{\text{Covariance}(X,Y)}{SD_x SD_y}
 </div>
 <div class="callout-body-container callout-body">
 <p>Compute the <strong>correlation coefficient</strong> for each of the following datasets.</p>
-<strong>(a)</strong>
+<p><strong>(a)</strong></p>
 <div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
 <table class="caption-top table">
 <thead>
@@ -541,7 +586,7 @@ Corr(X,Y) = \displaystyle \frac{\text{Covariance}(X,Y)}{SD_x SD_y}
 </tbody>
 </table>
 </div>
-<strong>(b)</strong>
+<p><strong>(b)</strong></p>
 <div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
 <table class="caption-top table">
 <thead>
@@ -576,7 +621,7 @@ Corr(X,Y) = \displaystyle \frac{\text{Covariance}(X,Y)}{SD_x SD_y}
 </tbody>
 </table>
 </div>
-<strong>(c)</strong>
+<p><strong>(c)</strong></p>
 <div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
 <table class="caption-top table">
 <thead>
@@ -684,6 +729,7 @@ Important
 <p>Scatter diagrams help visualize relationships, while the correlation coefficient measures how tightly points cluster around a straight line. However, correlation alone cannot establish causation, and careful reasoning is required to interpret empirical relationships correctly.</p>
 </div>
 </div>
+<hr>
 </section>
 <section id="exercises" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.5</span> Exercises</h2>
@@ -694,6 +740,7 @@ Important
 <li><p>Why are scatter diagrams useful for studying relationships between quantitative variables?</p></li>
 <li><p>Explain why two datasets can have identical means and standard deviations but very different correlations.</p></li>
 </ol>
+<hr>
 </section>
 <section id="understanding-correlation" class="level3" data-number="4.5.2">
 <h3 data-number="4.5.2" class="anchored" data-anchor-id="understanding-correlation"><span class="header-section-number">4.5.2</span> Understanding correlation</h3>
@@ -715,6 +762,7 @@ Important
 <p>A high correlation does not imply a causal relationship.</p>
 </div>
 </div>
+<hr>
 </section>
 <section id="computation-and-interpretation" class="level3" data-number="4.5.3">
 <h3 data-number="4.5.3" class="anchored" data-anchor-id="computation-and-interpretation"><span class="header-section-number">4.5.3</span> Computation and interpretation</h3>
@@ -723,6 +771,7 @@ Important
 <li><p>Why is correlation unaffected by changes in scale or units?</p></li>
 <li><p>Give an example of a nonlinear relationship that might have low correlation.</p></li>
 </ol>
+<hr>
 </section>
 <section id="optional-challenge" class="level3" data-number="4.5.4">
 <h3 data-number="4.5.4" class="anchored" data-anchor-id="optional-challenge"><span class="header-section-number">4.5.4</span> Optional challenge</h3>
@@ -733,6 +782,12 @@ Discuss whether the relationship is likely causal, and identify possible confoun
 
 
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>For more on the relationship between categorical variables, a useful text is Utts and Heckard (2006, Chapter6).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

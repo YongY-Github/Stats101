@@ -13,7 +13,7 @@ By the end of this chapter, you should be able to:
 :::
 
 ::: {.callout-note}
-### How to use this book
+### How to use these notes
 
 This book is written to be read **narratively**, not just consulted for formulas. Each chapter introduces ideas gradually, motivating statistical concepts through explanation, examples, and visual intuition before formal definitions appear.
 
@@ -61,7 +61,7 @@ Statistics helps us create new understanding from data. Broadly speaking, there 
 
 Descriptive statistics rely on graphical summaries and numerical techniques. **Statistical inference**, in contrast, involves making estimates, predictions, and decisions about a population based on information obtained from a sample.
 
-![Statistical Inference](figs/ch1/inference.png){fig-align="center"}
+![Statistical Inference](figs/ch1/inference.png){#fig-inference fig-align="center"}
 
 In practice, what a statistician is often interested in is a **population**—a collection of all possible individuals, objects, or measurements of interest. Of particular importance is some numerical characteristic of the population, known as a **parameter**.
 
@@ -76,6 +76,8 @@ There are several approaches to doing statistics. In this book, we primarily ado
 Another important framework is the **Bayesian approach**, associated with **Thomas Bayes (1702–1761)**, an English statistician, philosopher, and Presbyterian minister. Bayes is best known for formulating what is now called **Bayes’ theorem**, which will be introduced in a later chapter.[^ch1-2]
 
 [^ch1-2]: Interestingly, Bayes never published what would become his most famous accomplishment; his notes were edited and published after his death by Richard Price.
+
+---
 
 ## Key terms
 
@@ -103,5 +105,3 @@ Descriptive statistics summarize and present data, while inferential statistics 
 
 This chapter sets the conceptual foundation for the rest of the book and motivates the need for the descriptive and inferential tools developed in later chapters.
 :::
-
-### REFERENCE

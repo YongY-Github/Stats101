@@ -150,9 +150,9 @@ $$
 
 Find the mean and standard deviation (SD) for the following lists:
 
-1.  $1, 3, 4, 5, 7$
-2.  $6, 8, 9, 10, 12$
-3.  $3, 9, 12, 15, 21$
+**(i)**  $1, 3, 4, 5, 7$
+**(ii)**  $6, 8, 9, 10, 12$
+**(iii)**  $3, 9, 12, 15, 21$
 
 **Question:** What do you notice about how the mean and SD change across these three lists? 
 
@@ -162,8 +162,8 @@ Find the mean and standard deviation (SD) for the following lists:
 
 Find the mean and SD for these two lists:
 
-1.  $5, -4, 3, -1, 7$
-2.  $-5, 4, -3, 1, -7$
+**(i)**  $5, -4, 3, -1, 7$
+**(ii)**  $-5, 4, -3, 1, -7$
 :::
 
 - Adding a constant to a list does not change the standard deviation.
@@ -204,7 +204,7 @@ Many introductory statistics textbooks also discuss **measures of relative stand
 
 [^ch3-3]: Additional examples are provided in standard textbooks and in the PowerPoint slides accompanying this book.
 
-![A box-plot example](figs/ch3/boxplot.png){fig-align="center" width="60%"}
+![A box-plot example](figs/ch3/boxplot.png){#fig-boxplot fig-align="center" width="70%"}
 
 A **percentile** refers to the percentage of observations lying below a given value.
 
@@ -228,6 +228,8 @@ Measures of **central location** describe where the data are centered, while mea
 Together, these tools form the foundation for understanding data and prepare us for statistical inference in later chapters.
 :::
 
+---
+
 ## Exercises
 
 ### Conceptual questions
@@ -246,6 +248,8 @@ Together, these tools form the foundation for understanding data and prepare us 
 
 If two datasets have the same mean and median, must they have the same standard deviation? Explain.
 :::
+
+---
 
 ### Understanding dispersion
 
@@ -270,6 +274,7 @@ If two datasets have the same mean and median, must they have the same standard 
 A small standard deviation does not imply that the data are “small”—only that they are tightly clustered around the mean.
 :::
 
+---
 
 ### Measures of relative standing
 
@@ -279,9 +284,11 @@ A small standard deviation does not imply that the data are “small”—only t
 
 14. Describe how a box plot summarizes information about central location, dispersion, and relative standing.
 
+---
+
 ### Numerical practice
 
-14. Consider the dataset: $$
+15. Consider the dataset: $$
     5,\; 8,\; 2,\; 9,\; 5,\; 3,\; 7,\; 4,\; 2,\; 7,\; 4,\; 10,\; 4,\; 3,\; 5.
     $$
 
@@ -296,9 +303,11 @@ f.  Calculate the coefficient of variation for the two lists.\
 g.  What is the mean absolute deviation for both lists?\
 h.  Draw a boxplot for the lists of numbers.
 
+---
+
 ### Optional challenge
 
-15. Find a real dataset (for example, income, test scores, or prices):
+16. Find a real dataset (for example, income, test scores, or prices):
 
 -   compute at least two measures of central location,
 -   compute at least one measure of dispersion,

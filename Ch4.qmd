@@ -28,17 +28,23 @@ The two most important graphical summaries for bivariate data are:
 -   **Scatter diagrams**, usually for quantitative variables
 :::
 
-A **contingency table** lists the frequency of each combination of values of two categorical variables. For example, a survey of 2,237 people recording gender and handedness might produce the following table.
+A **contingency table** lists the frequency of each combination of values of two categorical variables. For example, a survey of 2,237 people recording gender and handedness might produce the following table.[^ch4-1]
 
+[^ch4-1]: For more on the relationship between categorical variables, a useful text is Utts and Heckard (2006, Chapter6).
+
+::: {#tbl-income}
 |              | Male | Female |
 |--------------|------|--------|
 | Right-handed | 934  | 1070   |
 | Left-handed  | 113  | 92     |
 | Ambidextrous | 20   | 8      |
 
+Gender and handedness
+:::
+
 When dealing with **cardinal (quantitative) data**, the relationship between two variables is better visualized using a **scatter diagram**. The figure below shows the association between the duration of eruptions of Old Faithful and the waiting time between eruptions.
 
-![Waiting time and eruption duration of Old Faithful](figs/ch4/scatter_1.png){width="70%"}
+![Waiting time and eruption duration of Old Faithful](figs/ch4/scatter_1.png){#fig-oldfaithful width="70%"}
 
 ## Correlation
 
@@ -54,7 +60,7 @@ Two datasets can have the same mean and standard deviation for each variable, ye
 
 Consider a university that has offered two statistics sections, $A$ and $B$, over several years. For each student, midterm and final exam scores (out of 200) are recorded and plotted.
 
-![Section A students](figs/ch4/scatter-a.png){width="45%"} ![Section B students](figs/ch4/scatter-b.png){width="45%"}
+![Students' score: Section A and B](figs/ch4/scatter-ab.png){#fig-scatterscores}
 
 Points lying on the 45$^\circ$ line represent students whose midterm and final scores are the same.
 
@@ -88,9 +94,9 @@ Furthermore:
 
 The figures below show two variables with the same mean (3) and standard deviation (1), but different correlations.
 
-![Positive correlation](figs/ch4/positive-r.png){width="100%"} 
+![Positive correlation](figs/ch4/positive-r.png){#fig-positive-corr}
 
-![Negative correlation](figs/ch4/negative-r.png){width="100%"}
+![Negative correlation](figs/ch4/negative-r.png){#fig-negative-corr}
 
 ::: callout-note
 ### A technical detail
@@ -120,6 +126,8 @@ Now consider the five points: $(1,5), (3,9), (4,7), (5,1), (7,13)$.
 
 The mean of $X$ is 4 with $SD_X = 2$, and the mean of $Y$ is 7 with $SD_Y = 4$.
 
+::: {#tbl-calculating-corr}
+
 | X   | Y   | $SU_X$ | $SU_Y$ | Product |
 |-----|-----|--------|--------|---------|
 | 1   | 5   | -1.5   | -0.5   | 0.75    |
@@ -127,6 +135,9 @@ The mean of $X$ is 4 with $SD_X = 2$, and the mean of $Y$ is 7 with $SD_Y = 4$.
 | 4   | 7   | 0.0    | 0.0    | 0.0     |
 | 5   | 1   | 0.5    | -1.5   | -0.75   |
 | 7   | 13  | 1.5    | 1.5    | 2.25    |
+
+Calculating the correlation coefficient
+:::
 
 The correlation coefficient is the **average of the last column**, which equals $r = 0.4$.
 
@@ -158,50 +169,48 @@ Corr(X,Y) = \displaystyle \frac{\text{Covariance}(X,Y)}{SD_x SD_y}
 $$
 :::
 
-::: callout-tip
+:::::: callout-tip
 ### Exercise: Correlation coefficients
 
 Compute the **correlation coefficient** for each of the following datasets.
 
 **(a)**
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
-| $X$ | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 3 | 3 | 4 |
-|:---:|---|---|---|---|---|---|---|---|---|---|
-| $Y$ | 5 | 3 | 5 | 7 | 3 | 3 | 1 | 1 | 1 | 1 |
-</div>
 
-**(b)**
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
-| $X$ | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 3 | 3 | 4 |
-|:---:|---|---|---|---|---|---|---|---|---|---|
-| $Y$ | 1 | 2 | 1 | 3 | 1 | 4 | 1 | 2 | 2 | 3 |
-</div>
-
-**(c)**
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
-| $X$ | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 3 | 3 | 4 |
-|:---:|---|---|---|---|---|---|---|---|---|---|
-| $Y$ | 2 | 2 | 2 | 2 | 4 | 4 | 4 | 6 | 6 | 8 |
-</div>
-
-**Question.**  
-What do you observe about the values of the correlation coefficients across the three cases?
+::: {.exercise-table style="width:70%; margin:auto; font-size:0.85em;"}
+| $X$ | 1   | 1   | 1   | 1   | 2   | 2   | 2   | 3   | 3   | 4   |
+|:---:|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| $Y$ | 5   | 3   | 5   | 7   | 3   | 3   | 1   | 1   | 1   | 1   |
 :::
 
+**(b)**
 
-Note that the correlation coefficient is a pure number without any units, which is noted by the conversion to standard units. 
+::: {.exercise-table style="width:70%; margin:auto; font-size:0.85em;"}
+| $X$ | 1   | 1   | 1   | 1   | 2   | 2   | 2   | 3   | 3   | 4   |
+|:---:|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| $Y$ | 1   | 2   | 1   | 3   | 1   | 4   | 1   | 2   | 2   | 3   |
+:::
 
-Moreover, the correlation coefficient is *not** affected by any of the three changes:
-- 1) interchanging the two variables, 
-- 2) adding the same number to all the values of one variable, and 
-- 3) multiplying all the values of one variable by the same positive number.
+**(c)**
+
+::: {.exercise-table style="width:70%; margin:auto; font-size:0.85em;"}
+| $X$ | 1   | 1   | 1   | 1   | 2   | 2   | 2   | 3   | 3   | 4   |
+|:---:|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| $Y$ | 2   | 2   | 2   | 2   | 4   | 4   | 4   | 6   | 6   | 8   |
+:::
+
+**Question.**\
+What do you observe about the values of the correlation coefficients across the three cases?
+::::::
+
+Note that the correlation coefficient is a pure number without any units, which is noted by the conversion to standard units.
+
+Moreover, the correlation coefficient is \*not\*\* affected by any of the three changes: - 1) interchanging the two variables, - 2) adding the same number to all the values of one variable, and - 3) multiplying all the values of one variable by the same positive number.
 
 This basically means that changing the scale of any of the variables leaves the correlation coefficient unchanged.
 
 ![](figs/ch4/corr-mag.png){fig-align="center" width="80%"}
 
-Be warned, looks can be deceiving. A quick glance at the above scatter plots would easily convince someone that the points in (a) is
-more tightly clustered, and thus having a correlation coefficient closer to 1, than (b). This cannot be further than the truth, because in fact = 0.7 for both diagrams. (b) is simply a magnification of (a). What is important to realize is that calculating involves converting variables to standard units (deviation from average divided by SD) and therefore it measures clustering not in absolute terms, but in relative terms (more specifically, relative to their standard deviations). That is, although plot (a) may appear more tightly clustered than plot (b), both have $r = 0.7$. Plot (b) is simply a magnified version of plot (a). Correlation measures clustering **relative to standard deviation**, not in absolute terms.
+Be warned, looks can be deceiving. A quick glance at the above scatter plots would easily convince someone that the points in (a) is more tightly clustered, and thus having a correlation coefficient closer to 1, than (b). This cannot be further than the truth, because in fact = 0.7 for both diagrams. (b) is simply a magnification of (a). What is important to realize is that calculating involves converting variables to standard units (deviation from average divided by SD) and therefore it measures clustering not in absolute terms, but in relative terms (more specifically, relative to their standard deviations). That is, although plot (a) may appear more tightly clustered than plot (b), both have $r = 0.7$. Plot (b) is simply a magnified version of plot (a). Correlation measures clustering **relative to standard deviation**, not in absolute terms.
 
 ::: callout-warning
 ### Correlation measures linear association
@@ -237,6 +246,8 @@ Correlation provides a numerical summary of the strength and direction of linear
 Scatter diagrams help visualize relationships, while the correlation coefficient measures how tightly points cluster around a straight line. However, correlation alone cannot establish causation, and careful reasoning is required to interpret empirical relationships correctly.
 :::
 
+------------------------------------------------------------------------
+
 ## Exercises
 
 ### Conceptual questions
@@ -246,6 +257,8 @@ Scatter diagrams help visualize relationships, while the correlation coefficient
 2.  Why are scatter diagrams useful for studying relationships between quantitative variables?
 
 3.  Explain why two datasets can have identical means and standard deviations but very different correlations.
+
+------------------------------------------------------------------------
 
 ### Understanding correlation
 
@@ -261,6 +274,8 @@ Scatter diagrams help visualize relationships, while the correlation coefficient
 A high correlation does not imply a causal relationship.
 :::
 
+------------------------------------------------------------------------
+
 ### Computation and interpretation
 
 7.  Explain how converting variables to standard units removes units from the correlation coefficient.
@@ -268,6 +283,8 @@ A high correlation does not imply a causal relationship.
 8.  Why is correlation unaffected by changes in scale or units?
 
 9.  Give an example of a nonlinear relationship that might have low correlation.
+
+------------------------------------------------------------------------
 
 ### Optional challenge
 

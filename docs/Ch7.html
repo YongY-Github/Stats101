@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Ch8.html" rel="next">
 <link href="./Ch4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -174,6 +175,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Elementary Probability</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -193,6 +200,16 @@ window.Quarto = {
   <li><a href="#venn-diagrams" id="toc-venn-diagrams" class="nav-link" data-scroll-target="#venn-diagrams"><span class="header-section-number">5.7</span> Venn diagrams</a></li>
   <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule"><span class="header-section-number">5.8</span> Bayes’ rule</a></li>
   <li><a href="#axioms-of-probability" id="toc-axioms-of-probability" class="nav-link" data-scroll-target="#axioms-of-probability"><span class="header-section-number">5.9</span> Axioms of probability</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.10</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">5.10.1</span> Conceptual questions</a></li>
+  <li><a href="#basic-probability-calculations" id="toc-basic-probability-calculations" class="nav-link" data-scroll-target="#basic-probability-calculations"><span class="header-section-number">5.10.2</span> Basic probability calculations</a></li>
+  <li><a href="#multiplication-rule-and-independence" id="toc-multiplication-rule-and-independence" class="nav-link" data-scroll-target="#multiplication-rule-and-independence"><span class="header-section-number">5.10.3</span> Multiplication rule and independence</a></li>
+  <li><a href="#addition-rule-and-mutually-exclusive-events" id="toc-addition-rule-and-mutually-exclusive-events" class="nav-link" data-scroll-target="#addition-rule-and-mutually-exclusive-events"><span class="header-section-number">5.10.4</span> Addition rule and mutually exclusive events</a></li>
+  <li><a href="#bayes-rule-and-interpretation" id="toc-bayes-rule-and-interpretation" class="nav-link" data-scroll-target="#bayes-rule-and-interpretation"><span class="header-section-number">5.10.5</span> Bayes’ rule and interpretation</a></li>
+  <li><a href="#set-operations-and-probability-identities" id="toc-set-operations-and-probability-identities" class="nav-link" data-scroll-target="#set-operations-and-probability-identities"><span class="header-section-number">5.10.6</span> Set Operations and Probability Identities</a></li>
+  <li><a href="#reflection-and-interpretation" id="toc-reflection-and-interpretation" class="nav-link" data-scroll-target="#reflection-and-interpretation"><span class="header-section-number">5.10.7</span> Reflection and interpretation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -284,10 +301,16 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Probabilities always lie between 0 and 1 (or 0% and 100%).</p>
+<p>More formally:</p>
+<p><span id="eq-probrule-1"><span class="math display">\[
+0 \leq Prob(A) \leq 1
+\tag{5.1}\]</span></span></p>
 </div>
 </div>
 <p>From this, it follows that for any event <span class="math inline">\(A\)</span>,</p>
-<p><span class="math inline">\(P(\sim A) = 1 - P(A)\)</span>,</p>
+<p><span id="eq-probrule-2"><span class="math display">\[
+P(\sim A) = 1 - P(A)
+\tag{5.2}\]</span></span></p>
 <p>where <span class="math inline">\(\sim A\)</span> denotes the complement of <span class="math inline">\(A\)</span> or (not A).</p>
 </section>
 <section id="conditional-probability" class="level2" data-number="5.2">
@@ -310,7 +333,30 @@ window.Quarto = {
 <p>Conditional probability reflects how probabilities change <strong>once new information becomes available</strong>.</p>
 </div>
 </div>
-<p>Formally, the probability that event <span class="math inline">\(A\)</span> occurs <strong>given</strong> that event <span class="math inline">\(B\)</span> has occurred is written <span class="math display">\[P(A \mid B)\]</span> and read as the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>.</p>
+<p>Formally, the probability that event <span class="math inline">\(A\)</span> occurs <strong>given</strong> that event <span class="math inline">\(B\)</span> has occurred is written</p>
+<p><span id="eq-conditional-prob"><span class="math display">\[
+P(A \mid B)
+\tag{5.3}\]</span></span></p>
+<p>which is read as the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try This: Conditional Probability
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>(1)</strong> Two tickets are drawn at random without replacement from the following box:</p>
+<p><img src="figs/ch7/AABC.png" class="img-fluid" style="width:40.0%"></p>
+<ol type="a">
+<li>What is the chance that the second ticket is <span class="math inline">\(\fbox{B}\)</span>?</li>
+<li>What is the chance that the second ticket is <span class="math inline">\(\fbox{B}\)</span>, given thayt the fist is <span class="math inline">\(\fbox{A}\)</span>?</li>
+</ol>
+<p><strong>(2)</strong> Three cards are drawn from a deck of cards without replacement. What is the probability that none of them will be hearts</p>
+</div>
+</div>
 </section>
 <section id="the-multiplication-rule" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="the-multiplication-rule"><span class="header-section-number">5.3</span> The multiplication rule</h2>
@@ -318,7 +364,9 @@ window.Quarto = {
 <p>On the first draw, the probability of R is <span class="math inline">\(1/3\)</span>. Given that R was drawn, only W and B remain, so the probability of W on the second draw is <span class="math inline">\(1/2\)</span>. Therefore,</p>
 <p><span class="math inline">\(P(R \text{ then } W) = \displaystyle \frac{1}{2} \text{ of } \frac{1}{3} = \frac{1}{6}\)</span>.</p>
 <p>This illustrates the <strong>multiplication rule</strong>:</p>
-<p><span class="math inline">\(P(AB) = P(B \mid A)P(A) = P(A \mid B)P(B)\)</span>.</p>
+<p><span id="eq-multiplication-rule"><span class="math display">\[
+P(AB) = P(B \mid A)P(A) = P(A \mid B)P(B)
+\tag{5.4}\]</span></span></p>
 <p>For example, the probability that <strong>two cards dealt from a deck are both ACES</strong> is</p>
 <p><span class="math inline">\(\displaystyle \frac{3}{51} \times \frac{4}{54}\)</span>.</p>
 </section>
@@ -337,12 +385,17 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Events A and B as said to be <strong>independent</strong> if</p>
-<p><span class="math display">\[P(A \mid B) = P(A)\]</span></p>
+<p><span id="eq-independent"><span class="math display">\[
+P(A \mid B) = P(A)
+\tag{5.5}\]</span></span></p>
 <p>(or equivalently <span class="math inline">\(P(B \mid A) = P(B)\)</span>).</p>
 </div>
 </div>
 <p>When we have independence, the multiplication rule conveniently simplifies to</p>
-<p><span class="math inline">\(P(AB) = P(A)P(B)\)</span>.</p>
+<p><span id="eq-multiplication-rule-independent"><span class="math display">\[
+P(AB) = P(A)P(B)
+\tag{5.6}\]</span></span></p>
+<p><strong>Try these:</strong> <strong>(1)</strong> A fair coin is tossed twice. What is the chance of getting a head then a tail? <strong>(2)</strong> A die is rolled three times. (i) Find the chance that the first roll is an ACE. (ii) Find the chance that the first roll is an ACE, the second roll is a deuce, and the third roll is a trey..</p>
 </section>
 <section id="checking-for-independence" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="checking-for-independence"><span class="header-section-number">5.5</span> Checking for independence</h2>
@@ -406,10 +459,14 @@ window.Quarto = {
 <h2 data-number="5.6" class="anchored" data-anchor-id="the-addition-rule"><span class="header-section-number">5.6</span> The addition rule</h2>
 <p>Two events are said to be <strong>mutually exclusive</strong> if the occurrence of one prevents the occurrence of the other.</p>
 <p>For mutually exclusive events,</p>
-<p><span class="math inline">\(P(A \text{ or } B) = P(A) + P(B)\)</span>.</p>
+<p><span id="eq-additional-rule-mutually-exclusive"><span class="math display">\[
+P(A \text{ or } B) = P(A) + P(B)
+\tag{5.7}\]</span></span></p>
 <p>For example, intuitively, if we draw one card from a deck of cards, the probability of getting either a heart or spades is <span class="math inline">\(\frac{1}{4} + \frac{1}{4} = \frac{1}{2}\)</span>. The additional rule tells us to simply add the chances provided that the two events are mutually exclusive. The probability to get a heart is 1/4 and the probability to get a spade is also 1/4. Are the two events mutually exclusive? Yes, getting a heart means you can’t get a spade, and vice versa. So simply add the chances to get <span class="math inline">\(1/4 + 1/4 = 1/2.\)</span></p>
 <p>However, for events that are <strong>not mutually exclusive</strong>, the general addition rule is</p>
-<p><span class="math inline">\(P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)\)</span>.</p>
+<p><span id="eq-additional-rule"><span class="math display">\[
+P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)
+\tag{5.8}\]</span></span></p>
 <p>For example, if we toss two dice at the same time, to get at least ace on the two dice, we calculate the probability using the general additional rule, i.e we add the chances and subtract the joint probability because the two events are not mutually exclusive since having an ace on one of the die does not exclude the possibility to get an ace on the other die. In other words, it is possible to get ACE in both dice, i.e.&nbsp;the events are <strong>not</strong> mutually exclusive! Hence we get <span class="math inline">\(1/6 + 1/6 - 1/36 = 11/36.\)</span></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -422,12 +479,26 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Events A and B as said to be <strong>mutually exclusive</strong> if</p>
-<p><span class="math display">\[
+<p><span id="eq-muutually-exclusive"><span class="math display">\[
 P(A \text{ and } B) = 0
-\]</span></p>
+\tag{5.9}\]</span></span></p>
 </div>
 </div>
 <p>Note that we have used the word ‘or’ and ‘at least’ for the additional rule, which can be contrasted with ‘and’ for the multiplication rule. In terms of set operations, these are the union and intersect operators, respectively.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Try these.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>(1)</strong> A die is rolled twice. What is (a) the chance that the first roll is an ace or the second roll is an ace? (b) the chance that the first roll is an ace and the second roll is an ace? (c) the cace of getting at least one ace?</p>
+<p><strong>(2)</strong> A deck of cards is shuffled. What is (a) the chance that the top card is an ace of spades or the bottom card is an ace of spades? (b) the chance that the first card is an ace of spades and the bottom card is an ace of spades?</p>
+</div>
+</div>
 </section>
 <section id="venn-diagrams" class="level2" data-number="5.7">
 <h2 data-number="5.7" class="anchored" data-anchor-id="venn-diagrams"><span class="header-section-number">5.7</span> Venn diagrams</h2>
@@ -452,9 +523,9 @@ For example, two events A and B that are not disjoint can be drawn as follows:</
 <p>Combining the two Venn diagrams we get:\</p>
 <p><img src="figs/ch7/bayes-3.png" class="img-fluid"></p>
 <p>Or what is the same thing</p>
-<p><span class="math display">\[\begin{equation}
-P(A|B) = \frac {P(A \text{ and } B)}{P(B)} = \frac {P(A \text{ and } B)}{P(A \text{ and } B) + P(\sim A \text{ and } B)} \notag \\
-\end{equation}\]</span></p>
+<p><span class="math display">\[
+P(A|B) = \frac {P(A \text{ and } B)}{P(B)} = \frac {P(A \text{ and } B)}{P(A \text{ and } B) + P(\sim A \text{ and } B)}
+\]</span></p>
 <p>And finally from the definition of joint probabilities we have the Bayes Rule.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -466,9 +537,9 @@ P(A|B) = \frac {P(A \text{ and } B)}{P(B)} = \frac {P(A \text{ and } B)}{P(A \te
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[
+<p><span id="eq-bayes-rule"><span class="math display">\[
 P(A \mid B) = \frac{P(A)P(B \mid A)}{P(A)P(B \mid A) + P(\sim A)P(B \mid \sim A)}
-\]</span></p>
+\tag{5.10}\]</span></span></p>
 </div>
 </div>
 <p>So how do we use the Bayes’ Rule? An example should illustrate this. Assume that on a dark night, there was a hit and run accident. A witness, who says that she saw a blue taxi, agrees to sit in the court to testify for the victim so that the latter might get some compensation from the blue taxi company. Incidentally, there are 200 taxis in this town; 170 or 85 % belong to the black taxi company and 30 or 15 % are blue. According to tests conducted under the same condition, the witness identifies blue taxi about 80 % of the time. Now, the question is, What is the probability that she was right, that she really did see a blue taxi that night?</p>
@@ -529,8 +600,205 @@ P(A \mid B) = \frac{P(A)P(B \mid A)}{P(A)P(B \mid A) + P(\sim A)P(B \mid \sim A)
 <p>Probability provides a formal language for reasoning under uncertainty. In this chapter, we introduced experiments, events, conditional probability, independence, and the fundamental rules governing probabilities. These ideas form the foundation for statistical inference in the chapters ahead.</p>
 </div>
 </div>
+<hr>
+</section>
+<section id="exercises" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.10</span> Exercises</h2>
+<section id="conceptual-questions" class="level3" data-number="5.10.1">
+<h3 data-number="5.10.1" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">5.10.1</span> Conceptual questions</h3>
+<ol type="1">
+<li><p><strong>Three views of probability</strong><br>
+Explain the difference between the <strong>classical</strong>, <strong>frequentist</strong>, and <strong>subjective</strong> interpretations of probability.<br>
+Give one real-world example for each interpretation.</p></li>
+<li><p><strong>Probability without philosophy</strong><br>
+The chapter argues that the mathematics of probability does not depend on which interpretation we adopt.<br>
+Explain what this means in your own words.</p></li>
+<li><p><strong>Experiments and outcomes</strong><br>
+Consider the experiment <em>“toss a fair coin until a head appears.”</em></p>
+<ul>
+<li>What is the sample space?<br>
+</li>
+<li>Is this a finite or infinite sample space?<br>
+</li>
+<li>Why is this still considered a <em>single</em> experiment?</li>
+</ul></li>
+<li><p><strong>Events vs outcomes</strong><br>
+Explain the difference between an <strong>outcome</strong> and an <strong>event</strong>.<br>
+Can a single outcome itself be an event?</p></li>
+<li><p><strong>Conditional probability and information</strong><br>
+Why does conditional probability capture the idea of <em>learning from new information</em>?<br>
+Give an example (not involving cards or coins) where learning new information changes probabilities.</p></li>
+<li><p><strong>Independence vs mutual exclusivity</strong><br>
+Are mutually exclusive events ever independent?<br>
+Carefully explain your answer.</p></li>
+</ol>
+<hr>
+</section>
+<section id="basic-probability-calculations" class="level3" data-number="5.10.2">
+<h3 data-number="5.10.2" class="anchored" data-anchor-id="basic-probability-calculations"><span class="header-section-number">5.10.2</span> Basic probability calculations</h3>
+<ol start="7" type="1">
+<li><strong>Coins and sample spaces</strong><br>
+A fair coin is tossed four times.
+<ul>
+<li>How many outcomes are in the sample space?<br>
+</li>
+<li>What is the probability of getting exactly two heads?<br>
+</li>
+<li>What is the probability of getting at least one head?</li>
+</ul></li>
+<li><strong>Complements</strong><br>
+Let event <span class="math inline">\(A\)</span> be <em>“a randomly selected student passes an exam”</em>, with <span class="math inline">\(P(A)=0.85\)</span>.
+<ul>
+<li>What is <span class="math inline">\(P(\sim A)\)</span>?<br>
+</li>
+<li>Interpret this probability in words.</li>
+</ul></li>
+<li><strong>Cards and conditional probability</strong><br>
+A card is drawn at random from a standard deck.
+<ul>
+<li>What is the probability that it is a queen?<br>
+</li>
+<li>What is the probability that it is a queen <strong>given</strong> that it is a face card?<br>
+</li>
+<li>Are the events <em>“queen”</em> and <em>“face card”</em> independent?</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="multiplication-rule-and-independence" class="level3" data-number="5.10.3">
+<h3 data-number="5.10.3" class="anchored" data-anchor-id="multiplication-rule-and-independence"><span class="header-section-number">5.10.3</span> Multiplication rule and independence</h3>
+<ol start="10" type="1">
+<li><p><strong>Without replacement</strong><br>
+Two cards are drawn <em>without replacement</em> from a standard deck.</p>
+<ul>
+<li>What is the probability that both cards are red?<br>
+</li>
+<li>What is the probability that the first card is an ace and the second card is also an ace?</li>
+</ul></li>
+<li><p><strong>With replacement</strong><br>
+Repeat Question 10, but now assume the first card is replaced before the second draw.<br>
+Explain why the probabilities change.</p></li>
+<li><p><strong>Testing independence</strong><br>
+Two events satisfy</p>
+<p><span class="math inline">\(P(A)=0.4\)</span>, <span class="math inline">\(P(B)=0.5\)</span>, and <span class="math inline">\(P(AB)=0.2\)</span>.</p>
+<ul>
+<li>Are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent?<br>
+</li>
+<li>Justify your answer mathematically.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="addition-rule-and-mutually-exclusive-events" class="level3" data-number="5.10.4">
+<h3 data-number="5.10.4" class="anchored" data-anchor-id="addition-rule-and-mutually-exclusive-events"><span class="header-section-number">5.10.4</span> Addition rule and mutually exclusive events</h3>
+<ol start="13" type="1">
+<li><strong>Mutually exclusive or not?</strong><br>
+For each pair of events below, state whether they are mutually exclusive and explain why:
+<ul>
+<li>Drawing a heart and drawing a spade<br>
+</li>
+<li>Drawing a heart and drawing a red card<br>
+</li>
+<li>Getting a head on the first toss and a tail on the second toss</li>
+</ul></li>
+<li><strong>Dice example</strong><br>
+Two fair dice are rolled.
+<ul>
+<li>What is the probability that at least one die shows a 6?<br>
+</li>
+<li>Use the general addition rule to compute your answer.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="bayes-rule-and-interpretation" class="level3" data-number="5.10.5">
+<h3 data-number="5.10.5" class="anchored" data-anchor-id="bayes-rule-and-interpretation"><span class="header-section-number">5.10.5</span> Bayes’ rule and interpretation</h3>
+<ol start="15" type="1">
+<li><strong>Medical testing</strong><br>
+A disease affects 2% of a population.<br>
+A diagnostic test correctly identifies the disease 95% of the time, but incorrectly signals disease in 5% of healthy individuals.
+<ul>
+<li>Define the relevant events.<br>
+</li>
+<li>Use Bayes’ rule to compute the probability that a person who tests positive actually has the disease.<br>
+</li>
+<li>Explain the result in words.</li>
+</ul></li>
+<li><strong>Base-rate neglect</strong><br>
+In the taxi example discussed in the chapter, many people expect the probability to be close to 0.8.<br>
+Explain why this intuition is misleading.</li>
+</ol>
+<hr>
+</section>
+<section id="set-operations-and-probability-identities" class="level3" data-number="5.10.6">
+<h3 data-number="5.10.6" class="anchored" data-anchor-id="set-operations-and-probability-identities"><span class="header-section-number">5.10.6</span> Set Operations and Probability Identities</h3>
+<ol start="17" type="1">
+<li>Set operations and De Morgan’s laws</li>
+</ol>
+<ol type="a">
+<li>Consider rolling a fair die. Let<br>
+</li>
+</ol>
+<ul>
+<li><span class="math inline">\(A\)</span> be the set of outcomes where the roll is an <strong>even number</strong>, and<br>
+</li>
+<li><span class="math inline">\(B\)</span> be the set of outcomes where the roll is <strong>greater than 3</strong>.</li>
+</ul>
+<p>Calculate and compare the sets on both sides of De Morgan’s laws:</p>
+<p><span class="math display">\[
+\sim (A \cup B) = \sim A \cap \sim B
+\qquad \text{and} \qquad
+\sim (A \cap B) = \sim A \cup \sim B.
+\]</span></p>
+<ol start="2" type="a">
+<li>Show that</li>
+</ol>
+<p><span class="math display">\[
+\sim A = (\sim A \cap B) \cup (\sim A \cap \sim B),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sim B = (A \cap \sim B) \cup (\sim A \cap \sim B).
+\]</span></p>
+<ol start="3" type="a">
+<li>Show that</li>
+</ol>
+<p><span class="math display">\[
+\sim (A \cap B)
+= (\sim A \cap B) \cup (\sim A \cap \sim B) \cup (A \cap \sim B).
+\]</span></p>
+<ol start="18" type="1">
+<li>Probability inequality</li>
+</ol>
+<p>Prove that for any two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>,</p>
+<p><span class="math display">\[
+P(A \cap B) \ge P(A) + P(B) - 1.
+\]</span></p>
+<p><em>Hint:</em> Use the axioms of probability and the addition rule.</p>
+<ol start="19" type="1">
+<li>Law of total probability</li>
+</ol>
+<p>Show the identity</p>
+<p><span class="math display">\[
+P(A \mid B)
+= P(C \mid B)P(A \mid B \cap C)
++ P(\sim C \mid B)P(A \mid B \cap \sim C).
+\]</span></p>
+<p>Explain briefly how this formula relates to conditioning on whether event <span class="math inline">\(C\)</span> occurs or not.</p>
+<hr>
+</section>
+<section id="reflection-and-interpretation" class="level3" data-number="5.10.7">
+<h3 data-number="5.10.7" class="anchored" data-anchor-id="reflection-and-interpretation"><span class="header-section-number">5.10.7</span> Reflection and interpretation</h3>
+<ol start="20" type="1">
+<li><p><strong>Probability and statistical reasoning</strong><br>
+Explain why probability theory is essential for understanding statistical concepts such as correlation and regression.</p></li>
+<li><p><strong>From probability to inference</strong><br>
+Which ideas from this chapter do you think will be most important when we later study statistical inference?<br>
+Briefly explain why.</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -941,6 +1209,9 @@ P(A \mid B) = \frac{P(A)P(B \mid A)}{P(A)P(B \mid A) + P(\sim A)P(B \mid \sim A)
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Ch8.html" class="pagination-link" aria-label="Discrete Probability Distributions">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

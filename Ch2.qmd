@@ -110,7 +110,7 @@ A common mistake at this stage is to give **each class interval the same width**
 
 ![](figs/ch2/vert-a.png)
 
-Instead, the horizontal axis should reflect the *actual width* of each income class, as shown below.[^ch2-2]{.sidenote}
+Instead, the horizontal axis should reflect the *actual width* of each income class, as shown below.[^ch2-2]
 
 [^ch2-2]: Class intervals need not be equal; wider intervals may be used where data are sparse.
 
@@ -134,7 +134,7 @@ Because the class intervals are unequal, the height of each block must be calcul
 
 For example, the interval 150–210 spans two 30,000-baht units. Dividing 24% by 2 gives the correct height. The vertical axis is therefore a **density scale** (percent per 30,000). The correct histogram is:
 
-![Correct Histogram](figs/ch2/hist-b.png)
+![Correct Histogram](figs/ch2/hist-b.png){#fig-correcthist fig-align="center"}
 
 In a histogram: - **areas** represent percentages (or probabilities) - **heights** represent crowding per horizontal unit
 
@@ -307,6 +307,8 @@ Different types of data—cardinal, ordinal, and nominal—call for different gr
 Understanding how to construct and interpret histograms, especially when class intervals are unequal, is essential for sound statistical analysis and for the topics that follow in later chapters.
 :::
 
+---
+
 ## Exercises
 
 ### Conceptual questions
@@ -330,6 +332,8 @@ Understanding how to construct and interpret histograms, especially when class i
 
 If two histograms look very different but have the same total area, what does this imply about the percentages or probabilities they represent?
 :::
+
+---
 
 ### Interpreting histograms
 
@@ -357,10 +361,14 @@ If two histograms look very different but have the same total area, what does th
 Students often confuse the *height* of bars with the *area* of bars in a histogram.
 :::
 
+---
+
 ### Data structure and graphs
 
 11. For each of the following data structures, suggest an appropriate graphical summary and explain why: - cross-sectional data, - time-series data, - panel (longitudinal) data.
 12. Why is the histogram particularly important for later topics in probability and statistical inference?
+
+---
 
 ### Optional challenge
 
