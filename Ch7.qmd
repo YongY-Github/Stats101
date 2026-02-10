@@ -285,6 +285,12 @@ The table below summarizes survey results:
 
 The **marginal probability** of becoming a CEO is 0.17. The **joint probability** of a GA graduate becoming a CEO is 0.11, and so on.
 
+::: callout-important
+### Marginal probability from joint probabilities 
+
+To get the *marginal* probability of a student being a GA graduate, we add the two joint probabilities of the first row $(0.11 + 029)$ to get $0.4$. Note here the two jint probabilities that we add, the probability that we have a GA graduate and CEO *plus* the probability that we have a GA graduate and not a CEO. Here probabilty of GA is the same, but we have CEO and not CEO. So by adding across CEO type, we essentially **integrate it out** and we are left with the marginal probabilty of 0.4, the probability of GA graduate.
+:::
+
 To test independence, compute
 
 $P(A_1 \mid B_1) = \displaystyle \frac{P(A_1 B_1)}{P(B_1)} = \displaystyle \frac{0.11}{0.17} \approx 0.65$.
@@ -390,17 +396,71 @@ So how do we use the Bayes' Rule? An example should illustrate this. Assume that
 -   The witness correctly identifies blue taxis 80% of the time\
 -   She incorrectly identifies black taxis as blue 20% of the time
 
-To use Bayes' formula, all we have to identify are a few marginal and conditional probabilities; P(A) is the probability that the taxi involved in the accident is blue (i.e 15 %.) Hence $P(\sim A)$ that is the probability of a black taxi, is 85 %. $P(B \mid A)$ is the probability that the witness claims to have seen blue when a blue taxi was really involved, in other words, her accuracy in identifying a blue taxi correctly under the conditions. Conversely, the only other probability we need now to complete the equation is $P(B \mid \sim A)$, which is the probability that the witness sees a blue taxi when in fact a black taxi was involved. i.e 20 %. Plugging all the relevant probabilities gives:
+To use Bayes' formula, all we have to identify are a few marginal and conditional probabilities; $P(A)$ is the probability that the taxi involved in the accident is blue (i.e 15 %.) Hence $P(\sim A)$ that is the probability of a black taxi, is 85 %. $P(B \mid A)$ is the probability that the witness claims to have seen blue when a blue taxi was really involved, in other words, her accuracy in identifying a blue taxi correctly under the conditions. Conversely, the only other probability we need now to complete the equation is $P(B \mid \sim A)$, which is the probability that the witness sees a blue taxi when in fact a black taxi was involved. i.e 20 %. Plugging all the relevant probabilities gives:
 
 $P(A \mid B) = \displaystyle \frac{0.15 \times 0.80}{(0.15 \times 0.80) + (0.85 \times 0.20)} = \frac{0.12}{0.29} \approx 0.41$.
 
-The probability that the witness says she saw 'blue' and that it was really a blue taxi is only 0.41, hardly sufficient for the courts to ask the blue taxi company to pay compensation!
+The probability that the witness says she saw "blue" and that it was really a blue taxi is only 0.41, hardly sufficient for the courts to ask the blue taxi company to pay compensation![^ch7-1]
+
+[^ch7-1]: Another way to see this is, say we present the witness the 30 Blue taxis, she will identify 80% or 24 as blue (and 6 as black) under the same night conditions. Also she will identify 20% or 34 of 170 black taxis as 'blue'. So out of 54 taxis she calls 'blue', only 24 are in fact blue, which is about 41%. 
 
 ::: callout-warning
 ### A sobering result
 
 Even confident testimony can be misleading when base rates are ignored.
 :::
+
+::: callout-tip
+### Probability tree diagram
+
+We can represent the example in a tree diagram.
+
+```{verbatim}
+                            Start: Taxi Accident
+                                   |
+               ┌───────────────────┴───────────────────┐
+               │                                       │
+           Blue Taxi (A)                         Black Taxi (~A)
+           P(A) = 0.15                          P(~A) = 0.85
+               |                                       |
+        ┌──────┴───────┐                       ┌──────┴───────┐
+        │              │                       │              │
+  Says Blue (B)   Says Black (~B)        Says Blue (B)   Says Black (~B)
+  P(B|A)=0.80     P(~B|A)=0.20          P(B|~A)=0.20     P(~B|~A)=0.80
+        |              |                       |              |
+        ▼              ▼                       ▼              ▼
+  Joint: 0.12     Joint: 0.03           Joint: 0.17      Joint: 0.68
+  P(A∩B)          P(A∩~B)               P(~A∩B)          P(~A∩~B)
+```
+
+We see that:
+
+$P(AB) = 0.12$  
+$P(B) = P(A∩B) + P(\sim A∩B) = 0.12 + 0.17 = 0.29$ i.e. the marginal probability of $B$ by *integrating out* $A$ by summing across $A$. 
+And since we are looking for $P(A|B)$ i.e. $P(AB)/P(B) ≈ 0.41$, which is the probability the taxi was blue given that the witness says blue!
+
+:::
+
+#### Bayes' Updating
+
+Essentially, we have:
+
+![](figs/ch7/bayes-updating.png){fig-align="center" width="70%"}
+
+
+**Prior Probability (15%):** This represents our initial belief about the situation before considering the witness testimony. Based on the town's taxi distribution, we know that only 15% of taxis are blue. This is our baseline expectation that any random taxi involved in an accident would be blue.
+
+**Likelihood (Witness Accuracy):** This quantifies how probable the observed evidence (witness testimony) is under different hypotheses. The witness correctly identifies blue taxis 80% of the time and incorrectly identifies black taxis as blue 20% of the time. This creates two competing likelihoods:
+- If the taxi was actually blue, we'd expect her to say "blue" 80% of the time
+- If the taxi was actually black, we'd expect her to mistakenly say "blue" 20% of the time
+
+**Posterior Probability (41%):** This is the updated probability that combines our prior belief with the new evidence. Using Bayes' theorem, we find that even though the witness says she saw a blue taxi, there's only about a 41% chance she's actually correct. This counterintuitive result occurs because blue taxis are rare (15%) and the false positives from the much more common black taxis outweigh the true positives.
+
+**Intuition Behind the Result:** The Bayesian approach forces us to consider both the reliability of the evidence AND the base rates (or prioir provbailities). Even with a seemingly reliable witness (80% accurate), the rarity of blue taxis means most "blue" identifications will be errors. This explains why the court should be skeptical—the witness's claim only increases the probability from 15% to 41%, far from "beyond reasonable doubt."
+
+**Extension: What If We Had Another Witness?** If a second independent witness also claimed to see a blue taxi, Bayesian updating would apply again. The first posterior (41%) would become our new prior, and we'd combine it with the second witness's reliability. Intuitively, this would increase our confidence, but mathematically, we'd need to consider (1) whether the witnesses are truly independent, (2) whether they have the same accuracy rates, and (3) the possibility of collusion or shared biases.
+
+With two independent, reliable witnesses both saying "blue," the probability that the taxi was actually blue would increase substantially, potentially making the evidence strong enough for legal purposes. This demonstrates how Bayesian updating elegantly handles accumulating evidence—each new piece of information updates our beliefs in a mathematically rigorous way.
 
 ## Axioms of probability
 
