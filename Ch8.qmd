@@ -211,13 +211,13 @@ text(x = seq_along(x) - 0.5,
      offset = 0.5)
 ```
 
-
 ## The mean and the variance
 
-Apart from drawing the probability distribution or histograms, we have seen that numerical summaries such as the mean and variance
-are useful.
+Apart from drawing the probability distribution or histograms, we have seen that numerical summaries such as the mean and variance are useful.
 
-The mean is the long-run average value of a random variable, which is also referred to as its expected value, denoted $E(X)$.
+The mean is the long-run average value of a random variable, which is also referred to as its expected value, denoted $E(X)$.[^ch8-1]
+
+[^ch8-1]: The expected value is sometimes referred to as the population average; We will see later another definition of the expected value in later chpaters, as the "average" over infinite samples.
 
 $$
 E(X) = \mu = \sum_{i=1}^{n} X_i P(X_i)
@@ -303,9 +303,9 @@ $$Var(X+k)=Var(X)$$
 **Rule V3**
 $$Var(kX)=k^2 Var(X)$$
 
-Rule **V1** states that the variance of a constant is zero (i.e., there is no spread). Rule **V2** states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule **V3** states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.^[It is instructive to compare the expected value and variance rules with the summation rules.[^ch8-1]
+Rule **V1** states that the variance of a constant is zero (i.e., there is no spread). Rule **V2** states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule **V3** states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.^[It is instructive to compare the expected value and variance rules with the summation rules.[^ch8-2]
 
-[^ch8-1]: It is instructive to compare the expected value and variance rules with the **summation** rules.
+[^ch8-2]: It is instructive to compare the expected value and variance rules with the **summation** rules.
 
 ::: {.callout-note}
 ## Example: Monthly Profit Analysis
@@ -427,13 +427,13 @@ $$
 Marginal Distribution of  B
 :::
 
-The corresponding **moments** are:[^ch8-2]
+The corresponding **moments** are:[^ch8-3]
 
 - $E(B) = 0.17$
 - $Var(B) \approx 0.14$
 - $SD(B) \approx 0.38$
 
-[^ch8-2]: 
+[^ch8-3]: 
     We will introduce the concept of moments later. Essentially the mean and variance are the first moments and second central moments, respectively.
     
     $$

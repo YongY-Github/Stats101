@@ -436,7 +436,7 @@ We can represent the example in a tree diagram.
 We see that:
 
 $P(AB) = 0.12$  
-$P(B) = P(A∩B) + P(\sim A∩B) = 0.12 + 0.17 = 0.29$ i.e. the marginal probability of $B$ by *integrating out* $A$ by summing across $A$. 
+$P(B) = P(A∩B) + P(\sim A∩B) = 0.12 + 0.17 = 0.29$ i.e. the marginal probability of $B$ by *integrating out* $A$ by summing across $A$.  
 And since we are looking for $P(A|B)$ i.e. $P(AB)/P(B) ≈ 0.41$, which is the probability the taxi was blue given that the witness says blue!
 
 :::

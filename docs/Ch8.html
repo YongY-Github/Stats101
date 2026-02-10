@@ -364,7 +364,7 @@ X &amp; P(X) \\
 <section id="the-mean-and-the-variance" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="the-mean-and-the-variance"><span class="header-section-number">6.2</span> The mean and the variance</h2>
 <p>Apart from drawing the probability distribution or histograms, we have seen that numerical summaries such as the mean and variance are useful.</p>
-<p>The mean is the long-run average value of a random variable, which is also referred to as its expected value, denoted <span class="math inline">\(E(X)\)</span>.</p>
+<p>The mean is the long-run average value of a random variable, which is also referred to as its expected value, denoted <span class="math inline">\(E(X)\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><span id="eq-expected-value"><span class="math display">\[
 E(X) = \mu = \sum_{i=1}^{n} X_i P(X_i)
 \tag{6.1}\]</span></span></p>
@@ -434,7 +434,7 @@ X &amp; P(X) &amp; (X_i - \mu) &amp; (X_i - \mu)^2 \cdot P(X) \\
 <p><strong>Rule V1</strong> <span class="math display">\[Var(k)=0\]</span></p>
 <p><strong>Rule V2</strong> <span class="math display">\[Var(X+k)=Var(X)\]</span></p>
 <p><strong>Rule V3</strong> <span class="math display">\[Var(kX)=k^2 Var(X)\]</span></p>
-<p>Rule <strong>V1</strong> states that the variance of a constant is zero (i.e., there is no spread). Rule <strong>V2</strong> states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule <strong>V3</strong> states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.^[It is instructive to compare the expected value and variance rules with the summation rules.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Rule <strong>V1</strong> states that the variance of a constant is zero (i.e., there is no spread). Rule <strong>V2</strong> states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule <strong>V3</strong> states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.^[It is instructive to compare the expected value and variance rules with the summation rules.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -576,7 +576,7 @@ B &amp; P(B) \\
 </div>
 </figure>
 </div>
-<p>The corresponding <strong>moments</strong> are:<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>The corresponding <strong>moments</strong> are:<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <ul>
 <li><span class="math inline">\(E(B) = 0.17\)</span></li>
 <li><span class="math inline">\(Var(B) \approx 0.14\)</span></li>
@@ -932,8 +932,9 @@ Flaws in a carpet occur randomly at a rate of one per 300 square feet.</li>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>It is instructive to compare the expected value and variance rules with the <strong>summation</strong> rules.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>We will introduce the concept of moments later. Essentially the mean and variance are the first moments and second central moments, respectively.</p>
+<li id="fn1"><p>The expected value is sometimes referred to as the population average; We will see later another definition of the expected value in later chpaters, as the “average” over infinite samples.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>It is instructive to compare the expected value and variance rules with the <strong>summation</strong> rules.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We will introduce the concept of moments later. Essentially the mean and variance are the first moments and second central moments, respectively.</p>
 <p><span class="math display">\[
 \begin{array}{|c|c|c|c|}
 \hline
@@ -948,7 +949,7 @@ Flaws in a carpet occur randomly at a rate of one per 300 square feet.</li>
 \text{4th} &amp; \mu_4' &amp; \mu_4 = E[(X - \mu)^4] &amp; \text{Kurtosis} \\
 \hline
 \end{array}
-\]</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+\]</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
