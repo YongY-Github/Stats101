@@ -303,7 +303,7 @@ $$Var(X+k)=Var(X)$$
 **Rule V3**
 $$Var(kX)=k^2 Var(X)$$
 
-Rule **V1** states that the variance of a constant is zero (i.e., there is no spread). Rule **V2** states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule **V3** states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.^[It is instructive to compare the expected value and variance rules with the summation rules.[^ch8-2]
+Rule **V1** states that the variance of a constant is zero (i.e., there is no spread). Rule **V2** states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule **V3** states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.[^ch8-2]
 
 [^ch8-2]: It is instructive to compare the expected value and variance rules with the **summation** rules.
 
