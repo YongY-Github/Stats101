@@ -458,7 +458,8 @@ We have already seen that the **covariance** between two discrete random variabl
 
 $$
 Cov(A,B) = \sum_A \sum_B (A - \overline{A})(B - \overline{B}) P(A,B)
-$$
+$$ {#eq-covariance}
+
 Continuing with the GA–CEO example, the covariance by @eq-covariance between $A$ and $B$ is approximately
 
 $Cov(A,B) = 0.042$.
