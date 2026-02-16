@@ -1,5 +1,65 @@
 [
   {
+    "objectID": "Ch1.html",
+    "href": "Ch1.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1 What is statistics?\nToday’s world is full of data. Data have become indispensable for making informed decisions, finding solutions to problems, understanding complex situations, and developing strategies that ultimately improve the lives of individuals and communities.1\nAlthough the terms data and information are often used interchangeably, they have distinct meanings. Data can be regarded as facts—especially numerical facts—that are collected for reference or analysis. Information, on the other hand, is knowledge communicated about some particular fact or phenomenon of interest.\nPut simply, statistics is a tool for extracting information from data. What the consumer of statistics ultimately seeks is information—something that helps them see through and make sense of the maze and dazzle of raw data.\nStatistics helps us create new understanding from data. Broadly speaking, there are two main branches of statistics:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Ch1.html#what-is-statistics",
+    "href": "Ch1.html#what-is-statistics",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "NoteBig picture\n\n\n\nData by themselves are often messy and overwhelming. Statistics provides the tools that turn raw data into meaningful information.\n\n\n\n\n\nDescriptive statistics, which focus on organizing, summarizing, and presenting data in a clear and informative way.\nInferential statistics, which use data from a sample to make conclusions or draw inferences about some unknown aspect of a population.\n\n\n\n\n\n\n\nImportantKey idea\n\n\n\nDescriptive statistics describe what the data look like.\nInferential statistics help us learn about what we cannot directly observe.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Ch1.html#statistical-inference",
+    "href": "Ch1.html#statistical-inference",
+    "title": "1  Introduction",
+    "section": "1.2 Statistical inference",
+    "text": "1.2 Statistical inference\nDescriptive statistics rely on graphical summaries and numerical techniques. Statistical inference, in contrast, involves making estimates, predictions, and decisions about a population based on information obtained from a sample.\n\n\n\n\n\n\nFigure 1.1: Statistical Inference\n\n\n\nIn practice, what a statistician is often interested in is a population—a collection of all possible individuals, objects, or measurements of interest. Of particular importance is some numerical characteristic of the population, known as a parameter.\nBecause it is usually impossible (or impractical) to observe the entire population, a sample is drawn. From this sample, a statistic—a numerical quantity describing some feature of the sample—is calculated. Statistical inference then uses this statistic to say something about the corresponding population parameter.\nBefore we treat inferential statistics later in this book in detail, we begin with a discussion of basic statistical concepts that are best introduced through descriptive statistics, together with an introduction to elementary probability, which is essential for understanding statistical inference.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Ch1.html#pioneers-of-statistics",
+    "href": "Ch1.html#pioneers-of-statistics",
+    "title": "1  Introduction",
+    "section": "1.3 Pioneers of statistics",
+    "text": "1.3 Pioneers of statistics\nThere are several approaches to doing statistics. In this book, we primarily adopt the classical approach, developed largely by Sir Ronald Aylmer Fisher (1890–1962)—a British statistician, geneticist, and professor. For his contributions, Fisher has been described as “a genius who almost single-handedly created the foundations for modern statistical science.” (Efron 1998)\nAnother important framework is the Bayesian approach, associated with Thomas Bayes (1702–1761), an English statistician, philosopher, and Presbyterian minister. Bayes is best known for formulating what is now called Bayes’ theorem, which will be introduced in a later chapter.2",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Ch1.html#key-terms",
+    "href": "Ch1.html#key-terms",
+    "title": "1  Introduction",
+    "section": "1.4 Key terms",
+    "text": "1.4 Key terms\n\n1.4.1 Data\nData are characteristics or pieces of information—usually numerical—collected through observation. More formally, data are sets of values of qualitative or quantitative variables measured on one or more individuals or objects. A datum (the singular of data) refers to a single value of a single variable.\n\n\n1.4.2 Statistics\nStatistics is the discipline concerned with the collection, organization, analysis, interpretation, and presentation of data.\n\n\n1.4.3 Descriptive statistics\nDescriptive statistics refers to the process of summarizing and describing data, typically using tables, graphs, and numerical measures.\n\n\n1.4.4 Inferential statistics\nInferential statistics (or statistical inference) is the process of using data from a sample to draw conclusions about an underlying population or probability distribution.\n\n\n\n\n\n\nImportantChapter summary\n\n\n\nStatistics provides tools for turning raw data into meaningful information.\nDescriptive statistics summarize and present data, while inferential statistics use data from samples to draw conclusions about populations. Central to statistical reasoning are the ideas of populations, samples, parameters, and statistics, as well as the role of probability in making inference possible.\nThis chapter sets the conceptual foundation for the rest of the book and motivates the need for the descriptive and inferential tools developed in later chapters.\n\n\n\n\n\n\nEfron, Bradley. 1998. “R. A. Fisher in the 21st Century.” Statistical Science 13 (2): 95–122. https://doi.org/10.1214/ss/1028905930.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Ch1.html#footnotes",
+    "href": "Ch1.html#footnotes",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Think about the last decision you made using numbers—was it about money, health, grades, or something else?↩︎\nInterestingly, Bayes never published what would become his most famous accomplishment; his notes were edited and published after his death by Richard Price.↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Probability & Statistics 101",
