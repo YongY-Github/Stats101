@@ -1,0 +1,44 @@
+/*-- scss:rules --*/
+
+/* CORE-style callout refinement: muted, print-friendly */
+
+.callout-note {
+  border-left-color: #4b6cb7;
+  background-color: rgba(75, 108, 183, 0.05);
+}
+
+.callout-important {
+  border-left-color: #3a7d44;
+  background-color: rgba(58, 125, 68, 0.05);
+}
+
+.callout-warning {
+  border-left-color: #b7791f;
+  background-color: rgba(183, 121, 31, 0.06);
+}
+
+.callout-tip {
+  border-left-color: #5a67d8;
+  background-color: rgba(90, 103, 216, 0.05);
+}
+
+/*
+| Callout Type | Purpose | Visual Style |
+|--------------|---------|--------------|
+| Note         | General information or side remarks | Blue box with "Note" heading |
+| Tip          | Helpful hints, shortcuts, or best practices | Green box with "Tip" heading |
+| Warning      | Alerts about potential issues or risks | Orange box with "Warning" heading |
+| Caution      | Advisories to proceed carefully | Yellow box with "Caution" heading |
+| Important    | Critical information that must not be overlooked | Red box with "Important" heading |
+*/
+
+.exercise-table table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.exercise-table th,
+.exercise-table td {
+  padding: 0.3em 0.4em;
+  text-align: center;
+}

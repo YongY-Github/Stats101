@@ -1,0 +1,7 @@
+# Preface {.unnumbered}
+
+This is an Introduction to Probability and Statistics book written with Quarto for the GA!
+
+To learn more about Quarto books visit <https://quarto.org/docs/books>.
+
+Note: This is a work-in-progress and expect revisions and updates intermittently!
