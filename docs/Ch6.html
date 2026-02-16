@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introduction – Probability &amp; Statistics 101</title>
+<title>5&nbsp; The Normal Distribution – Probability &amp; Statistics 101</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ch2.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./Ch7.html" rel="next">
+<link href="./Ch4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -91,6 +71,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -103,7 +112,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch6.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Normal Distribution</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +147,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Ch1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -162,7 +171,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch6.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ch6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Normal Distribution</span></span></a>
   </div>
 </li>
@@ -194,16 +203,17 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-statistics" id="toc-what-is-statistics" class="nav-link active" data-scroll-target="#what-is-statistics"><span class="header-section-number">1.1</span> What is statistics?</a></li>
-  <li><a href="#statistical-inference" id="toc-statistical-inference" class="nav-link" data-scroll-target="#statistical-inference"><span class="header-section-number">1.2</span> Statistical inference</a></li>
-  <li><a href="#pioneers-of-statistics" id="toc-pioneers-of-statistics" class="nav-link" data-scroll-target="#pioneers-of-statistics"><span class="header-section-number">1.3</span> Pioneers of statistics</a></li>
-  <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms"><span class="header-section-number">1.4</span> Key terms</a>
+  <li><a href="#the-normal-probability-density-function" id="toc-the-normal-probability-density-function" class="nav-link active" data-scroll-target="#the-normal-probability-density-function"><span class="header-section-number">5.1</span> The normal probability density function</a></li>
+  <li><a href="#the-bell-shaped-curve" id="toc-the-bell-shaped-curve" class="nav-link" data-scroll-target="#the-bell-shaped-curve"><span class="header-section-number">5.2</span> The bell-shaped curve</a></li>
+  <li><a href="#the-role-of-mean-and-variance" id="toc-the-role-of-mean-and-variance" class="nav-link" data-scroll-target="#the-role-of-mean-and-variance"><span class="header-section-number">5.3</span> The role of mean and variance</a></li>
+  <li><a href="#standardization-and-the-standard-normal-distribution" id="toc-standardization-and-the-standard-normal-distribution" class="nav-link" data-scroll-target="#standardization-and-the-standard-normal-distribution"><span class="header-section-number">5.4</span> Standardization and the standard normal distribution</a>
   <ul class="collapse">
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">1.4.1</span> Data</a></li>
-  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics"><span class="header-section-number">1.4.2</span> Statistics</a></li>
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="header-section-number">1.4.3</span> Descriptive statistics</a></li>
-  <li><a href="#inferential-statistics" id="toc-inferential-statistics" class="nav-link" data-scroll-target="#inferential-statistics"><span class="header-section-number">1.4.4</span> Inferential statistics</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">5.4.1</span> Example 2</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3"><span class="header-section-number">5.4.2</span> Example 3</a></li>
   </ul></li>
+  <li><a href="#areas-between-two-z-scores" id="toc-areas-between-two-z-scores" class="nav-link" data-scroll-target="#areas-between-two-z-scores"><span class="header-section-number">5.5</span> Areas between two z-scores</a></li>
+  <li><a href="#important-benchmark" id="toc-important-benchmark" class="nav-link" data-scroll-target="#important-benchmark"><span class="header-section-number">5.6</span> Important benchmark</a></li>
+  <li><a href="#example-4-heights" id="toc-example-4-heights" class="nav-link" data-scroll-target="#example-4-heights"><span class="header-section-number">5.7</span> Example 4: Heights</a></li>
   </ul>
 </nav>
     </div>
@@ -212,7 +222,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ch1" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></h1>
+<h1 class="title"><span id="ch6" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Normal Distribution</span></span></h1>
 </div>
 
 
@@ -241,109 +251,247 @@ div.csl-indent {
 <div class="callout-body-container callout-body">
 <p>By the end of this chapter, you should be able to:</p>
 <ul>
-<li>explain what statistics is and why it is useful,</li>
-<li>distinguish clearly between data and information,</li>
-<li>describe the difference between descriptive and inferential statistics,</li>
-<li>explain the concepts of population, sample, parameter, and statistic,</li>
-<li>understand why inference requires probability,</li>
-<li>recognize the classical and Bayesian approaches to statistics.</li>
+<li>explain why the normal distribution is central in statistics,</li>
+<li>state the probability density function of the normal distribution,</li>
+<li>interpret the mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>,</li>
+<li>apply the empirical (68–95–99.7) rule,</li>
+<li>standardize a normal random variable using <span class="math inline">\(z\)</span>-scores,</li>
+<li>use the standard normal table to compute probabilities.</li>
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>How to use these notes
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This book is written to be read <strong>narratively</strong>, not just consulted for formulas. Each chapter introduces ideas gradually, motivating statistical concepts through explanation, examples, and visual intuition before formal definitions appear.</p>
-<p>You are encouraged to: - read the text carefully before focusing on formulas, - study graphs and numerical examples together, - pause at highlighted boxes to reflect on key ideas and common pitfalls, - attempt the end-of-chapter exercises to check and deepen your understanding.</p>
-<p>Later chapters build on earlier ones, so a solid grasp of the foundational concepts in descriptive statistics and probability will make the material on correlation and statistical inference much easier to follow.</p>
-<p>Statistics is best learned by <strong>thinking with data</strong>, not by memorizing techniques. This book is designed to support that process.</p>
-</div>
-</div>
-<section id="what-is-statistics" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-statistics"><span class="header-section-number">1.1</span> What is statistics?</h2>
-<p>Today’s world is full of data. Data have become indispensable for making informed decisions, finding solutions to problems, understanding complex situations, and developing strategies that ultimately improve the lives of individuals and communities.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Although the terms <em>data</em> and <em>information</em> are often used interchangeably, they have distinct meanings. <strong>Data</strong> can be regarded as facts—especially numerical facts—that are collected for reference or analysis. <strong>Information</strong>, on the other hand, is knowledge communicated about some particular fact or phenomenon of interest.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Big picture
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Data by themselves are often messy and overwhelming. Statistics provides the tools that turn raw data into meaningful <strong>information</strong>.</p>
-</div>
-</div>
-<p>Put simply, <strong>statistics</strong> is a <strong>tool</strong> for extracting <strong>information from data</strong>. What the consumer of statistics ultimately seeks is information—something that helps them see through and make sense of the maze and dazzle of raw data.</p>
-<p>Statistics helps us create new understanding from data. Broadly speaking, there are two main branches of statistics:</p>
+<p>The <strong>Gaussian (normal) distribution</strong> is perhaps the most important of all continuous probability distributions in statistics.</p>
+<p>Its importance stems largely from the <strong>Central Limit Theorem</strong>, which states that the sum (or average) of a large number of independent random variables will be approximately normally distributed — almost regardless of their individual distributions.</p>
+<p>Any random variable that can be regarded as the sum of many small, independent contributions is therefore likely to follow an approximately normal distribution.</p>
+<p>We return to this powerful result in Chapter 11.</p>
+<hr>
+<section id="the-normal-probability-density-function" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-normal-probability-density-function"><span class="header-section-number">5.1</span> The normal probability density function</h2>
+<p>A continuous random variable is said to be <strong>normally distributed</strong> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span> if its probability density function is</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi \sigma^2}}
+e^{-\left(\frac{(x-\mu)^2}{2 \sigma^2} \right)},
+\quad \text{ or } \quad
+f(x) = \frac{1}{\sigma \sqrt{2\pi}}
+e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}.
+\]</span></p>
+<p>The normal distribution is completely determined by two parameters (a.k.a its <em>sufficient statistics</em>):</p>
 <ul>
-<li><strong>Descriptive statistics</strong>, which focus on organizing, summarizing, and presenting data in a clear and informative way.</li>
-<li><strong>Inferential statistics</strong>, which use data from a sample to make conclusions or draw inferences about some unknown aspect of a population.</li>
+<li>the <strong>mean</strong> <span class="math inline">\(\mu\)</span><br>
+</li>
+<li>the <strong>variance</strong> <span class="math inline">\(\sigma^2\)</span></li>
 </ul>
+<p>We write:</p>
+<p><span class="math display">\[
+X \sim N(\mu, \sigma^2).
+\]</span></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Key idea
+<span class="screen-reader-only">Important</span>Key properties
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Descriptive statistics</strong> describe <em>what the data look like</em>.</p>
-<p><strong>Inferential statistics</strong> help us learn about <em>what we cannot directly observe</em>.</p>
+<ul>
+<li>The normal distribution is symmetric about its mean.</li>
+<li>It extends from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>.</li>
+<li>The total area under the curve equals 1.</li>
+</ul>
 </div>
 </div>
+<p>Although the formula may look intimidating, in practice we rarely manipulate it directly. Instead, we work with diagrams and standard tables.<a href="figs/ch6/normal.pdf" target="_blank">View the Standard Normal table here.</a></p>
+<p>Take care to use the correct table. Do not confuse the standard normal table with the cumulative standard normal table.</p>
+<hr>
 </section>
-<section id="statistical-inference" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="statistical-inference"><span class="header-section-number">1.2</span> Statistical inference</h2>
-<p>Descriptive statistics rely on graphical summaries and numerical techniques. <strong>Statistical inference</strong>, in contrast, involves making estimates, predictions, and decisions about a population based on information obtained from a sample.</p>
-<div id="fig-inference" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<section id="the-bell-shaped-curve" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-bell-shaped-curve"><span class="header-section-number">5.2</span> The bell-shaped curve</h2>
+<div id="fig-heights" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-inference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch1/inference.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div aria-describedby="fig-heights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch6/heights.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1: Statistical Inference
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Heights
 </figcaption>
 </figure>
 </div>
-<p>In practice, what a statistician is often interested in is a <strong>population</strong>—a collection of all possible individuals, objects, or measurements of interest. Of particular importance is some numerical characteristic of the population, known as a <strong>parameter</strong>.</p>
-<p>Because it is usually impossible (or impractical) to observe the entire population, a <strong>sample</strong> is drawn. From this sample, a <strong>statistic</strong>—a numerical quantity describing some feature of the sample—is calculated. Statistical inference then uses this statistic to say something about the corresponding population parameter.</p>
-<p>Before we treat inferential statistics later in this book in detail, we begin with a discussion of basic statistical concepts that are best introduced through descriptive statistics, together with an introduction to elementary probability, which is essential for understanding statistical inference.</p>
-</section>
-<section id="pioneers-of-statistics" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="pioneers-of-statistics"><span class="header-section-number">1.3</span> Pioneers of statistics</h2>
-<p>There are several approaches to doing statistics. In this book, we primarily adopt the <strong>classical approach</strong>, developed largely by <strong>Sir Ronald Aylmer Fisher (1890–1962)</strong>—a British statistician, geneticist, and professor. For his contributions, Fisher has been described as <em>“a genius who almost single-handedly created the foundations for modern statistical science.”</em> <span class="citation" data-cites="efron1998fisher">(<a href="#ref-efron1998fisher" role="doc-biblioref">Efron 1998</a>)</span></p>
-<p>Another important framework is the <strong>Bayesian approach</strong>, associated with <strong>Thomas Bayes (1702–1761)</strong>, an English statistician, philosopher, and Presbyterian minister. Bayes is best known for formulating what is now called <strong>Bayes’ theorem</strong>, which will be introduced in a later chapter.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>The <strong>empirical rule</strong> (also called the 68–95–99.7 rule) tells us:</p>
+<ul>
+<li>About <strong>68%</strong> of observations lie within <span class="math inline">\(\pm 1\)</span> standard deviation.</li>
+<li>About <strong>95%</strong> lie within <span class="math inline">\(\pm 2\)</span> standard deviations.</li>
+<li>About <strong>99.7%</strong> lie within <span class="math inline">\(\pm 3\)</span> standard deviations.</li>
+</ul>
+<p>This rule is extremely useful for quick approximations.</p>
 <hr>
 </section>
-<section id="key-terms" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="key-terms"><span class="header-section-number">1.4</span> Key terms</h2>
-<section id="data" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="data"><span class="header-section-number">1.4.1</span> Data</h3>
-<p>Data are characteristics or pieces of information—usually numerical—collected through observation. More formally, <strong>data</strong> are sets of values of qualitative or quantitative variables measured on one or more individuals or objects. A <strong>datum</strong> (the singular of data) refers to a single value of a single variable.</p>
+<section id="the-role-of-mean-and-variance" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="the-role-of-mean-and-variance"><span class="header-section-number">5.3</span> The role of mean and variance</h2>
+<p>The normal distribution forms a <em>family</em> of distributions.</p>
+<ul>
+<li>Changing <span class="math inline">\(\mu\)</span> shifts the curve left or right.</li>
+<li>Changing <span class="math inline">\(\sigma\)</span> stretches or compresses the curve.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch6/normal-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch6/normal-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<hr>
 </section>
-<section id="statistics" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="statistics"><span class="header-section-number">1.4.2</span> Statistics</h3>
-<p>Statistics is the discipline concerned with the <strong>collection, organization, analysis, interpretation, and presentation of data</strong>.</p>
+<section id="standardization-and-the-standard-normal-distribution" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="standardization-and-the-standard-normal-distribution"><span class="header-section-number">5.4</span> Standardization and the standard normal distribution</h2>
+<p>Many bell-shaped histograms resemble the normal curve when expressed in <strong>standard units</strong>.</p>
+<p>Standardization means converting a value into the number of standard deviations it lies above or below the mean.</p>
+<p>The standardized value (or <strong>z-score</strong>) is:</p>
+<p><span class="math display">\[
+z = \frac{X - \mu}{\sigma}.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The standard normal distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When we standardize a normal variable, we obtain the <strong>standard normal distribution</strong>:</p>
+<p><span class="math display">\[
+Z \sim N(0,1).
+\]</span></p>
+<p>It has mean 0 and standard deviation 1.</p>
+</div>
+</div>
+<p>Let’s see how to use the Standard Normal table.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch6/normal-portion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p>Suppose we are looking for the area between the mean and <span class="math inline">\(+1.2\)</span> standard units or <span class="math inline">\(z\)</span> to the right.</p>
+<ol type="1">
+<li>Locate the <span class="math inline">\(z\)</span> value in the first column.</li>
+<li>Read the corresponding area from the table, i.e.&nbsp;<span class="math inline">\(38.49%\)</span></li>
+</ol>
+<p>It’s as easy as that.</p>
+<p>Otherwise, compute</p>
+<p><span class="math display">\[
+Pr(0 \leq z \leq 1.2) = \int_0^{1.2} \frac{1}{\sigma \sqrt{2\pi}}
+e^{-\frac{1}{2}z^2} dx \approx 0.3849
+\]</span> which is quite intimidating.</p>
+<p>You’ve seen the first two columns. What about the rest? This is when you are looking for at, say, <span class="math inline">\(1.25\)</span> to the right, rather than just <span class="math inline">\(1.2\)</span>. You get added precision or decimal points. But the idea is the same.</p>
+<p>What makes the standard normal tables very useful is when you are trying to find <span class="math inline">\(z\)</span> given the area under the curve.</p>
+<p>Analytically, you may be trying to solve:</p>
+<p><span class="math display">\[
+Pr(0 \leq z \leq z^*) = 0.45 = \int_0^{z^*} \frac{1}{\sigma \sqrt{2\pi}}
+e^{-\frac{1}{2}z^2} dx
+\]</span> This is even more intimidating!</p>
+<p>But from the table, it is easy to see that <span class="math inline">\(z^*\)</span> is about <span class="math inline">\(1.645\)</span> for this case.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How to use standard normal distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because it is impractical to have tables for every possible <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>, we standardize all normal variables to <span class="math inline">\(N(0,1)\)</span>.</p>
+<p>Once you compute a <span class="math inline">\(z\)</span>-score:</p>
+<ol type="1">
+<li>Locate the <span class="math inline">\(z\)</span> value in the first column.</li>
+<li>Read the corresponding area from the table.</li>
+<li>Use symmetry if necessary.</li>
+</ol>
+</div>
+</div>
+<section id="example-2" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">5.4.1</span> Example 2</h3>
+<p>For <span class="math inline">\(z = 1.00\)</span>:</p>
+<p>Area between the mean and <span class="math inline">\(z=1\)</span> is <span class="math inline">\(0.3413\)</span>.</p>
+<p>Because the curve is symmetric, this applies in either direction.</p>
+<p>Hence, area between “1 to the right” and “1 to the left” is about <span class="math inline">\(68%\)</span> i.e.&nbsp;<span class="math inline">\(0.3413 \times 2\)</span>!</p>
+<hr>
 </section>
-<section id="descriptive-statistics" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">1.4.3</span> Descriptive statistics</h3>
-<p>Descriptive statistics refers to the process of <strong>summarizing and describing data</strong>, typically using tables, graphs, and numerical measures.</p>
+<section id="example-3" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="example-3"><span class="header-section-number">5.4.2</span> Example 3</h3>
+<p>For <span class="math inline">\(z = 1.38\)</span>:</p>
+<ul>
+<li>Find 1.3 in the first column.</li>
+<li>Move across to 0.08.</li>
+<li>The table value is 0.4162.</li>
+</ul>
+<p>This means:</p>
+<p><span class="math display">\[
+Pr(0 \leq Z \leq 1.38) = 0.4162.
+\]</span></p>
+<hr>
 </section>
-<section id="inferential-statistics" class="level3" data-number="1.4.4">
-<h3 data-number="1.4.4" class="anchored" data-anchor-id="inferential-statistics"><span class="header-section-number">1.4.4</span> Inferential statistics</h3>
-<p>Inferential statistics (or statistical inference) is the process of <strong>using data from a sample to draw conclusions about an underlying population or probability distribution</strong>.</p>
+</section>
+<section id="areas-between-two-z-scores" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="areas-between-two-z-scores"><span class="header-section-number">5.5</span> Areas between two z-scores</h2>
+<p>If neither boundary is the mean:</p>
+<ol type="1">
+<li>Look up both areas from the mean.</li>
+<li>Add or subtract as needed.</li>
+</ol>
+<hr>
+</section>
+<section id="important-benchmark" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="important-benchmark"><span class="header-section-number">5.6</span> Important benchmark</h2>
+<p>Approximately 95% of the area under the normal curve lies between</p>
+<p><span class="math display">\[
+-1.96 \text{ and } +1.96.
+\]</span></p>
+<p>We often approximate this using <span class="math inline">\(\pm 2\)</span> for convenience.</p>
+<p>More precision will be required in later chapters.</p>
+<hr>
+</section>
+<section id="example-4-heights" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="example-4-heights"><span class="header-section-number">5.7</span> Example 4: Heights</h2>
+<p>Suppose the heights of 6,588 women have:</p>
+<ul>
+<li>mean = 160 cm<br>
+</li>
+<li>standard deviation = 5 cm</li>
+</ul>
+<p>Assume heights follow a normal distribution, as shown by <a href="#fig-heights" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>.</p>
+<p>We standardize:</p>
+<p><span class="math display">\[
+z = \frac{X - 160}{5}.
+\]</span></p>
+<p>Suppose we want the probability that a woman’s height lies between 155 and 170 cm.</p>
+<p>In standard units:</p>
+<p><span class="math display">\[
+155 \text{ cm} \rightarrow z= - 1, \quad
+170 \text{ cm} \rightarrow z= +2.
+\]</span></p>
+<p>Thus we want</p>
+<p><span class="math display">\[
+Pr(-1 \leq z \leq +2).
+\]</span></p>
+<p>Using the empirical rule:</p>
+<ul>
+<li>95% of observations lie between <span class="math inline">\(-2\)</span> and <span class="math inline">\(+2\)</span>.</li>
+<li>By symmetry, half of that (47.5%) lies between 0 and +2.</li>
+</ul>
+<p>Therefore, from the standard normal table</p>
+<p><span class="math display">\[
+Pr(-1 \leq z \leq +2) \approx 0.475.
+\]</span></p>
+<p>From the table, that is <span class="math inline">\(0.3413 + 0.4772\)</span> or <span class="math inline">\(81.85 \%\)</span> of women lie in that height range.</p>
+<p>That is <span class="math inline">\(Pr(155 \text{ cm} \leq \text{height} \leq 175 \text{ cm}) \approx 82 \%\)</span>. Makes sense?</p>
+<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -354,26 +502,17 @@ Figure&nbsp;1.1: Statistical Inference
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Statistics provides tools for turning raw data into meaningful information.</p>
-<p>Descriptive statistics summarize and present data, while inferential statistics use data from samples to draw conclusions about populations. Central to statistical reasoning are the ideas of populations, samples, parameters, and statistics, as well as the role of probability in making inference possible.</p>
-<p>This chapter sets the conceptual foundation for the rest of the book and motivates the need for the descriptive and inferential tools developed in later chapters.</p>
+<p>The normal distribution plays a central role in statistics because:</p>
+<ul>
+<li>many natural phenomena are approximately normal,</li>
+<li>sums and averages tend toward normality,</li>
+<li>standardization allows universal probability tables.</li>
+</ul>
+<p>The <span class="math inline">\(z\)</span>-score is the key tool for translating real-world measurements into probabilities.</p>
 </div>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-efron1998fisher" class="csl-entry" role="listitem">
-Efron, Bradley. 1998. <span>“R. A. Fisher in the 21st Century.”</span> <em>Statistical Science</em> 13 (2): 95–122. <a href="https://doi.org/10.1214/ss/1028905930">https://doi.org/10.1214/ss/1028905930</a>.
-</div>
-</div>
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Think about the last decision you made using numbers—was it about money, health, grades, or something else?<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Interestingly, Bayes never published what would become his most famous accomplishment; his notes were edited and published after his death by Richard Price.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -779,13 +918,13 @@ Efron, Bradley. 1998. <span>“R. A. Fisher in the 21st Century.”</span> <em>S
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./Ch4.html" class="pagination-link" aria-label="Correlation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ch2.html" class="pagination-link" aria-label="Graphical Summaries">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphical Summaries</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ch7.html" class="pagination-link" aria-label="Elementary Probability">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Elementary Probability</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

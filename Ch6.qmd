@@ -1,0 +1,267 @@
+# The Normal Distribution {#ch6}
+
+::: callout-note
+### Learning objectives
+
+By the end of this chapter, you should be able to:
+
+- explain why the normal distribution is central in statistics,
+- state the probability density function of the normal distribution,
+- interpret the mean $\mu$ and variance $\sigma^2$,
+- apply the empirical (68–95–99.7) rule,
+- standardize a normal random variable using $z$-scores,
+- use the standard normal table to compute probabilities.
+:::
+
+The **Gaussian (normal) distribution** is perhaps the most important of all continuous probability distributions in statistics.
+
+Its importance stems largely from the **Central Limit Theorem**, which states that the sum (or average) of a large number of independent random variables will be approximately normally distributed — almost regardless of their individual distributions.  
+
+Any random variable that can be regarded as the sum of many small, independent contributions is therefore likely to follow an approximately normal distribution.
+
+We return to this powerful result in Chapter 11.
+
+---
+
+## The normal probability density function
+
+A continuous random variable is said to be **normally distributed** with mean $\mu$ and variance $\sigma^2$ if its probability density function is
+
+$$
+f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} 
+e^{-\left(\frac{(x-\mu)^2}{2 \sigma^2} \right)},
+\quad \text{ or } \quad
+f(x) = \frac{1}{\sigma \sqrt{2\pi}} 
+e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}.
+$$
+
+The normal distribution is completely determined by two parameters (a.k.a its *sufficient statistics*):
+
+- the **mean** $\mu$  
+- the **variance** $\sigma^2$
+
+We write:
+
+$$
+X \sim N(\mu, \sigma^2).
+$$
+
+::: callout-important
+### Key properties
+
+- The normal distribution is symmetric about its mean.
+- It extends from $-\infty$ to $+\infty$.
+- The total area under the curve equals 1.
+:::
+
+Although the formula may look intimidating, in practice we rarely manipulate it directly. Instead, we work with diagrams and standard tables.[View the Standard Normal table here.](figs/ch6/normal.pdf){target="_blank"}
+
+Take care to use the correct table. Do not confuse the standard normal table with the cumulative standard normal table. 
+
+---
+
+## The bell-shaped curve
+
+![Heights](figs/ch6/heights.png){#fig-heights fig-align="center" width="70%"}
+
+The **empirical rule** (also called the 68–95–99.7 rule) tells us:
+
+- About **68%** of observations lie within $\pm 1$ standard deviation.
+- About **95%** lie within $\pm 2$ standard deviations.
+- About **99.7%** lie within $\pm 3$ standard deviations.
+
+This rule is extremely useful for quick approximations.
+
+---
+
+## The role of mean and variance
+
+The normal distribution forms a *family* of distributions.
+
+- Changing $\mu$ shifts the curve left or right.
+- Changing $\sigma$ stretches or compresses the curve.
+
+![](figs/ch6/normal-2.png){fig-align="center" width="60%"}
+
+![](figs/ch6/normal-3.png){fig-align="center" width="60%"}
+
+---
+
+## Standardization and the standard normal distribution
+
+Many bell-shaped histograms resemble the normal curve when expressed in **standard units**.
+
+Standardization means converting a value into the number of standard deviations it lies above or below the mean.
+
+The standardized value (or **z-score**) is:
+
+$$
+z = \frac{X - \mu}{\sigma}.
+$$
+
+::: callout-note
+### The standard normal distribution
+
+When we standardize a normal variable, we obtain the **standard normal distribution**:
+
+$$
+Z \sim N(0,1).
+$$
+
+It has mean 0 and standard deviation 1.
+:::
+
+Let's see how to use the Standard Normal table.
+
+![](figs/ch6/normal-portion.png){fig-align="center" width="70%"}
+
+Suppose we are looking for the area between the mean and $+1.2$ standard units or $z$ to the right.
+
+1. Locate the $z$ value in the first column.
+2. Read the corresponding area from the table, i.e. $38.49%$
+
+It's as easy as that. 
+
+Otherwise, compute
+
+$$
+Pr(0 \leq z \leq 1.2) = \int_0^{1.2} \frac{1}{\sigma \sqrt{2\pi}} 
+e^{-\frac{1}{2}z^2} dx \approx 0.3849
+$$
+which is quite intimidating.
+
+You've seen the first two columns. What about the rest? This is when you are looking for at, say, $1.25$ to the right, rather than just $1.2$. You get added precision or decimal points. But the idea is the same.
+
+What makes the standard normal tables very useful is when you are trying to find $z$ given the area under the curve.
+
+Analytically, you may be trying to solve:
+
+$$
+Pr(0 \leq z \leq z^*) = 0.45 = \int_0^{z^*} \frac{1}{\sigma \sqrt{2\pi}} 
+e^{-\frac{1}{2}z^2} dx
+$$
+This is even more intimidating!
+
+But from the table, it is easy to see that $z^*$ is about $1.645$ for this case. 
+
+::: callout-note
+### How to use standard normal distribution
+
+Because it is impractical to have tables for every possible $\mu$ and $\sigma$, we standardize all normal variables to $N(0,1)$.
+
+Once you compute a $z$-score:
+
+1. Locate the $z$ value in the first column.
+2. Read the corresponding area from the table.
+3. Use symmetry if necessary.
+:::
+
+### Example 2
+
+For $z = 1.00$:
+
+Area between the mean and $z=1$ is $0.3413$.
+
+Because the curve is symmetric, this applies in either direction.
+
+Hence, area between "1 to the right" and "1 to the left" is about $68%$ i.e. $0.3413 \times 2$! 
+
+---
+
+### Example 3
+
+For $z = 1.38$:
+
+- Find 1.3 in the first column.
+- Move across to 0.08.
+- The table value is 0.4162.
+
+This means:
+
+$$
+Pr(0 \leq Z \leq 1.38) = 0.4162.
+$$
+
+---
+
+## Areas between two z-scores
+
+If neither boundary is the mean:
+
+1. Look up both areas from the mean.
+2. Add or subtract as needed.
+
+---
+
+## Important benchmark
+
+Approximately 95% of the area under the normal curve lies between
+
+$$
+-1.96 \text{ and } +1.96.
+$$
+
+We often approximate this using $\pm 2$ for convenience.
+
+More precision will be required in later chapters.
+
+---
+
+## Example 4: Heights
+
+Suppose the heights of 6,588 women have:
+
+- mean = 160 cm  
+- standard deviation = 5 cm  
+
+Assume heights follow a normal distribution, as shown by @fig-heights.
+
+We standardize:
+
+$$
+z = \frac{X - 160}{5}.
+$$
+
+Suppose we want the probability that a woman’s height lies between 155 and 170 cm.
+
+In standard units:
+
+$$
+155 \text{ cm} \rightarrow z= - 1, \quad
+170 \text{ cm} \rightarrow z= +2.
+$$
+
+Thus we want
+
+$$
+Pr(-1 \leq z \leq +2).
+$$
+
+Using the empirical rule:
+
+- 95% of observations lie between $-2$ and $+2$.
+- By symmetry, half of that (47.5%) lies between 0 and +2.
+
+Therefore, from the standard normal table
+
+$$
+Pr(-1 \leq z \leq +2) \approx 0.475.
+$$
+
+From the table, that is $0.3413 + 0.4772$ or $81.85 \%$ of women lie in that height range.
+
+That is $Pr(155 \text{ cm} \leq \text{height} \leq 175 \text{ cm}) \approx 82 \%$. Makes sense?
+
+---
+
+::: callout-important
+### Chapter summary
+
+The normal distribution plays a central role in statistics because:
+
+- many natural phenomena are approximately normal,
+- sums and averages tend toward normality,
+- standardization allows universal probability tables.
+
+The $z$-score is the key tool for translating real-world measurements into probabilities.
+:::

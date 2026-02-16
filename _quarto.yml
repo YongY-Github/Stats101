@@ -8,13 +8,13 @@ book:
   chapters:
     - index.qmd
     - Ch1.qmd
-    # - Ch2.qmd
-    # - Ch3.qmd
-    # - Ch4.qmd
-    # - Ch6.qmd
-    # - Ch7.qmd
-    # - Ch8.qmd
-    # - Ch9.qmd
+    - Ch2.qmd
+    - Ch3.qmd
+    - Ch4.qmd
+    - Ch6.qmd
+    - Ch7.qmd
+    - Ch8.qmd
+    - Ch9.qmd
 
 bibliography: references.bib
 

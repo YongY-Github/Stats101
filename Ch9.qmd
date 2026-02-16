@@ -1,0 +1,179 @@
+# Other Continuous Probability Distributions {#ch9}
+
+::: callout-note
+### Learning objectives
+
+By the end of this chapter, you should be able to:
+
+-   distinguish between discrete and continuous random variables,
+-   explain why $P(X = x) = 0$ for continuous variables,
+-   define and interpret a probability density function (p.d.f.),
+-   compute probabilities under the uniform distribution,
+-   understand the exponential distribution and its key properties,
+-   calculate probabilities using the exponential model.
+:::
+
+In contrast to a **discrete random variable**, a **continuous random variable** can assume an uncountable number of values.
+
+We cannot list all possible values because there are infinitely many of them.\
+Because of this, the probability of any single value is essentially zero:
+
+$$
+P(X = x) = 0.
+$$
+
+Instead, we compute probabilities over **intervals**, such as
+
+$$
+P(x_1 \leq X \leq x_2), \quad x_1 < x_2.
+$$
+
+This is why continuous random variables are described using a **probability density function (p.d.f.)**, usually denoted $f(x)$.
+
+For a valid p.d.f. defined over $a \leq x \leq b$, two properties must hold:
+
+1.  $f(x) \ge 0$ for all $x$ in $[a,b]$
+2.  The total area under the curve equals 1:
+
+$$
+\int_a^b f(x)\,dx = 1.
+$$
+
+------------------------------------------------------------------------
+
+## The Uniform Distribution
+
+The **uniform distribution** (also called the rectangular distribution) is the simplest continuous distribution.
+
+Its probability density function is:
+
+$$
+f(x) = \frac{1}{b-a}, \quad a \leq x \leq b.
+$$
+
+Outside the interval $[a,b]$, $f(x) = 0$.
+
+![](figs/ch9/uniform.png){fig-align="center" width="50%"}
+
+Because the density is constant, probabilities are simply areas of rectangles.
+
+To find
+
+$$
+P(x_1 \leq X \leq x_2),
+$$
+
+compute:
+
+$$
+\text{Area} = (x_2 - x_1)\cdot \frac{1}{b-a}.
+$$
+
+::: callout-important
+### Key intuition
+
+Under a uniform distribution, **all values in the interval are equally likely**.
+:::
+
+The mean and variance of a uniform random variable are:
+
+$$
+E(X) = \frac{a+b}{2},
+$$
+
+$$
+Var(X) = \frac{(b-a)^2}{12}.
+$$
+
+------------------------------------------------------------------------
+
+## The Exponential Distribution
+
+Another important continuous distribution is the **exponential distribution**.
+
+Its probability density function is:
+
+$$
+f(x) = \lambda e^{-\lambda x}, \quad x \ge 0,
+$$
+
+where:
+
+-   $e \approx 2.71828$
+-   $\lambda > 0$ is the rate parameter.
+
+![](figs/ch9/exponential.png){fig-align="center" width="60%"}
+
+The exponential distribution is often used to model:
+
+-   time until a job is found,
+-   time until equipment fails,
+-   waiting time between arrivals,
+-   lifetime of light bulbs,
+-   and other “time-to-event” phenomena.
+
+------------------------------------------------------------------------
+
+### Mean and standard deviation
+
+A convenient property of the exponential distribution is:
+
+$$
+E(X) = SD(X) = \frac{1}{\lambda},
+$$
+
+Thus, the mean and standard deviation are equal.
+
+Smaller values of $\lambda$ flatten the curve and increase the mean.
+
+------------------------------------------------------------------------
+
+## Cumulative probabilities
+
+Using calculus, we can derive the cumulative distribution function:
+
+$$
+P(X > x) = e^{-\lambda x}.
+$$
+
+From this, it follows that:
+
+$$
+P(X < x) = 1 - e^{-\lambda x}.
+$$
+
+More generally,
+
+$$
+P(x_1 < X < x_2) 
+= P(X < x_2) - P(X < x_1)
+= e^{-\lambda x_1} - e^{-\lambda x_2}.
+$$
+
+::: callout-note
+### Memoryless property
+
+The exponential distribution has a special feature called the **memoryless property**:
+
+$$
+P(X > s+t \mid X > s) = P(X > t).
+$$
+
+The future waiting time does not depend on how long you have already waited.
+:::
+
+------------------------------------------------------------------------
+
+::: callout-important
+### Chapter summary
+
+Continuous random variables differ from discrete ones because individual points have zero probability.
+
+In this chapter, we introduced:
+
+-   the general properties of probability density functions,
+-   the uniform distribution,
+-   the exponential distribution and its tractable probability formulas.
+
+These distributions are widely used in economics, reliability analysis, and queueing theory.
+:::

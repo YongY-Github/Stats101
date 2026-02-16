@@ -68,5 +68,555 @@
     "crumbs": [
       "Preface"
     ]
+  },
+  {
+    "objectID": "Ch2.html",
+    "href": "Ch2.html",
+    "title": "2  Graphical Summaries",
+    "section": "",
+    "text": "2.1 Types of data\nA defining characteristic of today’s information age is the abundance of data. Data in their raw form can be difficult to comprehend. One useful way to summarize a mass of data is through graphical or pictorial representations.\nMany such graphs—pie charts, bar graphs, and so on—are easy to understand and commonly used. In this chapter, we focus on the most important graphical representation in statistics: the histogram.1{.sidenote}\nData are not all the same. A helpful way to think about them is in three levels:\nOnce you know which kind of data you have, it becomes much easier to choose sensible statistics and graphs.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch2.html#types-of-data",
+    "href": "Ch2.html#types-of-data",
+    "title": "2  Graphical Summaries",
+    "section": "",
+    "text": "Cardinal data\nOrdinal data\nNominal data\n\n\n\n2.1.1 Cardinal data\nCardinal data (sometimes further divided into interval and ratio data) are represented by real numbers—such as heights, weights, and prices. These are quantitative (numerical) data, so arithmetic operations are meaningful.\nFor example, with heights or prices, it makes sense to say someone is twice as tall or that one item is three times as expensive.\n\n\n2.1.2 Ordinal data\nOrdinal data are values for which only the order (ranking) is meaningful. A common example is a course evaluation scale such as:\n\nPoor = 1\n\nFair = 2\n\nGood = 3\n\nVery Good = 4\n\nExcellent = 5\n\nHere, arithmetic operations usually do not make sense. It would sound strange, for instance, to say:\n2 × Fair = Very Good.\nStill, ordinal data are useful because the ranking is clear: Excellent (5) is better than Very Good (4), which is better than Good (3), and so on. Importantly, that ordering remains the same even if we changed the numbers used to label the categories.\n\n\n2.1.3 Nominal data\nNominal data are usually qualitative or categorical. The numbers attached to categories serve only as labels. For example, marital status might be coded as:\n\nSingle = 1\n\nMarried = 2\n\nDivorced = 3\n\nWidowed = 4\n\nBecause these numbers are arbitrary, arithmetic operations are meaningless. It is absurd, for example, to say:\nmarried ÷ 2 = single.\nWith categorical data, the main meaningful calculation is counting—how often each category occurs. We often summarize nominal data using a frequency distribution, or a relative frequency distribution showing proportions.\n\n\n\n\n\n\nImportantKey idea\n\n\n\nThe type of data determines which graphs and summaries make sense.\n\n\n\n\n2.1.4 Why this matters\nKeeping the data type in mind helps determine which statistical tools—graphical or otherwise—are appropriate. Among graphical techniques, we will emphasize the histogram, which plays a central role in statistics and probability.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch2.html#the-histogram",
+    "href": "Ch2.html#the-histogram",
+    "title": "2  Graphical Summaries",
+    "section": "2.2 The histogram",
+    "text": "2.2 The histogram\nTo understand how a histogram works, let us look at a concrete example.\nTable 4.1 shows the percentage of families in each income class interval, measured in thousands of baht per year, for Bangkok residents in a recent year.\n\n\n\nTable 2.1: Annual income for a sample of Bangkok residents\n\n\n\n\n\nIncome (Baht ’000)\nPercentage\n\n\n\n\n0–30\n1\n\n\n30–60\n3\n\n\n60–90\n6\n\n\n90–120\n10\n\n\n120–150\n11\n\n\n150–210\n24\n\n\n210–270\n20\n\n\n270–390\n18\n\n\n390–600\n5\n\n\nOver 600\n1\n\n\n\n\n\n\nTo construct a histogram from Table 4.1, the first step is to draw the horizontal axis, representing income.\nA common mistake at this stage is to give each class interval the same width, regardless of its actual size. This leads to a misleading picture.\n\nInstead, the horizontal axis should reflect the actual width of each income class, as shown below.2\n\nThe next step is to draw the blocks. Students often make the mistake of setting the height of each block equal to the percentage in the table. The figure below shows what happens if this is done.\n\nThis gives a misleading impression—for example, it appears that there are more families earning over 390,000 baht than under 120,000 baht, which is not correct.\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nIn a histogram, heights alone do not represent frequencies when class widths differ.\n\n\nBecause the class intervals are unequal, the height of each block must be calculated as:\n\npercentage ÷ class width (relative length)\n\nFor example, the interval 150–210 spans two 30,000-baht units. Dividing 24% by 2 gives the correct height. The vertical axis is therefore a density scale (percent per 30,000). The correct histogram is:\n\n\n\n\n\n\nFigure 2.1: Correct Histogram\n\n\n\nIn a histogram: - areas represent percentages (or probabilities) - heights represent crowding per horizontal unit\nAn important property to remember is that the total area under the histogram must equal 100 percent.\n\n\n\n\n\n\nImportantKey idea\n\n\n\nHistograms represent data through areas, not just heights.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch2.html#shapes-of-histograms",
+    "href": "Ch2.html#shapes-of-histograms",
+    "title": "2  Graphical Summaries",
+    "section": "2.3 Shapes of histograms",
+    "text": "2.3 Shapes of histograms\nHistograms come in many shapes. A histogram is symmetric if the two sides mirror each other around a central vertical line. The most famous symmetric histogram is the Gaussian (normal) distribution.\n\n\n\n\n\n\n\n\nFigure 2.2: Gaussian Distribution\n\n\n\n\n\nA skewed histogram is one with a long tail extending either to the right or to the left:\n\n\n\n\n\nHistograms can also be unimodal, with a single peak, or bimodal, with two peaks, and so on.\n\n\n\n\n\n\n\n\n\n\n\nImportantKey idea\n\n\n\nThe shape of a histogram provides valuable information about the distribution of the data, beyond what summary statistics alone can reveal.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch2.html#quantitative-and-qualitative-variables",
+    "href": "Ch2.html#quantitative-and-qualitative-variables",
+    "title": "2  Graphical Summaries",
+    "section": "2.4 Quantitative and qualitative variables",
+    "text": "2.4 Quantitative and qualitative variables\nA variable is a characteristic that can vary from one individual to another.\nFor example, if we ask “How old are you?”, the variable of interest is age.\nIn this case, age is a quantitative variable, since it is usually expressed as a number.\nIn other cases, the question might be “What color is your hair?”\nHere, the variable is a qualitative variable, because the responses describe categories rather than numerical magnitudes.\nA useful distinction among quantitative variables is between discrete and continuous variables.\n\nA discrete variable takes on values in fixed steps. An example is the number of children in a household.\nA continuous variable can take on any value along a real line, such as height, weight, or income.\n\nWorking with quantitative variables is usually straightforward. Qualitative variables, however, are often handled by assigning arbitrary numerical codes to the possible responses. In practice, this means that a researcher codes qualitative information into nominal numerical data.\nFor example, a course evaluation might be coded as:\n\nPoor = 1\n\nFair = 2\n\nGood = 3\n\nVery Good = 4\n\nExcellent = 5\n\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nDo not treat coded qualitative variables as numerical measurements. Arithmetic operations on these codes usually have no meaningful interpretation.\n\n\nIt is important to remember that these numbers are labels rather than true measurements, and arithmetic operations on them may not be meaningful.\nIt is also useful to distinguish between different data structures, such as:\n\nCross-sectional data, which observe many individuals at a single point in time\n\nTime-series data, which track a single unit over time\n\nPanel (or longitudinal) data, which follow multiple individuals over time\n\nThe statistical tools available to the researcher often depend on which of these data structures is being used.\n\n\n\n\n\n\nNotePause and think\n\n\n\nWhich of the variables you encounter in daily life—income, grades, or job titles—are quantitative, and which are qualitative?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch2.html#other-graphical-representations-of-data",
+    "href": "Ch2.html#other-graphical-representations-of-data",
+    "title": "2  Graphical Summaries",
+    "section": "2.5 Other graphical representations of data",
+    "text": "2.5 Other graphical representations of data\nThere are many graphical methods available for representing data. Some, such as bar graphs and pie charts, are widely known. Others, such as the stem-and-leaf plot or the ogive, are more specialized.\nMost introductory statistics textbooks discuss a variety of graphical summaries, and interested readers are encouraged to consult these sources.3\n\n\n\n\n\n\nImportantBig picture\n\n\n\nMany graphical tools exist, but for understanding distributions and probabilities, the histogram plays a uniquely central role.\n\n\n\n\n\n\n\n\nImportantChapter summary\n\n\n\nGraphical summaries provide a powerful way to explore and communicate patterns in data.\nDifferent types of data—cardinal, ordinal, and nominal—call for different graphical representations. Among these, the histogram plays a central role in statistics because it summarizes distributions through areas and connects naturally to ideas of probability.\nUnderstanding how to construct and interpret histograms, especially when class intervals are unequal, is essential for sound statistical analysis and for the topics that follow in later chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch2.html#exercises",
+    "href": "Ch2.html#exercises",
+    "title": "2  Graphical Summaries",
+    "section": "2.6 Exercises",
+    "text": "2.6 Exercises\n\n2.6.1 Conceptual questions\n\nExplain why graphical summaries are often more informative than tables when dealing with large data sets.\nGive one example each of:\n\na cardinal variable,\nan ordinal variable, and\na nominal variable.\n\nBriefly explain why arithmetic operations make sense for one but not for the others.\nWhy can assigning numbers to qualitative categories be misleading if those numbers are treated as measurements?\nA histogram shows two distributions with the same total area. What does this tell you about the data being represented?\n\n\n\n\n\n\n\nNoteCheck your understanding\n\n\n\nIf two histograms look very different but have the same total area, what does this imply about the percentages or probabilities they represent?\n\n\n\n\n\n2.6.2 Interpreting histograms\n\nConsider a histogram constructed using unequal class intervals.\n\nWhy must the vertical axis be interpreted as a density rather than a raw frequency?\nWhat would go wrong if heights were drawn directly from percentages?\n\nA histogram is right-skewed.\n\nWhat does this tell you about the distribution of the data?\nGive a real-world example of a variable that is likely to be right-skewed.\n\nExplain the difference between a unimodal and a bimodal histogram.\nWhat might cause a bimodal shape in real data?\nThe histogram below shows the distribution of final scores in a certain class.\n\n\nwhich block represents the people who scored between 60 and 80?\nTen percent scored between 20 and 40. About what percentage scored between 40 and 60?\nAbout what percentage scored over 60?\n9.A histogram of pocket-money used by EBA students in a week is shown above. No student used over Baht1,000 per month. The block over the class interval 200-500 is missing. How tall must it be?\n\n\nThe figure below shows a block of family income in a certain town. About what percent of the families in the city had incomes between Baht 15,000 and 25,000?\n\n\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nStudents often confuse the height of bars with the area of bars in a histogram.\n\n\n\n\n\n2.6.3 Data structure and graphs\n\nFor each of the following data structures, suggest an appropriate graphical summary and explain why: - cross-sectional data, - time-series data, - panel (longitudinal) data.\nWhy is the histogram particularly important for later topics in probability and statistical inference?\n\n\n\n\n2.6.4 Optional challenge\n\nFind a real dataset (from news, government statistics, or online sources) and:\n\nclassify the variables as cardinal, ordinal, or nominal,\npropose at least one appropriate graphical summary for each variable,\nexplain why a histogram would or would not be appropriate.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch2.html#footnotes",
+    "href": "Ch2.html#footnotes",
+    "title": "2  Graphical Summaries",
+    "section": "",
+    "text": "Why might graphs be more informative than tables when data sets are large?↩︎\nClass intervals need not be equal; wider intervals may be used where data are sparse.↩︎\nSome recommended texts include Peck, Olsen, and Devore (2005, Chapter 3), Utts and Heckard (2006, Chapter 2), and Keller (2005, Chapters 2 and 3). The exercises at the end of this book also ask for graphical summaries not fully explained here, but which are worth exploring with the help of other introductory texts or online resources.↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch3.html",
+    "href": "Ch3.html",
+    "title": "3  Numerical Summaries",
+    "section": "",
+    "text": "3.1 Measure of central location\nDescriptive statistics consist not only of graphical summaries, but also of numerical methods.\nSince we introduced the histogram in the previous chapter—the most important graphical summary of data—we now turn to basic numerical descriptive statistics.\nThese include:\nTogether, these numerical summaries help us describe data in a concise and informative way.\nThe arithmetic mean (or simply, the average) is the most widely used measure of central location. It is calculated by adding up all observed values and dividing by the number of observations.\n\\[\n\\overline{X} = \\frac{1}{n} \\sum_{i=1}^{n} X_i\n\\tag{3.1}\\]\nThe arithmetic mean, shown formally as Equation 3.1, is unique. Moreover, it has an important and intuitive property: the sum of the deviations of each observation from the mean is zero.\nAn interesting way to visualize this property is through a histogram. If the histogram were placed on a balance, it would balance exactly when supported at the arithmetic mean.\nThe median, another measure of central location, is the midpoint of the values in a dataset once the observations are ordered from the smallest to the largest.\nThe mode is a less commonly used measure of central location and refers to the value that occurs most frequently in the data.\nAn important advantage of the median is that it is not affected by extremely large or small values. For this reason, it is often a more reliable measure of central location when such extreme values are present.\nThe mode, on the other hand, can be interpreted as the “fashion category” of the data. In a histogram, it corresponds to the tallest bar or the highest peak.\nFor symmetrical histograms, such as the Gaussian (normal) distribution, the three measures coincide:\n\\[\n\\text{mean} = \\text{median} = \\text{mode}.\n\\]\nBut not all histograms are symmetric. If a histogram is skewed to the left or to the right, the three measures may differ.\nWhat is important to realize is that extreme values affect the average most, then the median, and least the mode. The arithmetic mean is therefore the most sensitive to extremely large or small values.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numerical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch3.html#measure-of-central-location",
+    "href": "Ch3.html#measure-of-central-location",
+    "title": "3  Numerical Summaries",
+    "section": "",
+    "text": "ImportantKey idea\n\n\n\nThe mean, median, and mode summarize the center of the data, but they respond differently to extreme values.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nRelying only on the mean can be misleading when the data contain extreme values or are highly skewed.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numerical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch3.html#measures-of-dispersion-or-spread",
+    "href": "Ch3.html#measures-of-dispersion-or-spread",
+    "title": "3  Numerical Summaries",
+    "section": "3.2 Measures of dispersion or spread",
+    "text": "3.2 Measures of dispersion or spread\n\nThe three histograms above all have the same average (or mean), yet they clearly look different. Describing a distribution using only its mean is therefore not sufficient. We also need to know how spread out the data are—that is, the dispersion or variability of the observations.\nThere are many measures of dispersion, including the range, the mean absolute deviation, the root mean square (r.m.s.), the standard deviation, the variance, the coefficient of variation, and the interquartile range. We now focus on the most important of these.\n\n3.2.1 The standard deviation\nThe standard deviation, abbreviated as SD, is the most important measure of dispersion used in this book. There are several ways to define and compute it, but the most intuitive approach is based on the idea of the root mean square (r.m.s.).\nThe starting point is the notion of a deviation, which is simply the distance of an observation from the average. Mathematically, the deviation of an observation (\\(X_i\\)) from the mean (\\(\\overline{X}\\)) is\n\\[\n\\text{deviation} = X_i - \\overline{X}.\n\\]\nThe term root mean square is a useful reminder of the steps involved—provided one reads it backwards:\n\nSquare all the entries\n\nTake the mean of the squares\n\nTake the square root of the mean\n\nIn equation form, the root mean square of a variable \\(X\\) can be written as\n\\[\n\\text{r.m.s. of } X = \\sqrt{X^2}.\n\\]\nThis, however, is just a mathematical operation.\nThe standard deviation is defined more specifically as the root mean square of the deviations from the mean, that is,\n\\[\n\\text{SD of } X = \\text{r.m.s. (deviation from the average)}.\n\\]\nIn simple terms, the standard deviation tells us how far, on average, the observations lie from their mean.\n\n\n3.2.2 A numerical example\nTo make this concrete, consider the list of numbers\n\\[\n20,\\; 10,\\; 15,\\; 15.\n\\]\nThe average \\(\\overline{X}\\) is 15. The deviations from the mean are therefore\n\\[\n5,\\; -5,\\; 0,\\; 0.\n\\]\nApplying the r.m.s. procedure gives the standard deviation:\n\\[\n\\begin{aligned}\n\\text{SD}\n&= \\sqrt{\\frac{5^2 + (-5)^2 + 0^2 + 0^2}{4}} \\\\\n&= \\sqrt{\\frac{25 + 25 + 0 + 0}{4}} \\\\\n&= \\sqrt{\\frac{50}{4}} = \\sqrt{12.5} \\approx 3.5.\n\\end{aligned}\n\\]\n\n\n\n\n\n\nTipTry This: Exploring Mean and SD\n\n\n\nPart 1: Shifting and Scaling\nFind the mean and standard deviation (SD) for the following lists:\n(i) \\(1, 3, 4, 5, 7\\) (ii) \\(6, 8, 9, 10, 12\\) (iii) \\(3, 9, 12, 15, 21\\)\nQuestion: What do you notice about how the mean and SD change across these three lists?\n\nPart 2: Symmetry and Signs\nFind the mean and SD for these two lists:\n(i) \\(5, -4, 3, -1, 7\\) (ii) \\(-5, 4, -3, 1, -7\\)\n\n\n\nAdding a constant to a list does not change the standard deviation.\nMultiplying a list by some constant \\(k\\) multiplies the standard deviation by \\(k\\)\nChanging each sign of elements in a list does not change teh standard deviation\n\n\n\n3.2.3 Population and sample standard deviation\nIt is important to distinguish between the population standard deviation and the sample standard deviation, although this distinction becomes more relevant in statistical inference.\nWhen computing the population standard deviation, we divide by \\(n\\), the number of observations:\n\\[\n\\text{SD} = \\sqrt{\\frac{\\sum (X - \\overline{X})^2}{n}}\n\\tag{3.2}\\]\nWhen computing the standard deviation of a sample, we divide by \\((n - 1)\\):\n\\[\n\\text{SD}^+ = \\sqrt{\\frac{\\sum (X - \\overline{X})^2}{n - 1}}\n\\tag{3.3}\\]\nWe use \\(\\text{SD}^+\\) to denote the sample standard deviation. It is numerically larger than \\(\\text{SD}\\) because we divide by the smaller number \\((n - 1)\\) rather than \\(n\\).1\n\n\n3.2.4 Variance and the coefficient of variation\nAnother measure of dispersion is the variance, which is simply the square of the standard deviation. While the standard deviation is measured in the same units as the data, the variance is measured in squared units, making interpretation less direct.2\nComparing variability across variables measured in different units is often difficult. A relative measure of dispersion, known as the coefficient of variation (CV), is sometimes used. The CV is defined as the ratio of the standard deviation to the mean, expressed as a percentage.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numerical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch3.html#measures-of-relative-standing",
+    "href": "Ch3.html#measures-of-relative-standing",
+    "title": "3  Numerical Summaries",
+    "section": "3.3 Measures of relative standing",
+    "text": "3.3 Measures of relative standing\nMany introductory statistics textbooks also discuss measures of relative standing, such as percentiles and quartiles, as well as graphical summaries like the box plot, shown below.3\n\n\n\n\n\n\nFigure 3.1: A box-plot example\n\n\n\nA percentile refers to the percentage of observations lying below a given value.\nA unique maximum corresponds to the 100th percentile, while a unique minimum corresponds to the 0th percentile.\nIt follows that the median is the 50th percentile. The 25th percentile and 75th percentile are known as the first quartile and third quartile, respectively.\n\n\n\n\n\n\nImportantKey idea\n\n\n\nMeasures of relative standing tell us where an observation lies within a distribution, not just its magnitude.\n\n\n\n\n\n\n\n\nImportantChapter summary\n\n\n\nNumerical summaries allow us to describe key features of a dataset using a small number of carefully chosen statistics.\nMeasures of central location describe where the data are centered, while measures of dispersion describe how spread out the observations are. Measures of relative standing indicate how individual observations compare with the rest of the data.\nTogether, these tools form the foundation for understanding data and prepare us for statistical inference in later chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numerical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch3.html#exercises",
+    "href": "Ch3.html#exercises",
+    "title": "3  Numerical Summaries",
+    "section": "3.4 Exercises",
+    "text": "3.4 Exercises\n\n3.4.1 Conceptual questions\n\nExplain why the mean alone is often insufficient to describe a dataset.\nCompare the mean, median, and mode.\nIn what situations might one be preferred over the others?\nWhy is the median often a better measure of central location than the mean when data contain extreme values?\nExplain why two datasets can have the same mean but very different standard deviations.\n\n\n\n\n\n\n\nNoteCheck your understanding\n\n\n\nIf two datasets have the same mean and median, must they have the same standard deviation? Explain.\n\n\n\n\n\n3.4.2 Understanding dispersion\n\nDescribe in words what the standard deviation measures.\nWhy is it based on deviations from the mean rather than deviations from the median?\nExplain the role of the root mean square (r.m.s.) in defining the standard deviation.\nWhich has larger r.m.s? the list \\(7,7,7,7\\) or \\(7,-7,7,-7\\)?\nWhat is the r.m.s of \\(17,17,17,17,17\\)? What is the SD?\nCan the SD ever be negative?\nFor a list of positive numbers, can the SD ever be larger than the average?\nWhy does the variance have squared units, and why can this make interpretation difficult?\n\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nA small standard deviation does not imply that the data are “small”—only that they are tightly clustered around the mean.\n\n\n\n\n\n3.4.3 Measures of relative standing\n\nExplain what it means for a value to be at the 75th percentile of a distribution.\nWhy is the median equal to the 50th percentile?\nDescribe how a box plot summarizes information about central location, dispersion, and relative standing.\n\n\n\n\n3.4.4 Numerical practice\n\nConsider the dataset: \\[\n5,\\; 8,\\; 2,\\; 9,\\; 5,\\; 3,\\; 7,\\; 4,\\; 2,\\; 7,\\; 4,\\; 10,\\; 4,\\; 3,\\; 5.\n\\]\n\n\n\nCompute the mean, median, and mode.\n\nCompute the standard deviation, SD and variance.\n\nExplain what each statistic tells you about the data.\n\nCalculate their 25th and 75th percentiles.\n\nFind the inter-quartile range (IQR).\n\nCalculate the coefficient of variation for the two lists.\n\nWhat is the mean absolute deviation for both lists?\n\nDraw a boxplot for the lists of numbers.\n\n\n\n\n3.4.5 Optional challenge\n\nFind a real dataset (for example, income, test scores, or prices):\n\n\ncompute at least two measures of central location,\ncompute at least one measure of dispersion,\nexplain which statistics are most informative and why.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numerical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch3.html#footnotes",
+    "href": "Ch3.html#footnotes",
+    "title": "3  Numerical Summaries",
+    "section": "",
+    "text": "This is for notional purposes only. Although it may seem counterintuitive, this adjustment corrects for the fact that samples tend to underestimate population variability.↩︎\nVariances are especially useful in algebraic manipulations. For example, variances can be added, whereas standard deviations cannot.↩︎\nAdditional examples are provided in standard textbooks and in the PowerPoint slides accompanying this book.↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numerical Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "Ch4.html",
+    "href": "Ch4.html",
+    "title": "4  Correlation",
+    "section": "",
+    "text": "4.1 Graphical representation\nSo far, we have focused on a single variable—what is known as univariate data—and examined their graphical and numerical summaries. We now turn to bivariate data, that is, data involving two variables.\nAs economists, we are often interested in understanding relationships between variables—for example, wages and education, CEO performance and salaries, economic growth and foreign aid, and many others. As with univariate data, both graphical and numerical summaries can be used.\nA contingency table lists the frequency of each combination of values of two categorical variables. For example, a survey of 2,237 people recording gender and handedness might produce the following table.1\nWhen dealing with cardinal (quantitative) data, the relationship between two variables is better visualized using a scatter diagram. The figure below shows the association between the duration of eruptions of Old Faithful and the waiting time between eruptions.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch4.html#graphical-representation",
+    "href": "Ch4.html#graphical-representation",
+    "title": "4  Correlation",
+    "section": "",
+    "text": "NoteKey graphical tools for two variables\n\n\n\nThe two most important graphical summaries for bivariate data are:\n\nContingency tables, usually for categorical variables\n\nScatter diagrams, usually for quantitative variables\n\n\n\n\n\n\n\nTable 4.1: Gender and handedness\n\n\n\n\n\n\nMale\nFemale\n\n\n\n\nRight-handed\n934\n1070\n\n\nLeft-handed\n113\n92\n\n\nAmbidextrous\n20\n8\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4.1: Waiting time and eruption duration of Old Faithful",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch4.html#correlation",
+    "href": "Ch4.html#correlation",
+    "title": "4  Correlation",
+    "section": "4.2 Correlation",
+    "text": "4.2 Correlation\nGraphs are informative, but they also have limitations. For this reason, we need numerical summaries that describe the relationship between two variables.\nIn earlier chapters, we introduced the mean and standard deviation as the most important numerical summaries for univariate data. One might therefore ask: Why are these not sufficient for bivariate data?\n\n\n\n\n\n\nImportantWhy means and SDs are not enough\n\n\n\nTwo datasets can have the same mean and standard deviation for each variable, yet exhibit very different relationships between those variables.\n\n\nConsider a university that has offered two statistics sections, \\(A\\) and \\(B\\), over several years. For each student, midterm and final exam scores (out of 200) are recorded and plotted.\n\n\n\n\n\n\nFigure 4.2: Students’ score: Section A and B\n\n\n\nPoints lying on the 45\\(^\\circ\\) line represent students whose midterm and final scores are the same.\nIf there is a strong association, knowing one variable helps predict the other. If the association is weak, knowing one variable provides little predictive power.\nFor example, a student in section \\(A\\) who scored 150 on the midterm could plausibly score anywhere between 60 and 160 on the final. In section \\(B\\), a student with the same midterm score would likely score between 100 and 160. Midterm scores therefore provide better predictive information in section \\(B\\).\nMore strikingly, the means and standard deviations of both midterm and final scores are almost identical across the two sections. This means that we cannot distinguish the sections using only these summaries.\n\n\n\n\n\n\nImportantWe need a new measure\n\n\n\nTo capture how tightly points cluster around a line in a scatter diagram, we introduce the correlation coefficient, denoted by \\(r\\).",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch4.html#correlation-coefficient",
+    "href": "Ch4.html#correlation-coefficient",
+    "title": "4  Correlation",
+    "section": "4.3 Correlation coefficient",
+    "text": "4.3 Correlation coefficient\nThe correlation coefficient is a pure number between \\(-1\\) and \\(1\\).\n\n\n\n\n\n\nImportant\n\n\n\n\\[\n-1 \\leq Corr(X,Y) \\leq 1\n\\]\n\n\nFurthermore:\n\n\\(r = 1\\) or \\(r = -1\\) indicates perfect correlation\nA positive value of \\(r\\) indicates a positive relationship\nA negative value of \\(r\\) indicates a negative relationship\n\nThe figures below show two variables with the same mean (3) and standard deviation (1), but different correlations.\n\n\n\n\n\n\nFigure 4.3: Positive correlation\n\n\n\n\n\n\n\n\n\nFigure 4.4: Negative correlation\n\n\n\n\n\n\n\n\n\nNoteA technical detail\n\n\n\nIf either variable has a standard deviation equal to zero, then \\(r = 0\\). Correlation requires variation in both variables.\n\n\n\n4.3.1 How correlation is computed\nTo compute the correlation coefficient:\n\nConvert each variable into standard units\nMultiply the standard units pairwise\nTake the average of these products\n\nStandard units measure distance from the mean in terms of standard deviations.\nFor the list \\(1, 3, 4, 5, 7\\), the mean is 4 and the standard deviation is 2. The values in standard units are: \\(-1.5,\\; -0.5,\\; 0,\\; 0.5,\\; 1.5\\)\n\n\n\n\n\n\nImportantStandard units\n\n\n\nStandard units measure how far a value lies from the mean relative to the spread of the data.\n\n\nNow consider the five points: \\((1,5), (3,9), (4,7), (5,1), (7,13)\\).\nThe mean of \\(X\\) is 4 with \\(SD_X = 2\\), and the mean of \\(Y\\) is 7 with \\(SD_Y = 4\\).\n\n\n\nTable 4.2: Calculating the correlation coefficient\n\n\n\n\n\nX\nY\n\\(SU_X\\)\n\\(SU_Y\\)\nProduct\n\n\n\n\n1\n5\n-1.5\n-0.5\n0.75\n\n\n3\n9\n-0.5\n0.5\n-0.25\n\n\n4\n7\n0.0\n0.0\n0.0\n\n\n5\n1\n0.5\n-1.5\n-0.75\n\n\n7\n13\n1.5\n1.5\n2.25\n\n\n\n\n\n\nThe correlation coefficient is the average of the last column, which equals \\(r = 0.4\\).\n\n\n4.3.2 Why this method matters\nThis approach shows that correlation:\n\nhas no units\nis unchanged by rescaling variables\nmeasures relative, not absolute, clustering\n\n\nThere are many other ways to compute the correlation coefficient, but we will stick to the above method as it reveals best how the correlation coefficient works.\nIn many textbooks, the formula for correlation is written as:\n\n\n\n\n\n\nImportantCorrelation coefficient\n\n\n\n\\[\nCorr(X,Y) = \\frac{\\sum_{i=1}^{n} (X_i - \\overline{X})(Y_i - \\overline{Y})}{\\sqrt{\\sum_{i=1}^{n} (X_i - \\overline{X})^2} \\sqrt{\\sum_{i=1}^{n} (Y_i - \\overline{Y})^2}}\n\\]\nAnother definition commonly used is:\n\\[\nCorr(X,Y) = \\displaystyle \\frac{\\text{Covariance}(X,Y)}{SD_x SD_y}\n\\]\n\n\n\n\n\n\n\n\nTipExercise: Correlation coefficients\n\n\n\nCompute the correlation coefficient for each of the following datasets.\n(a)\n\n\n\n\n\\(X\\)\n1\n1\n1\n1\n2\n2\n2\n3\n3\n4\n\n\n\n\n\\(Y\\)\n5\n3\n5\n7\n3\n3\n1\n1\n1\n1\n\n\n\n\n(b)\n\n\n\n\n\\(X\\)\n1\n1\n1\n1\n2\n2\n2\n3\n3\n4\n\n\n\n\n\\(Y\\)\n1\n2\n1\n3\n1\n4\n1\n2\n2\n3\n\n\n\n\n(c)\n\n\n\n\n\\(X\\)\n1\n1\n1\n1\n2\n2\n2\n3\n3\n4\n\n\n\n\n\\(Y\\)\n2\n2\n2\n2\n4\n4\n4\n6\n6\n8\n\n\n\n\nQuestion.\nWhat do you observe about the values of the correlation coefficients across the three cases?\n\n\nNote that the correlation coefficient is a pure number without any units, which is noted by the conversion to standard units.\nMoreover, the correlation coefficient is *not** affected by any of the three changes: - 1) interchanging the two variables, - 2) adding the same number to all the values of one variable, and - 3) multiplying all the values of one variable by the same positive number.\nThis basically means that changing the scale of any of the variables leaves the correlation coefficient unchanged.\n\n\n\n\n\nBe warned, looks can be deceiving. A quick glance at the above scatter plots would easily convince someone that the points in (a) is more tightly clustered, and thus having a correlation coefficient closer to 1, than (b). This cannot be further than the truth, because in fact = 0.7 for both diagrams. (b) is simply a magnification of (a). What is important to realize is that calculating involves converting variables to standard units (deviation from average divided by SD) and therefore it measures clustering not in absolute terms, but in relative terms (more specifically, relative to their standard deviations). That is, although plot (a) may appear more tightly clustered than plot (b), both have \\(r = 0.7\\). Plot (b) is simply a magnified version of plot (a). Correlation measures clustering relative to standard deviation, not in absolute terms.\n\n\n\n\n\n\nWarningCorrelation measures linear association\n\n\n\nThe correlation coefficient captures linear relationships only. Nonlinear relationships may have low correlation even when variables are strongly related.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch4.html#association-is-not-causation",
+    "href": "Ch4.html#association-is-not-causation",
+    "title": "4  Correlation",
+    "section": "4.4 Association is not causation",
+    "text": "4.4 Association is not causation\nThe last piece of warning when using correlation coefficients is to realize that what we have is a representation of association, that is how the variables move relative to each other. The correlation coefficient does not establish causation. This is best left to economic theory, which is called upon to interpret and explain the data.\n\n\n\n\n\n\nImportant\n\n\n\nCorrelation measures association, not causation.\n\n\nA positive or negative correlation does not explain why variables move together. Establishing causation requires economic theory and careful empirical reasoning.\nFor example, education is often thought to cause higher wages because more educated individuals tend to earn more. However, a third factor—such as individual determination or motivation—may influence both education and wages.\nSuch a factor is known as a confounding variable, and its presence can invalidate causal interpretations based solely on correlation.\n\n\n\n\n\n\nImportantTakeaway\n\n\n\nCorrelation is a powerful descriptive tool, but causal claims require much more than a high value of \\(r\\).\n\n\n\n\n\n\n\n\nImportantChapter summary\n\n\n\nCorrelation provides a numerical summary of the strength and direction of linear association between two variables.\nScatter diagrams help visualize relationships, while the correlation coefficient measures how tightly points cluster around a straight line. However, correlation alone cannot establish causation, and careful reasoning is required to interpret empirical relationships correctly.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch4.html#exercises",
+    "href": "Ch4.html#exercises",
+    "title": "4  Correlation",
+    "section": "4.5 Exercises",
+    "text": "4.5 Exercises\n\n4.5.1 Conceptual questions\n\nExplain the difference between univariate and bivariate data.\nWhy are scatter diagrams useful for studying relationships between quantitative variables?\nExplain why two datasets can have identical means and standard deviations but very different correlations.\n\n\n\n\n4.5.2 Understanding correlation\n\nWhat does the sign of the correlation coefficient indicate?\nWhat does the magnitude of the correlation coefficient tell us?\nWhy must both variables exhibit variation for correlation to be meaningful?\n\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nA high correlation does not imply a causal relationship.\n\n\n\n\n\n4.5.3 Computation and interpretation\n\nExplain how converting variables to standard units removes units from the correlation coefficient.\nWhy is correlation unaffected by changes in scale or units?\nGive an example of a nonlinear relationship that might have low correlation.\n\n\n\n\n4.5.4 Optional challenge\n\nFind two real-world variables that are correlated.\nDiscuss whether the relationship is likely causal, and identify possible confounding variables.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch4.html#footnotes",
+    "href": "Ch4.html#footnotes",
+    "title": "4  Correlation",
+    "section": "",
+    "text": "For more on the relationship between categorical variables, a useful text is Utts and Heckard (2006, Chapter6).↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html",
+    "href": "Ch6.html",
+    "title": "5  The Normal Distribution",
+    "section": "",
+    "text": "5.1 The normal probability density function\nThe Gaussian (normal) distribution is perhaps the most important of all continuous probability distributions in statistics.\nIts importance stems largely from the Central Limit Theorem, which states that the sum (or average) of a large number of independent random variables will be approximately normally distributed — almost regardless of their individual distributions.\nAny random variable that can be regarded as the sum of many small, independent contributions is therefore likely to follow an approximately normal distribution.\nWe return to this powerful result in Chapter 11.\nA continuous random variable is said to be normally distributed with mean \\(\\mu\\) and variance \\(\\sigma^2\\) if its probability density function is\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi \\sigma^2}}\ne^{-\\left(\\frac{(x-\\mu)^2}{2 \\sigma^2} \\right)},\n\\quad \\text{ or } \\quad\nf(x) = \\frac{1}{\\sigma \\sqrt{2\\pi}}\ne^{-\\frac{1}{2}\\left(\\frac{x-\\mu}{\\sigma}\\right)^2}.\n\\]\nThe normal distribution is completely determined by two parameters (a.k.a its sufficient statistics):\nWe write:\n\\[\nX \\sim N(\\mu, \\sigma^2).\n\\]\nAlthough the formula may look intimidating, in practice we rarely manipulate it directly. Instead, we work with diagrams and standard tables.View the Standard Normal table here.\nTake care to use the correct table. Do not confuse the standard normal table with the cumulative standard normal table.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html#the-normal-probability-density-function",
+    "href": "Ch6.html#the-normal-probability-density-function",
+    "title": "5  The Normal Distribution",
+    "section": "",
+    "text": "the mean \\(\\mu\\)\n\nthe variance \\(\\sigma^2\\)\n\n\n\n\n\n\n\n\n\nImportantKey properties\n\n\n\n\nThe normal distribution is symmetric about its mean.\nIt extends from \\(-\\infty\\) to \\(+\\infty\\).\nThe total area under the curve equals 1.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html#the-bell-shaped-curve",
+    "href": "Ch6.html#the-bell-shaped-curve",
+    "title": "5  The Normal Distribution",
+    "section": "5.2 The bell-shaped curve",
+    "text": "5.2 The bell-shaped curve\n\n\n\n\n\n\nFigure 5.1: Heights\n\n\n\nThe empirical rule (also called the 68–95–99.7 rule) tells us:\n\nAbout 68% of observations lie within \\(\\pm 1\\) standard deviation.\nAbout 95% lie within \\(\\pm 2\\) standard deviations.\nAbout 99.7% lie within \\(\\pm 3\\) standard deviations.\n\nThis rule is extremely useful for quick approximations.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html#the-role-of-mean-and-variance",
+    "href": "Ch6.html#the-role-of-mean-and-variance",
+    "title": "5  The Normal Distribution",
+    "section": "5.3 The role of mean and variance",
+    "text": "5.3 The role of mean and variance\nThe normal distribution forms a family of distributions.\n\nChanging \\(\\mu\\) shifts the curve left or right.\nChanging \\(\\sigma\\) stretches or compresses the curve.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html#standardization-and-the-standard-normal-distribution",
+    "href": "Ch6.html#standardization-and-the-standard-normal-distribution",
+    "title": "5  The Normal Distribution",
+    "section": "5.4 Standardization and the standard normal distribution",
+    "text": "5.4 Standardization and the standard normal distribution\nMany bell-shaped histograms resemble the normal curve when expressed in standard units.\nStandardization means converting a value into the number of standard deviations it lies above or below the mean.\nThe standardized value (or z-score) is:\n\\[\nz = \\frac{X - \\mu}{\\sigma}.\n\\]\n\n\n\n\n\n\nNoteThe standard normal distribution\n\n\n\nWhen we standardize a normal variable, we obtain the standard normal distribution:\n\\[\nZ \\sim N(0,1).\n\\]\nIt has mean 0 and standard deviation 1.\n\n\nLet’s see how to use the Standard Normal table.\n\n\n\n\n\nSuppose we are looking for the area between the mean and \\(+1.2\\) standard units or \\(z\\) to the right.\n\nLocate the \\(z\\) value in the first column.\nRead the corresponding area from the table, i.e. \\(38.49%\\)\n\nIt’s as easy as that.\nOtherwise, compute\n\\[\nPr(0 \\leq z \\leq 1.2) = \\int_0^{1.2} \\frac{1}{\\sigma \\sqrt{2\\pi}}\ne^{-\\frac{1}{2}z^2} dx \\approx 0.3849\n\\] which is quite intimidating.\nYou’ve seen the first two columns. What about the rest? This is when you are looking for at, say, \\(1.25\\) to the right, rather than just \\(1.2\\). You get added precision or decimal points. But the idea is the same.\nWhat makes the standard normal tables very useful is when you are trying to find \\(z\\) given the area under the curve.\nAnalytically, you may be trying to solve:\n\\[\nPr(0 \\leq z \\leq z^*) = 0.45 = \\int_0^{z^*} \\frac{1}{\\sigma \\sqrt{2\\pi}}\ne^{-\\frac{1}{2}z^2} dx\n\\] This is even more intimidating!\nBut from the table, it is easy to see that \\(z^*\\) is about \\(1.645\\) for this case.\n\n\n\n\n\n\nNoteHow to use standard normal distribution\n\n\n\nBecause it is impractical to have tables for every possible \\(\\mu\\) and \\(\\sigma\\), we standardize all normal variables to \\(N(0,1)\\).\nOnce you compute a \\(z\\)-score:\n\nLocate the \\(z\\) value in the first column.\nRead the corresponding area from the table.\nUse symmetry if necessary.\n\n\n\n\n5.4.1 Example 2\nFor \\(z = 1.00\\):\nArea between the mean and \\(z=1\\) is \\(0.3413\\).\nBecause the curve is symmetric, this applies in either direction.\nHence, area between “1 to the right” and “1 to the left” is about \\(68%\\) i.e. \\(0.3413 \\times 2\\)!\n\n\n\n5.4.2 Example 3\nFor \\(z = 1.38\\):\n\nFind 1.3 in the first column.\nMove across to 0.08.\nThe table value is 0.4162.\n\nThis means:\n\\[\nPr(0 \\leq Z \\leq 1.38) = 0.4162.\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html#areas-between-two-z-scores",
+    "href": "Ch6.html#areas-between-two-z-scores",
+    "title": "5  The Normal Distribution",
+    "section": "5.5 Areas between two z-scores",
+    "text": "5.5 Areas between two z-scores\nIf neither boundary is the mean:\n\nLook up both areas from the mean.\nAdd or subtract as needed.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html#important-benchmark",
+    "href": "Ch6.html#important-benchmark",
+    "title": "5  The Normal Distribution",
+    "section": "5.6 Important benchmark",
+    "text": "5.6 Important benchmark\nApproximately 95% of the area under the normal curve lies between\n\\[\n-1.96 \\text{ and } +1.96.\n\\]\nWe often approximate this using \\(\\pm 2\\) for convenience.\nMore precision will be required in later chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch6.html#example-4-heights",
+    "href": "Ch6.html#example-4-heights",
+    "title": "5  The Normal Distribution",
+    "section": "5.7 Example 4: Heights",
+    "text": "5.7 Example 4: Heights\nSuppose the heights of 6,588 women have:\n\nmean = 160 cm\n\nstandard deviation = 5 cm\n\nAssume heights follow a normal distribution, as shown by Figure 5.1.\nWe standardize:\n\\[\nz = \\frac{X - 160}{5}.\n\\]\nSuppose we want the probability that a woman’s height lies between 155 and 170 cm.\nIn standard units:\n\\[\n155 \\text{ cm} \\rightarrow z= - 1, \\quad\n170 \\text{ cm} \\rightarrow z= +2.\n\\]\nThus we want\n\\[\nPr(-1 \\leq z \\leq +2).\n\\]\nUsing the empirical rule:\n\n95% of observations lie between \\(-2\\) and \\(+2\\).\nBy symmetry, half of that (47.5%) lies between 0 and +2.\n\nTherefore, from the standard normal table\n\\[\nPr(-1 \\leq z \\leq +2) \\approx 0.475.\n\\]\nFrom the table, that is \\(0.3413 + 0.4772\\) or \\(81.85 \\%\\) of women lie in that height range.\nThat is \\(Pr(155 \\text{ cm} \\leq \\text{height} \\leq 175 \\text{ cm}) \\approx 82 \\%\\). Makes sense?\n\n\n\n\n\n\n\nImportantChapter summary\n\n\n\nThe normal distribution plays a central role in statistics because:\n\nmany natural phenomena are approximately normal,\nsums and averages tend toward normality,\nstandardization allows universal probability tables.\n\nThe \\(z\\)-score is the key tool for translating real-world measurements into probabilities.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html",
+    "href": "Ch7.html",
+    "title": "6  Elementary Probability",
+    "section": "",
+    "text": "6.1 The probability space, experiment, and outcome\nIn this chapter, we introduce the basic ideas of probability needed to understand statistical concepts and reasoning. The literature typically identifies three definitions of probability:\nThe classical definition assumes that all outcomes of an experiment are equally likely. For example, when rolling a fair die, the probability of obtaining an even number is the ratio of favorable outcomes (2, 4, 6) to total possible outcomes (1–6), which is \\(3/6 = 1/2\\).\nThe empirical (frequentist) definition is based on observed relative frequencies. For example, one might talk about the probability that Manchester United beats Chelsea, based on the fraction of past games won by Manchester United.\nThe subjective definition reflects an individual’s beliefs, informed by experience and available information. For instance, a student may assign a subjective probability to the event that they will earn an A in a statistics course like this one.\nConsider tossing a coin. The outcome is uncertain: it may land heads or tails. In probability language, tossing the coin is an experiment, and the result is an outcome.\nAn experiment produces exactly one outcome, chosen from a set of possible outcomes. This set is called the sample space, denoted \\(\\mathcal{S}\\). A subset of the sample space is called an event.\nThere is no restriction on what constitutes an experiment. Tossing one coin once, tossing it three times, or even tossing it infinitely many times can each be considered a single experiment.\nTo make this concrete, consider tossing a coin three times. The sample space is\n\\(\\mathcal{S} = \\{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\\}\\).\nIf we assume each outcome is equally likely, then each has probability \\(1/8\\).\nFrom this, it follows that for any event \\(A\\),\n\\[\nP(\\sim A) = 1 - P(A)\n\\tag{6.2}\\]\nwhere \\(\\sim A\\) denotes the complement of \\(A\\) or (not A).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#the-probability-space-experiment-and-outcome",
+    "href": "Ch7.html#the-probability-space-experiment-and-outcome",
+    "title": "6  Elementary Probability",
+    "section": "",
+    "text": "ImportantA basic fact\n\n\n\nProbabilities always lie between 0 and 1 (or 0% and 100%).\nMore formally:\n\\[\n0 \\leq Prob(A) \\leq 1\n\\tag{6.1}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#conditional-probability",
+    "href": "Ch7.html#conditional-probability",
+    "title": "6  Elementary Probability",
+    "section": "6.2 Conditional probability",
+    "text": "6.2 Conditional probability\nConditional probability is best understood through an example.\nSuppose a deck of cards is shuffled and two cards are drawn. You win 100 baht if the second card is the ACE of hearts. Before seeing any cards, the probability of winning is \\(1/52\\).\nNow imagine that the first card is revealed and it is the seven of clubs. What is your probability of winning now?\nSince one card is no longer in the deck (and you know what it is), the probability becomes \\(1/51\\).\nPut differentlay, when pulling out two cards, because you now know the first card, the probability of the second card is a conditional probability i.e. the probability of a particular event occurring, given that another event has occurred. This is compactly written as \\(P(A \\mid B)\\).\n\n\n\n\n\n\nImportantConditional probability\n\n\n\nConditional probability reflects how probabilities change once new information becomes available.\n\n\nFormally, the probability that event \\(A\\) occurs given that event \\(B\\) has occurred is written\n\\[\nP(A \\mid B)\n\\tag{6.3}\\]\nwhich is read as the probability of \\(A\\) given \\(B\\).\n\n\n\n\n\n\nTipTry This: Conditional Probability\n\n\n\n(1) Two tickets are drawn at random without replacement from the following box:\n\n\nWhat is the chance that the second ticket is \\(\\fbox{B}\\)?\nWhat is the chance that the second ticket is \\(\\fbox{B}\\), given thayt the fist is \\(\\fbox{A}\\)?\n\n(2) Three cards are drawn from a deck of cards without replacement. What is the probability that none of them will be hearts",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#the-multiplication-rule",
+    "href": "Ch7.html#the-multiplication-rule",
+    "title": "6  Elementary Probability",
+    "section": "6.3 The multiplication rule",
+    "text": "6.3 The multiplication rule\nConsider a box containing three tickets labeled R, W, and B. Two tickets are drawn without replacement. What is the probability of drawing R first and then W?\nOn the first draw, the probability of R is \\(1/3\\). Given that R was drawn, only W and B remain, so the probability of W on the second draw is \\(1/2\\). Therefore,\n\\(P(R \\text{ then } W) = \\displaystyle \\frac{1}{2} \\text{ of } \\frac{1}{3} = \\frac{1}{6}\\).\nThis illustrates the multiplication rule:\n\\[\nP(AB) = P(B \\mid A)P(A) = P(A \\mid B)P(B)\n\\tag{6.4}\\]\nFor example, the probability that two cards dealt from a deck are both ACES is\n\\(\\displaystyle \\frac{3}{51} \\times \\frac{4}{54}\\).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#independence",
+    "href": "Ch7.html#independence",
+    "title": "6  Elementary Probability",
+    "section": "6.4 Independence",
+    "text": "6.4 Independence\nTwo events are said to be independent if knowing the outcome of one does not affect the probability of the other.\nDrawing with replacement produces independent events; drawing without replacement produces dependent events.\n\n\n\n\n\n\nImportantIndependence\n\n\n\nEvents A and B as said to be independent if\n\\[\nP(A \\mid B) = P(A)\n\\tag{6.5}\\]\n(or equivalently \\(P(B \\mid A) = P(B)\\)).\n\n\nWhen we have independence, the multiplication rule conveniently simplifies to\n\\[\nP(AB) = P(A)P(B)\n\\tag{6.6}\\]\nTry these: (1) A fair coin is tossed twice. What is the chance of getting a head then a tail? (2) A die is rolled three times. (i) Find the chance that the first roll is an ACE. (ii) Find the chance that the first roll is an ACE, the second roll is a deuce, and the third roll is a trey..",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#checking-for-independence",
+    "href": "Ch7.html#checking-for-independence",
+    "title": "6  Elementary Probability",
+    "section": "6.5 Checking for independence",
+    "text": "6.5 Checking for independence\nSuppose we want to know whether graduating from GA program helps someone become a successful manager/CEO.\nLet:\n\n\\(A_i\\): GA graduate (=1), or 0 otherwise\n\n\\(B_i\\): Becomes CEO (=1), or 0 otherwise\n\nThe table below summarizes survey results:\n\n\n\n\nBecomes CEO\nDoes not become CEO\nTotal\n\n\n\n\nGA graduate\n0.11\n0.29\n0.40\n\n\nNot GA graduate\n0.06\n0.54\n0.60\n\n\nTotal\n0.17\n0.83\n1.00\n\n\n\nThe marginal probability of becoming a CEO is 0.17. The joint probability of a GA graduate becoming a CEO is 0.11, and so on.\n\n\n\n\n\n\nImportantMarginal probability from joint probabilities\n\n\n\nTo get the marginal probability of a student being a GA graduate, we add the two joint probabilities of the first row \\((0.11 + 029)\\) to get \\(0.4\\). Note here the two jint probabilities that we add, the probability that we have a GA graduate and CEO plus the probability that we have a GA graduate and not a CEO. Here probabilty of GA is the same, but we have CEO and not CEO. So by adding across CEO type, we essentially integrate it out and we are left with the marginal probabilty of 0.4, the probability of GA graduate.\n\n\nTo test independence, compute\n\\(P(A_1 \\mid B_1) = \\displaystyle \\frac{P(A_1 B_1)}{P(B_1)} = \\displaystyle \\frac{0.11}{0.17} \\approx 0.65\\).\nSince \\(P(A_1 \\mid B_1) \\neq P(A_1)\\), the two events are not independent.\n\n\n\n\n\n\nTipInterpretation\n\n\n\nBecoming a CEO is related to being a GA graduate in this example.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#the-addition-rule",
+    "href": "Ch7.html#the-addition-rule",
+    "title": "6  Elementary Probability",
+    "section": "6.6 The addition rule",
+    "text": "6.6 The addition rule\nTwo events are said to be mutually exclusive if the occurrence of one prevents the occurrence of the other.\nFor mutually exclusive events,\n\\[\nP(A \\text{ or } B) = P(A) + P(B)\n\\tag{6.7}\\]\nFor example, intuitively, if we draw one card from a deck of cards, the probability of getting either a heart or spades is \\(\\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}\\). The additional rule tells us to simply add the chances provided that the two events are mutually exclusive. The probability to get a heart is 1/4 and the probability to get a spade is also 1/4. Are the two events mutually exclusive? Yes, getting a heart means you can’t get a spade, and vice versa. So simply add the chances to get \\(1/4 + 1/4 = 1/2.\\)\nHowever, for events that are not mutually exclusive, the general addition rule is\n\\[\nP(A \\text{ or } B) = P(A) + P(B) - P(A \\text{ and } B)\n\\tag{6.8}\\]\nFor example, if we toss two dice at the same time, to get at least ace on the two dice, we calculate the probability using the general additional rule, i.e we add the chances and subtract the joint probability because the two events are not mutually exclusive since having an ace on one of the die does not exclude the possibility to get an ace on the other die. In other words, it is possible to get ACE in both dice, i.e. the events are not mutually exclusive! Hence we get \\(1/6 + 1/6 - 1/36 = 11/36.\\)\n\n\n\n\n\n\nImportantMutually exclusive events\n\n\n\nEvents A and B as said to be mutually exclusive if\n\\[\nP(A \\text{ and } B) = 0\n\\tag{6.9}\\]\n\n\nNote that we have used the word ‘or’ and ‘at least’ for the additional rule, which can be contrasted with ‘and’ for the multiplication rule. In terms of set operations, these are the union and intersect operators, respectively.\n\n\n\n\n\n\nImportantTry these.\n\n\n\n(1) A die is rolled twice. What is (a) the chance that the first roll is an ace or the second roll is an ace? (b) the chance that the first roll is an ace and the second roll is an ace? (c) the cace of getting at least one ace?\n(2) A deck of cards is shuffled. What is (a) the chance that the top card is an ace of spades or the bottom card is an ace of spades? (b) the chance that the first card is an ace of spades and the bottom card is an ace of spades?",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#venn-diagrams",
+    "href": "Ch7.html#venn-diagrams",
+    "title": "6  Elementary Probability",
+    "section": "6.7 Venn diagrams",
+    "text": "6.7 Venn diagrams\nVenn diagrams are very useful when thinking about simple probability problems.\nFor example, two events A and B that are not disjoint can be drawn as follows:\n\n\n\n\n\nEven more useful, the conditional probability can be shown by the following:\n\\(P(A|B) =\\)\n or \\(\\frac{P(AB)}{P(B)}.\\) That is, given B we wish to know A.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#bayes-rule",
+    "href": "Ch7.html#bayes-rule",
+    "title": "6  Elementary Probability",
+    "section": "6.8 Bayes’ rule",
+    "text": "6.8 Bayes’ rule\nWe can easily derive the Bayes’ Rule using Venn diagrams.\nTaking a sample space with event A:\n\nSimilarly, the probability of B can be shown using the Venn diagram as follows: \\\n\nCombining the two Venn diagrams we get:\\\n\nOr what is the same thing\n\\[\nP(A|B) = \\frac {P(A \\text{ and } B)}{P(B)} = \\frac {P(A \\text{ and } B)}{P(A \\text{ and } B) + P(\\sim A \\text{ and } B)}\n\\]\nAnd finally from the definition of joint probabilities we have the Bayes Rule.\n\n\n\n\n\n\nImportantBayes’ Rule\n\n\n\n\\[\nP(A \\mid B) = \\frac{P(A)P(B \\mid A)}{P(A)P(B \\mid A) + P(\\sim A)P(B \\mid \\sim A)}\n\\tag{6.10}\\]\n\n\nSo how do we use the Bayes’ Rule? An example should illustrate this. Assume that on a dark night, there was a hit and run accident. A witness, who says that she saw a blue taxi, agrees to sit in the court to testify for the victim so that the latter might get some compensation from the blue taxi company. Incidentally, there are 200 taxis in this town; 170 or 85 % belong to the black taxi company and 30 or 15 % are blue. According to tests conducted under the same condition, the witness identifies blue taxi about 80 % of the time. Now, the question is, What is the probability that she was right, that she really did see a blue taxi that night?\n\n15% of taxis are blue\n\n85% are black\n\nThe witness correctly identifies blue taxis 80% of the time\n\nShe incorrectly identifies black taxis as blue 20% of the time\n\nTo use Bayes’ formula, all we have to identify are a few marginal and conditional probabilities; \\(P(A)\\) is the probability that the taxi involved in the accident is blue (i.e 15 %.) Hence \\(P(\\sim A)\\) that is the probability of a black taxi, is 85 %. \\(P(B \\mid A)\\) is the probability that the witness claims to have seen blue when a blue taxi was really involved, in other words, her accuracy in identifying a blue taxi correctly under the conditions. Conversely, the only other probability we need now to complete the equation is \\(P(B \\mid \\sim A)\\), which is the probability that the witness sees a blue taxi when in fact a black taxi was involved. i.e 20 %. Plugging all the relevant probabilities gives:\n\\(P(A \\mid B) = \\displaystyle \\frac{0.15 \\times 0.80}{(0.15 \\times 0.80) + (0.85 \\times 0.20)} = \\frac{0.12}{0.29} \\approx 0.41\\).\nThe probability that the witness says she saw “blue” and that it was really a blue taxi is only 0.41, hardly sufficient for the courts to ask the blue taxi company to pay compensation!1\n\n\n\n\n\n\nWarningA sobering result\n\n\n\nEven confident testimony can be misleading when base rates are ignored.\n\n\n\n\n\n\n\n\nTipProbability tree diagram\n\n\n\nWe can represent the example in a tree diagram.\n                            Start: Taxi Accident\n                                   |\n               ┌───────────────────┴───────────────────┐\n               │                                       │\n           Blue Taxi (A)                         Black Taxi (~A)\n           P(A) = 0.15                          P(~A) = 0.85\n               |                                       |\n        ┌──────┴───────┐                       ┌──────┴───────┐\n        │              │                       │              │\n  Says Blue (B)   Says Black (~B)        Says Blue (B)   Says Black (~B)\n  P(B|A)=0.80     P(~B|A)=0.20          P(B|~A)=0.20     P(~B|~A)=0.80\n        |              |                       |              |\n        ▼              ▼                       ▼              ▼\n  Joint: 0.12     Joint: 0.03           Joint: 0.17      Joint: 0.68\n  P(A∩B)          P(A∩~B)               P(~A∩B)          P(~A∩~B)\nWe see that:\n\\(P(AB) = 0.12\\)\n\\(P(B) = P(A∩B) + P(\\sim A∩B) = 0.12 + 0.17 = 0.29\\) i.e. the marginal probability of \\(B\\) by integrating out \\(A\\) by summing across \\(A\\).\nAnd since we are looking for \\(P(A|B)\\) i.e. \\(P(AB)/P(B) ≈ 0.41\\), which is the probability the taxi was blue given that the witness says blue!\n\n\n\n6.8.0.1 Bayes’ Updating\nEssentially, we have:\n\n\n\n\n\nPrior Probability (15%): This represents our initial belief about the situation before considering the witness testimony. Based on the town’s taxi distribution, we know that only 15% of taxis are blue. This is our baseline expectation that any random taxi involved in an accident would be blue.\nLikelihood (Witness Accuracy): This quantifies how probable the observed evidence (witness testimony) is under different hypotheses. The witness correctly identifies blue taxis 80% of the time and incorrectly identifies black taxis as blue 20% of the time. This creates two competing likelihoods: - If the taxi was actually blue, we’d expect her to say “blue” 80% of the time - If the taxi was actually black, we’d expect her to mistakenly say “blue” 20% of the time\nPosterior Probability (41%): This is the updated probability that combines our prior belief with the new evidence. Using Bayes’ theorem, we find that even though the witness says she saw a blue taxi, there’s only about a 41% chance she’s actually correct. This counterintuitive result occurs because blue taxis are rare (15%) and the false positives from the much more common black taxis outweigh the true positives.\nIntuition Behind the Result: The Bayesian approach forces us to consider both the reliability of the evidence AND the base rates (or prioir provbailities). Even with a seemingly reliable witness (80% accurate), the rarity of blue taxis means most “blue” identifications will be errors. This explains why the court should be skeptical—the witness’s claim only increases the probability from 15% to 41%, far from “beyond reasonable doubt.”\nExtension: What If We Had Another Witness? If a second independent witness also claimed to see a blue taxi, Bayesian updating would apply again. The first posterior (41%) would become our new prior, and we’d combine it with the second witness’s reliability. Intuitively, this would increase our confidence, but mathematically, we’d need to consider (1) whether the witnesses are truly independent, (2) whether they have the same accuracy rates, and (3) the possibility of collusion or shared biases.\nWith two independent, reliable witnesses both saying “blue,” the probability that the taxi was actually blue would increase substantially, potentially making the evidence strong enough for legal purposes. This demonstrates how Bayesian updating elegantly handles accumulating evidence—each new piece of information updates our beliefs in a mathematically rigorous way.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#axioms-of-probability",
+    "href": "Ch7.html#axioms-of-probability",
+    "title": "6  Elementary Probability",
+    "section": "6.9 Axioms of probability",
+    "text": "6.9 Axioms of probability\nProbability rests on three axioms:\n\nNonnegativity: \\(P(A) \\ge 0\\)\n\nAdditivity: For disjoint events, \\(P(A \\cup B) = P(A) + P(B)\\)\n\nNormalization: \\(P(\\mathcal{S}) = 1\\)\n\nFrom these axioms follow many useful properties, such as:\n\nIf \\(A \\subset B\\), then \\(P(A) \\le P(B)\\)\n\n\\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\)\n\n\\(P(A \\cup B) \\le P(A) + P(B)\\)\n\n\n\n\n\n\n\nImportantChapter summary\n\n\n\nProbability provides a formal language for reasoning under uncertainty. In this chapter, we introduced experiments, events, conditional probability, independence, and the fundamental rules governing probabilities. These ideas form the foundation for statistical inference in the chapters ahead.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#exercises",
+    "href": "Ch7.html#exercises",
+    "title": "6  Elementary Probability",
+    "section": "6.10 Exercises",
+    "text": "6.10 Exercises\n\n6.10.1 Conceptual questions\n\nThree views of probability\nExplain the difference between the classical, frequentist, and subjective interpretations of probability.\nGive one real-world example for each interpretation.\nProbability without philosophy\nThe chapter argues that the mathematics of probability does not depend on which interpretation we adopt.\nExplain what this means in your own words.\nExperiments and outcomes\nConsider the experiment “toss a fair coin until a head appears.”\n\nWhat is the sample space?\n\nIs this a finite or infinite sample space?\n\nWhy is this still considered a single experiment?\n\nEvents vs outcomes\nExplain the difference between an outcome and an event.\nCan a single outcome itself be an event?\nConditional probability and information\nWhy does conditional probability capture the idea of learning from new information?\nGive an example (not involving cards or coins) where learning new information changes probabilities.\nIndependence vs mutual exclusivity\nAre mutually exclusive events ever independent?\nCarefully explain your answer.\n\n\n\n\n6.10.2 Basic probability calculations\n\nCoins and sample spaces\nA fair coin is tossed four times.\n\nHow many outcomes are in the sample space?\n\nWhat is the probability of getting exactly two heads?\n\nWhat is the probability of getting at least one head?\n\nComplements\nLet event \\(A\\) be “a randomly selected student passes an exam”, with \\(P(A)=0.85\\).\n\nWhat is \\(P(\\sim A)\\)?\n\nInterpret this probability in words.\n\nCards and conditional probability\nA card is drawn at random from a standard deck.\n\nWhat is the probability that it is a queen?\n\nWhat is the probability that it is a queen given that it is a face card?\n\nAre the events “queen” and “face card” independent?\n\n\n\n\n\n6.10.3 Multiplication rule and independence\n\nWithout replacement\nTwo cards are drawn without replacement from a standard deck.\n\nWhat is the probability that both cards are red?\n\nWhat is the probability that the first card is an ace and the second card is also an ace?\n\nWith replacement\nRepeat Question 10, but now assume the first card is replaced before the second draw.\nExplain why the probabilities change.\nTesting independence\nTwo events satisfy\n\\(P(A)=0.4\\), \\(P(B)=0.5\\), and \\(P(AB)=0.2\\).\n\nAre \\(A\\) and \\(B\\) independent?\n\nJustify your answer mathematically.\n\n\n\n\n\n6.10.4 Addition rule and mutually exclusive events\n\nMutually exclusive or not?\nFor each pair of events below, state whether they are mutually exclusive and explain why:\n\nDrawing a heart and drawing a spade\n\nDrawing a heart and drawing a red card\n\nGetting a head on the first toss and a tail on the second toss\n\nDice example\nTwo fair dice are rolled.\n\nWhat is the probability that at least one die shows a 6?\n\nUse the general addition rule to compute your answer.\n\n\n\n\n\n6.10.5 Bayes’ rule and interpretation\n\nMedical testing\nA disease affects 2% of a population.\nA diagnostic test correctly identifies the disease 95% of the time, but incorrectly signals disease in 5% of healthy individuals.\n\nDefine the relevant events.\n\nUse Bayes’ rule to compute the probability that a person who tests positive actually has the disease.\n\nExplain the result in words.\n\nBase-rate neglect\nIn the taxi example discussed in the chapter, many people expect the probability to be close to 0.8.\nExplain why this intuition is misleading.\n\n\n\n\n6.10.6 Set Operations and Probability Identities\n\nSet operations and De Morgan’s laws\n\n\n\nConsider rolling a fair die. Let\n\n\n\n\\(A\\) be the set of outcomes where the roll is an even number, and\n\n\\(B\\) be the set of outcomes where the roll is greater than 3.\n\nCalculate and compare the sets on both sides of De Morgan’s laws:\n\\[\n\\sim (A \\cup B) = \\sim A \\cap \\sim B\n\\qquad \\text{and} \\qquad\n\\sim (A \\cap B) = \\sim A \\cup \\sim B.\n\\]\n\nShow that\n\n\\[\n\\sim A = (\\sim A \\cap B) \\cup (\\sim A \\cap \\sim B),\n\\]\nand\n\\[\n\\sim B = (A \\cap \\sim B) \\cup (\\sim A \\cap \\sim B).\n\\]\n\nShow that\n\n\\[\n\\sim (A \\cap B)\n= (\\sim A \\cap B) \\cup (\\sim A \\cap \\sim B) \\cup (A \\cap \\sim B).\n\\]\n\nProbability inequality\n\nProve that for any two events \\(A\\) and \\(B\\),\n\\[\nP(A \\cap B) \\ge P(A) + P(B) - 1.\n\\]\nHint: Use the axioms of probability and the addition rule.\n\nLaw of total probability\n\nShow the identity\n\\[\nP(A \\mid B)\n= P(C \\mid B)P(A \\mid B \\cap C)\n+ P(\\sim C \\mid B)P(A \\mid B \\cap \\sim C).\n\\]\nExplain briefly how this formula relates to conditioning on whether event \\(C\\) occurs or not.\n\n\n\n6.10.7 Reflection and interpretation\n\nProbability and statistical reasoning\nExplain why probability theory is essential for understanding statistical concepts such as correlation and regression.\nFrom probability to inference\nWhich ideas from this chapter do you think will be most important when we later study statistical inference?\nBriefly explain why.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch7.html#footnotes",
+    "href": "Ch7.html#footnotes",
+    "title": "6  Elementary Probability",
+    "section": "",
+    "text": "Another way to see this is, say we present the witness the 30 Blue taxis, she will identify 80% or 24 as blue (and 6 as black) under the same night conditions. Also she will identify 20% or 34 of 170 black taxis as ‘blue’. So out of 54 taxis she calls ‘blue’, only 24 are in fact blue, which is about 41%.↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Elementary Probability</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html",
+    "href": "Ch8.html",
+    "title": "7  Discrete Probability Distributions",
+    "section": "",
+    "text": "7.0.1 Tossing a fair coin\nWe begin by defining a random variable as a function or rule that assigns a number to each outcome of an experiment. Instead of talking about the coin flipping event as {heads, tails}, for example, we can think of it as 1 and 0, what we often call an indicator variable. This is actually a numerical event which can be called ‘the number of heads when flipping a coin’.\nFormally, a random variable is defined as:\n\\[\nX: \\Omega \\to \\mathbb{R}\n\\] where \\(\\Omega\\) is the sample space (all possible outcomes of the experiment), \\(X\\) is a measurable function that maps each outcome \\(\\omega \\in \\Omega\\) to a real number \\(X(\\omega)\\).\nSo, the experiment produces an outcome \\(\\omega\\), and the random variable translates that outcome into a number. Hence one can view the random variables as a ‘bridge’”’ from experiment → numbers.\nThe probability distribution is a listing of all possible outcomes of an experiment and the corresponding probability. Once we have a random variable \\(X\\), we can ask: how likely is each possible value of \\(X\\)? That’s where the distribution comes in. It is the probability measure induced by \\(X\\):\n\\[\nP_X(A)=P(\\{\\omega \\in \\Omega: X(\\omega) \\in A \\})\n\\] where \\(P\\) is the probability measure on the sample space, \\(P_X\\) is the distribution of \\(X\\) and \\(A\\) is a set of real numbers (e.g., an interval).\nThis tells us: the probability that \\(X\\) takes values in \\(A\\) is equal to the probability of all outcomes that map into \\(A\\). In pther words, a distribution is like a rulebook-it specifies the probabilities attached to those numbers, telling us the ‘laws’ governing randomness.\nThis approach shows that correlation:\nA discrete distribution is based on random variables which can assume only clearly separated values i.e. takes on only whole numbers like \\(0, 1, 2, \\dots\\) while a continuous distribution can assume an infinite number of values i.e. takes on any value on the Real line, within a given range. A useful analogy is “Integers are discrete, while Real Numbers are continuous”.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#the-discrete-random-variable",
+    "href": "Ch8.html#the-discrete-random-variable",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.1 The discrete random variable",
+    "text": "7.1 The discrete random variable\nWhen dealing with univariate data, we have seen how the histogram together with its mean and standard deviation are a useful way to summarize data. In statistics, what in fact we are dealing with is a random variable, sometimes denoted \\(r.v\\), which is nothing more than a function or rule that assigns a number to each outcome of an experiment. And as we have already mentioned, the outcomes of a random variable can be described by a probability distribution, which are a listing of all possible outcomes of an experiment and their corresponding probabilities.\nLet us look at an example. This time, consider an experiment in which a coin is tossed three times. Let \\(X\\) be a \\(r.v\\) representing the number of heads in 3 tosses. The possible outcomes are:\n\n\n\nTable 7.1: Outcomes of 3 tosses of a coin\n\n\n\\[\n\\begin{array}{|c|c|}\n\\hline\n\\text{Outcome} & \\text{No. of Heads} \\\\\n\\hline\n\\text{T T T} & 0 \\\\\n\\text{T T H} & 1 \\\\\n\\text{T H T} & 1 \\\\\n\\text{T H H} & 2 \\\\\n\\text{H T T} & 1 \\\\\n\\text{H H T} & 2 \\\\\n\\text{H T H} & 2 \\\\\n\\text{H H H} & 3 \\\\\n\\hline\n\\end{array}\n\\]\n\n\n\nNote we have 8 equally likely outcomes from which we can easily construct the probability distribution of \\(X\\), the number of heads in 3 tosses, as:\n\n\n\nTable 7.2: Probability distribution of 3 tosses of a coin\n\n\n\\[\n\\begin{array}{|c|c|}\n\\hline\nX & P(X) \\\\\n\\hline\n0 & 1/8 \\text{ or } 0.125 \\\\\n1 & 3/8 \\text{ or } 0.375 \\\\\n2 & 3/8 \\text{ or } 0.375 \\\\\n3 & 1/8 \\text{ or } 0.125 \\\\\n\\hline\n\\mathbf{\\Sigma} & \\mathbf{1.000} \\\\\n\\hline\n\\end{array}\n\\]\n\n\n\nThe probability distribution, sometimes also referred to as the probability function, is in fact a histogram which looks as follows:\n\n\n\n\n\n\n\n\n\nThe corresponding cumulative probability distribution can be drawn as:",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#the-mean-and-the-variance",
+    "href": "Ch8.html#the-mean-and-the-variance",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.2 The mean and the variance",
+    "text": "7.2 The mean and the variance\nApart from drawing the probability distribution or histograms, we have seen that numerical summaries such as the mean and variance are useful.\nThe mean is the long-run average value of a random variable, which is also referred to as its expected value, denoted \\(E(X)\\).1\n\\[\nE(X) = \\mu = \\sum_{i=1}^{n} X_i P(X_i)\n\\tag{7.1}\\]\nThe variance which measures the spread or variation of the distribution is defined as:\n\\[\nVar(X) = \\sigma^2 = \\sum_{i=1}^{n} (X_i- {\\overline X})^2 P(X_i)\n\\tag{7.2}\\]\nTo get the standard deviation, simply calculate the square root of the variance.\nLet’s see this with the example above which defines the random variable \\(X\\) as the number of heads in 3 tosses.\nTo compute the mean, use Equation 7.1, shown in the table below–summing the last column of the table gives \\(\\mu = 1.5\\).\n\n\n\nTable 7.3: Calculating the mean.\n\n\n\\[\n\\begin{array}{|c|c|c|}\n\\hline\nX & P(X) & X \\cdot P(X) \\\\\n\\hline\n0 & 1/8 & 0 \\\\\n1 & 3/8 & 3/8 \\\\\n2 & 3/8 & 6/8 \\\\\n3 & 1/8 & 3/8 \\\\\n\\hline\n\\textbf{Total} & \\mathbf{1} & \\mathbf{12/8 = 1.5} \\\\\n\\hline\n\\end{array}\n\\]\n\n\n\nTo get the variance, applying Equation 7.2, as shown in the the table below and summing the last column of the table gives \\(\\sigma^2 = 0.75\\)\n\n\n\nTable 7.4: Calculating the variance.\n\n\n\\[\n\\begin{array}{|c|c|c|c|}\n\\hline\nX & P(X) & (X_i - \\mu) & (X_i - \\mu)^2 \\cdot P(X) \\\\\n\\hline\n0 & 0.125 & -1.5 & 0.28125 \\\\\n1 & 0.375 & -0.5 & 0.09375 \\\\\n2 & 0.375 & 0.5 & 0.09375 \\\\\n3 & 0.125 & 1.5 & 0.28125 \\\\\n\\hline\n\\mathbf{\\Sigma} & \\mathbf{1.000} & & \\sigma^2 = \\mathbf{0.75} \\\\\n\\hline\n\\end{array}\n\\]\n\n\n\nCareful, we have the variance \\(=0.75\\), hence the standard deviation \\(\\sigma = \\sqrt{0.75}\\) which is about \\(0.8667\\).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#rules-of-expected-value-and-variance",
+    "href": "Ch8.html#rules-of-expected-value-and-variance",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.3 Rules of expected value and variance",
+    "text": "7.3 Rules of expected value and variance\nLet us introduce some basic rules of expected value and variance. Firstly, for expected value, we have:\nRule E1 \\[E(k)=k\\] Rule E2 \\[E(X+k)=E(X)+k\\]\nRule E3 \\[E(kX)=kE(X)\\]\nRule E1 states that the expected value (or average) of a constant is that constant. Rule E2 states that the expected value of a random variable to which a constant has been added is equal to the expected value of the random variable plus the constant. Rule E3 states that the expected value of a random variable multiplied by a constant is equal to the constant times the expected value of the random variable.\nSecondly, the rules of variance are:\nRule V1 \\[Var(k)=0\\]\nRule V2 \\[Var(X+k)=Var(X)\\]\nRule V3 \\[Var(kX)=k^2 Var(X)\\]\nRule V1 states that the variance of a constant is zero (i.e., there is no spread). Rule V2 states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule V3 states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.2\n\n\n\n\n\n\nNoteExample: Monthly Profit Analysis\n\n\n\nLet’s illustrate how these rules apply to a real-world scenario.\nThe Data: For a food store, monthly sales have a mean (\\(\\mu\\)) of Baht 25,000 and a standard deviation (\\(\\sigma\\)) of Baht 4,000. Profits are defined as 30% of sales minus fixed costs of Baht 6,000.\nThe Goal: Find the mean and standard deviation of the monthly profit.\n1. Define the Equation: \\[Profit = 0.30(Sales) - 6,000\\]\n2. Calculate the Expected Value (Mean):\n\\[\n\\begin{aligned}\nV(\\text{Profit}) &= V[0.30(\\text{Sales}) - 6,000] \\\\\n                 &= V[0.30(\\text{Sales})]           && \\text{(Rules V2 \\& V1)} \\\\\n                 &= (0.30)^2 V(\\text{Sales})        && \\text{(Rule V3)} \\\\\n                 &= 0.09 \\cdot (4,000)^2            \\\\\n                 &= 0.09 \\cdot 16,000,000           \\\\\n                 &= 1,440,000\n\\end{aligned}\n\\]\n3. Calculate the Variance and Standard Deviation: First, we find the variance (\\(V\\)). Remember that \\(V(Sales) = \\sigma^2 = 4,000^2\\). \\[\n\\begin{aligned}\nV(\\text{Profit}) &= V[0.30(\\text{Sales}) - 6,000] \\\\\n                 &= V[0.30(\\text{Sales})]           && \\text{(Rules V2 \\& V1)} \\\\\n                 &= (0.30)^2 V(\\text{Sales})        && \\text{(Rule V3)} \\\\\n                 &= 0.09 \\cdot (4,000)^2            \\\\\n                 &= 0.09 \\cdot 16,000,000           \\\\\n                 &= 1,440,000\n\\end{aligned}\n\\]\nFinally, the standard deviation is: \\[\\sigma_{\\text{Profit}} = \\sqrt{1,440,000} = \\mathbf{1,200}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#discrete-bivariate-distributions",
+    "href": "Ch8.html#discrete-bivariate-distributions",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.4 Discrete bivariate distributions",
+    "text": "7.4 Discrete bivariate distributions\nSo far, we have focused on univariate distributions. We now extend these ideas to bivariate probability distributions, which arise from joint probabilities.\nA joint probability distribution of two discrete random variables \\(X\\) and \\(Y\\) is a table or formula that lists the joint probabilities for all pairs of values \\((x, y)\\). It is denoted by \\(P(X,Y)\\) or, equivalently, \\(P(X = x \\text{ and } Y = y)\\).\nAs we would expect, joint probabilities satisfy the following basic properties:\n\\(0 \\le P(X,Y) \\le 1\\)\nand\n\\(\\sum_x \\sum_y P(X,Y) = 1\\).\n\n7.4.1 Joint and marginal probabilities\nWe have already encountered an example of a bivariate probability distribution in the previous chapter. That example involved a survey of university graduates working as CEOs and whether they were GA graduates.\nThe corresponding joint and marginal distributions are summarized in the table below.\n\n\n\n\n\n\n\n\n\n\nBecomes CEO\nDoes not becomes CEO\nTotal\n\n\n\n\nGA graduate\n\\(P(A_1 B_1)=0.11\\)\n\\(P(A_1 B_2)=0.29\\)\n\\(P(A_1)=0.40\\)\n\n\nNot GA graduate\n\\(P(A_2 B_1)=0.06\\)\n\\(P(A_2 B_2)=0.54\\)\n\\(P(A_2)=0.60\\)\n\n\nTotal\n\\(P(B_1)=0.17\\)\n\\(P(B_2)=0.83\\)\n\\(1.00\\)\n\n\n\n\\(A_1\\) is the event that the individual is a GA graduate, or \\(A_2\\) otherwise.\n\\(B_1\\) is the event that the individual becomes a CEO, or \\(B_2\\) otherwise.\nThe marginal probabilities are obtained by summing the joint probabilities across rows or down columns. They describe the probabilities of \\(A\\) and \\(B\\) individually, ignoring the other variable.\nUsing marginal probabilities, we can compute the mean, variance, and standard deviation of each variable in a bivariate distribution.\n\n7.4.1.1 Marginal distribution of \\(A\\)\n\n\n\nTable 7.5: Marginal Distribution of Event A\n\n\n\\[\n\\begin{array}{|c|c|}\n\\hline\nA & P(A) \\\\\n\\hline\n1 & 0.40 \\\\\n0 & 0.60 \\\\\n\\hline\n\\end{array}\n\\]\n\n\n\nUsing the expectation Equation 7.1 and variance Equation 7.2 formulas introduced earlier:\n\n\\(E(A) = 0.40\\)\n\\(Var(A) = 0.24\\)\n\\(SD(A) \\approx 0.49\\)\n\n\n\n7.4.1.2 Marginal distribution of \\(B\\)\nSimilarly, let \\(B\\) be an indicator variable that equals 1 if an individual becomes a CEO and 0 otherwise. The marginal distribution of \\(B\\) is:\n\n\n\nTable 7.6: Marginal Distribution of B\n\n\n\\[\n\\begin{array}{|c|c|}\n\\hline\nB & P(B) \\\\\n\\hline\n1 & 0.17 \\\\\n0 & 0.83 \\\\\n\\hline\n\\end{array}\n\\]\n\n\n\nThe corresponding moments are:3\n\n\\(E(B) = 0.17\\)\n\\(Var(B) \\approx 0.14\\)\n\\(SD(B) \\approx 0.38\\)\n\n\n\n\n7.4.2 Covariance of two discrete variables\nWe have already seen that the covariance between two discrete random variables \\(A\\) and \\(B\\) is defined as\n\\[\nCov(A,B) = \\sum_A \\sum_B (A - \\overline{A})(B - \\overline{B}) P(A,B)\n\\tag{7.3}\\]\nContinuing with the GA–CEO example, the covariance by Equation 7.3 between \\(A\\) and \\(B\\) is approximately\n\\(Cov(A,B) = 0.042\\).\n\n\n7.4.3 Correlation\nThe correlation coefficient is obtained by dividing the covariance by the product of the standard deviations:\n\\[\n\\text{Corr}(A,B) = \\dfrac{\\text{Covariance}(A,B)}{SD_A \\, SD_B}\n\\] For this example, the correlation coefficient \\(r \\approx 0.23\\).\nWe therefore conclude that there is a weak positive relationship between a GA graduate and becoming a CEO.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#the-binomial-formula",
+    "href": "Ch8.html#the-binomial-formula",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.5 The Binomial formula",
+    "text": "7.5 The Binomial formula\nWe have seen the multiplication and addition rules of probability. Roughly speaking, these rules help us solve “and” and “or” problems. Sometimes, however, we might wish to solve “exact” problems, for example:\n\nA coin is tossed 4 times. What is the chance of getting exactly one head?\nA die is rolled 10 times. What is the chance of getting exactly 3 Aces?\nA box contains one red marble and nine green ones. Five draws are made at random with replacement. What is the chance that exactly two draws will be red?\n\nIt is with such problems that the binomial formula can be very helpful.\n\n7.5.1 Box Model Example\nLet’s look more closely at the last example above. We might start with a box model:\n\n\n\n\n\n\nFigure 7.1: Box Model\n\n\n\nFrom the above, we draw 5 tickets at random with replacement. But we want exactly 2 R’s and 3 G’s (e.g., \\(\\fbox{R}, \\fbox{R}, \\fbox{G}, \\fbox{G}, \\fbox{G}\\) or \\(\\fbox{G}, \\fbox{R}, \\fbox{G}, \\fbox{G}, \\fbox{R}\\), etc.). The exact probability can be found using 3 simple steps:\n1) Find all the possible ways: \\[\n\\frac{5!}{2! \\times 3!} = \\frac{\\text{total cases}}{\\text{no. of successes} \\times \\text{no. of failures}}\n\\]\n2) Calculate the chance of each: \\[\n\\frac{1}{10} \\times \\frac{1}{10} \\times \\frac{9}{10} \\times \\frac{9}{10} \\times \\frac{9}{10} = \\left( \\frac{1}{10}\\right)^2 \\left( \\frac{9}{10}\\right)^3\n\\]\n3) Use the addition rule to add up the chances: \\[\n\\frac{5!}{2! \\times 3!} \\times \\left( \\frac{1}{10}\\right)^2 \\left( \\frac{9}{10}\\right)^3 \\approx 7\\%\n\\]\nThis can be interpreted as the chance of getting exactly 2 \\(\\fbox{R}\\)’s.\nNote that step 1 is actually the binomial coefficient, which gives us the total number of combinations of arranging 2 R’s and 3 G’s. In step 2, the chance of getting \\(\\fbox{R}, \\fbox{R}, \\fbox{G}, \\fbox{G}, \\fbox{G}\\) is the same as getting \\(\\fbox{G}, \\fbox{R}, \\fbox{G}, \\fbox{G}, \\fbox{R}\\), and so on. Lastly, step 3 involves the addition rules as all events are mutually exclusive (disjoint).\n\n\n7.5.2 The Binomial Formula\n\n\n\n\n\n\nImportantThe Binomial Formula\n\n\n\nThe chance that an event will occur exactly \\(k\\) times out of \\(n\\) trials is given by\n\\[\nP(X=k) = \\frac{n!}{k!(n-k)!}p^k (1-p)^{n-k}, \\text{ for } k = 0,1,\\dots,n\n\\tag{7.4}\\]\nWhere: - \\(n\\) is the number of trials. - \\(k\\) is the number of times the event of interest is to occur. - \\(p\\) is the probability that the event of interest will occur on any particular trial.\n\n\nThree conditions must hold for the binomial formula to be valid:\n\nThe value of \\(n\\) must be fixed in advance.\n\n\\(p\\) must be the same from trial to trial.\n\nThe trials must be independent of each other.\n\nQuick Example\nTo find the chance of getting exactly 2 aces in 10 rolls of a die:\n\\[\nP(X=2) = \\frac{10!}{2!8!}\\left( \\frac{1}{6} \\right)^2 \\left(\\frac{5}{6} \\right)^8 \\approx 0.2907\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#the-poisson-distribution",
+    "href": "Ch8.html#the-poisson-distribution",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.6 The Poisson distribution",
+    "text": "7.6 The Poisson distribution\nThe Poisson random variable is a discrete random variable that typically fits cases of rare events that occur over a fixed amount of time or within a specified space or region. Typical cases are, for example:\n\nThe number of customers entering a service station per hour.\nThe number of errors a typist makes per page.\nThe number of telephone calls received by a switchboard per hour.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#the-poisson-formula",
+    "href": "Ch8.html#the-poisson-formula",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.7 The Poisson Formula",
+    "text": "7.7 The Poisson Formula\nThe Poisson probability distribution is given by:\n\\[\nP(X=x) = f(x) = \\frac{e^{-\\mu} \\mu^x}{x!}\n\\tag{7.5}\\]\nWhere: - \\(\\mu\\) is the average number of successes in a particular interval of time or space. - \\(e\\) is the constant \\(\\approx 2.71828\\dots\\) - \\(x\\) is the number of successes.^[Take care of notation here. We have introduced \\(f(x)\\): the small “\\(f\\)” represents a probability density function.\nCorrespondingly, a large “\\(F\\)”, say, \\(F(x)\\), would refer to the cumulative probability function. This should be distinguished from the large “\\(P\\)” we have been using, which stands for probability.]\n\n7.7.1 Assumptions of the Poisson Process\nFor the Poisson formula to be valid, the following conditions must be met:\n\nIndependence: The number of successes that occur in one time interval should be independent of the number of successes in another interval.\nProportionality: The probability of a success in a certain interval should be the same for all intervals of the same size and proportional to the length of the interval.\nSimultaneity: The probability that two or more successes will occur in an interval approaches zero as the interval becomes smaller and smaller.\n\nExample: Typographical Errors\nAssume that the number of typographical errors in a new edition of a textbook follows a Poisson distribution with a mean of 1.5 per 100 pages. If 100 pages are randomly selected, what is the probability that there are no typos (\\(X=0\\))?\n\\[\n\\begin{aligned}\nP(X=0) = f(0) &= \\frac{e^{-1.5} 1.5^0}{0!} \\\\\n              &= \\frac{0.2231 \\times 1}{1} \\\\\n              &= \\mathbf{0.2231}\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#exercises",
+    "href": "Ch8.html#exercises",
+    "title": "7  Discrete Probability Distributions",
+    "section": "7.8 Exercises",
+    "text": "7.8 Exercises\n\n7.8.1 Understanding discrete random variables\n\nWhat is a discrete random variable?\nExplain the difference between a random outcome and a random variable.\nGive two examples of discrete random variables drawn from everyday life.\nProbability distributions\nA discrete random variable \\(X\\) takes values \\(x_1, x_2, \\dots, x_k\\) with probabilities \\(P(X=x_i)\\).\n\nWhat two conditions must a probability distribution satisfy?\n\nExplain in words why these conditions are necessary.\n\n\n\n\n\n7.8.2 Mean, variance, and transformations\n\nA simple distribution\nThe random variable \\(X\\) has the following distribution:\n\n\n\n\\(X\\)\n0\n1\n2\n3\n\n\n\n\n\\(P(X)\\)\n0.4\n0.3\n0.2\n0.1\n\n\n\n\nCompute \\(E[X]\\), \\(\\text{Var}(X)\\), and the standard deviation of \\(X\\).\n\nInterpret the mean of \\(X\\) in words.\n\nLinear transformations\nSuppose \\(Y = 3X + 2\\).\n\nUse the laws of expectation and variance to compute \\(E[Y]\\) and \\(\\text{Var}(Y)\\).\n\nFind the standard deviation of \\(Y\\).\n\nExplain why adding a constant affects the mean but not the variance.\n\n\n\n\n\n7.8.3 Joint distributions, independence, and correlation\n\nJoint distribution\nThe joint probability distribution of \\(X\\) and \\(Y\\) is given below:\n\n\n\n\n\\(Y=-1\\)\n\\(Y=0\\)\n\\(Y=1\\)\n\n\n\n\n\\(X=0\\)\n0.1\n0.1\n0.1\n\n\n\\(X=2\\)\n0.1\n0.2\n0.1\n\n\n\\(X=4\\)\n0.1\n0.1\n0.1\n\n\n\n\nCompute the marginal distributions of \\(X\\) and \\(Y\\).\n\nShow that \\(E[XY] = E[X]E[Y]\\).\n\nConclude that \\(X\\) and \\(Y\\) are uncorrelated.\n\nShow that \\(X\\) and \\(Y\\) are not independent.\n\nWhy does zero correlation not imply independence?\nAnother joint distribution\nThe joint distribution of \\(X\\) and \\(Y\\) is given by:\n\n\n\n\n\\(X=0\\)\n\\(X=1\\)\n\\(X=2\\)\n\n\n\n\n\\(Y=1\\)\n\\(1/6\\)\n\\(1/6\\)\n\\(1/6\\)\n\n\n\\(Y=-1\\)\n0\n\\(1/2\\)\n0\n\n\n\n\nCompute \\(E[X]\\) and \\(E[Y]\\).\n\nAre \\(X\\) and \\(Y\\) independent? Justify your answer.\n\nCompute \\(\\text{Cov}(X,Y)\\) and determine whether the variables are correlated.\n\n\n\n\n\n7.8.4 Counting and discrete probability models\n\nFamilies and children\nAssume that the probability of a boy equals the probability of a girl, and that births are independent.\n\nIn families with four children, what proportion have more girls than boys?\n\nList all relevant outcomes explicitly.\n\nComparing family sizes\nCouple A has three children.\nCouple B has five children.\n\nFor each couple, compute the probability that there are more girls than boys.\n\nIs the probability higher for couple A, couple B, or the same?\n\nExplain the intuition behind your result.\n\n\n\n\n\n7.8.5 Discrete distributions in practice\n\nGuessing on a multiple-choice exam\nA student randomly guesses on a 100-question multiple-choice test. Each question has four possible answers.\n\nWhat is the expected number of correct answers?\n\nWhat is the standard deviation?\n\nIf a student scores 35 out of 100, would you attribute this more to luck or skill? Explain briefly.\n\nWhich event has higher probability: scoring exactly 55%, or scoring more than 55%?\n\nArrivals at an urgent care center\nThe mean number of arrivals at an urgent care facility is 4 per hour.\n\n\nAssuming arrivals follow a Poisson process, what is the probability of exactly 2 arrivals in one hour?\n\nExplain why the Poisson distribution is appropriate in this context.\n\n\nWebsite traffic\nHits to a personal website occur randomly and independently, with an average of 4 hits per week.\n\n\nWhat is the probability of receiving 10 or more hits in one week?\n\nWhat is the probability of receiving 20 or more hits over two weeks?\n\n\nManufacturing defects\nFlaws in a carpet occur randomly at a rate of one per 300 square feet.\n\n\nWhat distribution is appropriate for modeling the number of flaws?\n\nWhat is the probability that an \\(8 \\times 10\\) foot carpet contains no flaws?\n\n\n\n\n7.8.6 Conceptual wrap-up\n\nBig picture\n\n\nHow do discrete probability distributions help us model uncertainty?\n\nWhy are expectations and variances central to economic analysis?\n\nGive one example from economics where a discrete random variable is more appropriate than a continuous one.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch8.html#footnotes",
+    "href": "Ch8.html#footnotes",
+    "title": "7  Discrete Probability Distributions",
+    "section": "",
+    "text": "The expected value is sometimes referred to as the population average; We will see later another definition of the expected value in later chpaters, as the “average” over infinite samples.↩︎\nIt is instructive to compare the expected value and variance rules with the summation rules.↩︎\nWe will introduce the concept of moments later. Essentially the mean and variance are the first moments and second central moments, respectively.\n\\[\n\\begin{array}{|c|c|c|c|}\n\\hline\n\\text{Order} & \\text{Raw Moment} & \\text{Central Moment} & \\text{Common Name} \\\\\n\\hline\n\\text{1st} & \\mu_1' = E[X] & \\mu_1 = E[X - E[X]] = 0 & \\text{Mean} \\\\\n\\hline\n\\text{2nd} & \\mu_2' = E[X^2] & \\mu_2 = E[(X - \\mu)^2] & \\text{Variance} \\\\\n\\hline\n\\text{3rd} & \\mu_3' & \\mu_3 = E[(X - \\mu)^3] & \\text{Skewness} \\\\\n\\hline\n\\text{4th} & \\mu_4' & \\mu_4 = E[(X - \\mu)^4] & \\text{Kurtosis} \\\\\n\\hline\n\\end{array}\n\\]↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch9.html",
+    "href": "Ch9.html",
+    "title": "8  Other Continuous Probability Distributions",
+    "section": "",
+    "text": "8.1 The Uniform Distribution\nIn contrast to a discrete random variable, a continuous random variable can assume an uncountable number of values.\nWe cannot list all possible values because there are infinitely many of them.\nBecause of this, the probability of any single value is essentially zero:\n\\[\nP(X = x) = 0.\n\\]\nInstead, we compute probabilities over intervals, such as\n\\[\nP(x_1 \\leq X \\leq x_2), \\quad x_1 &lt; x_2.\n\\]\nThis is why continuous random variables are described using a probability density function (p.d.f.), usually denoted \\(f(x)\\).\nFor a valid p.d.f. defined over \\(a \\leq x \\leq b\\), two properties must hold:\n\\[\n\\int_a^b f(x)\\,dx = 1.\n\\]\nThe uniform distribution (also called the rectangular distribution) is the simplest continuous distribution.\nIts probability density function is:\n\\[\nf(x) = \\frac{1}{b-a}, \\quad a \\leq x \\leq b.\n\\]\nOutside the interval \\([a,b]\\), \\(f(x) = 0\\).\nBecause the density is constant, probabilities are simply areas of rectangles.\nTo find\n\\[\nP(x_1 \\leq X \\leq x_2),\n\\]\ncompute:\n\\[\n\\text{Area} = (x_2 - x_1)\\cdot \\frac{1}{b-a}.\n\\]\nThe mean and variance of a uniform random variable are:\n\\[\nE(X) = \\frac{a+b}{2},\n\\]\n\\[\nVar(X) = \\frac{(b-a)^2}{12}.\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Other Continuous Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch9.html#the-uniform-distribution",
+    "href": "Ch9.html#the-uniform-distribution",
+    "title": "8  Other Continuous Probability Distributions",
+    "section": "",
+    "text": "ImportantKey intuition\n\n\n\nUnder a uniform distribution, all values in the interval are equally likely.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Other Continuous Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch9.html#the-exponential-distribution",
+    "href": "Ch9.html#the-exponential-distribution",
+    "title": "8  Other Continuous Probability Distributions",
+    "section": "8.2 The Exponential Distribution",
+    "text": "8.2 The Exponential Distribution\nAnother important continuous distribution is the exponential distribution.\nIts probability density function is:\n\\[\nf(x) = \\lambda e^{-\\lambda x}, \\quad x \\ge 0,\n\\]\nwhere:\n\n\\(e \\approx 2.71828\\)\n\\(\\lambda &gt; 0\\) is the rate parameter.\n\n\n\n\n\n\nThe exponential distribution is often used to model:\n\ntime until a job is found,\ntime until equipment fails,\nwaiting time between arrivals,\nlifetime of light bulbs,\nand other “time-to-event” phenomena.\n\n\n\n8.2.1 Mean and standard deviation\nA convenient property of the exponential distribution is:\n\\[\nE(X) = SD(X) = \\frac{1}{\\lambda},\n\\]\nThus, the mean and standard deviation are equal.\nSmaller values of \\(\\lambda\\) flatten the curve and increase the mean.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Other Continuous Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch9.html#cumulative-probabilities",
+    "href": "Ch9.html#cumulative-probabilities",
+    "title": "8  Other Continuous Probability Distributions",
+    "section": "8.3 Cumulative probabilities",
+    "text": "8.3 Cumulative probabilities\nUsing calculus, we can derive the cumulative distribution function:\n\\[\nP(X &gt; x) = e^{-\\lambda x}.\n\\]\nFrom this, it follows that:\n\\[\nP(X &lt; x) = 1 - e^{-\\lambda x}.\n\\]\nMore generally,\n\\[\nP(x_1 &lt; X &lt; x_2)\n= P(X &lt; x_2) - P(X &lt; x_1)\n= e^{-\\lambda x_1} - e^{-\\lambda x_2}.\n\\]\n\n\n\n\n\n\nNoteMemoryless property\n\n\n\nThe exponential distribution has a special feature called the memoryless property:\n\\[\nP(X &gt; s+t \\mid X &gt; s) = P(X &gt; t).\n\\]\nThe future waiting time does not depend on how long you have already waited.\n\n\n\n\n\n\n\n\n\nImportantChapter summary\n\n\n\nContinuous random variables differ from discrete ones because individual points have zero probability.\nIn this chapter, we introduced:\n\nthe general properties of probability density functions,\nthe uniform distribution,\nthe exponential distribution and its tractable probability formulas.\n\nThese distributions are widely used in economics, reliability analysis, and queueing theory.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Other Continuous Probability Distributions</span>"
+    ]
   }
 ]
