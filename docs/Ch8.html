@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Discrete Probability Distributions – Probability &amp; Statistics 101</title>
+<title>7&nbsp; Discrete Probability Distribution – Probability &amp; Statistics 101</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch8.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch8.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -184,13 +184,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Ch8.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Ch9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Other Continuous Probability Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uniform and Exponential Probability Distributions</span></span></a>
   </div>
 </li>
     </ul>
@@ -203,34 +209,32 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#tossing-a-fair-coin" id="toc-tossing-a-fair-coin" class="nav-link active" data-scroll-target="#tossing-a-fair-coin"><span class="header-section-number">7.0.1</span> Tossing a fair coin</a></li>
-  <li><a href="#the-discrete-random-variable" id="toc-the-discrete-random-variable" class="nav-link" data-scroll-target="#the-discrete-random-variable"><span class="header-section-number">7.1</span> The discrete random variable</a></li>
-  <li><a href="#the-mean-and-the-variance" id="toc-the-mean-and-the-variance" class="nav-link" data-scroll-target="#the-mean-and-the-variance"><span class="header-section-number">7.2</span> The mean and the variance</a></li>
-  <li><a href="#rules-of-expected-value-and-variance" id="toc-rules-of-expected-value-and-variance" class="nav-link" data-scroll-target="#rules-of-expected-value-and-variance"><span class="header-section-number">7.3</span> Rules of expected value and variance</a></li>
-  <li><a href="#discrete-bivariate-distributions" id="toc-discrete-bivariate-distributions" class="nav-link" data-scroll-target="#discrete-bivariate-distributions"><span class="header-section-number">7.4</span> Discrete bivariate distributions</a>
+  <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link active" data-scroll-target="#probability-distributions"><span class="header-section-number">7.1</span> Probability distributions</a></li>
+  <li><a href="#discrete-vs.-continuous-random-variables" id="toc-discrete-vs.-continuous-random-variables" class="nav-link" data-scroll-target="#discrete-vs.-continuous-random-variables"><span class="header-section-number">7.2</span> Discrete vs.&nbsp;continuous random variables</a></li>
+  <li><a href="#the-discrete-random-variable-an-example" id="toc-the-discrete-random-variable-an-example" class="nav-link" data-scroll-target="#the-discrete-random-variable-an-example"><span class="header-section-number">7.3</span> The discrete random variable: an example</a>
   <ul class="collapse">
-  <li><a href="#joint-and-marginal-probabilities" id="toc-joint-and-marginal-probabilities" class="nav-link" data-scroll-target="#joint-and-marginal-probabilities"><span class="header-section-number">7.4.1</span> Joint and marginal probabilities</a></li>
-  <li><a href="#covariance-of-two-discrete-variables" id="toc-covariance-of-two-discrete-variables" class="nav-link" data-scroll-target="#covariance-of-two-discrete-variables"><span class="header-section-number">7.4.2</span> Covariance of two discrete variables</a></li>
-  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">7.4.3</span> Correlation</a></li>
+  <li><a href="#example-tossing-a-coin-three-times" id="toc-example-tossing-a-coin-three-times" class="nav-link" data-scroll-target="#example-tossing-a-coin-three-times"><span class="header-section-number">7.3.1</span> Example: tossing a coin three times</a></li>
   </ul></li>
-  <li><a href="#the-binomial-formula" id="toc-the-binomial-formula" class="nav-link" data-scroll-target="#the-binomial-formula"><span class="header-section-number">7.5</span> The Binomial formula</a>
+  <li><a href="#visualizing-the-pmf-and-cdf" id="toc-visualizing-the-pmf-and-cdf" class="nav-link" data-scroll-target="#visualizing-the-pmf-and-cdf"><span class="header-section-number">7.4</span> Visualizing the PMF and CDF</a>
   <ul class="collapse">
-  <li><a href="#box-model-example" id="toc-box-model-example" class="nav-link" data-scroll-target="#box-model-example"><span class="header-section-number">7.5.1</span> Box Model Example</a></li>
-  <li><a href="#the-binomial-formula-1" id="toc-the-binomial-formula-1" class="nav-link" data-scroll-target="#the-binomial-formula-1"><span class="header-section-number">7.5.2</span> The Binomial Formula</a></li>
+  <li><a href="#pmf-a-probability-histogram" id="toc-pmf-a-probability-histogram" class="nav-link" data-scroll-target="#pmf-a-probability-histogram"><span class="header-section-number">7.4.1</span> PMF (a probability “histogram”)</a></li>
+  <li><a href="#cdf-cumulative-distribution-function" id="toc-cdf-cumulative-distribution-function" class="nav-link" data-scroll-target="#cdf-cumulative-distribution-function"><span class="header-section-number">7.4.2</span> CDF (cumulative distribution function)</a></li>
   </ul></li>
-  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="header-section-number">7.6</span> The Poisson distribution</a></li>
-  <li><a href="#the-poisson-formula" id="toc-the-poisson-formula" class="nav-link" data-scroll-target="#the-poisson-formula"><span class="header-section-number">7.7</span> The Poisson Formula</a>
+  <li><a href="#the-mean-and-the-variance" id="toc-the-mean-and-the-variance" class="nav-link" data-scroll-target="#the-mean-and-the-variance"><span class="header-section-number">7.5</span> The mean and the variance</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">7.6</span> Example</a></li>
+  <li><a href="#rules-of-expected-value-and-variance" id="toc-rules-of-expected-value-and-variance" class="nav-link" data-scroll-target="#rules-of-expected-value-and-variance"><span class="header-section-number">7.7</span> Rules of expected value and variance</a></li>
+  <li><a href="#discrete-bivariate-distributions" id="toc-discrete-bivariate-distributions" class="nav-link" data-scroll-target="#discrete-bivariate-distributions"><span class="header-section-number">7.8</span> Discrete bivariate distributions</a>
   <ul class="collapse">
-  <li><a href="#assumptions-of-the-poisson-process" id="toc-assumptions-of-the-poisson-process" class="nav-link" data-scroll-target="#assumptions-of-the-poisson-process"><span class="header-section-number">7.7.1</span> Assumptions of the Poisson Process</a></li>
+  <li><a href="#joint-and-marginal-probabilities" id="toc-joint-and-marginal-probabilities" class="nav-link" data-scroll-target="#joint-and-marginal-probabilities"><span class="header-section-number">7.8.1</span> Joint and marginal probabilities</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">7.8.2</span> Correlation</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.8</span> Exercises</a>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.9</span> Exercises</a>
   <ul class="collapse">
-  <li><a href="#understanding-discrete-random-variables" id="toc-understanding-discrete-random-variables" class="nav-link" data-scroll-target="#understanding-discrete-random-variables"><span class="header-section-number">7.8.1</span> Understanding discrete random variables</a></li>
-  <li><a href="#mean-variance-and-transformations" id="toc-mean-variance-and-transformations" class="nav-link" data-scroll-target="#mean-variance-and-transformations"><span class="header-section-number">7.8.2</span> Mean, variance, and transformations</a></li>
-  <li><a href="#joint-distributions-independence-and-correlation" id="toc-joint-distributions-independence-and-correlation" class="nav-link" data-scroll-target="#joint-distributions-independence-and-correlation"><span class="header-section-number">7.8.3</span> Joint distributions, independence, and correlation</a></li>
-  <li><a href="#counting-and-discrete-probability-models" id="toc-counting-and-discrete-probability-models" class="nav-link" data-scroll-target="#counting-and-discrete-probability-models"><span class="header-section-number">7.8.4</span> Counting and discrete probability models</a></li>
-  <li><a href="#discrete-distributions-in-practice" id="toc-discrete-distributions-in-practice" class="nav-link" data-scroll-target="#discrete-distributions-in-practice"><span class="header-section-number">7.8.5</span> Discrete distributions in practice</a></li>
-  <li><a href="#conceptual-wrap-up" id="toc-conceptual-wrap-up" class="nav-link" data-scroll-target="#conceptual-wrap-up"><span class="header-section-number">7.8.6</span> Conceptual wrap-up</a></li>
+  <li><a href="#understanding-discrete-random-variables" id="toc-understanding-discrete-random-variables" class="nav-link" data-scroll-target="#understanding-discrete-random-variables"><span class="header-section-number">7.9.1</span> Understanding discrete random variables</a></li>
+  <li><a href="#mean-and-variance" id="toc-mean-and-variance" class="nav-link" data-scroll-target="#mean-and-variance"><span class="header-section-number">7.9.2</span> Mean and variance</a></li>
+  <li><a href="#joint-distributions" id="toc-joint-distributions" class="nav-link" data-scroll-target="#joint-distributions"><span class="header-section-number">7.9.3</span> Joint distributions</a></li>
+  <li><a href="#counting-and-binomial-reasoning" id="toc-counting-and-binomial-reasoning" class="nav-link" data-scroll-target="#counting-and-binomial-reasoning"><span class="header-section-number">7.9.4</span> Counting and binomial reasoning</a></li>
+  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">7.9.5</span> Conceptual questions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -240,7 +244,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ch8" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></h1>
+<h1 class="title"><span id="ch8" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span></h1>
 </div>
 
 
@@ -257,103 +261,174 @@ window.Quarto = {
 </header>
 
 
-<p>We begin by defining a <strong>random variable</strong> as a function or rule that assigns a number to each outcome of an experiment. Instead of talking about the coin flipping event as {heads, tails}, for example, we can think of it as 1 and 0, what we often call an indicator variable. This is actually a numerical event which can be called ‘the number of heads when flipping a coin’.</p>
-<p>Formally, a random variable is defined as:</p>
-<p><span class="math display">\[
-X: \Omega \to \mathbb{R}
-\]</span> where <span class="math inline">\(\Omega\)</span> is the sample space (all possible outcomes of the experiment), <span class="math inline">\(X\)</span> is a measurable function that maps each outcome <span class="math inline">\(\omega \in \Omega\)</span> to a real number <span class="math inline">\(X(\omega)\)</span>.</p>
-<p>So, the experiment produces an outcome <span class="math inline">\(\omega\)</span>, and the random variable translates that outcome into a number. Hence one can view the random variables as a ‘bridge’”’ from experiment → numbers.</p>
-<p>The <strong>probability distribution</strong> is a listing of all possible outcomes of an experiment and the corresponding probability. Once we have a random variable <span class="math inline">\(X\)</span>, we can ask: how likely is each possible value of <span class="math inline">\(X\)</span>? That’s where the distribution comes in. It is the probability measure induced by <span class="math inline">\(X\)</span>:</p>
-<p><span class="math display">\[
-P_X(A)=P(\{\omega \in \Omega: X(\omega) \in A \})
-\]</span> where <span class="math inline">\(P\)</span> is the probability measure on the sample space, <span class="math inline">\(P_X\)</span> is the distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(A\)</span> is a set of real numbers (e.g., an interval).</p>
-<p>This tells us: the probability that <span class="math inline">\(X\)</span> takes values in <span class="math inline">\(A\)</span> is equal to the probability of all outcomes that map into <span class="math inline">\(A\)</span>. In pther words, a distribution is like a rulebook-it specifies the probabilities attached to those numbers, telling us the ‘laws’ governing randomness.</p>
-<section id="tossing-a-fair-coin" class="level3 callout-example" data-number="7.0.1">
-<h3 data-number="7.0.1" class="anchored" data-anchor-id="tossing-a-fair-coin"><span class="header-section-number">7.0.1</span> Tossing a fair coin</h3>
-<p>This approach shows that correlation:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Learning objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you should be able to:</p>
 <ul>
-<li>Sample space: <span class="math inline">\(\Omega =\)</span> {Heads, Tails}</li>
-<li>Random variable: <span class="math inline">\(X\)</span>(Heads) <span class="math inline">\(=1\)</span>, <span class="math inline">\(X\)</span>(Tails) <span class="math inline">\(=0\)</span><br>
+<li>explain what a <strong>random variable</strong> is (and why we use it),</li>
+<li>distinguish between <strong>discrete</strong> and <strong>continuous</strong> random variables,</li>
+<li>construct a <strong>probability mass function (PMF)</strong> from an experiment,</li>
+<li>compute <strong>expected value</strong> <span class="math inline">\(E(X)\)</span> and <strong>variance</strong> <span class="math inline">\(\mathrm{Var}(X)\)</span> from a PMF,</li>
+<li>use basic <strong>rules of expectation and variance</strong> for linear transformations,</li>
+<li>work with <strong>joint (bivariate) discrete distributions</strong>,</li>
+<li>compute <strong>marginal distributions</strong>, <strong>covariance</strong>, and <strong>correlation</strong> from a joint distribution.</li>
+</ul>
+</div>
+</div>
+<p>We begin by defining a <strong>random variable</strong> as a rule that assigns a number to each outcome of an experiment.</p>
+<p>Instead of describing a single coin toss as <span class="math inline">\(\{\text{Heads}, \text{Tails}\}\)</span>, for example, we can “translate” outcomes into numbers such as 1 and 0. That numerical description is often more convenient — because once outcomes are numbers, we can compute averages, spreads, and relationships.</p>
+<p>So a random variable is a bridge:</p>
+<p><strong>experiment <span class="math inline">\(\rightarrow\)</span> outcomes <span class="math inline">\(\rightarrow\)</span> numbers</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A light (but useful) formal definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random variable is a function <span class="math inline">\(X\)</span> that maps outcomes into real numbers:</p>
+<p><span class="math inline">\(X:\Omega \to \mathbb{R}\)</span></p>
+<p>Here <span class="math inline">\(\Omega\)</span> is the sample space (all possible outcomes).The experiment produces an outcome <span class="math inline">\(\omega \in \Omega\)</span>, and the random variable outputs the number <span class="math inline">\(X(\omega)\)</span>.</p>
+</div>
+</div>
+<section id="probability-distributions" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="probability-distributions"><span class="header-section-number">7.1</span> Probability distributions</h2>
+<p>Once we have a random variable <span class="math inline">\(X\)</span>, we can ask:</p>
+<p><strong>How likely is each possible value of <span class="math inline">\(X\)</span>?</strong></p>
+<p>A <strong>probability distribution</strong> answers this question by listing the possible values of <span class="math inline">\(X\)</span> and the probability attached to each one.</p>
+<p>Formally, if <span class="math inline">\(A\)</span> is a set of real numbers, the probability that <span class="math inline">\(X\)</span> falls in <span class="math inline">\(A\)</span> is</p>
+<p><span class="math inline">\(P_X(A) = P(\{\omega \in \Omega : X(\omega)\in A\})\)</span>.</p>
+<p>You do not need to memorize that expression. The idea is simple:</p>
+<blockquote class="blockquote">
+<p>The probability that <span class="math inline">\(X\)</span> lands in a set <span class="math inline">\(A\)</span> equals the probability of all outcomes that map into <span class="math inline">\(A\)</span>.</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Tossing a fair coin (as a random variable)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Sample space: <span class="math inline">\(\Omega = \{\text{Heads}, \text{Tails}\}\)</span><br>
+</li>
+<li>Random variable: <span class="math inline">\(X(\text{Heads}) = 1\)</span>, <span class="math inline">\(X(\text{Tails}) = 0\)</span><br>
 </li>
 <li>Distribution: <span class="math inline">\(P(X=1)=1/2\)</span>, <span class="math inline">\(P(X=0)=1/2\)</span></li>
 </ul>
+</div>
+</div>
 </section>
-<p>A discrete distribution is based on random variables which can assume only clearly separated values i.e.&nbsp;takes on only whole numbers like <span class="math inline">\(0, 1, 2, \dots\)</span> while a continuous distribution can assume an infinite number of values i.e.&nbsp;takes on any value on the Real line, within a given range. A useful analogy is “Integers are discrete, while Real Numbers are continuous”.</p>
+<section id="discrete-vs.-continuous-random-variables" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="discrete-vs.-continuous-random-variables"><span class="header-section-number">7.2</span> Discrete vs.&nbsp;continuous random variables</h2>
+<p>A <strong>discrete</strong> random variable takes values that are separated and countable (often whole numbers like <span class="math inline">\(0,1,2,\dots\)</span>).<br>
+A <strong>continuous</strong> random variable can take any value on an interval of the real line.</p>
+<p>A helpful analogy:</p>
+<ul>
+<li><strong>Integers are discrete</strong></li>
+<li><strong>Real numbers are continuous</strong></li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Discrete vs.&nbsp;Continious
+<span class="screen-reader-only">Important</span>Discrete vs.&nbsp;continuous
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>Discrete random variable:</strong> Distribution given by a probability mass function (PMF)</li>
+<li><strong>Discrete random variable:</strong> described by a <strong>probability mass function (PMF)</strong></li>
 </ul>
-<p><span class="math display">\[
-P(X=x_i) = p_i, \quad \sum_i p_i = 1
-\]</span> - <strong>Continuous random variable:</strong> Distribution given by a probability density function (PDF)</p>
-<p><span class="math display">\[
-P(a \leq X \leq b) = \int_a^b fx(dx), \quad \int_{-\infty}^{\infty} f(x)dx=1
-\]</span></p>
+<p><span class="math inline">\(P(X=x_i)=p_i,\quad p_i\ge 0,\quad \sum_i p_i = 1\)</span></p>
+<ul>
+<li><strong>Continuous random variable:</strong> described by a <strong>probability density function (PDF)</strong></li>
+</ul>
+<p><span class="math inline">\(P(a \le X \le b)=\int_a^b f(x)\,dx,\quad f(x)\ge 0,\quad \int_{-\infty}^{\infty} f(x)\,dx = 1\)</span></p>
 </div>
 </div>
-<section id="the-discrete-random-variable" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="the-discrete-random-variable"><span class="header-section-number">7.1</span> The discrete random variable</h2>
-<p>When dealing with univariate data, we have seen how the histogram together with its mean and standard deviation are a useful way to summarize data. In statistics, what in fact we are dealing with is a <strong>random variable</strong>, sometimes denoted <span class="math inline">\(r.v\)</span>, which is nothing more than a function or rule that assigns a number to each outcome of an experiment. And as we have already mentioned, the outcomes of a random variable can be described by a probability distribution, which are a listing of all possible outcomes of an experiment and their corresponding probabilities.</p>
-<p>Let us look at an example. This time, consider an experiment in which a coin is <strong>tossed three times</strong>. Let <span class="math inline">\(X\)</span> be a <span class="math inline">\(r.v\)</span> representing the <strong>number of heads in 3 tosses</strong>. The possible outcomes are:</p>
+<hr>
+</section>
+<section id="the-discrete-random-variable-an-example" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="the-discrete-random-variable-an-example"><span class="header-section-number">7.3</span> The discrete random variable: an example</h2>
+<p>In earlier chapters, we used histograms, means, and standard deviations to summarize <strong>data</strong>.</p>
+<p>In probability, we summarize <strong>random variables</strong> — and the key object is the <strong>probability distribution</strong>, which tells us how probabilities are allocated across possible outcomes.</p>
+<section id="example-tossing-a-coin-three-times" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="example-tossing-a-coin-three-times"><span class="header-section-number">7.3.1</span> Example: tossing a coin three times</h3>
+<p>Consider the experiment: <strong>toss a coin three times</strong>.<br>
+Let <span class="math inline">\(X\)</span> be the random variable “<strong>number of heads in 3 tosses</strong>.”</p>
+<p>The sample space has 8 equally likely outcomes. We can list outcomes and compute <span class="math inline">\(X\)</span>:</p>
 <div id="tbl-tosses" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tosses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.1: Outcomes of 3 tosses of a coin
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-tosses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.1
 </figcaption>
 <div aria-describedby="tbl-tosses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p><span class="math display">\[
 \begin{array}{|c|c|}
 \hline
-\text{Outcome} &amp; \text{No. of Heads} \\
+\text{Outcome} &amp; X = \text{No. of Heads} \\
 \hline
-\text{T T T} &amp; 0 \\
-\text{T T H} &amp; 1 \\
-\text{T H T} &amp; 1 \\
-\text{T H H} &amp; 2 \\
-\text{H T T} &amp; 1 \\
-\text{H H T} &amp; 2 \\
-\text{H T H} &amp; 2 \\
-\text{H H H} &amp; 3 \\
+TTT &amp; 0 \\
+TTH &amp; 1 \\
+THT &amp; 1 \\
+THH &amp; 2 \\
+HTT &amp; 1 \\
+HHT &amp; 2 \\
+HTH &amp; 2 \\
+HHH &amp; 3 \\
 \hline
 \end{array}
-\]</span></p>
+\]</span> Outcomes of 3 tosses of a coin</p>
 </div>
 </figure>
 </div>
-<p>Note we have 8 equally likely outcomes from which we can easily construct the probability distribution of <span class="math inline">\(X\)</span>, the number of heads in 3 tosses, as:</p>
+<p>From this we get the PMF (probability distribution) of <span class="math inline">\(X\)</span>:</p>
 <div id="tbl-prob-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prob-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.2: Probability distribution of 3 tosses of a coin
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-prob-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.2
 </figcaption>
 <div aria-describedby="tbl-prob-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p><span class="math display">\[
 \begin{array}{|c|c|}
 \hline
-X &amp; P(X) \\
+x &amp; P(X=x) \\
 \hline
-0 &amp; 1/8 \text{ or } 0.125 \\
-1 &amp; 3/8 \text{ or } 0.375 \\
-2 &amp; 3/8 \text{ or } 0.375 \\
-3 &amp; 1/8 \text{ or } 0.125 \\
+0 &amp; 1/8 = 0.125 \\
+1 &amp; 3/8 = 0.375 \\
+2 &amp; 3/8 = 0.375 \\
+3 &amp; 1/8 = 0.125 \\
 \hline
-\mathbf{\Sigma} &amp; \mathbf{1.000} \\
+\Sigma &amp; 1.000 \\
 \hline
 \end{array}
-\]</span></p>
+\]</span> Probability distribution of <span class="math inline">\(X\)</span> = number of heads in 3 tosses</p>
 </div>
 </figure>
 </div>
-<p>The probability distribution, sometimes also referred to as the probability function, is in fact a histogram which looks as follows:</p>
+<hr>
+</section>
+</section>
+<section id="visualizing-the-pmf-and-cdf" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="visualizing-the-pmf-and-cdf"><span class="header-section-number">7.4</span> Visualizing the PMF and CDF</h2>
+<section id="pmf-a-probability-histogram" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="pmf-a-probability-histogram"><span class="header-section-number">7.4.1</span> PMF (a probability “histogram”)</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -363,30 +438,53 @@ X &amp; P(X) \\
 </div>
 </div>
 </div>
-<p>The corresponding <strong>cumulative probability distribution</strong> can be drawn as:</p>
+</section>
+<section id="cdf-cumulative-distribution-function" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="cdf-cumulative-distribution-function"><span class="header-section-number">7.4.2</span> CDF (cumulative distribution function)</h3>
+<p>The CDF tells us <span class="math inline">\(P(X\le x)\)</span> — the probability that the random variable is at most <span class="math inline">\(x\)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Ch8_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Ch8_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="the-mean-and-the-variance" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="the-mean-and-the-variance"><span class="header-section-number">7.2</span> The mean and the variance</h2>
+</section>
+<section id="the-mean-and-the-variance" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="the-mean-and-the-variance"><span class="header-section-number">7.5</span> The mean and the variance</h2>
 <p>Apart from drawing the probability distribution or histograms, we have seen that numerical summaries such as the mean and variance are useful.</p>
 <p>The mean is the long-run average value of a random variable, which is also referred to as its expected value, denoted <span class="math inline">\(E(X)\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><span id="eq-expected-value"><span class="math display">\[
-E(X) = \mu = \sum_{i=1}^{n} X_i P(X_i)
+E(X) = \mu = \sum_{i=1}^{n} P(X_i) X_i
 \tag{7.1}\]</span></span></p>
 <p>The variance which measures the spread or variation of the distribution is defined as:</p>
 <p><span id="eq-variance"><span class="math display">\[
-Var(X) = \sigma^2 = \sum_{i=1}^{n} (X_i- {\overline X})^2 P(X_i)
+Var(X) = \sigma^2 = \sum_{i=1}^{n} P(X_i) (X_i- {\overline X})^2
 \tag{7.2}\]</span></span></p>
 <p>To get the standard deviation, simply calculate the square root of the variance.</p>
-<p>Let’s see this with the example above which defines the random variable <span class="math inline">\(X\)</span> as the number of heads in 3 tosses.</p>
+<p>It is easy to see that the formulas for expected value and variance are structurally identical—they are both <strong>weighted averages</strong>–to the “usual” formulas for mean and variance in previous chapters. The only difference is what weights are used.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A key viewpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both <span class="math inline">\(E(X)\)</span> and <span class="math inline">\(\mathrm{Var}(X)\)</span> are weighted averages.</p>
+<p>In samples, each observation often has equal weight <span class="math inline">\(1/n\)</span>.</p>
+<p>In probability models, values are weighted by their probabilities.</p>
+</div>
+</div>
+</section>
+<section id="example" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="example"><span class="header-section-number">7.6</span> Example</h2>
+<p>Let’s apply the expected value and variance formulas with the example above which defines the random variable <span class="math inline">\(X\)</span> as the number of heads in 3 tosses.</p>
 <p>To compute the mean, use <a href="#eq-expected-value" class="quarto-xref">Equation&nbsp;<span>7.1</span></a>, shown in the table below–summing the last column of the table gives <span class="math inline">\(\mu = 1.5\)</span>.</p>
 <div id="tbl-mean" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -437,8 +535,8 @@ X &amp; P(X) &amp; (X_i - \mu) &amp; (X_i - \mu)^2 \cdot P(X) \\
 </div>
 <p>Careful, we have the variance <span class="math inline">\(=0.75\)</span>, hence the standard deviation <span class="math inline">\(\sigma = \sqrt{0.75}\)</span> which is about <span class="math inline">\(0.8667\)</span>.</p>
 </section>
-<section id="rules-of-expected-value-and-variance" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="rules-of-expected-value-and-variance"><span class="header-section-number">7.3</span> Rules of expected value and variance</h2>
+<section id="rules-of-expected-value-and-variance" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="rules-of-expected-value-and-variance"><span class="header-section-number">7.7</span> Rules of expected value and variance</h2>
 <p>Let us introduce some basic rules of expected value and variance. Firstly, for <strong>expected value</strong>, we have:</p>
 <p><strong>Rule E1</strong> <span class="math display">\[E(k)=k\]</span> <strong>Rule E2</strong> <span class="math display">\[E(X+k)=E(X)+k\]</span></p>
 <p><strong>Rule E3</strong> <span class="math display">\[E(kX)=kE(X)\]</span></p>
@@ -487,262 +585,160 @@ V(\text{Profit}) &amp;= V[0.30(\text{Sales}) - 6,000] \\
 </div>
 </div>
 </section>
-<section id="discrete-bivariate-distributions" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="discrete-bivariate-distributions"><span class="header-section-number">7.4</span> Discrete bivariate distributions</h2>
+<section id="discrete-bivariate-distributions" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="discrete-bivariate-distributions"><span class="header-section-number">7.8</span> Discrete bivariate distributions</h2>
 <p>So far, we have focused on <strong>univariate distributions</strong>. We now extend these ideas to <strong>bivariate probability distributions</strong>, which arise from <strong>joint probabilities</strong>.</p>
 <p>A <strong>joint probability distribution</strong> of two discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is a table or formula that lists the joint probabilities for all pairs of values <span class="math inline">\((x, y)\)</span>. It is denoted by <span class="math inline">\(P(X,Y)\)</span> or, equivalently, <span class="math inline">\(P(X = x \text{ and } Y = y)\)</span>.</p>
 <p>As we would expect, joint probabilities satisfy the following basic properties:</p>
 <p><span class="math inline">\(0 \le P(X,Y) \le 1\)</span></p>
 <p>and</p>
 <p><span class="math inline">\(\sum_x \sum_y P(X,Y) = 1\)</span>.</p>
-<section id="joint-and-marginal-probabilities" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="joint-and-marginal-probabilities"><span class="header-section-number">7.4.1</span> Joint and marginal probabilities</h3>
-<p>We have already encountered an example of a bivariate probability distribution in the previous chapter. That example involved a survey of university graduates working as CEOs and whether they were <strong>GA graduates</strong>.</p>
-<p>The corresponding <strong>joint</strong> and <strong>marginal</strong> distributions are summarized in the table below.</p>
+<section id="joint-and-marginal-probabilities" class="level3" data-number="7.8.1">
+<h3 data-number="7.8.1" class="anchored" data-anchor-id="joint-and-marginal-probabilities"><span class="header-section-number">7.8.1</span> Joint and marginal probabilities</h3>
+<p>Let’s take an example. Xavier and Yvette are real estate agents; Let’s use X and Y to denote the number of houses each sells in a month, respectively. The following joint probabilities are based on past sales performance.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 20%">
-<col style="width: 32%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
 <th></th>
-<th>Becomes CEO</th>
-<th>Does not becomes CEO</th>
-<th><strong>Total</strong></th>
+<th><strong>x=0</strong></th>
+<th><strong>x=1</strong></th>
+<th><strong>x=2</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>GA graduate</strong></td>
-<td><span class="math inline">\(P(A_1 B_1)=0.11\)</span></td>
-<td><span class="math inline">\(P(A_1 B_2)=0.29\)</span></td>
-<td><span class="math inline">\(P(A_1)=0.40\)</span></td>
+<td><strong>Y=0</strong></td>
+<td>0.12</td>
+<td>0.42</td>
+<td>0.06</td>
 </tr>
 <tr class="even">
-<td><strong>Not GA graduate</strong></td>
-<td><span class="math inline">\(P(A_2 B_1)=0.06\)</span></td>
-<td><span class="math inline">\(P(A_2 B_2)=0.54\)</span></td>
-<td><span class="math inline">\(P(A_2)=0.60\)</span></td>
+<td><strong>Y=1</strong></td>
+<td>0.21</td>
+<td>0.06</td>
+<td>0.03</td>
 </tr>
 <tr class="odd">
-<td><strong>Total</strong></td>
-<td><span class="math inline">\(P(B_1)=0.17\)</span></td>
-<td><span class="math inline">\(P(B_2)=0.83\)</span></td>
-<td><span class="math inline">\(1.00\)</span></td>
+<td><strong>Y=2</strong></td>
+<td>0.07</td>
+<td>0.02</td>
+<td>0.01</td>
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(A_1\)</span> is the event that the individual is a GA graduate, or <span class="math inline">\(A_2\)</span> otherwise.<br>
-<span class="math inline">\(B_1\)</span> is the event that the individual becomes a CEO, or <span class="math inline">\(B_2\)</span> otherwise.</p>
-<p>The <strong>marginal probabilities</strong> are obtained by summing the joint probabilities across rows or down columns. They describe the probabilities of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> <strong>individually</strong>, ignoring the other variable.</p>
-<p>Using marginal probabilities, we can compute the <strong>mean</strong>, <strong>variance</strong>, and <strong>standard deviation</strong> of each variable in a bivariate distribution.</p>
-<section id="marginal-distribution-of-a" class="level4" data-number="7.4.1.1">
-<h4 data-number="7.4.1.1" class="anchored" data-anchor-id="marginal-distribution-of-a"><span class="header-section-number">7.4.1.1</span> Marginal distribution of <span class="math inline">\(A\)</span></h4>
-<div id="tbl-marginal-A" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-marginal-A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.5: Marginal Distribution of Event A
-</figcaption>
-<div aria-describedby="tbl-marginal-A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><span class="math display">\[
-\begin{array}{|c|c|}
-\hline
-A &amp; P(A) \\
-\hline
-1 &amp; 0.40 \\
-0 &amp; 0.60 \\
-\hline
-\end{array}
-\]</span></p>
+<section id="marginal-distribution" class="level4" data-number="7.8.1.1">
+<h4 data-number="7.8.1.1" class="anchored" data-anchor-id="marginal-distribution"><span class="header-section-number">7.8.1.1</span> Marginal distribution</h4>
+<p>The <strong>marginal probabilities</strong> are obtained by summing the joint probabilities across rows or down the columns. They describe the probabilities of <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> <em>individually</em>, ignoring the other variable.</p>
+<div id="fig-marginal-probability" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-marginal-probability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch8/joint-example.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marginal-probability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Marginal Distribution
+</figcaption>
 </figure>
 </div>
-<p>Using the expectation <a href="#eq-expected-value" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> and variance <a href="#eq-variance" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> formulas introduced earlier:</p>
-<ul>
-<li><span class="math inline">\(E(A) = 0.40\)</span></li>
-<li><span class="math inline">\(Var(A) = 0.24\)</span></li>
-<li><span class="math inline">\(SD(A) \approx 0.49\)</span></li>
-</ul>
-</section>
-<section id="marginal-distribution-of-b" class="level4" data-number="7.4.1.2">
-<h4 data-number="7.4.1.2" class="anchored" data-anchor-id="marginal-distribution-of-b"><span class="header-section-number">7.4.1.2</span> Marginal distribution of <span class="math inline">\(B\)</span></h4>
-<p>Similarly, let <span class="math inline">\(B\)</span> be an indicator variable that equals 1 if an individual becomes a CEO and 0 otherwise. The marginal distribution of <span class="math inline">\(B\)</span> is:</p>
-<div id="tbl-marginal-B" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-marginal-B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.6: Marginal Distribution of B
-</figcaption>
-<div aria-describedby="tbl-marginal-B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><span class="math display">\[
-\begin{array}{|c|c|}
-\hline
-B &amp; P(B) \\
-\hline
-1 &amp; 0.17 \\
-0 &amp; 0.83 \\
-\hline
-\end{array}
-\]</span></p>
-</div>
-</figure>
-</div>
-<p>The corresponding <strong>moments</strong> are:<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<ul>
-<li><span class="math inline">\(E(B) = 0.17\)</span></li>
-<li><span class="math inline">\(Var(B) \approx 0.14\)</span></li>
-<li><span class="math inline">\(SD(B) \approx 0.38\)</span></li>
-</ul>
+<p>Then using these marginal probabilities, we can compute the <strong>mean</strong>, and <strong>variance</strong> of each variable in a bivariate distribution by <a href="#eq-expected-value" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> and <a href="#eq-variance" class="quarto-xref">Equation&nbsp;<span>7.2</span></a>.</p>
+<p>Check that you get <span class="math inline">\(E(X)=0.7\)</span> and <span class="math inline">\(E(Y)=0.6\)</span>, respectively. How about the variances and standard deviations?<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<hr>
 </section>
 </section>
-<section id="covariance-of-two-discrete-variables" class="level3" data-number="7.4.2">
-<h3 data-number="7.4.2" class="anchored" data-anchor-id="covariance-of-two-discrete-variables"><span class="header-section-number">7.4.2</span> Covariance of two discrete variables</h3>
-<p>We have already seen that the <strong>covariance</strong> between two discrete random variables <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is defined as</p>
-<p><span id="eq-covariance"><span class="math display">\[
-Cov(A,B) = \sum_A \sum_B (A - \overline{A})(B - \overline{B}) P(A,B)
-\tag{7.3}\]</span></span></p>
-<p>Continuing with the GA–CEO example, the covariance by <a href="#eq-covariance" class="quarto-xref">Equation&nbsp;<span>7.3</span></a> between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is approximately</p>
-<p><span class="math inline">\(Cov(A,B) = 0.042\)</span>.</p>
-</section>
-<section id="correlation" class="level3" data-number="7.4.3">
-<h3 data-number="7.4.3" class="anchored" data-anchor-id="correlation"><span class="header-section-number">7.4.3</span> Correlation</h3>
+<section id="correlation" class="level3" data-number="7.8.2">
+<h3 data-number="7.8.2" class="anchored" data-anchor-id="correlation"><span class="header-section-number">7.8.2</span> Correlation</h3>
 <p>The <strong>correlation coefficient</strong> is obtained by dividing the covariance by the product of the standard deviations:</p>
 <p><span class="math display">\[
-\text{Corr}(A,B) = \dfrac{\text{Covariance}(A,B)}{SD_A \, SD_B}
-\]</span> For this example, the correlation coefficient <span class="math inline">\(r \approx 0.23\)</span>.</p>
-<p>We therefore conclude that there is a <em>weak</em> <strong>positive relationship</strong> between a GA graduate and becoming a CEO.</p>
-</section>
-</section>
-<section id="the-binomial-formula" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="the-binomial-formula"><span class="header-section-number">7.5</span> The Binomial formula</h2>
-<p>We have seen the multiplication and addition rules of probability. Roughly speaking, these rules help us solve “and” and “or” problems. Sometimes, however, we might wish to solve “exact” problems, for example:</p>
-<ol type="1">
-<li>A coin is tossed 4 times. What is the chance of getting exactly one head?</li>
-<li>A die is rolled 10 times. What is the chance of getting exactly 3 Aces?</li>
-<li>A box contains one red marble and nine green ones. Five draws are made at random with replacement. What is the chance that exactly two draws will be red?</li>
-</ol>
-<p>It is with such problems that the binomial formula can be very helpful.</p>
-<section id="box-model-example" class="level3" data-number="7.5.1">
-<h3 data-number="7.5.1" class="anchored" data-anchor-id="box-model-example"><span class="header-section-number">7.5.1</span> Box Model Example</h3>
-<p>Let’s look more closely at the last example above. We might start with a box model:</p>
-<div id="fig-r-g" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-r-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch8/r-g.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+\text{Corr}(X,Y) = \dfrac{\text{Covariance}(X,Y)}{SD_X \, SD_Y}
+\]</span></p>
+<p>Let’s try finding the correlation of Xavier and Yvette.</p>
+<section id="covariance-of-two-discrete-variables" class="level4" data-number="7.8.2.1">
+<h4 data-number="7.8.2.1" class="anchored" data-anchor-id="covariance-of-two-discrete-variables"><span class="header-section-number">7.8.2.1</span> Covariance of two discrete variables</h4>
+<p>Starting from the <strong>covariance</strong> between two discrete random variables defined as</p>
+<p><span id="eq-covariance"><span class="math display">\[
+Cov(X,Y) = P(X,Y) \sum_X \sum_Y (X - \overline{X})(Y - \overline{Y})
+\tag{7.3}\]</span></span></p>
+<p>or an alternative shorter formula is: <span class="math display">\[
+Cov(X, Y) = \sum_x \sum_y XY P(X, Y) - \overline{XY}
+\]</span></p>
+<p>Try showing that the two equations are in fact the same.</p>
+<p>Operationalizing <a href="#eq-covariance" class="quarto-xref">Equation&nbsp;<span>7.3</span></a> gives</p>
+<p><span class="math display">\[
+\text{Covariance}(X,Y) = (0–.7)(0–.5)(.12) + (1–.7)(0-.5)(.42) + \dots + (2–.7)(2–.5)(.01) = –0.15
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: Box Model
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Covariance and correlation
 </div>
-<p>From the above, we draw 5 tickets at random with replacement. But we want exactly 2 R’s and 3 G’s (e.g., <span class="math inline">\(\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}\)</span> or <span class="math inline">\(\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}\)</span>, etc.). The exact probability can be found using 3 simple steps:</p>
-<p><strong>1) Find all the possible ways:</strong> <span class="math display">\[
-\frac{5!}{2! \times 3!} = \frac{\text{total cases}}{\text{no. of successes} \times \text{no. of failures}}
+</div>
+<div class="callout-body-container callout-body">
+<p>Covariance measures whether <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> tend to move together, while the <strong>correlation</strong> coefficient rescales covariance into a unit-free number:</p>
+<p><span class="math display">\[
+\mathrm{Corr}(X,Y)=\dfrac{\mathrm{Cov}(X,Y)}{\mathrm{SD}_X \mathrm{SD}_Y}
+\]</span>.</p>
+<p>Correlation is always between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+<p>And finally, we get:</p>
+<p><span class="math display">\[
+\text{Corr} (X,Y) = \dfrac{-0.15}{0.64 \times 0.67} \approx -0.35
 \]</span></p>
-<p><strong>2) Calculate the chance of each:</strong> <span class="math display">\[
-\frac{1}{10} \times \frac{1}{10} \times \frac{9}{10} \times \frac{9}{10} \times \frac{9}{10} = \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3
-\]</span></p>
-<p><strong>3) Use the addition rule to add up the chances:</strong> <span class="math display">\[
-\frac{5!}{2! \times 3!} \times \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3 \approx 7\%
-\]</span></p>
-<p>This can be interpreted as the chance of getting exactly 2 <span class="math inline">\(\fbox{R}\)</span>’s.</p>
-<p>Note that <strong>step 1</strong> is actually the <em>binomial coefficient</em>, which gives us the total number of combinations of arranging 2 R’s and 3 G’s. In <strong>step 2</strong>, the chance of getting <span class="math inline">\(\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}\)</span> is the same as getting <span class="math inline">\(\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}\)</span>, and so on. Lastly, <strong>step 3</strong> involves the addition rules as all events are mutually exclusive (disjoint).</p>
-</section>
-<section id="the-binomial-formula-1" class="level3" data-number="7.5.2">
-<h3 data-number="7.5.2" class="anchored" data-anchor-id="the-binomial-formula-1"><span class="header-section-number">7.5.2</span> The Binomial Formula</h3>
+<p>A negative correlation meaning when Xavier does well, Yvette doesn’t (and vice-versa).</p>
+<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>The Binomial Formula
+<span class="screen-reader-only">Important</span>Chapter Summary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The chance that an event will occur exactly <span class="math inline">\(k\)</span> times out of <span class="math inline">\(n\)</span> trials is given by</p>
-<p><span id="eq-binomial"><span class="math display">\[
-P(X=k) = \frac{n!}{k!(n-k)!}p^k (1-p)^{n-k}, \text{ for } k = 0,1,\dots,n
-\tag{7.4}\]</span></span></p>
-<p>Where: - <span class="math inline">\(n\)</span> is the number of trials. - <span class="math inline">\(k\)</span> is the number of times the event of interest is to occur. - <span class="math inline">\(p\)</span> is the probability that the event of interest will occur on any particular trial.</p>
+<p>In this chapter, we introduced a <strong>random variable</strong> as a rule that assigns numbers to the outcomes of a random experiment, allowing us to analyze uncertainty mathematically.</p>
+<p>A <strong>discrete probability distribution</strong> describes how probabilities are assigned to distinct values through a <strong>probability mass function (PMF)</strong>. These probabilities must be nonnegative and sum to one.</p>
+<p>We defined the <strong>expected value</strong> and <strong>variance</strong> as probability-weighted summaries of the distribution. The expected value represents the long-run average, while the variance measures dispersion around the mean.</p>
+<p>Extending these ideas to two variables, we studied <strong>joint distributions</strong>, from which marginal distributions can be derived. Finally, we introduced <strong>covariance</strong> and <strong>correlation</strong> to measure the direction and strength of linear association between discrete random variables.</p>
 </div>
 </div>
-<p><strong>Three conditions must hold for the binomial formula to be valid:</strong></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.9</span> Exercises</h2>
+<section id="understanding-discrete-random-variables" class="level3" data-number="7.9.1">
+<h3 data-number="7.9.1" class="anchored" data-anchor-id="understanding-discrete-random-variables"><span class="header-section-number">7.9.1</span> Understanding discrete random variables</h3>
 <ol type="1">
-<li>The value of <span class="math inline">\(n\)</span> must be fixed in advance.<br>
-</li>
-<li><span class="math inline">\(p\)</span> must be the same from trial to trial.<br>
-</li>
-<li>The trials must be independent of each other.</li>
+<li><strong>Random variables</strong></li>
 </ol>
-<p><strong>Quick Example</strong></p>
-<p>To find the chance of getting exactly 2 aces in 10 rolls of a die:</p>
-<p><span class="math display">\[
-P(X=2) = \frac{10!}{2!8!}\left( \frac{1}{6} \right)^2 \left(\frac{5}{6} \right)^8 \approx 0.2907
-\]</span></p>
-</section>
-</section>
-<section id="the-poisson-distribution" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="the-poisson-distribution"><span class="header-section-number">7.6</span> The Poisson distribution</h2>
-<p>The Poisson random variable is a discrete random variable that typically fits cases of rare events that occur over a fixed amount of time or within a specified space or region. Typical cases are, for example:</p>
-<ul>
-<li>The number of customers entering a service station per hour.</li>
-<li>The number of errors a typist makes per page.</li>
-<li>The number of telephone calls received by a switchboard per hour.</li>
-</ul>
-</section>
-<section id="the-poisson-formula" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="the-poisson-formula"><span class="header-section-number">7.7</span> The Poisson Formula</h2>
-<p>The Poisson probability distribution is given by:</p>
-<p><span id="eq-poisson"><span class="math display">\[
-P(X=x) = f(x) = \frac{e^{-\mu} \mu^x}{x!}
-\tag{7.5}\]</span></span></p>
-<p>Where: - <span class="math inline">\(\mu\)</span> is the average number of successes in a particular interval of time or space. - <span class="math inline">\(e\)</span> is the constant <span class="math inline">\(\approx 2.71828\dots\)</span> - <span class="math inline">\(x\)</span> is the number of successes.^[Take care of notation here. We have introduced <span class="math inline">\(f(x)\)</span>: the small “<span class="math inline">\(f\)</span>” represents a probability density function.</p>
-<p>Correspondingly, a large “<span class="math inline">\(F\)</span>”, say, <span class="math inline">\(F(x)\)</span>, would refer to the cumulative probability function. This should be distinguished from the large “<span class="math inline">\(P\)</span>” we have been using, which stands for probability.]</p>
-<section id="assumptions-of-the-poisson-process" class="level3" data-number="7.7.1">
-<h3 data-number="7.7.1" class="anchored" data-anchor-id="assumptions-of-the-poisson-process"><span class="header-section-number">7.7.1</span> Assumptions of the Poisson Process</h3>
-<p>For the Poisson formula to be valid, the following conditions must be met:</p>
-<ol type="1">
-<li><strong>Independence</strong>: The number of successes that occur in one time interval should be independent of the number of successes in another interval.</li>
-<li><strong>Proportionality</strong>: The probability of a success in a certain interval should be the same for all intervals of the same size and proportional to the length of the interval.</li>
-<li><strong>Simultaneity</strong>: The probability that two or more successes will occur in an interval approaches zero as the interval becomes smaller and smaller.</li>
-</ol>
-<p><strong>Example: Typographical Errors</strong></p>
-<p>Assume that the number of typographical errors in a new edition of a textbook follows a Poisson distribution with a mean of <strong>1.5 per 100 pages</strong>. If 100 pages are randomly selected, what is the probability that there are no typos (<span class="math inline">\(X=0\)</span>)?</p>
-<p><span class="math display">\[
-\begin{aligned}
-P(X=0) = f(0) &amp;= \frac{e^{-1.5} 1.5^0}{0!} \\
-              &amp;= \frac{0.2231 \times 1}{1} \\
-              &amp;= \mathbf{0.2231}
-\end{aligned}
-\]</span></p>
-</section>
-</section>
-<section id="exercises" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.8</span> Exercises</h2>
-<section id="understanding-discrete-random-variables" class="level3" data-number="7.8.1">
-<h3 data-number="7.8.1" class="anchored" data-anchor-id="understanding-discrete-random-variables"><span class="header-section-number">7.8.1</span> Understanding discrete random variables</h3>
-<ol type="1">
-<li><p><strong>What is a discrete random variable?</strong><br>
-Explain the difference between a <em>random outcome</em> and a <em>random variable</em>.<br>
-Give two examples of discrete random variables drawn from everyday life.</p></li>
-<li><p><strong>Probability distributions</strong><br>
-A discrete random variable <span class="math inline">\(X\)</span> takes values <span class="math inline">\(x_1, x_2, \dots, x_k\)</span> with probabilities <span class="math inline">\(P(X=x_i)\)</span>.</p>
 <ol type="a">
-<li>What two conditions must a probability distribution satisfy?<br>
+<li>What is a discrete random variable?<br>
+</li>
+<li>Explain the difference between a <em>random outcome</em> and a <em>random variable</em>.<br>
+</li>
+<li>Give two real-world examples of discrete random variables.</li>
+</ol>
+<ol start="2" type="1">
+<li><strong>Probability distributions</strong></li>
+</ol>
+<p>A discrete random variable <span class="math inline">\(X\)</span> takes values <span class="math inline">\(x_1, x_2, \dots, x_k\)</span> with probabilities <span class="math inline">\(P(X=x_i)\)</span>.</p>
+<ol type="a">
+<li>State the two conditions a probability distribution must satisfy.<br>
 </li>
 <li>Explain in words why these conditions are necessary.</li>
-</ol></li>
 </ol>
 <hr>
 </section>
-<section id="mean-variance-and-transformations" class="level3" data-number="7.8.2">
-<h3 data-number="7.8.2" class="anchored" data-anchor-id="mean-variance-and-transformations"><span class="header-section-number">7.8.2</span> Mean, variance, and transformations</h3>
+<section id="mean-and-variance" class="level3" data-number="7.9.2">
+<h3 data-number="7.9.2" class="anchored" data-anchor-id="mean-and-variance"><span class="header-section-number">7.9.2</span> Mean and variance</h3>
 <ol start="3" type="1">
-<li><p><strong>A simple distribution</strong><br>
-The random variable <span class="math inline">\(X\)</span> has the following distribution:</p>
+<li><strong>Computing moments</strong></li>
+</ol>
+<p>The random variable <span class="math inline">\(X\)</span> has the following distribution:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -764,27 +760,35 @@ The random variable <span class="math inline">\(X\)</span> has the following dis
 </tbody>
 </table>
 <ol type="a">
-<li>Compute <span class="math inline">\(E[X]\)</span>, <span class="math inline">\(\text{Var}(X)\)</span>, and the standard deviation of <span class="math inline">\(X\)</span>.<br>
+<li>Compute <span class="math inline">\(E[X]\)</span>.<br>
 </li>
-<li>Interpret the mean of <span class="math inline">\(X\)</span> in words.</li>
-</ol></li>
-<li><p><strong>Linear transformations</strong><br>
-Suppose <span class="math inline">\(Y = 3X + 2\)</span>.</p>
+<li>Compute <span class="math inline">\(\text{Var}(X)\)</span>.<br>
+</li>
+<li>Compute the standard deviation of <span class="math inline">\(X\)</span>.<br>
+</li>
+<li>Interpret the expected value in words.</li>
+</ol>
+<ol start="4" type="1">
+<li><strong>Linear transformations</strong></li>
+</ol>
+<p>Let <span class="math inline">\(Y = 3X + 2\)</span>.</p>
 <ol type="a">
-<li>Use the laws of expectation and variance to compute <span class="math inline">\(E[Y]\)</span> and <span class="math inline">\(\text{Var}(Y)\)</span>.<br>
+<li>Compute <span class="math inline">\(E[Y]\)</span>.<br>
+</li>
+<li>Compute <span class="math inline">\(\text{Var}(Y)\)</span>.<br>
 </li>
 <li>Find the standard deviation of <span class="math inline">\(Y\)</span>.<br>
 </li>
 <li>Explain why adding a constant affects the mean but not the variance.</li>
-</ol></li>
 </ol>
 <hr>
 </section>
-<section id="joint-distributions-independence-and-correlation" class="level3" data-number="7.8.3">
-<h3 data-number="7.8.3" class="anchored" data-anchor-id="joint-distributions-independence-and-correlation"><span class="header-section-number">7.8.3</span> Joint distributions, independence, and correlation</h3>
+<section id="joint-distributions" class="level3" data-number="7.9.3">
+<h3 data-number="7.9.3" class="anchored" data-anchor-id="joint-distributions"><span class="header-section-number">7.9.3</span> Joint distributions</h3>
 <ol start="5" type="1">
-<li><p><strong>Joint distribution</strong><br>
-The joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given below:</p>
+<li><strong>Marginal distributions</strong></li>
+</ol>
+<p>The joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -816,127 +820,64 @@ The joint probability distribution of <span class="math inline">\(X\)</span> and
 </tbody>
 </table>
 <ol type="a">
-<li>Compute the marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.<br>
+<li>Compute the marginal distribution of <span class="math inline">\(X\)</span>.<br>
 </li>
-<li>Show that <span class="math inline">\(E[XY] = E[X]E[Y]\)</span>.<br>
+<li>Compute the marginal distribution of <span class="math inline">\(Y\)</span>.<br>
 </li>
-<li>Conclude that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are uncorrelated.<br>
-</li>
-<li>Show that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>not independent</strong>.</li>
+<li>Compute <span class="math inline">\(E[X]\)</span> and <span class="math inline">\(E[Y]\)</span>.</li>
 </ol>
-<p><em>Why does zero correlation not imply independence?</em></p></li>
-<li><p><strong>Another joint distribution</strong><br>
-The joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><span class="math inline">\(X=0\)</span></th>
-<th><span class="math inline">\(X=1\)</span></th>
-<th><span class="math inline">\(X=2\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(Y=1\)</span></td>
-<td><span class="math inline">\(1/6\)</span></td>
-<td><span class="math inline">\(1/6\)</span></td>
-<td><span class="math inline">\(1/6\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(Y=-1\)</span></td>
-<td>0</td>
-<td><span class="math inline">\(1/2\)</span></td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
+<ol start="6" type="1">
+<li><strong>Independence and correlation</strong></li>
+</ol>
+<p>Using the table in Question 5:</p>
 <ol type="a">
-<li>Compute <span class="math inline">\(E[X]\)</span> and <span class="math inline">\(E[Y]\)</span>.<br>
-</li>
 <li>Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent? Justify your answer.<br>
 </li>
-<li>Compute <span class="math inline">\(\text{Cov}(X,Y)\)</span> and determine whether the variables are correlated.</li>
-</ol></li>
+<li>Compute <span class="math inline">\(\text{Cov}(X,Y)\)</span>.<br>
+</li>
+<li>Compute <span class="math inline">\(\text{Corr}(X,Y)\)</span>.<br>
+</li>
+<li>Explain why zero correlation does not necessarily imply independence.</li>
 </ol>
 <hr>
 </section>
-<section id="counting-and-discrete-probability-models" class="level3" data-number="7.8.4">
-<h3 data-number="7.8.4" class="anchored" data-anchor-id="counting-and-discrete-probability-models"><span class="header-section-number">7.8.4</span> Counting and discrete probability models</h3>
+<section id="counting-and-binomial-reasoning" class="level3" data-number="7.9.4">
+<h3 data-number="7.9.4" class="anchored" data-anchor-id="counting-and-binomial-reasoning"><span class="header-section-number">7.9.4</span> Counting and binomial reasoning</h3>
 <ol start="7" type="1">
-<li><p><strong>Families and children</strong><br>
-Assume that the probability of a boy equals the probability of a girl, and that births are independent.</p>
+<li><strong>Three coin tosses</strong></li>
+</ol>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads when a fair coin is tossed three times.</p>
 <ol type="a">
-<li>In families with <strong>four children</strong>, what proportion have more girls than boys?<br>
+<li>List all possible outcomes.<br>
+</li>
+<li>Construct the probability distribution of <span class="math inline">\(X\)</span>.<br>
+</li>
+<li>Compute <span class="math inline">\(E[X]\)</span> and <span class="math inline">\(\text{Var}(X)\)</span>.</li>
+</ol>
+<ol start="8" type="1">
+<li><strong>Families and children</strong></li>
+</ol>
+<p>Assume that the probability of a boy equals the probability of a girl and that births are independent.</p>
+<ol type="a">
+<li>In families with five children, what proportion have more girls than boys?<br>
 </li>
 <li>List all relevant outcomes explicitly.</li>
-</ol></li>
-<li><p><strong>Comparing family sizes</strong><br>
-Couple A has <strong>three children</strong>.<br>
-Couple B has <strong>five children</strong>.</p>
-<ol type="a">
-<li>For each couple, compute the probability that there are more girls than boys.<br>
-</li>
-<li>Is the probability higher for couple A, couple B, or the same?<br>
-</li>
-<li>Explain the intuition behind your result.</li>
-</ol></li>
 </ol>
 <hr>
 </section>
-<section id="discrete-distributions-in-practice" class="level3" data-number="7.8.5">
-<h3 data-number="7.8.5" class="anchored" data-anchor-id="discrete-distributions-in-practice"><span class="header-section-number">7.8.5</span> Discrete distributions in practice</h3>
+<section id="conceptual-questions" class="level3" data-number="7.9.5">
+<h3 data-number="7.9.5" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">7.9.5</span> Conceptual questions</h3>
 <ol start="9" type="1">
-<li><p><strong>Guessing on a multiple-choice exam</strong><br>
-A student randomly guesses on a 100-question multiple-choice test. Each question has four possible answers.</p>
-<ol type="a">
-<li>What is the expected number of correct answers?<br>
-</li>
-<li>What is the standard deviation?<br>
-</li>
-<li>If a student scores 35 out of 100, would you attribute this more to luck or skill? Explain briefly.<br>
-</li>
-<li>Which event has higher probability: scoring <strong>exactly 55%</strong>, or scoring <strong>more than 55%</strong>?</li>
-</ol></li>
-<li><p><strong>Arrivals at an urgent care center</strong><br>
-The mean number of arrivals at an urgent care facility is 4 per hour.</p></li>
-</ol>
-<ol type="a">
-<li>Assuming arrivals follow a Poisson process, what is the probability of exactly 2 arrivals in one hour?<br>
-</li>
-<li>Explain why the Poisson distribution is appropriate in this context.</li>
-</ol>
-<ol start="11" type="1">
-<li><strong>Website traffic</strong><br>
-Hits to a personal website occur randomly and independently, with an average of 4 hits per week.</li>
-</ol>
-<ol type="a">
-<li>What is the probability of receiving 10 or more hits in one week?<br>
-</li>
-<li>What is the probability of receiving 20 or more hits over two weeks?</li>
-</ol>
-<ol start="12" type="1">
-<li><strong>Manufacturing defects</strong><br>
-Flaws in a carpet occur randomly at a rate of one per 300 square feet.</li>
-</ol>
-<ol type="a">
-<li>What distribution is appropriate for modeling the number of flaws?<br>
-</li>
-<li>What is the probability that an <span class="math inline">\(8 \times 10\)</span> foot carpet contains <strong>no flaws</strong>?</li>
-</ol>
-<hr>
-</section>
-<section id="conceptual-wrap-up" class="level3" data-number="7.8.6">
-<h3 data-number="7.8.6" class="anchored" data-anchor-id="conceptual-wrap-up"><span class="header-section-number">7.8.6</span> Conceptual wrap-up</h3>
-<ol start="13" type="1">
 <li><strong>Big picture</strong></li>
 </ol>
 <ol type="a">
-<li>How do discrete probability distributions help us model uncertainty?<br>
+<li>Why is the expected value often called the “long-run average”?<br>
 </li>
-<li>Why are expectations and variances central to economic analysis?<br>
+<li>Why is variance measured in squared units?<br>
 </li>
-<li>Give one example from economics where a discrete random variable is more appropriate than a continuous one.</li>
+<li>Give one economic example where a discrete random variable is more appropriate than a continuous one.<br>
+</li>
+<li>Explain in your own words the difference between independence and zero covariance.</li>
 </ol>
 
 
@@ -947,7 +888,7 @@ Flaws in a carpet occur randomly at a rate of one per 300 square feet.</li>
 <ol>
 <li id="fn1"><p>The expected value is sometimes referred to as the population average; We will see later another definition of the expected value in later chpaters, as the “average” over infinite samples.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>It is instructive to compare the expected value and variance rules with the <strong>summation</strong> rules.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>We will introduce the concept of moments later. Essentially the mean and variance are the first moments and second central moments, respectively.</p>
+<li id="fn3"><p>These are sometimes referred to as <strong>moments</strong>–the mean and variance are the first moments and second central moments, respectively.</p>
 <p><span class="math display">\[
 \begin{array}{|c|c|c|c|}
 \hline
@@ -1374,8 +1315,8 @@ Flaws in a carpet occur randomly at a rate of one per 300 square feet.</li>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ch9.html" class="pagination-link" aria-label="Other Continuous Probability Distributions">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Other Continuous Probability Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ch9.html" class="pagination-link" aria-label="Binomial and Poisson Distributions">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

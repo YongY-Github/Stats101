@@ -307,7 +307,7 @@ Different types of data—cardinal, ordinal, and nominal—call for different gr
 Understanding how to construct and interpret histograms, especially when class intervals are unequal, is essential for sound statistical analysis and for the topics that follow in later chapters.
 :::
 
----
+------------------------------------------------------------------------
 
 ## Exercises
 
@@ -333,7 +333,7 @@ Understanding how to construct and interpret histograms, especially when class i
 If two histograms look very different but have the same total area, what does this imply about the percentages or probabilities they represent?
 :::
 
----
+------------------------------------------------------------------------
 
 ### Interpreting histograms
 
@@ -345,14 +345,14 @@ If two histograms look very different but have the same total area, what does th
     -   Give a real-world example of a variable that is likely to be right-skewed.
 7.  Explain the difference between a unimodal and a bimodal histogram.\
     What might cause a bimodal shape in real data?
-8.  The histogram below shows the distribution of final scores in a certain class.  
+8.  The histogram below shows the distribution of final scores in a certain class.\
     ![](figs/exercise/ws-2-8.png){fig-align="center" width="50%"}
     -   which block represents the people who scored between 60 and 80?
     -   Ten percent scored between 20 and 40. About what percentage scored between 40 and 60?
     -   About what percentage scored over 60?\
-9.A histogram of pocket-money used by EBA students in a week is shown above. No student used over Baht1,000 per month. The block over the class interval 200-500 is missing. How tall must it be?  
-    ![](figs/exercise/ws-2-9.png)
-10. The figure below shows a block of family income in a certain town. About what percent of the families in the city had incomes between Baht 15,000 and 25,000?  
+        9.A histogram of pocket-money used by EBA students in a week is shown above. No student used over Baht1,000 per month. The block over the class interval 200-500 is missing. How tall must it be?\
+        ![](figs/exercise/ws-2-9.png)
+9.  The figure below shows a block of family income in a certain town. About what percent of the families in the city had incomes between Baht 15,000 and 25,000?\
     ![](figs/exercise/ws-2-10.png){fig-align="center" width="50%"}
 
 ::: callout-warning
@@ -361,14 +361,14 @@ If two histograms look very different but have the same total area, what does th
 Students often confuse the *height* of bars with the *area* of bars in a histogram.
 :::
 
----
+------------------------------------------------------------------------
 
 ### Data structure and graphs
 
 11. For each of the following data structures, suggest an appropriate graphical summary and explain why: - cross-sectional data, - time-series data, - panel (longitudinal) data.
 12. Why is the histogram particularly important for later topics in probability and statistical inference?
 
----
+------------------------------------------------------------------------
 
 ### Optional challenge
 

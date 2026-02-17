@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Other Continuous Probability Distributions – Probability &amp; Statistics 101</title>
+<title>8&nbsp; Binomial and Poisson Distributions – Probability &amp; Statistics 101</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Ch10.html" rel="next">
 <link href="./Ch8.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -111,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch9.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Other Continuous Probability Distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch9.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,13 +184,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Ch8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Ch9.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Other Continuous Probability Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uniform and Exponential Probability Distributions</span></span></a>
   </div>
 </li>
     </ul>
@@ -202,12 +209,42 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-uniform-distribution" id="toc-the-uniform-distribution" class="nav-link active" data-scroll-target="#the-uniform-distribution"><span class="header-section-number">8.1</span> The Uniform Distribution</a></li>
-  <li><a href="#the-exponential-distribution" id="toc-the-exponential-distribution" class="nav-link" data-scroll-target="#the-exponential-distribution"><span class="header-section-number">8.2</span> The Exponential Distribution</a>
+  <li><a href="#counting-principles" id="toc-counting-principles" class="nav-link active" data-scroll-target="#counting-principles"><span class="header-section-number">8.1</span> Counting principles</a>
   <ul class="collapse">
-  <li><a href="#mean-and-standard-deviation" id="toc-mean-and-standard-deviation" class="nav-link" data-scroll-target="#mean-and-standard-deviation"><span class="header-section-number">8.2.1</span> Mean and standard deviation</a></li>
+  <li><a href="#the-multiplication-rule-of-counting" id="toc-the-multiplication-rule-of-counting" class="nav-link" data-scroll-target="#the-multiplication-rule-of-counting"><span class="header-section-number">8.1.1</span> The multiplication rule of counting</a></li>
+  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations"><span class="header-section-number">8.1.2</span> Permutations</a></li>
+  <li><a href="#combinations" id="toc-combinations" class="nav-link" data-scroll-target="#combinations"><span class="header-section-number">8.1.3</span> Combinations</a></li>
   </ul></li>
-  <li><a href="#cumulative-probabilities" id="toc-cumulative-probabilities" class="nav-link" data-scroll-target="#cumulative-probabilities"><span class="header-section-number">8.3</span> Cumulative probabilities</a></li>
+  <li><a href="#the-binomial-distribution" id="toc-the-binomial-distribution" class="nav-link" data-scroll-target="#the-binomial-distribution"><span class="header-section-number">8.2</span> The Binomial Distribution</a>
+  <ul class="collapse">
+  <li><a href="#conditions-for-a-binomial-model" id="toc-conditions-for-a-binomial-model" class="nav-link" data-scroll-target="#conditions-for-a-binomial-model"><span class="header-section-number">8.2.1</span> Conditions for a binomial model</a></li>
+  <li><a href="#box-model-example" id="toc-box-model-example" class="nav-link" data-scroll-target="#box-model-example"><span class="header-section-number">8.2.2</span> Box Model Example</a></li>
+  <li><a href="#the-binomial-formula" id="toc-the-binomial-formula" class="nav-link" data-scroll-target="#the-binomial-formula"><span class="header-section-number">8.2.3</span> The Binomial Formula</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">8.2.4</span> Example</a></li>
+  <li><a href="#mean-and-variance-of-the-binomial" id="toc-mean-and-variance-of-the-binomial" class="nav-link" data-scroll-target="#mean-and-variance-of-the-binomial"><span class="header-section-number">8.2.5</span> Mean and variance of the binomial</a></li>
+  </ul></li>
+  <li><a href="#normal-approximation-to-the-binomial-distribution" id="toc-normal-approximation-to-the-binomial-distribution" class="nav-link" data-scroll-target="#normal-approximation-to-the-binomial-distribution"><span class="header-section-number">8.3</span> Normal approximation to the binomial distribution</a>
+  <ul class="collapse">
+  <li><a href="#when-is-the-approximation-good" id="toc-when-is-the-approximation-good" class="nav-link" data-scroll-target="#when-is-the-approximation-good"><span class="header-section-number">8.3.1</span> When is the approximation good?</a></li>
+  <li><a href="#continuity-correction" id="toc-continuity-correction" class="nav-link" data-scroll-target="#continuity-correction"><span class="header-section-number">8.3.2</span> Continuity correction</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">8.3.3</span> Example</a></li>
+  </ul></li>
+  <li><a href="#another-example-normal-approximation-to-the-binomial" id="toc-another-example-normal-approximation-to-the-binomial" class="nav-link" data-scroll-target="#another-example-normal-approximation-to-the-binomial"><span class="header-section-number">8.4</span> Another Example: Normal Approximation to the Binomial</a></li>
+  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="header-section-number">8.5</span> The Poisson Distribution</a></li>
+  <li><a href="#the-poisson-formula" id="toc-the-poisson-formula" class="nav-link" data-scroll-target="#the-poisson-formula"><span class="header-section-number">8.6</span> The Poisson Formula</a>
+  <ul class="collapse">
+  <li><a href="#mean-and-variance" id="toc-mean-and-variance" class="nav-link" data-scroll-target="#mean-and-variance"><span class="header-section-number">8.6.1</span> Mean and variance</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">8.6.2</span> Example</a></li>
+  </ul></li>
+  <li><a href="#binomialpoisson-connection" id="toc-binomialpoisson-connection" class="nav-link" data-scroll-target="#binomialpoisson-connection"><span class="header-section-number">8.7</span> Binomial–Poisson connection</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.8</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-understanding" id="toc-conceptual-understanding" class="nav-link" data-scroll-target="#conceptual-understanding"><span class="header-section-number">8.8.1</span> Conceptual Understanding</a></li>
+  <li><a href="#binomial-calculations" id="toc-binomial-calculations" class="nav-link" data-scroll-target="#binomial-calculations"><span class="header-section-number">8.8.2</span> Binomial Calculations</a></li>
+  <li><a href="#normal-approximation" id="toc-normal-approximation" class="nav-link" data-scroll-target="#normal-approximation"><span class="header-section-number">8.8.3</span> Normal Approximation</a></li>
+  <li><a href="#poisson-applications" id="toc-poisson-applications" class="nav-link" data-scroll-target="#poisson-applications"><span class="header-section-number">8.8.4</span> Poisson Applications</a></li>
+  <li><a href="#synthesis" id="toc-synthesis" class="nav-link" data-scroll-target="#synthesis"><span class="header-section-number">8.8.5</span> Synthesis</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -216,7 +253,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ch9" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Other Continuous Probability Distributions</span></span></h1>
+<h1 class="title"><span id="ch9" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></h1>
 </div>
 
 
@@ -245,172 +282,479 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>By the end of this chapter, you should be able to:</p>
 <ul>
-<li>distinguish between discrete and continuous random variables,</li>
-<li>explain why <span class="math inline">\(P(X = x) = 0\)</span> for continuous variables,</li>
-<li>define and interpret a probability density function (p.d.f.),</li>
-<li>compute probabilities under the uniform distribution,</li>
-<li>understand the exponential distribution and its key properties,</li>
-<li>calculate probabilities using the exponential model.</li>
+<li>apply basic counting principles (permutations and combinations),</li>
+<li>derive and use the binomial probability formula,</li>
+<li>compute probabilities for “exactly <span class="math inline">\(k\)</span> successes” problems,</li>
+<li>understand when the normal distribution approximates the binomial,</li>
+<li>define and apply the Poisson distribution,</li>
+<li>recognize when binomial and Poisson models are appropriate.</li>
 </ul>
 </div>
 </div>
-<p>In contrast to a <strong>discrete random variable</strong>, a <strong>continuous random variable</strong> can assume an uncountable number of values.</p>
-<p>We cannot list all possible values because there are infinitely many of them.<br>
-Because of this, the probability of any single value is essentially zero:</p>
+<hr>
+<section id="counting-principles" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="counting-principles"><span class="header-section-number">8.1</span> Counting principles</h2>
+<p>Before introducing the binomial formula, we need a short detour into <strong>counting</strong>.</p>
+<p>Probability often reduces to a simple question:</p>
+<blockquote class="blockquote">
+<p>How many possible outcomes are there?</p>
+</blockquote>
+<section id="the-multiplication-rule-of-counting" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="the-multiplication-rule-of-counting"><span class="header-section-number">8.1.1</span> The multiplication rule of counting</h3>
+<p>If one task can be performed in <span class="math inline">\(m\)</span> ways and a second task in <span class="math inline">\(n\)</span> ways, then the two tasks together can be performed in <span class="math inline">\(m \times n\)</span> ways.</p>
+<p><strong>Example:</strong><br>
+A restaurant offers 3 starters and 4 main courses.<br>
+The number of possible meals is:</p>
 <p><span class="math display">\[
-P(X = x) = 0.
+3 \times 4 = 12.
 \]</span></p>
-<p>Instead, we compute probabilities over <strong>intervals</strong>, such as</p>
+<p>This simple idea lies behind much of probability theory.</p>
+<hr>
+</section>
+<section id="permutations" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="permutations"><span class="header-section-number">8.1.2</span> Permutations</h3>
+<p>A <strong>permutation</strong> counts the number of ways to arrange objects when order matters.</p>
+<p>The number of ways to arrange <span class="math inline">\(n\)</span> distinct objects is:</p>
 <p><span class="math display">\[
-P(x_1 \leq X \leq x_2), \quad x_1 &lt; x_2.
+n! = n(n-1)(n-2)\dots 1.
 \]</span></p>
-<p>This is why continuous random variables are described using a <strong>probability density function (p.d.f.)</strong>, usually denoted <span class="math inline">\(f(x)\)</span>.</p>
-<p>For a valid p.d.f. defined over <span class="math inline">\(a \leq x \leq b\)</span>, two properties must hold:</p>
+<p>If we choose <span class="math inline">\(k\)</span> objects out of <span class="math inline">\(n\)</span> and order matters, the number of permutations is:</p>
+<p><span class="math display">\[
+P(n,k) = \frac{n!}{(n-k)!}.
+\]</span></p>
+<hr>
+</section>
+<section id="combinations" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="combinations"><span class="header-section-number">8.1.3</span> Combinations</h3>
+<p>A <strong>combination</strong> counts the number of ways to choose objects when order does <em>not</em> matter.</p>
+<p>The number of combinations of <span class="math inline">\(k\)</span> objects from <span class="math inline">\(n\)</span> is:</p>
+<p><span class="math display">\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}.
+\]</span></p>
+<p>This expression is called the <strong>binomial coefficient</strong>.</p>
+<p>It plays a central role in the binomial distribution.</p>
+<hr>
+</section>
+</section>
+<section id="the-binomial-distribution" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="the-binomial-distribution"><span class="header-section-number">8.2</span> The Binomial Distribution</h2>
+<p>We often encounter problems of the form:</p>
+<ul>
+<li>A coin is tossed 4 times. What is the probability of exactly 1 head?</li>
+<li>A die is rolled 10 times. What is the probability of exactly 3 sixes?</li>
+<li>A box contains 1 red and 9 green marbles. Five draws are made <em>with replacement</em>. What is the probability of exactly 2 red marbles?</li>
+</ul>
+<p>These are examples of <strong>binomial experiments</strong>.</p>
+<section id="conditions-for-a-binomial-model" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="conditions-for-a-binomial-model"><span class="header-section-number">8.2.1</span> Conditions for a binomial model</h3>
+<p>A binomial model applies when:</p>
 <ol type="1">
-<li><span class="math inline">\(f(x) \ge 0\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\([a,b]\)</span></li>
-<li>The total area under the curve equals 1:</li>
+<li>The number of trials <span class="math inline">\(n\)</span> is fixed.</li>
+<li>Each trial has two possible outcomes (success/failure).</li>
+<li>The probability of success <span class="math inline">\(p\)</span> is constant.</li>
+<li>The trials are independent.</li>
 </ol>
-<p><span class="math display">\[
-\int_a^b f(x)\,dx = 1.
-\]</span></p>
 <hr>
-<section id="the-uniform-distribution" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="the-uniform-distribution"><span class="header-section-number">8.1</span> The Uniform Distribution</h2>
-<p>The <strong>uniform distribution</strong> (also called the rectangular distribution) is the simplest continuous distribution.</p>
-<p>Its probability density function is:</p>
-<p><span class="math display">\[
-f(x) = \frac{1}{b-a}, \quad a \leq x \leq b.
-\]</span></p>
-<p>Outside the interval <span class="math inline">\([a,b]\)</span>, <span class="math inline">\(f(x) = 0\)</span>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/ch9/uniform.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</section>
+<section id="box-model-example" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="box-model-example"><span class="header-section-number">8.2.2</span> Box Model Example</h3>
+<p>Let’s look more closely at the last example above. We might start with a box model:</p>
+<div id="fig-r-g" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch8/r-g.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Box Model
+</figcaption>
 </figure>
 </div>
-<p>Because the density is constant, probabilities are simply areas of rectangles.</p>
-<p>To find</p>
-<p><span class="math display">\[
-P(x_1 \leq X \leq x_2),
+<p>From the above, we draw 5 tickets at random with replacement. But we want exactly 2 R’s and 3 G’s (e.g., <span class="math inline">\(\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}\)</span> or <span class="math inline">\(\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}\)</span>, etc.). The exact probability can be found using 3 simple steps:</p>
+<p><strong>1) Find all the possible ways:</strong> <span class="math display">\[
+\frac{5!}{2! \times 3!} = \frac{\text{total cases}}{\text{no. of successes} \times \text{no. of failures}}
 \]</span></p>
-<p>compute:</p>
-<p><span class="math display">\[
-\text{Area} = (x_2 - x_1)\cdot \frac{1}{b-a}.
+<p><strong>2) Calculate the chance of each:</strong> <span class="math display">\[
+\frac{1}{10} \times \frac{1}{10} \times \frac{9}{10} \times \frac{9}{10} \times \frac{9}{10} = \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3
 \]</span></p>
+<p><strong>3) Use the addition rule to add up the chances:</strong> <span class="math display">\[
+\frac{5!}{2! \times 3!} \times \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3 \approx 7\%
+\]</span></p>
+<p>This can be interpreted as the chance of getting exactly 2 <span class="math inline">\(\fbox{R}\)</span>’s.</p>
+<p>Note that <strong>step 1</strong> is actually the <em>binomial coefficient</em>, which gives us the total number of combinations of arranging 2 R’s and 3 G’s. In <strong>step 2</strong>, the chance of getting <span class="math inline">\(\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}\)</span> is the same as getting <span class="math inline">\(\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}\)</span>, and so on. Lastly, <strong>step 3</strong> involves the addition rules as all events are mutually exclusive (disjoint).</p>
+</section>
+<section id="the-binomial-formula" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="the-binomial-formula"><span class="header-section-number">8.2.3</span> The Binomial Formula</h3>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Key intuition
+<span class="screen-reader-only">Important</span>The Binomial Probability Formula
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Under a uniform distribution, <strong>all values in the interval are equally likely</strong>.</p>
+<p>If <span class="math inline">\(X\)</span> counts the number of successes in <span class="math inline">\(n\)</span> independent trials with success probability <span class="math inline">\(p\)</span>, then</p>
+<p><span class="math display">\[
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k},
+\quad k = 0,1,\dots,n.
+\]</span></p>
 </div>
 </div>
-<p>The mean and variance of a uniform random variable are:</p>
-<p><span class="math display">\[
-E(X) = \frac{a+b}{2},
-\]</span></p>
-<p><span class="math display">\[
-Var(X) = \frac{(b-a)^2}{12}.
-\]</span></p>
-<hr>
-</section>
-<section id="the-exponential-distribution" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="the-exponential-distribution"><span class="header-section-number">8.2</span> The Exponential Distribution</h2>
-<p>Another important continuous distribution is the <strong>exponential distribution</strong>.</p>
-<p>Its probability density function is:</p>
-<p><span class="math display">\[
-f(x) = \lambda e^{-\lambda x}, \quad x \ge 0,
-\]</span></p>
-<p>where:</p>
+<p>Where:</p>
 <ul>
-<li><span class="math inline">\(e \approx 2.71828\)</span></li>
-<li><span class="math inline">\(\lambda &gt; 0\)</span> is the rate parameter.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/ch9/exponential.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-<p>The exponential distribution is often used to model:</p>
-<ul>
-<li>time until a job is found,</li>
-<li>time until equipment fails,</li>
-<li>waiting time between arrivals,</li>
-<li>lifetime of light bulbs,</li>
-<li>and other “time-to-event” phenomena.</li>
+<li><span class="math inline">\(n\)</span> = number of trials<br>
+</li>
+<li><span class="math inline">\(k\)</span> = number of successes<br>
+</li>
+<li><span class="math inline">\(p\)</span> = probability of success</li>
 </ul>
 <hr>
-<section id="mean-and-standard-deviation" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="mean-and-standard-deviation"><span class="header-section-number">8.2.1</span> Mean and standard deviation</h3>
-<p>A convenient property of the exponential distribution is:</p>
+</section>
+<section id="example" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="example"><span class="header-section-number">8.2.4</span> Example</h3>
+<p>A neighbour has 3 children. What is the probability exactly 2 are boys?</p>
+<p>Assuming <span class="math inline">\(p = 1/2\)</span>,</p>
 <p><span class="math display">\[
-E(X) = SD(X) = \frac{1}{\lambda},
+P(X=2) = \binom{3}{2}
+\left(\frac{1}{2}\right)^2
+\left(\frac{1}{2}\right)^1
+= \frac{3}{8}.
 \]</span></p>
-<p>Thus, the mean and standard deviation are equal.</p>
-<p>Smaller values of <span class="math inline">\(\lambda\)</span> flatten the curve and increase the mean.</p>
+<p>This is exactly the same as the probability of 2 heads in 3 coin tosses.</p>
+<hr>
+</section>
+<section id="mean-and-variance-of-the-binomial" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="mean-and-variance-of-the-binomial"><span class="header-section-number">8.2.5</span> Mean and variance of the binomial</h3>
+<p>If <span class="math inline">\(X \sim \text{Bin}(n,p)\)</span>, then</p>
+<p><span class="math display">\[
+E(X) = np
+\]</span></p>
+<p><span class="math display">\[
+\text{Var}(X) = np(1-p)
+\]</span></p>
+<p>These formulas are extremely useful.</p>
 <hr>
 </section>
 </section>
-<section id="cumulative-probabilities" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="cumulative-probabilities"><span class="header-section-number">8.3</span> Cumulative probabilities</h2>
-<p>Using calculus, we can derive the cumulative distribution function:</p>
+<section id="normal-approximation-to-the-binomial-distribution" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="normal-approximation-to-the-binomial-distribution"><span class="header-section-number">8.3</span> Normal approximation to the binomial distribution</h2>
+<p>When <span class="math inline">\(n\)</span> is large, calculating binomial probabilities directly can be tedious.</p>
+<p>Fortunately, the <strong>Central Limit Theorem</strong> tells us that the binomial distribution becomes approximately normal when <span class="math inline">\(n\)</span> is large.</p>
+<p>If</p>
 <p><span class="math display">\[
-P(X &gt; x) = e^{-\lambda x}.
+X \sim \text{Bin}(n,p),
 \]</span></p>
-<p>From this, it follows that:</p>
+<p>then for sufficiently large <span class="math inline">\(n\)</span>,</p>
 <p><span class="math display">\[
-P(X &lt; x) = 1 - e^{-\lambda x}.
+X \approx N\big(np,\; np(1-p)\big).
 \]</span></p>
-<p>More generally,</p>
-<p><span class="math display">\[
-P(x_1 &lt; X &lt; x_2)
-= P(X &lt; x_2) - P(X &lt; x_1)
-= e^{-\lambda x_1} - e^{-\lambda x_2}.
-\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Memoryless property
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The exponential distribution has a special feature called the <strong>memoryless property</strong>:</p>
-<p><span class="math display">\[
-P(X &gt; s+t \mid X &gt; s) = P(X &gt; t).
-\]</span></p>
-<p>The future waiting time does not depend on how long you have already waited.</p>
-</div>
-</div>
+<p>That is:</p>
+<ul>
+<li>Mean <span class="math inline">\(= np\)</span></li>
+<li>Variance <span class="math inline">\(= np(1-p)\)</span></li>
+<li>Standard deviation <span class="math inline">\(= \sqrt{np(1-p)}\)</span></li>
+</ul>
 <hr>
+<section id="when-is-the-approximation-good" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="when-is-the-approximation-good"><span class="header-section-number">8.3.1</span> When is the approximation good?</h3>
+<p>A common rule of thumb is:</p>
+<p><span class="math display">\[
+np \ge 5
+\quad \text{and} \quad
+n(1-p) \ge 5.
+\]</span></p>
+<hr>
+</section>
+<section id="continuity-correction" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="continuity-correction"><span class="header-section-number">8.3.2</span> Continuity correction</h3>
+<p>Because the binomial distribution is discrete and the normal distribution is continuous, we use a <strong>continuity correction</strong>.</p>
+<p>For example:</p>
+<p>To approximate <span class="math inline">\(P(X \le 10)\)</span>, compute</p>
+<p><span class="math display">\[
+P(X \le 10.5)
+\]</span></p>
+<p>using the normal distribution.</p>
+<hr>
+</section>
+<section id="example-1" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="example-1"><span class="header-section-number">8.3.3</span> Example</h3>
+<p>Suppose <span class="math inline">\(X \sim \text{Bin}(100, 0.5)\)</span>.</p>
+<p>Mean: <span class="math display">\[
+\mu = np = 50
+\]</span></p>
+<p>Standard deviation: <span class="math display">\[
+\sigma = \sqrt{100(0.5)(0.5)} = 5.
+\]</span></p>
+<p>To approximate</p>
+<p><span class="math display">\[
+P(X \ge 60),
+\]</span></p>
+<p>we compute</p>
+<p><span class="math display">\[
+P\left(Z \ge \frac{59.5 - 50}{5}\right).
+\]</span></p>
+<p>The rest follows using the standard normal table.</p>
+<hr>
+</section>
+</section>
+<section id="another-example-normal-approximation-to-the-binomial" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="another-example-normal-approximation-to-the-binomial"><span class="header-section-number">8.4</span> Another Example: Normal Approximation to the Binomial</h2>
+<p>Suppose a fair coin is tossed <span class="math inline">\(100\)</span> times.</p>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads.</p>
+<p>Then</p>
+<p><span class="math display">\[
+X \sim \text{Bin}(100, 0.5).
+\]</span></p>
+<p><strong>Step 1: Compute mean and standard deviation</strong></p>
+<p><span class="math display">\[
+\mu = np = 100(0.5) = 50
+\]</span></p>
+<p><span class="math display">\[
+\sigma = \sqrt{np(1-p)} = \sqrt{100(0.5)(0.5)} = 5.
+\]</span></p>
+<hr>
+<p><strong>Example 1: Approximate <span class="math inline">\(P(X \ge 60)\)</span></strong></p>
+<p><strong>Step 2: Apply continuity correction</strong></p>
+<p>Because the binomial is discrete, we approximate:</p>
+<p><span class="math display">\[
+P(X \ge 60) \approx P(X \ge 59.5).
+\]</span></p>
+<p><strong>Step 3: Convert to a <span class="math inline">\(z\)</span>-score</strong></p>
+<p><span class="math display">\[
+z = \frac{59.5 - 50}{5}
+= \frac{9.5}{5}
+= 1.9.
+\]</span></p>
+<p><strong>Step 4: Use the standard normal table</strong></p>
+<p>From the table:</p>
+<p><span class="math display">\[
+P(Z \le 1.9) = 0.9713.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P(Z \ge 1.9) = 1 - 0.9713 = 0.0287.
+\]</span></p>
+<p><strong>Final Answer</strong></p>
+<p><span class="math display">\[
+P(X \ge 60) \approx 0.0287.
+\]</span></p>
+<p>So there is roughly a <span class="math inline">\(2.9\%\)</span> chance of obtaining 60 or more heads.</p>
+<hr>
+<p><strong>Example 2: Approximate <span class="math inline">\(P(45 \le X \le 55)\)</span></strong></p>
+<p><strong>Step 2: Continuity correction</strong></p>
+<p><span class="math display">\[
+P(45 \le X \le 55)
+\approx
+P(44.5 \le X \le 55.5).
+\]</span></p>
+<p><strong>Step 3: Convert to <span class="math inline">\(z\)</span>-scores</strong></p>
+<p>Lower bound:</p>
+<p><span class="math display">\[
+z_1 = \frac{44.5 - 50}{5}
+= -1.1.
+\]</span></p>
+<p>Upper bound:</p>
+<p><span class="math display">\[
+z_2 = \frac{55.5 - 50}{5}
+= 1.1.
+\]</span></p>
+<p><strong>Step 3: Look up table values</strong></p>
+<p>From the standard normal table:</p>
+<p><span class="math display">\[
+P(0 \le Z \le 1.1) = 0.3643.
+\]</span></p>
+<p>By symmetry:</p>
+<p><span class="math display">\[
+P(-1.1 \le Z \le 1.1)
+= 2(0.3643)
+= 0.7286.
+\]</span></p>
+<p>*Final Answer**</p>
+<p><span class="math display">\[
+P(45 \le X \le 55) \approx 0.7286.
+\]</span></p>
+<p>So about <span class="math inline">\(73\%\)</span> of the time, the number of heads will fall between 45 and 55.</p>
+<hr>
+</section>
+<section id="the-poisson-distribution" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="the-poisson-distribution"><span class="header-section-number">8.5</span> The Poisson Distribution</h2>
+<p>The <strong>Poisson distribution</strong> models the number of events occurring in a fixed interval of time or space when events occur:</p>
+<ul>
+<li>independently,</li>
+<li>randomly,</li>
+<li>at a constant average rate.</li>
+</ul>
+<p>Typical examples:</p>
+<ul>
+<li>Number of calls per hour,</li>
+<li>Number of defects per page,</li>
+<li>Number of accidents per month.</li>
+</ul>
+<hr>
+</section>
+<section id="the-poisson-formula" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="the-poisson-formula"><span class="header-section-number">8.6</span> The Poisson Formula</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Chapter summary
+<span class="screen-reader-only">Important</span>The Poisson Probability Function
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Continuous random variables differ from discrete ones because individual points have zero probability.</p>
-<p>In this chapter, we introduced:</p>
+<p>If <span class="math inline">\(X\)</span> follows a Poisson distribution with mean <span class="math inline">\(\mu\)</span>, then</p>
+<p><span class="math display">\[
+P(X = x) = \frac{e^{-\mu} \mu^x}{x!},
+\quad x = 0,1,2,\dots
+\]</span></p>
+</div>
+</div>
+<p>Where:</p>
 <ul>
-<li>the general properties of probability density functions,</li>
-<li>the uniform distribution,</li>
-<li>the exponential distribution and its tractable probability formulas.</li>
+<li><span class="math inline">\(\mu\)</span> = average number of events,</li>
+<li><span class="math inline">\(e \approx 2.71828\)</span>.</li>
 </ul>
-<p>These distributions are widely used in economics, reliability analysis, and queueing theory.</p>
+<hr>
+<section id="mean-and-variance" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="mean-and-variance"><span class="header-section-number">8.6.1</span> Mean and variance</h3>
+<p>For a Poisson distribution:</p>
+<p><span class="math display">\[
+E(X) = \mu
+\]</span></p>
+<p><span class="math display">\[
+\text{Var}(X) = \mu.
+\]</span></p>
+<p>Thus, the mean and variance are equal.</p>
+<hr>
+</section>
+<section id="example-2" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="example-2"><span class="header-section-number">8.6.2</span> Example</h3>
+<p>If typographical errors follow a Poisson distribution with mean <span class="math inline">\(\mu = 1.5\)</span> per 100 pages, then</p>
+<p><span class="math display">\[
+P(X=0) = \frac{e^{-1.5} 1.5^0}{0!}
+= e^{-1.5}
+\approx 0.2231.
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="binomialpoisson-connection" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="binomialpoisson-connection"><span class="header-section-number">8.7</span> Binomial–Poisson connection</h2>
+<p>When:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> is large,</li>
+<li><span class="math inline">\(p\)</span> is small,</li>
+<li>and <span class="math inline">\(\mu = np\)</span> remains moderate,</li>
+</ul>
+<p>the binomial distribution can be approximated by a Poisson distribution:</p>
+<p><span class="math display">\[
+\text{Bin}(n,p) \approx \text{Poisson}(\mu = np).
+\]</span></p>
+<p>This is especially useful for modeling rare events.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Chapter Summary
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>The binomial distribution models the number of successes in repeated independent trials with constant probability <span class="math inline">\(p\)</span>, while the Poisson distribution models rare events occurring over time or space with average rate <span class="math inline">\(\mu\)</span>. The binomial has mean <span class="math inline">\(np\)</span> and variance <span class="math inline">\(np(1-p)\)</span>; the Poisson has mean and variance both equal to <span class="math inline">\(\mu\)</span>. For large samples, the binomial distribution can be approximated by the normal distribution using standardization with <span class="math inline">\(z\)</span>-scores. Together, these models allow us to quantify uncertainty in repeated trials, rare events, and large-sample settings.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="exercises" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.8</span> Exercises</h2>
+<section id="conceptual-understanding" class="level3" data-number="8.8.1">
+<h3 data-number="8.8.1" class="anchored" data-anchor-id="conceptual-understanding"><span class="header-section-number">8.8.1</span> Conceptual Understanding</h3>
+<ol type="1">
+<li><p>What are the four conditions required for a binomial experiment?</p></li>
+<li><p>Explain why independence of trials is crucial for the binomial formula.</p></li>
+<li><p>When is the Poisson distribution more appropriate than the binomial?</p></li>
+<li><p>Why does the normal approximation improve as <span class="math inline">\(n\)</span> increases?</p></li>
+</ol>
+<hr>
+</section>
+<section id="binomial-calculations" class="level3" data-number="8.8.2">
+<h3 data-number="8.8.2" class="anchored" data-anchor-id="binomial-calculations"><span class="header-section-number">8.8.2</span> Binomial Calculations</h3>
+<ol start="5" type="1">
+<li><p>A multiple-choice test has 20 questions with 4 possible answers each.</p>
+<ol type="a">
+<li>If a student guesses randomly, what is the probability of exactly 8 correct answers?<br>
+</li>
+<li>What are the mean and standard deviation?</li>
+</ol></li>
+<li><p>A manufacturing process produces defective items with probability <span class="math inline">\(p = 0.02\)</span>.</p>
+<ol type="a">
+<li>In a batch of 50 items, what is the probability of exactly 1 defect?<br>
+</li>
+<li>What is the probability of no defects?</li>
+</ol></li>
+</ol>
+<hr>
+</section>
+<section id="normal-approximation" class="level3" data-number="8.8.3">
+<h3 data-number="8.8.3" class="anchored" data-anchor-id="normal-approximation"><span class="header-section-number">8.8.3</span> Normal Approximation</h3>
+<ol start="7" type="1">
+<li><p>Suppose <span class="math inline">\(X \sim \text{Bin}(200, 0.4)\)</span>.</p>
+<ol type="a">
+<li>Compute the mean and standard deviation.<br>
+</li>
+<li>Approximate <span class="math inline">\(P(X \ge 90)\)</span> using the normal approximation.<br>
+</li>
+<li>Clearly show the continuity correction and <span class="math inline">\(z\)</span>-steps.</li>
+</ol></li>
+<li><p>A factory produces lightbulbs with defect probability <span class="math inline">\(p = 0.1\)</span>.</p>
+<p>In a shipment of 120 bulbs:</p>
+<ol type="a">
+<li>Approximate the probability that between 8 and 18 bulbs are defective.<br>
+</li>
+<li>Compare your answer to what you expect intuitively.</li>
+</ol></li>
+</ol>
+<hr>
+</section>
+<section id="poisson-applications" class="level3" data-number="8.8.4">
+<h3 data-number="8.8.4" class="anchored" data-anchor-id="poisson-applications"><span class="header-section-number">8.8.4</span> Poisson Applications</h3>
+<ol start="9" type="1">
+<li><p>Customers arrive at a bank at an average rate of 3 per minute.</p>
+<ol type="a">
+<li>What is the probability that exactly 5 customers arrive in one minute?<br>
+</li>
+<li>What is the probability that no customers arrive in two minutes?</li>
+</ol></li>
+<li><p>Calls arrive at a call center at a rate of 2 per hour.</p>
+<ol type="a">
+<li>What is the probability of 6 or more calls in one hour?<br>
+</li>
+<li>What is the probability of exactly 1 call in 30 minutes?</li>
+</ol></li>
+</ol>
+<hr>
+</section>
+<section id="synthesis" class="level3" data-number="8.8.5">
+<h3 data-number="8.8.5" class="anchored" data-anchor-id="synthesis"><span class="header-section-number">8.8.5</span> Synthesis</h3>
+<ol start="11" type="1">
+<li>Under what conditions can:</li>
+</ol>
+<ol type="a">
+<li>The binomial be approximated by the normal?<br>
+</li>
+<li>The binomial be approximated by the Poisson?</li>
+</ol>
+<ol start="12" type="1">
+<li>Suppose <span class="math inline">\(n\)</span> is very large and <span class="math inline">\(p\)</span> is very small.</li>
+</ol>
+<p>Explain intuitively why the Poisson distribution emerges from the binomial.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -816,11 +1160,14 @@ P(X &gt; s+t \mid X &gt; s) = P(X &gt; t).
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Ch8.html" class="pagination-link" aria-label="Discrete Probability Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span>
+      <a href="./Ch8.html" class="pagination-link" aria-label="Discrete Probability Distribution">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Ch10.html" class="pagination-link" aria-label="Uniform and Exponential Probability Distributions">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uniform and Exponential Probability Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

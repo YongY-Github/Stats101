@@ -184,13 +184,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Ch8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Ch9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Other Continuous Probability Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uniform and Exponential Probability Distributions</span></span></a>
   </div>
 </li>
     </ul>
@@ -211,14 +217,23 @@ window.Quarto = {
   <li><a href="#population-and-sample-standard-deviation" id="toc-population-and-sample-standard-deviation" class="nav-link" data-scroll-target="#population-and-sample-standard-deviation"><span class="header-section-number">3.2.3</span> Population and sample standard deviation</a></li>
   <li><a href="#variance-and-the-coefficient-of-variation" id="toc-variance-and-the-coefficient-of-variation" class="nav-link" data-scroll-target="#variance-and-the-coefficient-of-variation"><span class="header-section-number">3.2.4</span> Variance and the coefficient of variation</a></li>
   </ul></li>
-  <li><a href="#measures-of-relative-standing" id="toc-measures-of-relative-standing" class="nav-link" data-scroll-target="#measures-of-relative-standing"><span class="header-section-number">3.3</span> Measures of relative standing</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.4</span> Exercises</a>
+  <li><a href="#measures-of-relative-standing" id="toc-measures-of-relative-standing" class="nav-link" data-scroll-target="#measures-of-relative-standing"><span class="header-section-number">3.3</span> Measures of relative standing</a>
   <ul class="collapse">
-  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">3.4.1</span> Conceptual questions</a></li>
-  <li><a href="#understanding-dispersion" id="toc-understanding-dispersion" class="nav-link" data-scroll-target="#understanding-dispersion"><span class="header-section-number">3.4.2</span> Understanding dispersion</a></li>
-  <li><a href="#measures-of-relative-standing-1" id="toc-measures-of-relative-standing-1" class="nav-link" data-scroll-target="#measures-of-relative-standing-1"><span class="header-section-number">3.4.3</span> Measures of relative standing</a></li>
-  <li><a href="#numerical-practice" id="toc-numerical-practice" class="nav-link" data-scroll-target="#numerical-practice"><span class="header-section-number">3.4.4</span> Numerical practice</a></li>
-  <li><a href="#optional-challenge" id="toc-optional-challenge" class="nav-link" data-scroll-target="#optional-challenge"><span class="header-section-number">3.4.5</span> Optional challenge</a></li>
+  <li><a href="#percentiles-and-quartiles" id="toc-percentiles-and-quartiles" class="nav-link" data-scroll-target="#percentiles-and-quartiles"><span class="header-section-number">3.3.1</span> Percentiles and Quartiles</a></li>
+  <li><a href="#locating-a-percentile" id="toc-locating-a-percentile" class="nav-link" data-scroll-target="#locating-a-percentile"><span class="header-section-number">3.3.2</span> Locating a Percentile</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">3.3.3</span> Example</a></li>
+  <li><a href="#interquartile-range-iqr" id="toc-interquartile-range-iqr" class="nav-link" data-scroll-target="#interquartile-range-iqr"><span class="header-section-number">3.3.4</span> Interquartile Range (IQR)</a></li>
+  </ul></li>
+  <li><a href="#the-box-plot" id="toc-the-box-plot" class="nav-link" data-scroll-target="#the-box-plot"><span class="header-section-number">4</span> The Box Plot</a>
+  <ul class="collapse">
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.1</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">4.1.1</span> Conceptual questions</a></li>
+  <li><a href="#understanding-dispersion" id="toc-understanding-dispersion" class="nav-link" data-scroll-target="#understanding-dispersion"><span class="header-section-number">4.1.2</span> Understanding dispersion</a></li>
+  <li><a href="#measures-of-relative-standing-1" id="toc-measures-of-relative-standing-1" class="nav-link" data-scroll-target="#measures-of-relative-standing-1"><span class="header-section-number">4.1.3</span> Measures of relative standing</a></li>
+  <li><a href="#numerical-practice" id="toc-numerical-practice" class="nav-link" data-scroll-target="#numerical-practice"><span class="header-section-number">4.1.4</span> Numerical practice</a></li>
+  <li><a href="#optional-challenge" id="toc-optional-challenge" class="nav-link" data-scroll-target="#optional-challenge"><span class="header-section-number">4.1.5</span> Optional challenge</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -439,20 +454,6 @@ Since we introduced the histogram in the previous chapter—the most important g
 </section>
 <section id="measures-of-relative-standing" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="measures-of-relative-standing"><span class="header-section-number">3.3</span> Measures of relative standing</h2>
-<p>Many introductory statistics textbooks also discuss <strong>measures of relative standing</strong>, such as <strong>percentiles</strong> and <strong>quartiles</strong>, as well as graphical summaries like the <strong>box plot</strong>, shown below.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<div id="fig-boxplot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch3/boxplot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: A box-plot example
-</figcaption>
-</figure>
-</div>
-<p>A <strong>percentile</strong> refers to the percentage of observations lying below a given value.</p>
-<p>A unique maximum corresponds to the <strong>100th percentile</strong>, while a unique minimum corresponds to the <strong>0th percentile</strong>.</p>
-<p>It follows that the <strong>median</strong> is the <strong>50th percentile</strong>. The <strong>25th percentile</strong> and <strong>75th percentile</strong> are known as the <strong>first quartile</strong> and <strong>third quartile</strong>, respectively.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -464,6 +465,130 @@ Figure&nbsp;3.1: A box-plot example
 </div>
 <div class="callout-body-container callout-body">
 <p>Measures of relative standing tell us <em>where</em> an observation lies within a distribution, not just its magnitude.</p>
+</div>
+</div>
+<section id="percentiles-and-quartiles" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="percentiles-and-quartiles"><span class="header-section-number">3.3.1</span> Percentiles and Quartiles</h3>
+<p>There are two important and closely related measures of relative standing:</p>
+<ul>
+<li><strong>Percentiles</strong></li>
+<li><strong>Quartiles</strong></li>
+</ul>
+<p>The <strong><span class="math inline">\(p\)</span>th percentile</strong> is the value for which <span class="math inline">\(p\%\)</span> of the observations are less than (or equal to) that value and <span class="math inline">\((100 - p)\%\)</span> are greater than (or equal to) that value.</p>
+<p>For example:</p>
+<ul>
+<li>The <strong>100th percentile</strong> is the maximum value (since 100% of observations are below or equal to it).</li>
+<li>The <strong>50th percentile</strong> is the <strong>median</strong>, the value that splits the data in half.</li>
+<li>The <strong>25th percentile</strong> and <strong>75th percentile</strong> are called the <strong>first quartile (<span class="math inline">\(Q_1\)</span>)</strong> and <strong>third quartile (<span class="math inline">\(Q_3\)</span>)</strong>, respectively.</li>
+</ul>
+<hr>
+</section>
+<section id="locating-a-percentile" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="locating-a-percentile"><span class="header-section-number">3.3.2</span> Locating a Percentile</h3>
+<p>Given an ordered dataset of size <span class="math inline">\(n\)</span>, the location of the <span class="math inline">\(p\)</span>th percentile can be found using:</p>
+<p><span class="math display">\[
+L_p = (1 + n)\frac{p}{100}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> = number of observations<br>
+</li>
+<li><span class="math inline">\(p\)</span> = desired percentile</li>
+</ul>
+<p>If <span class="math inline">\(L_p\)</span> is not an integer, interpolate between the surrounding observations.</p>
+<hr>
+</section>
+<section id="example" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="example"><span class="header-section-number">3.3.3</span> Example</h3>
+<p>Consider the ordered dataset:</p>
+<p><span class="math display">\[
+\{0, 1, 5, 7, 8, 9, 12, 14, 22, 23\}
+\]</span></p>
+<p>This represents the number of internet sites visited by 10 students.</p>
+<p>Here, <span class="math inline">\(n = 10\)</span>.</p>
+<p><strong>First Quartile (<span class="math inline">\(Q_1\)</span>)</strong></p>
+<p>To find the 25th percentile:</p>
+<p><span class="math display">\[
+L_{25} = (10 + 1)\frac{25}{100} = 2.75
+\]</span></p>
+<p>This means the 25th percentile lies <strong>0.75 of the way</strong> between the 2nd and 3rd observations.</p>
+<ul>
+<li>2nd observation = 1<br>
+</li>
+<li>3rd observation = 5</li>
+</ul>
+<p>Interpolate:</p>
+<p><span class="math display">\[
+Q_1 = 1 + 0.75(5 - 1) = 1 + 3 = 4
+\]</span></p>
+<p><strong>Median (<span class="math inline">\(Q_2\)</span>)</strong></p>
+<p>The 50th percentile:</p>
+<p><span class="math display">\[
+L_{50} = (10 + 1)\frac{50}{100} = 5.5
+\]</span></p>
+<p>This lies halfway between the 5th and 6th observations:</p>
+<ul>
+<li>5th value = 8<br>
+</li>
+<li>6th value = 9</li>
+</ul>
+<p>So,</p>
+<p><span class="math display">\[
+Q_2 = 8.5
+\]</span></p>
+<p><strong>Third Quartile (<span class="math inline">\(Q_3\)</span>)</strong></p>
+<p>The 75th percentile:</p>
+<p><span class="math display">\[
+L_{75} = (10 + 1)\frac{75}{100} = 8.25
+\]</span></p>
+<p>This lies 0.25 of the way between the 8th and 9th observations:</p>
+<ul>
+<li>8th value = 14<br>
+</li>
+<li>9th value = 22</li>
+</ul>
+<p>So,</p>
+<p><span class="math display">\[
+Q_3 = 14 + 0.25(22 - 14) = 14 + 2 = 16
+\]</span></p>
+</section>
+<section id="interquartile-range-iqr" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="interquartile-range-iqr"><span class="header-section-number">3.3.4</span> Interquartile Range (IQR)</h3>
+<p>The <strong>interquartile range</strong> measures the spread of the middle 50% of the data and is defined as</p>
+<p><span class="math display">\[
+IQR = Q_3 - Q_1.
+\]</span></p>
+<p>Using our results:</p>
+<p><span class="math display">\[
+IQR = 16 - 4 = 12.
+\]</span></p>
+<p>This means that the central half of the observations lie within a range of 12 units.</p>
+</section>
+</section>
+<section id="the-box-plot" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> The Box Plot</h1>
+<p>A <strong>box plot</strong> is a graphical summary of data based on quartiles.</p>
+<p>To construct a box plot, we need five values:</p>
+<ol type="1">
+<li>Minimum<br>
+</li>
+<li>First quartile (<span class="math inline">\(Q_1\)</span>)<br>
+</li>
+<li>Median (<span class="math inline">\(Q_2\)</span>)<br>
+</li>
+<li>Third quartile (<span class="math inline">\(Q_3\)</span>)<br>
+</li>
+<li>Maximum</li>
+</ol>
+<p>These five numbers form the <strong>five-number summary</strong>.</p>
+<p>For our numerical example above, we have:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Ch3_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -482,11 +607,10 @@ Figure&nbsp;3.1: A box-plot example
 </div>
 </div>
 <hr>
-</section>
-<section id="exercises" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.4</span> Exercises</h2>
-<section id="conceptual-questions" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">3.4.1</span> Conceptual questions</h3>
+<section id="exercises" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.1</span> Exercises</h2>
+<section id="conceptual-questions" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">4.1.1</span> Conceptual questions</h3>
 <ol type="1">
 <li><p>Explain why the mean alone is often insufficient to describe a dataset.</p></li>
 <li><p>Compare the mean, median, and mode.<br>
@@ -509,8 +633,8 @@ In what situations might one be preferred over the others?</p></li>
 </div>
 <hr>
 </section>
-<section id="understanding-dispersion" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="understanding-dispersion"><span class="header-section-number">3.4.2</span> Understanding dispersion</h3>
+<section id="understanding-dispersion" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="understanding-dispersion"><span class="header-section-number">4.1.2</span> Understanding dispersion</h3>
 <ol start="5" type="1">
 <li><p>Describe in words what the standard deviation measures.<br>
 Why is it based on deviations from the mean rather than deviations from the median?</p></li>
@@ -536,8 +660,8 @@ Why is it based on deviations from the mean rather than deviations from the medi
 </div>
 <hr>
 </section>
-<section id="measures-of-relative-standing-1" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="measures-of-relative-standing-1"><span class="header-section-number">3.4.3</span> Measures of relative standing</h3>
+<section id="measures-of-relative-standing-1" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="measures-of-relative-standing-1"><span class="header-section-number">4.1.3</span> Measures of relative standing</h3>
 <ol start="12" type="1">
 <li><p>Explain what it means for a value to be at the 75th percentile of a distribution.</p></li>
 <li><p>Why is the median equal to the 50th percentile?</p></li>
@@ -545,8 +669,8 @@ Why is it based on deviations from the mean rather than deviations from the medi
 </ol>
 <hr>
 </section>
-<section id="numerical-practice" class="level3" data-number="3.4.4">
-<h3 data-number="3.4.4" class="anchored" data-anchor-id="numerical-practice"><span class="header-section-number">3.4.4</span> Numerical practice</h3>
+<section id="numerical-practice" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="numerical-practice"><span class="header-section-number">4.1.4</span> Numerical practice</h3>
 <ol start="15" type="1">
 <li>Consider the dataset: <span class="math display">\[
 5,\; 8,\; 2,\; 9,\; 5,\; 3,\; 7,\; 4,\; 2,\; 7,\; 4,\; 10,\; 4,\; 3,\; 5.
@@ -572,8 +696,8 @@ Why is it based on deviations from the mean rather than deviations from the medi
 </ol>
 <hr>
 </section>
-<section id="optional-challenge" class="level3" data-number="3.4.5">
-<h3 data-number="3.4.5" class="anchored" data-anchor-id="optional-challenge"><span class="header-section-number">3.4.5</span> Optional challenge</h3>
+<section id="optional-challenge" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="optional-challenge"><span class="header-section-number">4.1.5</span> Optional challenge</h3>
 <ol start="16" type="1">
 <li>Find a real dataset (for example, income, test scores, or prices):</li>
 </ol>
@@ -586,12 +710,12 @@ Why is it based on deviations from the mean rather than deviations from the medi
 
 </section>
 </section>
+</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>This is for notional purposes only. Although it may seem counterintuitive, this adjustment corrects for the fact that samples tend to underestimate population variability.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Variances are especially useful in algebraic manipulations. For example, variances can be added, whereas standard deviations cannot.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Additional examples are provided in standard textbooks and in the PowerPoint slides accompanying this book.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

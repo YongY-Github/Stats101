@@ -33,6 +33,8 @@ The **subjective definition** reflects an individual’s beliefs, informed by ex
 Although these interpretations differ philosophically, the **mathematics of probability** that follows does not depend on which definition we adopt.
 :::
 
+------------------------------------------------------------------------
+
 ## The probability space, experiment, and outcome
 
 Consider tossing a coin. The outcome is uncertain: it may land **heads** or **tails**. In probability language, tossing the coin is an **experiment**, and the result is an **outcome**.
@@ -140,6 +142,7 @@ draw_and_save_tray <- function(filename = "tray_output.png", seed = 101) {
 }
 
 # --- EXECUTION ---
+
 draw_and_save_tray("figs/ch7/AABC.png", seed = 101)
 ```
 
@@ -218,6 +221,8 @@ segments(x0 = c(0.2, 0.2, 4.8),
          lwd = 2)
 ```
 :::
+
+------------------------------------------------------------------------
 
 ## The multiplication rule
 
@@ -300,6 +305,8 @@ Since $P(A_1 \mid B_1) \neq P(A_1)$, the two events are **not independent**.
 Becoming a CEO is related to being a GA graduate in this example.
 :::
 
+------------------------------------------------------------------------
+
 ## The addition rule
 
 Two events are said to be **mutually exclusive** if the occurrence of one prevents the occurrence of the other.
@@ -339,6 +346,8 @@ Note that we have used the word 'or' and 'at least' for the additional rule, whi
 
 **(2)** A deck of cards is shuffled. What is (a) the chance that the top card is an ace of spades or the bottom card is an ace of spades? (b) the chance that the first card is an ace of spades and the bottom card is an ace of spades?
 :::
+
+------------------------------------------------------------------------
 
 ## Venn diagrams
 
@@ -453,6 +462,8 @@ Essentially, we have:
 **Extension: What If We Had Another Witness?** If a second independent witness also claimed to see a blue taxi, Bayesian updating would apply again. The first posterior (41%) would become our new prior, and we'd combine it with the second witness's reliability. Intuitively, this would increase our confidence, but mathematically, we'd need to consider (1) whether the witnesses are truly independent, (2) whether they have the same accuracy rates, and (3) the possibility of collusion or shared biases.
 
 With two independent, reliable witnesses both saying "blue," the probability that the taxi was actually blue would increase substantially, potentially making the evidence strong enough for legal purposes. This demonstrates how Bayesian updating elegantly handles accumulating evidence—each new piece of information updates our beliefs in a mathematically rigorous way.
+
+------------------------------------------------------------------------
 
 ## Axioms of probability
 

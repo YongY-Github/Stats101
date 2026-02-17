@@ -127,7 +127,6 @@ Now consider the five points: $(1,5), (3,9), (4,7), (5,1), (7,13)$.
 The mean of $X$ is 4 with $SD_X = 2$, and the mean of $Y$ is 7 with $SD_Y = 4$.
 
 ::: {#tbl-calculating-corr}
-
 | X   | Y   | $SU_X$ | $SU_Y$ | Product |
 |-----|-----|--------|--------|---------|
 | 1   | 5   | -1.5   | -0.5   | 0.75    |
@@ -153,7 +152,9 @@ This approach shows that correlation:
 
 There are many other ways to compute the correlation coefficient, but we will stick to the above method as it reveals best how the correlation coefficient works.
 
-In many textbooks, the formula for correlation is written as:
+In many textbooks, the formula for correlation is written as:[^4-2]
+
+[^4-2]: Sometimes, we can write cov(X,Y) = (avg. of products XY) $-$ (avg. of X) $\times$ (avg. of Y).
 
 ::: callout-important
 ### Correlation coefficient

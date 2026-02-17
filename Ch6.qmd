@@ -13,9 +13,9 @@ By the end of this chapter, you should be able to:
 - use the standard normal table to compute probabilities.
 :::
 
-The **Gaussian (normal) distribution** is perhaps the most important of all continuous probability distributions in statistics.
+The **Gaussian (normal) distribution** is perhaps the most important continuous probability distribution in statistics.
 
-Its importance stems largely from the **Central Limit Theorem**, which states that the sum (or average) of a large number of independent random variables will be approximately normally distributed — almost regardless of their individual distributions.  
+Its importance stems largely from the **Central Limit Theorem**, which states that the sum (or average) of a large number of independent random variables will be approximately normally distributed — regardless of their individual distributions.
 
 Any random variable that can be regarded as the sum of many small, independent contributions is therefore likely to follow an approximately normal distribution.
 
@@ -28,16 +28,13 @@ We return to this powerful result in Chapter 11.
 A continuous random variable is said to be **normally distributed** with mean $\mu$ and variance $\sigma^2$ if its probability density function is
 
 $$
-f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} 
-e^{-\left(\frac{(x-\mu)^2}{2 \sigma^2} \right)},
-\quad \text{ or } \quad
 f(x) = \frac{1}{\sigma \sqrt{2\pi}} 
 e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}.
 $$
 
-The normal distribution is completely determined by two parameters (a.k.a its *sufficient statistics*):
+The normal distribution is completely determined by two parameters:
 
-- the **mean** $\mu$  
+- the **mean** $\mu$
 - the **variance** $\sigma^2$
 
 We write:
@@ -49,14 +46,13 @@ $$
 ::: callout-important
 ### Key properties
 
-- The normal distribution is symmetric about its mean.
+- The distribution is symmetric about its mean.
 - It extends from $-\infty$ to $+\infty$.
 - The total area under the curve equals 1.
+- Mean = median = mode.
 :::
 
-Although the formula may look intimidating, in practice we rarely manipulate it directly. Instead, we work with diagrams and standard tables.[View the Standard Normal table here.](figs/ch6/normal.pdf){target="_blank"}
-
-Take care to use the correct table. Do not confuse the standard normal table with the cumulative standard normal table. 
+Although the formula looks intimidating, in practice we rarely manipulate it directly. Instead, we standardize and use tables (or software).
 
 ---
 
@@ -64,19 +60,19 @@ Take care to use the correct table. Do not confuse the standard normal table wit
 
 ![Heights](figs/ch6/heights.png){#fig-heights fig-align="center" width="70%"}
 
-The **empirical rule** (also called the 68–95–99.7 rule) tells us:
+The **empirical rule** (also called the 68–95–99.7 rule) states:
 
 - About **68%** of observations lie within $\pm 1$ standard deviation.
 - About **95%** lie within $\pm 2$ standard deviations.
 - About **99.7%** lie within $\pm 3$ standard deviations.
 
-This rule is extremely useful for quick approximations.
+This rule provides quick approximations without using tables.
 
 ---
 
 ## The role of mean and variance
 
-The normal distribution forms a *family* of distributions.
+The normal distribution forms a *family* of curves.
 
 - Changing $\mu$ shifts the curve left or right.
 - Changing $\sigma$ stretches or compresses the curve.
@@ -89,9 +85,7 @@ The normal distribution forms a *family* of distributions.
 
 ## Standardization and the standard normal distribution
 
-Many bell-shaped histograms resemble the normal curve when expressed in **standard units**.
-
-Standardization means converting a value into the number of standard deviations it lies above or below the mean.
+To make probability calculations manageable, we **standardize** values.
 
 The standardized value (or **z-score**) is:
 
@@ -102,94 +96,99 @@ $$
 ::: callout-note
 ### The standard normal distribution
 
-When we standardize a normal variable, we obtain the **standard normal distribution**:
+After standardization,
 
 $$
-Z \sim N(0,1).
+z \sim N(0,1).
 $$
 
 It has mean 0 and standard deviation 1.
 :::
 
-Let's see how to use the Standard Normal table.
-
-![](figs/ch6/normal-portion.png){fig-align="center" width="70%"}
-
-Suppose we are looking for the area between the mean and $+1.2$ standard units or $z$ to the right.
-
-1. Locate the $z$ value in the first column.
-2. Read the corresponding area from the table, i.e. $38.49%$
-
-It's as easy as that. 
-
-Otherwise, compute
-
-$$
-Pr(0 \leq z \leq 1.2) = \int_0^{1.2} \frac{1}{\sigma \sqrt{2\pi}} 
-e^{-\frac{1}{2}z^2} dx \approx 0.3849
-$$
-which is quite intimidating.
-
-You've seen the first two columns. What about the rest? This is when you are looking for at, say, $1.25$ to the right, rather than just $1.2$. You get added precision or decimal points. But the idea is the same.
-
-What makes the standard normal tables very useful is when you are trying to find $z$ given the area under the curve.
-
-Analytically, you may be trying to solve:
-
-$$
-Pr(0 \leq z \leq z^*) = 0.45 = \int_0^{z^*} \frac{1}{\sigma \sqrt{2\pi}} 
-e^{-\frac{1}{2}z^2} dx
-$$
-This is even more intimidating!
-
-But from the table, it is easy to see that $z^*$ is about $1.645$ for this case. 
-
-::: callout-note
-### How to use standard normal distribution
-
-Because it is impractical to have tables for every possible $\mu$ and $\sigma$, we standardize all normal variables to $N(0,1)$.
-
-Once you compute a $z$-score:
-
-1. Locate the $z$ value in the first column.
-2. Read the corresponding area from the table.
-3. Use symmetry if necessary.
-:::
-
-### Example 2
-
-For $z = 1.00$:
-
-Area between the mean and $z=1$ is $0.3413$.
-
-Because the curve is symmetric, this applies in either direction.
-
-Hence, area between "1 to the right" and "1 to the left" is about $68%$ i.e. $0.3413 \times 2$! 
+Standardization allows us to use a single universal table.
 
 ---
 
-### Example 3
+## Using the standard normal table
 
-For $z = 1.38$:
+Suppose we want the area between the mean and $z = 1.20$.
+
+From the table:
+
+$$
+Pr(0 \le z \le 1.20) = 0.3849.
+$$
+
+Instead of solving
+
+$$
+Pr(0 \le z \le 1.20)
+= \int_0^{1.20} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz,
+$$
+
+we simply look up the value.
+
+![](figs/ch6/normal-portion.png){fig-align="center" width="70%"}
+
+1.  Locate the $z$ value in the first column.
+2.  Read the corresponding area from the table.
+
+Hence, $Pr(0 \le z \le 1.20) = 38.49\%$.
+
+### Another Example:
+
+For $z = 1.35$. 
 
 - Find 1.3 in the first column.
-- Move across to 0.08.
-- The table value is 0.4162.
+- Move across to 0.05.
+- The table value is 0.4115.
 
-This means:
-
-$$
-Pr(0 \leq Z \leq 1.38) = 0.4162.
-$$
+Hence, $Pr(0 \le z \le 1.38) = 41.15 \%$.
 
 ---
 
 ## Areas between two z-scores
 
-If neither boundary is the mean:
+To find:
+
+$$
+Pr(z_1 \le z \le z_2),
+$$
 
 1. Look up both areas from the mean.
-2. Add or subtract as needed.
+2. Add or subtract appropriately.
+
+
+### Example
+
+To find:
+
+$$
+Pr(-1 \le z \le 2),
+$$
+
+From the standard normal table, $Pr(0 \le z \le 2) = 0.4772$, and $Pr(0 \le z \le 1) = 0.3413 = Pr(-1 \le z \le 0)$, due to symmetry.
+
+Hence, $Pr(-1 \le z \le 2) = 0.4772 + 0.3413 = 0.8185$.
+
+---
+
+The table is make life even easier.
+
+It allows us easily to look up the probabilities between the mean and some $z$-score.
+
+But, even more, it allows to look up a $z$-score given some probability. This is the same as trying to solve:
+
+$$
+Pr(0 \leq z \leq z^*) = 0.45 = \int_0^{z^*} \frac{1}{\sigma \sqrt{2\pi}} 
+e^{-\frac{1}{2}z^2} dx
+$$ 
+
+which is quite intimidating!
+
+### Example
+
+If we want to find the $z$-value corresponding to a probability of $0.475$ between the mean and $z$, we simply locate $0.475$ (or the closest value) in the body of the standard normal table and then read off the corresponding $z$-score from the row and column headings. What do we get? $1.96$
 
 ---
 
@@ -201,63 +200,66 @@ $$
 -1.96 \text{ and } +1.96.
 $$
 
-We often approximate this using $\pm 2$ for convenience.
-
-More precision will be required in later chapters.
+We often approximate this using $\pm 2$.
 
 ---
 
-## Example 4: Heights
+## Example: Heights
 
-Suppose the heights of 6,588 women have:
+Suppose women’s heights have:
 
-- mean = 160 cm  
-- standard deviation = 5 cm  
+- mean $= 160$ cm  
+- standard deviation $= 5$ cm  
 
-Assume heights follow a normal distribution, as shown by @fig-heights.
+We want:
 
-We standardize:
+$$
+Pr(155 \le X \le 170).
+$$
+
+Standardize:
 
 $$
 z = \frac{X - 160}{5}.
 $$
 
-Suppose we want the probability that a woman’s height lies between 155 and 170 cm.
+So:
 
-In standard units:
+- $155 \rightarrow z = -1$
+- $170 \rightarrow z = 2$
 
-$$
-155 \text{ cm} \rightarrow z= - 1, \quad
-170 \text{ cm} \rightarrow z= +2.
-$$
-
-Thus we want
+Thus,
 
 $$
-Pr(-1 \leq z \leq +2).
+Pr(-1 \le Z \le 2).
 $$
 
-Using the empirical rule:
-
-- 95% of observations lie between $-2$ and $+2$.
-- By symmetry, half of that (47.5%) lies between 0 and +2.
-
-Therefore, from the standard normal table
+From the table:
 
 $$
-Pr(-1 \leq z \leq +2) \approx 0.475.
+Pr(0 \le Z \le 1) = 0.3413,
 $$
 
-From the table, that is $0.3413 + 0.4772$ or $81.85 \%$ of women lie in that height range.
+$$
+Pr(0 \le Z \le 2) = 0.4772.
+$$
 
-That is $Pr(155 \text{ cm} \leq \text{height} \leq 175 \text{ cm}) \approx 82 \%$. Makes sense?
+Therefore,
+
+$$
+Pr(-1 \le Z \le 2)
+= 0.3413 + 0.4772
+= 0.8185.
+$$
+
+So approximately **82%** of women fall in that height range.
 
 ---
 
 ::: callout-important
 ### Chapter summary
 
-The normal distribution plays a central role in statistics because:
+The normal distribution plays a central role because:
 
 - many natural phenomena are approximately normal,
 - sums and averages tend toward normality,
@@ -265,3 +267,90 @@ The normal distribution plays a central role in statistics because:
 
 The $z$-score is the key tool for translating real-world measurements into probabilities.
 :::
+
+---
+
+# Problem Set
+
+## Conceptual questions
+
+1. Why does the Central Limit Theorem make the normal distribution especially important?
+
+2. Explain in words what the parameters $\mu$ and $\sigma^2$ represent.
+
+3. Why must the total area under a probability density curve equal 1?
+
+4. What does it mean for a distribution to be symmetric?
+
+5. Why is standardization useful?
+
+---
+
+## Empirical rule questions
+
+6. If a normal distribution has mean 100 and SD 10, what proportion of observations lie between 80 and 120?
+
+7. What proportion lies above 130?
+
+8. Approximately what percentage lies below $\mu - 3\sigma$?
+
+---
+
+## Standardization and table exercises
+
+9. Suppose $X \sim N(50, 9)$. Compute:
+
+   a) $Pr(X \le 53)$  
+   b) $Pr(47 \le X \le 56)$  
+
+10. Suppose $X \sim N(100, 16)$. Find $z$ when $X = 104$.
+
+11. Find $Pr(Z > 1.64)$.
+
+12. Find $z$ such that:
+
+$$
+Pr(0 \le Z \le z) = 0.45.
+$$
+
+---
+
+## Applied problems
+
+13. Test scores are normally distributed with mean 70 and SD 8.
+
+   a) What percentage score above 86?  
+   b) What percentage score between 62 and 78?
+
+14. IQ scores follow $N(100, 15^2)$.
+
+   a) What proportion have IQ above 130?  
+   b) What IQ corresponds to the top 5%?
+
+15. A factory produces rods with mean length 10 cm and SD 0.2 cm.
+
+   What percentage are longer than 10.4 cm?
+
+16.  In Thailand, more than 1 million high school students took the university entrance exam in 1995. The average math score was 428 and the SD was 110.
+
+   a) Estimate the 60th percentile of the math scores in 1995
+   b) Among Bangkok schools, the average math score was 448 with SD
+   c) About what percent of the Bangkok high-school students did better
+than the national average?
+
+17.  Replacement times for CD players are normally distributed with a
+mean of 7.1 years and a standard deviation of 1.4 years. If you want to
+provide a warranty so that only 2% of the CD players will be replaced
+before the warranty expires, what is the time length of the warranty
+
+18.  Men have a sitting heights that are normally distributed with a
+mean of 36.0 in. and a standard deviation of 1.4 in. The Honda Civic
+has a headroom of 39 in. What is the probability that a randomly
+selected man will not fit in the Civic? If you want to design a car so
+that 97% of men can fit it in, what should the headroom be?
+
+---
+
+## Challenge question
+
+19. Show that standardizing a normal random variable produces a distribution with mean 0 and variance 1.

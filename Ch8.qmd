@@ -1,214 +1,214 @@
-# Discrete Probability Distributions {#ch8}
+# Discrete Probability Distribution {#ch8}
 
+::: callout-note
+### Learning objectives
 
-We begin by defining a **random variable** as a function or rule that assigns a number to each outcome of an experiment. Instead of talking about the coin flipping event as {heads, tails}, for example, we can think of it as 1 and 0, what we often call an indicator variable. This is actually a numerical event which can be called 'the number of heads when flipping a coin'.
+By the end of this chapter, you should be able to:
 
-Formally, a random variable is defined as:
-
-$$
-X: \Omega \to \mathbb{R}
-$$
-where $\Omega$ is the sample space (all possible outcomes of the experiment), $X$ is a measurable function that maps each outcome $\omega \in \Omega$ to a real number $X(\omega)$.
-
-So, the experiment produces an outcome $\omega$, and the random variable translates that outcome into a number. Hence one can view the random variables as a 'bridge'”' from experiment → numbers.
-
-The **probability distribution** is a listing of all possible outcomes of an experiment and the corresponding probability. Once we have a random variable $X$, we can ask: how likely is each possible value of $X$? That’s where the distribution comes in. It is the probability measure induced by $X$: 
-
-$$
-P_X(A)=P(\{\omega \in \Omega: X(\omega) \in A \})
-$$
-where $P$ is the probability measure on the sample space, $P_X$ is the distribution of $X$ and $A$ is a set of real numbers (e.g., an interval).
-
-This tells us: the probability that $X$ takes values in $A$ is equal to the probability of all outcomes that map into $A$. In pther words, a distribution is like a rulebook-it specifies the probabilities attached to those numbers, telling us the 'laws' governing randomness.
-
-::: callout-example
-### Tossing a fair coin
-
-This approach shows that correlation:
-
--   Sample space: $\Omega =$ {Heads, Tails} 
--   Random variable: $X$(Heads) $=1$, $X$(Tails) $=0$  
--   Distribution: $P(X=1)=1/2$, $P(X=0)=1/2$
+- explain what a **random variable** is (and why we use it),
+- distinguish between **discrete** and **continuous** random variables,
+- construct a **probability mass function (PMF)** from an experiment,
+- compute **expected value** $E(X)$ and **variance** $\mathrm{Var}(X)$ from a PMF,
+- use basic **rules of expectation and variance** for linear transformations,
+- work with **joint (bivariate) discrete distributions**,
+- compute **marginal distributions**, **covariance**, and **correlation** from a joint distribution.
 :::
 
-A discrete distribution is based on random variables which can assume only clearly separated values i.e. takes on only whole numbers like $0, 1, 2, \dots$ while a continuous distribution can assume an infinite number of values i.e. takes on any value on the Real line, within a given range. A useful analogy is "Integers are discrete, while Real Numbers are continuous".
+We begin by defining a **random variable** as a rule that assigns a number to each outcome of an experiment.
+
+Instead of describing a single coin toss as $\{\text{Heads}, \text{Tails}\}$, for example, we can “translate” outcomes into numbers such as 1 and 0. That numerical description is often more convenient — because once outcomes are numbers, we can compute averages, spreads, and relationships.
+
+So a random variable is a bridge:
+
+**experiment $\rightarrow$ outcomes $\rightarrow$ numbers**
+
+::: callout-note
+### A light (but useful) formal definition
+
+A random variable is a function $X$ that maps outcomes into real numbers:
+
+$X:\Omega \to \mathbb{R}$
+
+Here $\Omega$ is the sample space (all possible outcomes).The experiment produces an outcome $\omega \in \Omega$, and the random variable outputs the number $X(\omega)$.
+:::
+
+## Probability distributions
+
+Once we have a random variable $X$, we can ask:
+
+**How likely is each possible value of $X$?**
+
+A **probability distribution** answers this question by listing the possible values of $X$ and the probability attached to each one.
+
+Formally, if $A$ is a set of real numbers, the probability that $X$ falls in $A$ is
+
+$P_X(A) = P(\{\omega \in \Omega : X(\omega)\in A\})$.
+
+You do not need to memorize that expression. The idea is simple:
+
+> The probability that $X$ lands in a set $A$ equals the probability of all outcomes that map into $A$.
+
+::: callout-tip
+### Tossing a fair coin (as a random variable)
+
+- Sample space: $\Omega = \{\text{Heads}, \text{Tails}\}$  
+- Random variable: $X(\text{Heads}) = 1$, $X(\text{Tails}) = 0$  
+- Distribution: $P(X=1)=1/2$, $P(X=0)=1/2$
+:::
+
+## Discrete vs. continuous random variables
+
+A **discrete** random variable takes values that are separated and countable (often whole numbers like $0,1,2,\dots$).  
+A **continuous** random variable can take any value on an interval of the real line.
+
+A helpful analogy:
+
+- **Integers are discrete**
+- **Real numbers are continuous**
 
 ::: callout-important
-### Discrete vs. Continious
+### Discrete vs. continuous
 
-- **Discrete random variable:** Distribution given by a probability mass function (PMF)
+- **Discrete random variable:** described by a **probability mass function (PMF)**
 
-$$
-P(X=x_i) = p_i, \quad \sum_i p_i = 1
-$$
-- **Continuous random variable:** Distribution given by a probability density function (PDF)
+$P(X=x_i)=p_i,\quad p_i\ge 0,\quad \sum_i p_i = 1$
 
-$$
-P(a \leq X \leq b) = \int_a^b fx(dx), \quad \int_{-\infty}^{\infty} f(x)dx=1
-$$
+- **Continuous random variable:** described by a **probability density function (PDF)**
 
+$P(a \le X \le b)=\int_a^b f(x)\,dx,\quad f(x)\ge 0,\quad \int_{-\infty}^{\infty} f(x)\,dx = 1$
 :::
 
-## The discrete random variable
+---
 
-When dealing with univariate data, we have seen how the histogram together with its mean and standard deviation are a useful way to
-summarize data. In statistics, what in fact we are dealing with is a **random variable**, sometimes denoted $r.v$, which is nothing more than a function or rule that assigns a number to each outcome of an experiment. And as we have already mentioned, the outcomes of a random variable can be described by a probability distribution, which are a listing of all possible outcomes of an experiment and their corresponding probabilities.
+## The discrete random variable: an example
 
-Let us look at an example. This time, consider an experiment in which a coin is **tossed three times**. Let $X$ be a $r.v$ representing the **number of heads in 3 tosses**. The possible outcomes are:
+In earlier chapters, we used histograms, means, and standard deviations to summarize **data**.
 
+In probability, we summarize **random variables** — and the key object is the **probability distribution**, which tells us how probabilities are allocated across possible outcomes.
+
+### Example: tossing a coin three times
+
+Consider the experiment: **toss a coin three times**.  
+Let $X$ be the random variable “**number of heads in 3 tosses**.”
+
+The sample space has 8 equally likely outcomes. We can list outcomes and compute $X$:
 
 ::: {#tbl-tosses}
 $$
 \begin{array}{|c|c|}
 \hline
-\text{Outcome} & \text{No. of Heads} \\
+\text{Outcome} & X = \text{No. of Heads} \\
 \hline
-\text{T T T} & 0 \\
-\text{T T H} & 1 \\
-\text{T H T} & 1 \\
-\text{T H H} & 2 \\
-\text{H T T} & 1 \\
-\text{H H T} & 2 \\
-\text{H T H} & 2 \\
-\text{H H H} & 3 \\
+TTT & 0 \\
+TTH & 1 \\
+THT & 1 \\
+THH & 2 \\
+HTT & 1 \\
+HHT & 2 \\
+HTH & 2 \\
+HHH & 3 \\
 \hline
 \end{array}
 $$
-
 Outcomes of 3 tosses of a coin
 :::
 
-Note we have 8 equally likely outcomes from which we can easily construct the probability distribution of $X$, the number of heads
-in 3 tosses, as:
+From this we get the PMF (probability distribution) of $X$:
 
 ::: {#tbl-prob-dist}
 $$
 \begin{array}{|c|c|}
 \hline
-X & P(X) \\
+x & P(X=x) \\
 \hline
-0 & 1/8 \text{ or } 0.125 \\
-1 & 3/8 \text{ or } 0.375 \\
-2 & 3/8 \text{ or } 0.375 \\
-3 & 1/8 \text{ or } 0.125 \\
+0 & 1/8 = 0.125 \\
+1 & 3/8 = 0.375 \\
+2 & 3/8 = 0.375 \\
+3 & 1/8 = 0.125 \\
 \hline
-\mathbf{\Sigma} & \mathbf{1.000} \\
+\Sigma & 1.000 \\
 \hline
 \end{array}
 $$
-
-Probability distribution of 3 tosses of a coin
+Probability distribution of $X$ = number of heads in 3 tosses
 :::
 
-The probability distribution, sometimes also referred to as the probability function, is in fact a histogram which looks as follows:
+---
+
+## Visualizing the PMF and CDF
+
+### PMF (a probability “histogram”)
 
 ```{r}
 #| echo: false
-# 1. Define the possible outcomes (0, 1, 2, or 3 heads)
-x <- 0:3
+library(ggplot2)
 
-# 2. Calculate the probability for each outcome
-# dbinom(x, size, prob)
-probs <- dbinom(x, size = 3, prob = 0.5)
+# Create data frame
+df <- data.frame(
+  heads = factor(0:3),
+  prob = c(1/8, 3/8, 3/8, 1/8),
+  fraction = c("1/8", "3/8", "3/8", "1/8")
+)
 
-# 3. Create the barplot
-# We use names.arg to label the x-axis correctly
-barplot(probs, 
-        names.arg = x,
-        col = "skyblue",
-        ylim = c(0, 0.5),
-        main = "Probability Mass Function (PMF)",
-        xlab = "Number of Heads in 3 Tosses (X)",
-        ylab = "Probability P(X = x)")
-
-# Add the exact probability values on top of the bars
-text(x = seq_along(x) * 1.2 - 0.5, # Adjusting for barplot spacing
-     y = probs + 0.04, 
-     labels = round(probs, 3))
+# Create plot
+ggplot(df, aes(x = heads, y = prob)) +
+  geom_col(fill = "lightblue", color = "black") +
+  geom_text(aes(label = fraction), vjust = -0.5, size = 5) +
+  labs(title = "PMF of Number of Heads in 3 Tosses",
+       x = "Number of Heads (x)",
+       y = "P(X = x)") +
+  theme_minimal() +
+  scale_y_continuous(breaks = seq(0, 0.5, by = 0.125),
+                     labels = c("0", "1/8", "1/4", "3/8", "1/2"))
 ```
 
-```{r}
-#| eval: false
-#| include: false
-# 1. Data
-x <- 0:3
-probs <- dbinom(x, size = 3, prob = 0.5)
+### CDF (cumulative distribution function)
 
-# 2. Create the plot
-plot(x, probs, type = "h", lwd = 3, col = "darkblue",
-     main = "PMF (Number of Heads in 3 Tosses)",
-     xlab = "Number of Heads (x)", ylab = "P(X = x)",
-     xlim = c(-0.5, 3.5), ylim = c(0, 0.5), axes = FALSE)
-
-# 3. Add the heads
-points(x, probs, pch = 16, col = "darkblue", cex = 2)
-
-# 4. Add the labels with more breathing room
-# pos = 3 puts text above the point
-# offset = 1 adds a clear gap between the point and the text
-text(x, probs, labels = round(probs, 3), pos = 3, offset = 1)
-
-# 5. Clean axes
-axis(1, at = 0:3)
-axis(2, las = 1)
-```
-
-
-The corresponding **cumulative probability distribution** can be drawn as:
-
-```{r}
-#| eval: false
-#| include: false
-# 1. Define the possible outcomes and cumulative probabilities
-x <- 0:3
-cum_probs <- pbinom(x, size = 3, prob = 0.5)
-
-# 2. Plot the step function
-plot(x, cum_probs, 
-     type = "s",             # "s" for stair steps
-     main = "CDF (of) Number of Heads in 3 Tosses)",
-     xlab = "Number of Heads (x)",
-     ylab = "P(X <= x)",
-     lwd = 2, col = "blue",
-     ylim = c(0, 1),        # CDF always goes from 0 to 1
-     axes = FALSE)          # Custom axes for clarity
-
-# 3. Add clean axes
-axis(1, at = 0:3)
-axis(2, las = 1)
-abline(h = c(0, 1), lty = 2, col = "gray") # Reference lines for 0 and 1
-
-# 4. Optional: Add points to show the "jump"
-points(x, cum_probs, pch = 19, col = "blue")
-```
+The CDF tells us $P(X\le x)$ — the probability that the random variable is at most $x$.
 
 ```{r}
 #| echo: false
-# 1. Define outcomes and cumulative probabilities
+library(ggplot2)
+
+# Create data for step blocks
 x <- 0:3
 cum_probs <- pbinom(x, size = 3, prob = 0.5)
 
-# 2. Create the Block CDF
-# We set space = 0 to make the bars touch (typical for CDF blocks)
-barplot(cum_probs, 
-        names.arg = x, 
-        col = "lightblue", 
-        border = "darkblue",
-        space = 0, 
-        ylim = c(0, 1.1),
-        main = "Cumulative Distribution Function (CDF)",
-        xlab = "Number of Heads in 3 Tosses  (X)", 
-        ylab = "P(X <= x)")
+# Create data frame for full-width rectangles - fill from 0 to cum_prob
+rect_data <- data.frame(
+  xmin = 0:3,
+  xmax = 1:4,
+  ymin = 0,  # Always start at 0
+  ymax = cum_probs,
+  fraction = c("1/8", "1/2", "7/8", "1"),
+  heads = 0:3
+)
 
-# 3. Add a reference line at 1.0 (the maximum)
-# abline(h = 1, lty = 2, col = "red")
-
-# 4. Add the cumulative totals on top of each block
-text(x = seq_along(x) - 0.5, 
-     y = cum_probs, 
-     labels = round(cum_probs, 3), 
-     pos = 3, 
-     offset = 0.5)
+# Create the plot with full-width rectangles
+ggplot() +
+  # Add rectangles
+  geom_rect(data = rect_data,
+            aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+            fill = "lightblue", color = "black") +
+  # Add fraction labels
+  geom_text(data = rect_data,
+            aes(x = xmin + 0.5, y = ymax + 0.03, label = fraction),
+            size = 5, color = "black") +
+  # Customize axes
+  scale_x_continuous(breaks = 0:4, 
+                     limits = c(0, 4)) +
+  scale_y_continuous(breaks = seq(0, 1, by = 0.125),
+                     labels = c("0", "1/8", "1/4", "3/8", "1/2", 
+                                "5/8", "3/4", "7/8", "1"),
+                     limits = c(0, 1.1)) +
+  # Add labels and theme
+  labs(title = "CDF of Number of Heads in 3 Tosses",
+       x = "Number of Heads (x)",
+       y = "P(X ≤ x)") +
+  theme_minimal() +
+  # Add reference lines
+  geom_hline(yintercept = c(0, 1), linetype = "dashed", color = "gray", alpha = 0.5) +
+  theme(panel.grid.minor = element_blank())
 ```
 
 ## The mean and the variance
@@ -220,18 +220,33 @@ The mean is the long-run average value of a random variable, which is also refer
 [^ch8-1]: The expected value is sometimes referred to as the population average; We will see later another definition of the expected value in later chpaters, as the "average" over infinite samples.
 
 $$
-E(X) = \mu = \sum_{i=1}^{n} X_i P(X_i)
+E(X) = \mu = \sum_{i=1}^{n} P(X_i) X_i
 $$ {#eq-expected-value}
 
 The variance which measures the spread or variation of the distribution is defined as:
 
 $$
-Var(X) = \sigma^2 = \sum_{i=1}^{n} (X_i- {\overline X})^2 P(X_i)
+Var(X) = \sigma^2 = \sum_{i=1}^{n} P(X_i) (X_i- {\overline X})^2 
 $$ {#eq-variance}
 
 To get the standard deviation, simply calculate the square root of the variance.
 
-Let's see this with the example above which defines the random variable $X$ as the number of heads in 3 tosses.
+It is easy to see that the formulas for expected value and variance are structurally identical—they are both **weighted averages**--to the "usual" formulas for mean and variance in previous chapters. The only difference is what weights are used.
+
+::: callout-note
+
+### A key viewpoint
+
+Both $E(X)$ and $\mathrm{Var}(X)$ are weighted averages.
+
+In samples, each observation often has equal weight $1/n$.
+
+In probability models, values are weighted by their probabilities.
+:::
+
+## Example
+
+Let's apply the expected value and variance formulas with the example above which defines the random variable $X$ as the number of heads in 3 tosses.
 
 To compute the mean, use @eq-expected-value, shown in the table below--summing the last column of the table gives $\mu = 1.5$.
 
@@ -279,47 +294,36 @@ Careful, we have the variance $=0.75$, hence the standard deviation $\sigma = \s
 
 ## Rules of expected value and variance
 
-Let us introduce some basic rules of expected value and variance.
-Firstly, for **expected value**, we have:
+Let us introduce some basic rules of expected value and variance. Firstly, for **expected value**, we have:
 
-**Rule E1**
-$$E(k)=k$$
-**Rule E2**
-$$E(X+k)=E(X)+k$$
+**Rule E1** $$E(k)=k$$ **Rule E2** $$E(X+k)=E(X)+k$$
 
-**Rule E3**
-$$E(kX)=kE(X)$$
+**Rule E3** $$E(kX)=kE(X)$$
 
 Rule **E1** states that the expected value (or average) of a constant is that constant. Rule **E2** states that the expected value of a random variable to which a constant has been added is equal to the expected value of the random variable plus the constant. Rule **E3** states that the expected value of a random variable multiplied by a constant is equal to the constant times the expected value of the random variable.
 
 Secondly, the **rules of variance** are:
 
-**Rule V1**
-$$Var(k)=0$$
+**Rule V1** $$Var(k)=0$$
 
-**Rule V2**
-$$Var(X+k)=Var(X)$$
+**Rule V2** $$Var(X+k)=Var(X)$$
 
-**Rule V3**
-$$Var(kX)=k^2 Var(X)$$
+**Rule V3** $$Var(kX)=k^2 Var(X)$$
 
 Rule **V1** states that the variance of a constant is zero (i.e., there is no spread). Rule **V2** states that the variance of a random variable to which a constant has been added is simply equal to the variance of the random variable. Lastly, Rule **V3** states that the variance of a random variable multiplied by a constant is equal to the constant squared times the variance of the random variable.[^ch8-2]
 
 [^ch8-2]: It is instructive to compare the expected value and variance rules with the **summation** rules.
 
-::: {.callout-note}
+::: callout-note
 ## Example: Monthly Profit Analysis
 
 Let's illustrate how these rules apply to a real-world scenario.
 
-**The Data:**
-For a food store, monthly sales have a mean ($\mu$) of **Baht 25,000** and a standard deviation ($\sigma$) of **Baht 4,000**. Profits are defined as 30% of sales minus fixed costs of **Baht 6,000**.
+**The Data:** For a food store, monthly sales have a mean ($\mu$) of **Baht 25,000** and a standard deviation ($\sigma$) of **Baht 4,000**. Profits are defined as 30% of sales minus fixed costs of **Baht 6,000**.
 
-**The Goal:**
-Find the mean and standard deviation of the monthly profit.
+**The Goal:** Find the mean and standard deviation of the monthly profit.
 
-**1. Define the Equation:**
-$$Profit = 0.30(Sales) - 6,000$$
+**1. Define the Equation:** $$Profit = 0.30(Sales) - 6,000$$
 
 **2. Calculate the Expected Value (Mean):**
 
@@ -334,10 +338,7 @@ V(\text{Profit}) &= V[0.30(\text{Sales}) - 6,000] \\
 \end{aligned}
 $$
 
-
-**3. Calculate the Variance and Standard Deviation:**
-First, we find the variance ($V$). Remember that $V(Sales) = \sigma^2 = 4,000^2$.
-$$
+**3. Calculate the Variance and Standard Deviation:** First, we find the variance ($V$). Remember that $V(Sales) = \sigma^2 = 4,000^2$. $$
 \begin{aligned}
 V(\text{Profit}) &= V[0.30(\text{Sales}) - 6,000] \\
                  &= V[0.30(\text{Sales})]           && \text{(Rules V2 \& V1)} \\
@@ -348,8 +349,7 @@ V(\text{Profit}) &= V[0.30(\text{Sales}) - 6,000] \\
 \end{aligned}
 $$
 
-Finally, the standard deviation is:
-$$\sigma_{\text{Profit}} = \sqrt{1,440,000} = \mathbf{1,200}$$
+Finally, the standard deviation is: $$\sigma_{\text{Profit}} = \sqrt{1,440,000} = \mathbf{1,200}$$
 :::
 
 ## Discrete bivariate distributions
@@ -368,74 +368,27 @@ $\sum_x \sum_y P(X,Y) = 1$.
 
 ### Joint and marginal probabilities
 
-We have already encountered an example of a bivariate probability distribution in the previous chapter. That example involved a survey of university graduates working as CEOs and whether they were **GA graduates**.
+Let’s take an example. Xavier and Yvette are real estate agents; Let’s use X and Y to denote the number of houses 
+each sells in a month, respectively. The following joint probabilities are based on past sales performance.
 
-The corresponding **joint** and **marginal** distributions are summarized in the table below.
+|   | **x=0** | **x=1** | **x=2** |
+|---|---|---|---|
+| **Y=0** | 0.12 | 0.42 | 0.06 |
+| **Y=1** | 0.21 | 0.06 | 0.03 |
+| **Y=2** | 0.07 | 0.02 | 0.01 |
 
-|                     | Becomes CEO | Does not becomes CEO | **Total** |
-|---------------------|--------------|----------------------|-----------|
-| **GA graduate**     | $P(A_1 B_1)=0.11$ | $P(A_1 B_2)=0.29$ | $P(A_1)=0.40$ |
-| **Not GA graduate** | $P(A_2 B_1)=0.06$ | $P(A_2 B_2)=0.54$ | $P(A_2)=0.60$ |
-| **Total**            | $P(B_1)=0.17$     | $P(B_2)=0.83$     | $1.00$ |
+#### Marginal distribution
 
-$A_1$ is the event that the individual is a GA graduate, or $A_2$ otherwise.  
-$B_1$ is the event that the individual becomes a CEO, or $B_2$ otherwise.
+The **marginal probabilities** are obtained by summing the joint probabilities across rows or down the columns. They describe the probabilities of $Y$ and $X$ *individually*, ignoring the other variable.
 
-The **marginal probabilities** are obtained by summing the joint probabilities across rows or down columns. They describe the probabilities of $A$ and $B$ **individually**, ignoring the other variable.
+![Marginal Distribution](figs/ch8/joint-example.png){#fig-marginal-probability fig-align="center"}
 
-Using marginal probabilities, we can compute the **mean**, **variance**, and **standard deviation** of each variable in a bivariate distribution.
+Then using these marginal probabilities, we can compute the **mean**, and **variance** of each variable in a bivariate distribution by @eq-expected-value and @eq-variance.
 
-#### Marginal distribution of $A$
+Check that you get $E(X)=0.7$ and $E(Y)=0.6$, respectively. How about the variances and standard deviations?[^ch8-3]
 
-::: {#tbl-marginal-A}
-$$
-\begin{array}{|c|c|}
-\hline
-A & P(A) \\
-\hline
-1 & 0.40 \\
-0 & 0.60 \\
-\hline
-\end{array}
-$$
+[^ch8-3]: These are sometimes referred to as **moments**--the mean and variance are the first moments and second central moments, respectively.
 
-Marginal Distribution of Event A
-:::
-
-Using the expectation @eq-expected-value and variance @eq-variance formulas introduced earlier:
-
-- $E(A) = 0.40$
-- $Var(A) = 0.24$
-- $SD(A) \approx 0.49$
-
-#### Marginal distribution of $B$
-
-Similarly, let $B$ be an indicator variable that equals 1 if an individual becomes a CEO and 0 otherwise. The marginal distribution of $B$ is:
-
-::: {#tbl-marginal-B}
-$$
-\begin{array}{|c|c|}
-\hline
-B & P(B) \\
-\hline
-1 & 0.17 \\
-0 & 0.83 \\
-\hline
-\end{array}
-$$
-
-Marginal Distribution of  B
-:::
-
-The corresponding **moments** are:[^ch8-3]
-
-- $E(B) = 0.17$
-- $Var(B) \approx 0.14$
-- $SD(B) \approx 0.38$
-
-[^ch8-3]: 
-    We will introduce the concept of moments later. Essentially the mean and variance are the first moments and second central moments, respectively.
-    
     $$
     \begin{array}{|c|c|c|c|}
     \hline
@@ -452,308 +405,172 @@ The corresponding **moments** are:[^ch8-3]
     \end{array}
     $$
 
-### Covariance of two discrete variables
-
-We have already seen that the **covariance** between two discrete random variables $A$ and $B$ is defined as
-
-$$
-Cov(A,B) = \sum_A \sum_B (A - \overline{A})(B - \overline{B}) P(A,B)
-$$ {#eq-covariance}
-
-Continuing with the GA–CEO example, the covariance by @eq-covariance between $A$ and $B$ is approximately
-
-$Cov(A,B) = 0.042$.
+------------------------------------------------------------------------
 
 ### Correlation
 
 The **correlation coefficient** is obtained by dividing the covariance by the product of the standard deviations:
 
 $$
-\text{Corr}(A,B) = \dfrac{\text{Covariance}(A,B)}{SD_A \, SD_B}
-$$
-For this example, the correlation coefficient $r \approx 0.23$.
-
-We therefore conclude that there is a *weak* **positive relationship** between a GA graduate and becoming a CEO.
-
-## The Binomial formula
-
-We have seen the multiplication and addition rules of probability. Roughly speaking, these rules help us solve "and" and "or" problems. Sometimes, however, we might wish to solve "exact" problems, for example:
-
-1. A coin is tossed 4 times. What is the chance of getting exactly one head?
-2. A die is rolled 10 times. What is the chance of getting exactly 3 Aces?
-3. A box contains one red marble and nine green ones. Five draws are made at random with replacement. What is the chance that exactly two draws will be red? 
-
-It is with such problems that the binomial formula can be very helpful.
-
-### Box Model Example
-
-Let's look more closely at the last example above. We might start with a box model:
-
-```{r}
-#| include: false
-# THE FINAL CLEAN CODE FOR BOX MODEL
-draw_and_save_box <- function(filename = "figs/ch8/r-g.png") {
-  
-  # 1. Open file with wide Aspect Ratio
-  # 11 units wide (10 boxes + padding) by 1.5 units high
-  png(filename, width = 1200, height = 200, res = 150)
-  
-  # 2. Set margins to absolute zero
-  par(mar = c(0, 0, 0, 0))
-  
-  # 3. Data: 1 Red, 9 Green
-  labels <- c("R", rep("G", 9))
-  
-  # 4. The Plot
-  # xlim 0 to 11 provides space for 10 boxes
-  plot(0, 0, type = "n", xlim = c(0, 11), ylim = c(0.15, 1.35), 
-       axes = FALSE, xaxs = "i", yaxs = "i", asp = 1)
-  
-  # 5. Draw the 10 boxes (The "Tickets")
-  for(i in 1:10) {
-    # rect(xleft, ybottom, xright, ytop)
-    rect(i - 0.4, 0.35, i + 0.4, 1.15, lwd = 1.5)
-    text(i, 0.75, labels = labels[i], cex = 1.8, family = "serif")
-  }
-  
-  # 6. Draw the Tray (U-shape: No top line)
-  # x0/y0 to x1/y1 defines the three lines of the box
-  segments(x0 = c(0.2, 0.2, 10.8),  # Start of Left wall, Floor, Right wall
-           y0 = c(1.2, 0.25, 0.25), # Top of left, bottom-left, bottom-right
-           x1 = c(0.2, 10.8, 10.8), # End of Left wall, Floor, Right wall
-           y1 = c(0.25, 0.25, 1.2), # bottom-left, bottom-right, Top of right
-           lwd = 3)
-  
-  # 7. Close and save
-  dev.off()
-}
-
-# --- EXECUTION ---
-# Ensure the directory exists before saving
-if(!dir.exists("figs/ch8")) dir.create("figs/ch8", recursive = TRUE)
-draw_and_save_box("figs/ch8/r-g.png")
-```
-
-
-![Box Model](figs/ch8/r-g.png){#fig-r-g fig-align="center"}
-
-From the above, we draw 5 tickets at random with replacement. But we want exactly 2 R's and 3 G's (e.g., $\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}$ or $\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}$, etc.). The exact probability can be found using 3 simple steps:
-
-**1) Find all the possible ways:**
-$$
-\frac{5!}{2! \times 3!} = \frac{\text{total cases}}{\text{no. of successes} \times \text{no. of failures}}
+\text{Corr}(X,Y) = \dfrac{\text{Covariance}(X,Y)}{SD_X \, SD_Y}
 $$
 
-**2) Calculate the chance of each:**
-$$
-\frac{1}{10} \times \frac{1}{10} \times \frac{9}{10} \times \frac{9}{10} \times \frac{9}{10} = \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3
-$$
+Let's try finding the correlation of Xavier and Yvette.
 
-**3) Use the addition rule to add up the chances:**
-$$
-\frac{5!}{2! \times 3!} \times \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3 \approx 7\%
-$$
+#### Covariance of two discrete variables
 
-This can be interpreted as the chance of getting exactly 2 $\fbox{R}$'s.
-
-Note that **step 1** is actually the *binomial coefficient*, which gives us the total number of combinations of arranging 2 R's and 3 G's. In **step 2**, the chance of getting $\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}$ is the same as getting $\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}$, and so on. Lastly, **step 3** involves the addition rules as all events are mutually exclusive (disjoint).
-
-### The Binomial Formula
-
-::: callout-important
-### The Binomial Formula
-
-The chance that an event will occur exactly $k$ times out of $n$ trials is given by 
+Starting from the **covariance** between two discrete random variables defined as
 
 $$
-P(X=k) = \frac{n!}{k!(n-k)!}p^k (1-p)^{n-k}, \text{ for } k = 0,1,\dots,n
-$$ {#eq-binomial}
+Cov(X,Y) = P(X,Y) \sum_X \sum_Y (X - \overline{X})(Y - \overline{Y})
+$$ {#eq-covariance}
 
-Where:
-- $n$ is the number of trials.
-- $k$ is the number of times the event of interest is to occur.
-- $p$ is the probability that the event of interest will occur on any particular trial.
+or an alternative shorter formula is:
+$$
+Cov(X, Y) = \sum_x \sum_y XY P(X, Y) - \overline{XY}
+$$
+
+Try showing that the two equations are in fact the same.
+
+Operationalizing @eq-covariance gives
+
+$$
+\text{Covariance}(X,Y) = (0–.7)(0–.5)(.12) + (1–.7)(0-.5)(.42) + \dots + (2–.7)(2–.5)(.01) = –0.15
+$$
+
+::: callout-note
+### Covariance and correlation
+
+Covariance measures whether $X$ and $Y$ tend to move together, while the **correlation** coefficient rescales covariance into a unit-free number:
+
+$$
+\mathrm{Corr}(X,Y)=\dfrac{\mathrm{Cov}(X,Y)}{\mathrm{SD}_X \mathrm{SD}_Y}
+$$.
+
+Correlation is always between $-1$ and $1$.
 :::
 
-**Three conditions must hold for the binomial formula to be valid:**
-
-1. The value of $n$ must be fixed in advance.  
-2. $p$ must be the same from trial to trial.  
-3. The trials must be independent of each other.  
-  
-
-**Quick Example**
-
-To find the chance of getting exactly 2 aces in 10 rolls of a die:
+And finally, we get:
 
 $$
-P(X=2) = \frac{10!}{2!8!}\left( \frac{1}{6} \right)^2 \left(\frac{5}{6} \right)^8 \approx 0.2907
+\text{Corr} (X,Y) = \dfrac{-0.15}{0.64 \times 0.67} \approx -0.35
 $$
 
-## The Poisson distribution
+A negative correlation meaning when Xavier does well, Yvette doesn't (and vice-versa).
 
-The Poisson random variable is a discrete random variable that typically fits cases of rare events that occur over a fixed amount of time or within a specified space or region. Typical cases are, for example:
+---
 
-* The number of customers entering a service station per hour.
-* The number of errors a typist makes per page.
-* The number of telephone calls received by a switchboard per hour.
+::: callout-important
 
-## The Poisson Formula
+### Chapter Summary
 
-The Poisson probability distribution is given by:
+In this chapter, we introduced a **random variable** as a rule that assigns numbers to the outcomes of a random experiment, allowing us to analyze uncertainty mathematically.
 
-$$
-P(X=x) = f(x) = \frac{e^{-\mu} \mu^x}{x!}
-$$ {#eq-poisson}
+A **discrete probability distribution** describes how probabilities are assigned to distinct values through a **probability mass function (PMF)**. These probabilities must be nonnegative and sum to one.
 
-Where:
-- $\mu$ is the average number of successes in a particular interval of time or space.
-- $e$ is the constant $\approx 2.71828\dots$
-- $x$ is the number of successes.^[Take care of notation here. We have introduced $f(x)$: the small "$f$" represents a probability density function. 
+We defined the **expected value** and **variance** as probability-weighted summaries of the distribution. The expected value represents the long-run average, while the variance measures dispersion around the mean.
 
-Correspondingly, a large "$F$", say, $F(x)$, would refer to the cumulative probability function. This should be distinguished from the large "$P$" we have been using, which stands for probability.]
+Extending these ideas to two variables, we studied **joint distributions**, from which marginal distributions can be derived. Finally, we introduced **covariance** and **correlation** to measure the direction and strength of linear association between discrete random variables.
+:::
 
-### Assumptions of the Poisson Process
-
-For the Poisson formula to be valid, the following conditions must be met:
-
-1. **Independence**: The number of successes that occur in one time interval should be independent of the number of successes in another interval.
-2. **Proportionality**: The probability of a success in a certain interval should be the same for all intervals of the same size and proportional to the length of the interval.
-3. **Simultaneity**: The probability that two or more successes will occur in an interval approaches zero as the interval becomes smaller and smaller.
-
-**Example: Typographical Errors**
-
-Assume that the number of typographical errors in a new edition of a textbook follows a Poisson distribution with a mean of **1.5 per 100 pages**. If 100 pages are randomly selected, what is the probability that there are no typos ($X=0$)?
-
-$$
-\begin{aligned}
-P(X=0) = f(0) &= \frac{e^{-1.5} 1.5^0}{0!} \\
-              &= \frac{0.2231 \times 1}{1} \\
-              &= \mathbf{0.2231}
-\end{aligned}
-$$
+------------------------------------------------------------------------
 
 ## Exercises
 
 ### Understanding discrete random variables
 
-1. **What is a discrete random variable?**  
-   Explain the difference between a *random outcome* and a *random variable*.  
-   Give two examples of discrete random variables drawn from everyday life.
+1. **Random variables**
 
-2. **Probability distributions**  
-   A discrete random variable $X$ takes values $x_1, x_2, \dots, x_k$ with probabilities $P(X=x_i)$.
+(a) What is a discrete random variable?  
+(b) Explain the difference between a *random outcome* and a *random variable*.  
+(c) Give two real-world examples of discrete random variables.
 
-   (a) What two conditions must a probability distribution satisfy?  
-   (b) Explain in words why these conditions are necessary.
+2. **Probability distributions**
 
----
+A discrete random variable $X$ takes values $x_1, x_2, \dots, x_k$ with probabilities $P(X=x_i)$.
 
-### Mean, variance, and transformations
-
-3. **A simple distribution**  
-   The random variable $X$ has the following distribution:
-
-   | $X$   | 0   | 1   | 2   | 3   |
-   |------|-----|-----|-----|-----|
-   | $P(X)$ | 0.4 | 0.3 | 0.2 | 0.1 |
-
-   (a) Compute $E[X]$, $\text{Var}(X)$, and the standard deviation of $X$.  
-   (b) Interpret the mean of $X$ in words.
-
-4. **Linear transformations**  
-   Suppose $Y = 3X + 2$.
-
-   (a) Use the laws of expectation and variance to compute $E[Y]$ and $\text{Var}(Y)$.  
-   (b) Find the standard deviation of $Y$.  
-   (c) Explain why adding a constant affects the mean but not the variance.
+(a) State the two conditions a probability distribution must satisfy.  
+(b) Explain in words why these conditions are necessary.
 
 ---
 
-### Joint distributions, independence, and correlation
+### Mean and variance
 
-5. **Joint distribution**  
-   The joint probability distribution of $X$ and $Y$ is given below:
+3. **Computing moments**
 
-   |      | $Y=-1$ | $Y=0$ | $Y=1$ |
-   |------|--------|-------|-------|
-   | $X=0$ | 0.1    | 0.1   | 0.1   |
-   | $X=2$ | 0.1    | 0.2   | 0.1   |
-   | $X=4$ | 0.1    | 0.1   | 0.1   |
+The random variable $X$ has the following distribution:
 
-   (a) Compute the marginal distributions of $X$ and $Y$.  
-   (b) Show that $E[XY] = E[X]E[Y]$.  
-   (c) Conclude that $X$ and $Y$ are uncorrelated.  
-   (d) Show that $X$ and $Y$ are **not independent**.
+| $X$ | 0 | 1 | 2 | 3 |
+|-----|---|---|---|---|
+| $P(X)$ | 0.4 | 0.3 | 0.2 | 0.1 |
 
-   *Why does zero correlation not imply independence?*
+(a) Compute $E[X]$.  
+(b) Compute $\text{Var}(X)$.  
+(c) Compute the standard deviation of $X$.  
+(d) Interpret the expected value in words.
 
-6. **Another joint distribution**  
-   The joint distribution of $X$ and $Y$ is given by:
+4. **Linear transformations**
 
-   |      | $X=0$ | $X=1$ | $X=2$ |
-   |------|-------|-------|-------|
-   | $Y=1$  | $1/6$ | $1/6$ | $1/6$ |
-   | $Y=-1$ | 0     | $1/2$ | 0     |
+Let $Y = 3X + 2$.
 
-   (a) Compute $E[X]$ and $E[Y]$.  
-   (b) Are $X$ and $Y$ independent? Justify your answer.  
-   (c) Compute $\text{Cov}(X,Y)$ and determine whether the variables are correlated.
+(a) Compute $E[Y]$.  
+(b) Compute $\text{Var}(Y)$.  
+(c) Find the standard deviation of $Y$.  
+(d) Explain why adding a constant affects the mean but not the variance.
 
 ---
 
-### Counting and discrete probability models
+### Joint distributions
 
-7. **Families and children**  
-   Assume that the probability of a boy equals the probability of a girl, and that births are independent.
+5. **Marginal distributions**
 
-   (a) In families with **four children**, what proportion have more girls than boys?  
-   (b) List all relevant outcomes explicitly.
+The joint probability distribution of $X$ and $Y$ is:
 
-8. **Comparing family sizes**  
-   Couple A has **three children**.  
-   Couple B has **five children**.
+|       | $Y=-1$ | $Y=0$ | $Y=1$ |
+|-------|--------|-------|-------|
+| $X=0$ | 0.1    | 0.1   | 0.1   |
+| $X=2$ | 0.1    | 0.2   | 0.1   |
+| $X=4$ | 0.1    | 0.1   | 0.1   |
 
-   (a) For each couple, compute the probability that there are more girls than boys.  
-   (b) Is the probability higher for couple A, couple B, or the same?  
-   (c) Explain the intuition behind your result.
+(a) Compute the marginal distribution of $X$.  
+(b) Compute the marginal distribution of $Y$.  
+(c) Compute $E[X]$ and $E[Y]$.
 
----
+6. **Independence and correlation**
 
-### Discrete distributions in practice
+Using the table in Question 5:
 
-9. **Guessing on a multiple-choice exam**  
-   A student randomly guesses on a 100-question multiple-choice test. Each question has four possible answers.
-
-   (a) What is the expected number of correct answers?  
-   (b) What is the standard deviation?  
-   (c) If a student scores 35 out of 100, would you attribute this more to luck or skill? Explain briefly.  
-   (d) Which event has higher probability: scoring **exactly 55%**, or scoring **more than 55%**?
-
-10. **Arrivals at an urgent care center**  
-   The mean number of arrivals at an urgent care facility is 4 per hour.
-
-   (a) Assuming arrivals follow a Poisson process, what is the probability of exactly 2 arrivals in one hour?  
-   (b) Explain why the Poisson distribution is appropriate in this context.
-
-11. **Website traffic**  
-   Hits to a personal website occur randomly and independently, with an average of 4 hits per week.
-
-   (a) What is the probability of receiving 10 or more hits in one week?  
-   (b) What is the probability of receiving 20 or more hits over two weeks?
-
-12. **Manufacturing defects**  
-   Flaws in a carpet occur randomly at a rate of one per 300 square feet.
-
-   (a) What distribution is appropriate for modeling the number of flaws?  
-   (b) What is the probability that an $8 \times 10$ foot carpet contains **no flaws**?
+(a) Are $X$ and $Y$ independent? Justify your answer.  
+(b) Compute $\text{Cov}(X,Y)$.  
+(c) Compute $\text{Corr}(X,Y)$.  
+(d) Explain why zero correlation does not necessarily imply independence.
 
 ---
 
-### Conceptual wrap-up
+### Counting and binomial reasoning
 
-13. **Big picture**
+7. **Three coin tosses**
 
-   (a) How do discrete probability distributions help us model uncertainty?  
-   (b) Why are expectations and variances central to economic analysis?  
-   (c) Give one example from economics where a discrete random variable is more appropriate than a continuous one.
+Let $X$ be the number of heads when a fair coin is tossed three times.
+
+(a) List all possible outcomes.  
+(b) Construct the probability distribution of $X$.  
+(c) Compute $E[X]$ and $\text{Var}(X)$.
+
+8. **Families and children**
+
+Assume that the probability of a boy equals the probability of a girl and that births are independent.
+
+(a) In families with five children, what proportion have more girls than boys?  
+(b) List all relevant outcomes explicitly.
+
+---
+
+### Conceptual questions
+
+9. **Big picture**
+
+(a) Why is the expected value often called the “long-run average”?  
+(b) Why is variance measured in squared units?  
+(c) Give one economic example where a discrete random variable is more appropriate than a continuous one.  
+(d) Explain in your own words the difference between independence and zero covariance.

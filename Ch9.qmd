@@ -1,179 +1,580 @@
-# Other Continuous Probability Distributions {#ch9}
+# Binomial and Poisson Distributions {#ch9}
 
 ::: callout-note
 ### Learning objectives
 
 By the end of this chapter, you should be able to:
 
--   distinguish between discrete and continuous random variables,
--   explain why $P(X = x) = 0$ for continuous variables,
--   define and interpret a probability density function (p.d.f.),
--   compute probabilities under the uniform distribution,
--   understand the exponential distribution and its key properties,
--   calculate probabilities using the exponential model.
+- apply basic counting principles (permutations and combinations),
+- derive and use the binomial probability formula,
+- compute probabilities for “exactly $k$ successes” problems,
+- understand when the normal distribution approximates the binomial,
+- define and apply the Poisson distribution,
+- recognize when binomial and Poisson models are appropriate.
 :::
-
-In contrast to a **discrete random variable**, a **continuous random variable** can assume an uncountable number of values.
-
-We cannot list all possible values because there are infinitely many of them.\
-Because of this, the probability of any single value is essentially zero:
-
-$$
-P(X = x) = 0.
-$$
-
-Instead, we compute probabilities over **intervals**, such as
-
-$$
-P(x_1 \leq X \leq x_2), \quad x_1 < x_2.
-$$
-
-This is why continuous random variables are described using a **probability density function (p.d.f.)**, usually denoted $f(x)$.
-
-For a valid p.d.f. defined over $a \leq x \leq b$, two properties must hold:
-
-1.  $f(x) \ge 0$ for all $x$ in $[a,b]$
-2.  The total area under the curve equals 1:
-
-$$
-\int_a^b f(x)\,dx = 1.
-$$
 
 ------------------------------------------------------------------------
 
-## The Uniform Distribution
+## Counting principles
 
-The **uniform distribution** (also called the rectangular distribution) is the simplest continuous distribution.
+Before introducing the binomial formula, we need a short detour into **counting**.
 
-Its probability density function is:
+Probability often reduces to a simple question:
 
-$$
-f(x) = \frac{1}{b-a}, \quad a \leq x \leq b.
-$$
+> How many possible outcomes are there?
 
-Outside the interval $[a,b]$, $f(x) = 0$.
+### The multiplication rule of counting
 
-![](figs/ch9/uniform.png){fig-align="center" width="50%"}
+If one task can be performed in $m$ ways and a second task in $n$ ways, then the two tasks together can be performed in $m \times n$ ways.
 
-Because the density is constant, probabilities are simply areas of rectangles.
-
-To find
+**Example:**  
+A restaurant offers 3 starters and 4 main courses.  
+The number of possible meals is:
 
 $$
-P(x_1 \leq X \leq x_2),
+3 \times 4 = 12.
 $$
 
-compute:
+This simple idea lies behind much of probability theory.
+
+---
+
+### Permutations
+
+A **permutation** counts the number of ways to arrange objects when order matters.
+
+The number of ways to arrange $n$ distinct objects is:
 
 $$
-\text{Area} = (x_2 - x_1)\cdot \frac{1}{b-a}.
+n! = n(n-1)(n-2)\dots 1.
 $$
+
+If we choose $k$ objects out of $n$ and order matters, the number of permutations is:
+
+$$
+P(n,k) = \frac{n!}{(n-k)!}.
+$$
+
+---
+
+### Combinations
+
+A **combination** counts the number of ways to choose objects when order does *not* matter.
+
+The number of combinations of $k$ objects from $n$ is:
+
+$$
+\binom{n}{k} = \frac{n!}{k!(n-k)!}.
+$$
+
+This expression is called the **binomial coefficient**.
+
+It plays a central role in the binomial distribution.
+
+------------------------------------------------------------------------
+
+## The Binomial Distribution
+
+We often encounter problems of the form:
+
+- A coin is tossed 4 times. What is the probability of exactly 1 head?
+- A die is rolled 10 times. What is the probability of exactly 3 sixes?
+- A box contains 1 red and 9 green marbles. Five draws are made *with replacement*. What is the probability of exactly 2 red marbles?
+
+These are examples of **binomial experiments**.
+
+### Conditions for a binomial model
+
+A binomial model applies when:
+
+1. The number of trials $n$ is fixed.
+2. Each trial has two possible outcomes (success/failure).
+3. The probability of success $p$ is constant.
+4. The trials are independent.
+
+---
+
+
+### Box Model Example
+
+Let's look more closely at the last example above. We might start with a box model:
+
+```{r}
+#| include: false
+# THE FINAL CLEAN CODE FOR BOX MODEL
+draw_and_save_box <- function(filename = "figs/ch8/r-g.png") {
+  
+  # 1. Open file with wide Aspect Ratio
+  # 11 units wide (10 boxes + padding) by 1.5 units high
+  png(filename, width = 1200, height = 200, res = 150)
+  
+  # 2. Set margins to absolute zero
+  par(mar = c(0, 0, 0, 0))
+  
+  # 3. Data: 1 Red, 9 Green
+  labels <- c("R", rep("G", 9))
+  
+  # 4. The Plot
+  # xlim 0 to 11 provides space for 10 boxes
+  plot(0, 0, type = "n", xlim = c(0, 11), ylim = c(0.15, 1.35), 
+       axes = FALSE, xaxs = "i", yaxs = "i", asp = 1)
+  
+  # 5. Draw the 10 boxes (The "Tickets")
+  for(i in 1:10) {
+    # rect(xleft, ybottom, xright, ytop)
+    rect(i - 0.4, 0.35, i + 0.4, 1.15, lwd = 1.5)
+    text(i, 0.75, labels = labels[i], cex = 1.8, family = "serif")
+  }
+  
+  # 6. Draw the Tray (U-shape: No top line)
+  # x0/y0 to x1/y1 defines the three lines of the box
+  segments(x0 = c(0.2, 0.2, 10.8),  # Start of Left wall, Floor, Right wall
+           y0 = c(1.2, 0.25, 0.25), # Top of left, bottom-left, bottom-right
+           x1 = c(0.2, 10.8, 10.8), # End of Left wall, Floor, Right wall
+           y1 = c(0.25, 0.25, 1.2), # bottom-left, bottom-right, Top of right
+           lwd = 3)
+  
+  # 7. Close and save
+  dev.off()
+}
+
+# --- EXECUTION ---
+# Ensure the directory exists before saving
+if(!dir.exists("figs/ch8")) dir.create("figs/ch8", recursive = TRUE)
+draw_and_save_box("figs/ch8/r-g.png")
+```
+
+![Box Model](figs/ch8/r-g.png){#fig-r-g fig-align="center"}
+
+From the above, we draw 5 tickets at random with replacement. But we want exactly 2 R's and 3 G's (e.g., $\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}$ or $\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}$, etc.). The exact probability can be found using 3 simple steps:
+
+**1) Find all the possible ways:** $$
+\frac{5!}{2! \times 3!} = \frac{\text{total cases}}{\text{no. of successes} \times \text{no. of failures}}
+$$
+
+**2) Calculate the chance of each:** $$
+\frac{1}{10} \times \frac{1}{10} \times \frac{9}{10} \times \frac{9}{10} \times \frac{9}{10} = \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3
+$$
+
+**3) Use the addition rule to add up the chances:** $$
+\frac{5!}{2! \times 3!} \times \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3 \approx 7\%
+$$
+
+This can be interpreted as the chance of getting exactly 2 $\fbox{R}$'s.
+
+Note that **step 1** is actually the *binomial coefficient*, which gives us the total number of combinations of arranging 2 R's and 3 G's. In **step 2**, the chance of getting $\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}$ is the same as getting $\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}$, and so on. Lastly, **step 3** involves the addition rules as all events are mutually exclusive (disjoint).
+
+### The Binomial Formula
 
 ::: callout-important
-### Key intuition
+### The Binomial Probability Formula
 
-Under a uniform distribution, **all values in the interval are equally likely**.
+If $X$ counts the number of successes in $n$ independent trials with success probability $p$, then
+
+$$
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k},
+\quad k = 0,1,\dots,n.
+$$
 :::
 
-The mean and variance of a uniform random variable are:
+Where:
+
+- $n$ = number of trials  
+- $k$ = number of successes  
+- $p$ = probability of success  
+
+---
+
+### Example
+
+A neighbour has 3 children. What is the probability exactly 2 are boys?
+
+Assuming $p = 1/2$,
 
 $$
-E(X) = \frac{a+b}{2},
+P(X=2) = \binom{3}{2}
+\left(\frac{1}{2}\right)^2
+\left(\frac{1}{2}\right)^1
+= \frac{3}{8}.
+$$
+
+This is exactly the same as the probability of 2 heads in 3 coin tosses.
+
+---
+
+### Mean and variance of the binomial
+
+If $X \sim \text{Bin}(n,p)$, then
+
+$$
+E(X) = np
 $$
 
 $$
-Var(X) = \frac{(b-a)^2}{12}.
+\text{Var}(X) = np(1-p)
 $$
+
+These formulas are extremely useful.
 
 ------------------------------------------------------------------------
 
-## The Exponential Distribution
+## Normal approximation to the binomial distribution
 
-Another important continuous distribution is the **exponential distribution**.
+When $n$ is large, calculating binomial probabilities directly can be tedious.
 
-Its probability density function is:
+Fortunately, the **Central Limit Theorem** tells us that the binomial distribution becomes approximately normal when $n$ is large.
+
+If
 
 $$
-f(x) = \lambda e^{-\lambda x}, \quad x \ge 0,
+X \sim \text{Bin}(n,p),
 $$
 
-where:
+then for sufficiently large $n$,
 
--   $e \approx 2.71828$
--   $\lambda > 0$ is the rate parameter.
+$$
+X \approx N\big(np,\; np(1-p)\big).
+$$
 
-![](figs/ch9/exponential.png){fig-align="center" width="60%"}
+That is:
 
-The exponential distribution is often used to model:
+- Mean $= np$
+- Variance $= np(1-p)$
+- Standard deviation $= \sqrt{np(1-p)}$
 
--   time until a job is found,
--   time until equipment fails,
--   waiting time between arrivals,
--   lifetime of light bulbs,
--   and other “time-to-event” phenomena.
+---
+
+### When is the approximation good?
+
+A common rule of thumb is:
+
+$$
+np \ge 5
+\quad \text{and} \quad
+n(1-p) \ge 5.
+$$
+
+---
+
+### Continuity correction
+
+Because the binomial distribution is discrete and the normal distribution is continuous, we use a **continuity correction**.
+
+For example:
+
+To approximate $P(X \le 10)$, compute
+
+$$
+P(X \le 10.5)
+$$
+
+using the normal distribution.
+
+---
+
+### Example
+
+Suppose $X \sim \text{Bin}(100, 0.5)$.
+
+Mean:
+$$
+\mu = np = 50
+$$
+
+Standard deviation:
+$$
+\sigma = \sqrt{100(0.5)(0.5)} = 5.
+$$
+
+To approximate
+
+$$
+P(X \ge 60),
+$$
+
+we compute
+
+$$
+P\left(Z \ge \frac{59.5 - 50}{5}\right).
+$$
+
+The rest follows using the standard normal table.
 
 ------------------------------------------------------------------------
 
-### Mean and standard deviation
+## Another Example: Normal Approximation to the Binomial
 
-A convenient property of the exponential distribution is:
+Suppose a fair coin is tossed $100$ times.
+
+Let $X$ be the number of heads.
+
+Then
 
 $$
-E(X) = SD(X) = \frac{1}{\lambda},
+X \sim \text{Bin}(100, 0.5).
 $$
 
-Thus, the mean and standard deviation are equal.
+**Step 1: Compute mean and standard deviation**
 
-Smaller values of $\lambda$ flatten the curve and increase the mean.
+$$
+\mu = np = 100(0.5) = 50
+$$
+
+$$
+\sigma = \sqrt{np(1-p)} = \sqrt{100(0.5)(0.5)} = 5.
+$$
+
+---
+
+**Example 1: Approximate $P(X \ge 60)$**
+
+**Step 2: Apply continuity correction**
+
+Because the binomial is discrete, we approximate:
+
+$$
+P(X \ge 60) \approx P(X \ge 59.5).
+$$
+
+**Step 3: Convert to a $z$-score**
+
+$$
+z = \frac{59.5 - 50}{5}
+= \frac{9.5}{5}
+= 1.9.
+$$
+
+**Step 4: Use the standard normal table**
+
+From the table:
+
+$$
+P(Z \le 1.9) = 0.9713.
+$$
+
+Therefore,
+
+$$
+P(Z \ge 1.9) = 1 - 0.9713 = 0.0287.
+$$
+
+**Final Answer**
+
+$$
+P(X \ge 60) \approx 0.0287.
+$$
+
+So there is roughly a $2.9\%$ chance of obtaining 60 or more heads.
+
+---
+
+**Example 2: Approximate $P(45 \le X \le 55)$**
+
+**Step 2: Continuity correction**
+
+$$
+P(45 \le X \le 55)
+\approx
+P(44.5 \le X \le 55.5).
+$$
+
+**Step 3: Convert to $z$-scores**
+
+Lower bound:
+
+$$
+z_1 = \frac{44.5 - 50}{5}
+= -1.1.
+$$
+
+Upper bound:
+
+$$
+z_2 = \frac{55.5 - 50}{5}
+= 1.1.
+$$
+
+**Step 3: Look up table values**
+
+From the standard normal table:
+
+$$
+P(0 \le Z \le 1.1) = 0.3643.
+$$
+
+By symmetry:
+
+$$
+P(-1.1 \le Z \le 1.1)
+= 2(0.3643)
+= 0.7286.
+$$
+
+*Final Answer**
+
+$$
+P(45 \le X \le 55) \approx 0.7286.
+$$
+
+So about $73\%$ of the time, the number of heads will fall between 45 and 55.
 
 ------------------------------------------------------------------------
 
-## Cumulative probabilities
+## The Poisson Distribution
 
-Using calculus, we can derive the cumulative distribution function:
+The **Poisson distribution** models the number of events occurring in a fixed interval of time or space when events occur:
 
-$$
-P(X > x) = e^{-\lambda x}.
-$$
+- independently,
+- randomly,
+- at a constant average rate.
 
-From this, it follows that:
+Typical examples:
 
-$$
-P(X < x) = 1 - e^{-\lambda x}.
-$$
+- Number of calls per hour,
+- Number of defects per page,
+- Number of accidents per month.
 
-More generally,
+---
 
-$$
-P(x_1 < X < x_2) 
-= P(X < x_2) - P(X < x_1)
-= e^{-\lambda x_1} - e^{-\lambda x_2}.
-$$
-
-::: callout-note
-### Memoryless property
-
-The exponential distribution has a special feature called the **memoryless property**:
-
-$$
-P(X > s+t \mid X > s) = P(X > t).
-$$
-
-The future waiting time does not depend on how long you have already waited.
-:::
-
-------------------------------------------------------------------------
+## The Poisson Formula
 
 ::: callout-important
-### Chapter summary
+### The Poisson Probability Function
 
-Continuous random variables differ from discrete ones because individual points have zero probability.
+If $X$ follows a Poisson distribution with mean $\mu$, then
 
-In this chapter, we introduced:
-
--   the general properties of probability density functions,
--   the uniform distribution,
--   the exponential distribution and its tractable probability formulas.
-
-These distributions are widely used in economics, reliability analysis, and queueing theory.
+$$
+P(X = x) = \frac{e^{-\mu} \mu^x}{x!},
+\quad x = 0,1,2,\dots
+$$
 :::
+
+Where:
+
+- $\mu$ = average number of events,
+- $e \approx 2.71828$.
+
+---
+
+### Mean and variance
+
+For a Poisson distribution:
+
+$$
+E(X) = \mu
+$$
+
+$$
+\text{Var}(X) = \mu.
+$$
+
+Thus, the mean and variance are equal.
+
+---
+
+### Example
+
+If typographical errors follow a Poisson distribution with mean $\mu = 1.5$ per 100 pages, then
+
+$$
+P(X=0) = \frac{e^{-1.5} 1.5^0}{0!}
+= e^{-1.5}
+\approx 0.2231.
+$$
+
+------------------------------------------------------------------------
+
+## Binomial–Poisson connection
+
+When:
+
+- $n$ is large,
+- $p$ is small,
+- and $\mu = np$ remains moderate,
+
+the binomial distribution can be approximated by a Poisson distribution:
+
+$$
+\text{Bin}(n,p) \approx \text{Poisson}(\mu = np).
+$$
+
+This is especially useful for modeling rare events.
+
+
+::: callout-important
+### Chapter Summary
+
+The binomial distribution models the number of successes in repeated independent trials with constant probability $p$, while the Poisson distribution models rare events occurring over time or space with average rate $\mu$. The binomial has mean $np$ and variance $np(1-p)$; the Poisson has mean and variance both equal to $\mu$. For large samples, the binomial distribution can be approximated by the normal distribution using standardization with $z$-scores. Together, these models allow us to quantify uncertainty in repeated trials, rare events, and large-sample settings.
+:::
+
+------------------------------------------------------------------------
+
+## Exercises
+
+### Conceptual Understanding
+
+1. What are the four conditions required for a binomial experiment?
+
+2. Explain why independence of trials is crucial for the binomial formula.
+
+3. When is the Poisson distribution more appropriate than the binomial?
+
+4. Why does the normal approximation improve as $n$ increases?
+
+---
+
+### Binomial Calculations
+
+5. A multiple-choice test has 20 questions with 4 possible answers each.
+
+   (a) If a student guesses randomly, what is the probability of exactly 8 correct answers?  
+   (b) What are the mean and standard deviation?
+
+6. A manufacturing process produces defective items with probability $p = 0.02$.
+
+   (a) In a batch of 50 items, what is the probability of exactly 1 defect?  
+   (b) What is the probability of no defects?
+
+---
+
+### Normal Approximation
+
+7. Suppose $X \sim \text{Bin}(200, 0.4)$.
+
+   (a) Compute the mean and standard deviation.  
+   (b) Approximate $P(X \ge 90)$ using the normal approximation.  
+   (c) Clearly show the continuity correction and $z$-steps.
+
+8. A factory produces lightbulbs with defect probability $p = 0.1$.
+
+   In a shipment of 120 bulbs:
+
+   (a) Approximate the probability that between 8 and 18 bulbs are defective.  
+   (b) Compare your answer to what you expect intuitively.
+
+---
+
+### Poisson Applications
+
+9. Customers arrive at a bank at an average rate of 3 per minute.
+
+   (a) What is the probability that exactly 5 customers arrive in one minute?  
+   (b) What is the probability that no customers arrive in two minutes?
+
+10. Calls arrive at a call center at a rate of 2 per hour.
+
+    (a) What is the probability of 6 or more calls in one hour?  
+    (b) What is the probability of exactly 1 call in 30 minutes?
+
+---
+
+### Synthesis
+
+11. Under what conditions can:
+
+   (a) The binomial be approximated by the normal?  
+   (b) The binomial be approximated by the Poisson?
+
+12. Suppose $n$ is very large and $p$ is very small.
+
+   Explain intuitively why the Poisson distribution emerges from the binomial.
