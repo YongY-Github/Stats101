@@ -5,12 +5,14 @@
 
 By the end of this chapter, you should be able to:
 
-- apply basic counting principles (permutations and combinations),
-- derive and use the binomial probability formula,
-- compute probabilities for “exactly $k$ successes” problems,
-- understand when the normal distribution approximates the binomial,
-- define and apply the Poisson distribution,
-- recognize when binomial and Poisson models are appropriate.
+-   apply basic counting principles (permutations and combinations),
+-   derive and use the binomial probability formula,
+-   compute probabilities for “exactly $x$ successes” problems,
+-   understand when the normal distribution approximates the binomial,
+-   define and apply the Poisson distribution,
+-   recognize when binomial and Poisson models are appropriate.
+-   briefly introduce the geometric and negative binomial distribution.
+-   briefly mention the hypergeometric distribution.
 :::
 
 ------------------------------------------------------------------------
@@ -27,8 +29,8 @@ Probability often reduces to a simple question:
 
 If one task can be performed in $m$ ways and a second task in $n$ ways, then the two tasks together can be performed in $m \times n$ ways.
 
-**Example:**  
-A restaurant offers 3 starters and 4 main courses.  
+**Example:**\
+A restaurant offers 3 starters and 4 main courses.\
 The number of possible meals is:
 
 $$
@@ -37,7 +39,7 @@ $$
 
 This simple idea lies behind much of probability theory.
 
----
+------------------------------------------------------------------------
 
 ### Permutations
 
@@ -55,7 +57,7 @@ $$
 P(n,k) = \frac{n!}{(n-k)!}.
 $$
 
----
+------------------------------------------------------------------------
 
 ### Combinations
 
@@ -77,9 +79,9 @@ It plays a central role in the binomial distribution.
 
 We often encounter problems of the form:
 
-- A coin is tossed 4 times. What is the probability of exactly 1 head?
-- A die is rolled 10 times. What is the probability of exactly 3 sixes?
-- A box contains 1 red and 9 green marbles. Five draws are made *with replacement*. What is the probability of exactly 2 red marbles?
+-   A coin is tossed 4 times. What is the probability of exactly 1 head?
+-   A die is rolled 10 times. What is the probability of exactly 3 sixes?
+-   A box contains 1 red and 9 green marbles. Five draws are made *with replacement*. What is the probability of exactly 2 red marbles?
 
 These are examples of **binomial experiments**.
 
@@ -87,13 +89,12 @@ These are examples of **binomial experiments**.
 
 A binomial model applies when:
 
-1. The number of trials $n$ is fixed.
-2. Each trial has two possible outcomes (success/failure).
-3. The probability of success $p$ is constant.
-4. The trials are independent.
+1.  The number of trials $n$ is fixed.
+2.  Each trial has two possible outcomes (success/failure).
+3.  The probability of success $p$ is constant.
+4.  The trials are independent.
 
----
-
+------------------------------------------------------------------------
 
 ### Box Model Example
 
@@ -172,22 +173,24 @@ Note that **step 1** is actually the *binomial coefficient*, which gives us the 
 If $X$ counts the number of successes in $n$ independent trials with success probability $p$, then
 
 $$
-P(X = k) = \binom{n}{k} p^k (1-p)^{n-k},
-\quad k = 0,1,\dots,n.
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x},
+\quad x = 0,1,\dots,n.
 $$
 :::
 
 Where:
 
-- $n$ = number of trials  
-- $k$ = number of successes  
-- $p$ = probability of success  
+-   $n$ = number of trials\
+-   $x$ = number of successes\
+-   $p$ = probability of success
 
----
+In short, we can write $X \sim \text{Bin}(n, p)$.
+
+------------------------------------------------------------------------
 
 ### Example
 
-A neighbour has 3 children. What is the probability exactly 2 are boys?
+A neighbor has 3 children. What is the probability exactly 2 are boys?
 
 Assuming $p = 1/2$,
 
@@ -200,7 +203,9 @@ $$
 
 This is exactly the same as the probability of 2 heads in 3 coin tosses.
 
----
+Note that you can get all $P(X=0), P(X=1), P(X=2), and P(X=3),$ using the binomial formula, i.e.e the entire distribution corresponding to the probability of no boys, one boy, ... , all three boys for my neighbor with 3 children!
+
+------------------------------------------------------------------------
 
 ### Mean and variance of the binomial
 
@@ -215,6 +220,110 @@ $$
 $$
 
 These formulas are extremely useful.
+
+::: {.callout-note collapse="true"}
+### Derivation of the Mean and Variance of a Binomial Distribution (**OPTIONAL**)
+
+Let $X \sim \text{Bin}(n, p)$, where the probability mass function is:
+
+$$P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}$$
+
+#### 1. Derivation of the Mean or Expected Value {.unnumbered}
+
+By definition, the expected value is:
+
+$$E(X) = \sum_{x=0}^{n} X \cdot P(X=x) = \sum_{x=0}^{n} X \binom{n}{x} p^x (1-p)^{n-x}$$
+
+Drop the $X=0$ term, since the first term is $0 \cdot P(X=0)$, we can start the sum at $X=1$.
+
+We can simplify the combination by the identity $X \binom{n}{x} = n \binom{n-1}{x-1}$.
+
+$$E(X) = \sum_{x=1}^{n} n \binom{n-1}{x-1} p^x (1-p)^{n-x}$$
+
+Factor out $np$. That is, pull a $n$ and one $p$ outside the summation.
+
+$$E(X) = np \sum_{x=1}^{n} \binom{n-1}{x-1} p^{x-1} (1-p)^{n-x}$$
+
+Let's re-index the sum. Let $k = x-1$. As $x$ goes from $1$ to $n$, $k$ goes from $0$ to $n-1$.
+
+$$E(X) = np \sum_{k=0}^{n-1} \binom{n-1}{k} p^k (1-p)^{(n-1)-k}$$
+
+Apply the Binomial Theorem. The entire summation is just the expansion of $(p + (1-p))^{n-1}$. Since $(p + 1 - p) = 1$, the sum is $1^{n-1} = 1$.
+
+$$E(X) = np \times 1 = np$$
+
+Another way to see this, which is quicker, is to think of a Binomial random variable $X$ as the sum of $n$ independent Bernoulli trials ($X_1, X_2, \dots, X_n$), where each $X_i$ is 1 for a success and 0 for a failure.
+
+$$X = X_1 + X_2 + \dots + X_n$$
+
+Hence, the mean of a single trial is $E(X_i) = (1 \times p) + (0 \times (1-p)) = p$.
+
+And using the linearity of expectation, the expected value of a sum is the sum of the expected values:
+
+$$E(X) = E(X_1) + E(X_2) + \dots + E(X_n)$$
+
+So,
+
+$$
+E(X) = p + p + \dots + p = np
+$$
+
+------------------------------------------------------------------------
+
+#### 2. Derivation of the Variance {.unnumbered}
+
+To derive the variance of a binomial distribution, we typically use the formula:
+
+$$
+\text{Var}(X) = E(X^2) - [E(X)]^2
+$$
+
+Since we already know that $E(X) = np$, we only need to find $E(X^2)$.
+
+A common "trick" in discrete math is to rewrite $X^2$ as $X(X-1) + X$. This allows us to use the same combination-reduction trick we used for the mean.
+
+$$\text{Var}(X) = E(X(X-1)) + E(X) - [E(X)]^2$$
+
+First, calculate $E(X(X-1))$:
+
+Using the PMF of the binomial distribution:
+
+$$E[X(X-1)] = \sum_{X=0}^{n} X(X-1) \binom{n}{x} p^x (1-p)^{n-x}$$
+
+Here again the terms for $X=0$ and $X=1$ are zero, so the sum starts at $X=2$.
+
+Let's reduce the combination. Use the identity $X(X-1) \binom{n}{x} = n(n-1) \binom{n-2}{x-2}$.
+
+$$E[X(X-1)] = \sum_{x=2}^{n} n(n-1) \binom{n-2}{x-2} p^x (1-p)^{n-x}$$
+
+And factor out constants, i.e. pull out $n(n-1)$ and $p^2$.
+
+$$E[X(X-1)] = n(n-1)p^2 \sum_{x=2}^{n} \binom{n-2}{x-2} p^{x-2} (1-p)^{n-x}$$
+
+Lastly sum to 1. Just like in the mean derivation, the remaining sum is the binomial expansion of $(p + (1-p))^{n-2}$, which equals $1$.
+
+$$E[X(X-1)] = n(n-1)p^2$$
+
+Now substitute everything back into the variance formula:
+
+$$\text{Var}(X) = E(X(X-1)) + E(X) - [E(X)]^2$$
+
+$$\text{Var}(X) = n(n-1)p^2 + np - (np)^2$$ Expand terms:
+
+$$\text{Var}(X) = n^2p^2 - np^2 + np - n^2p^2$$
+
+The $n^2p^2$ terms cancel out, leaving
+
+$$\text{Var}(X) = np - (np)^2 = np(1-p)$$
+
+The intuitive shortcut, if you prefer, is to use the linearity of expectation approach again. The variance of a single Bernoulli trial ($X_i$) is $p(1-p)$. Since the trials are independent, the variance of the sum is the sum of the variances:
+
+$$\text{Var}(X_1 + \dots + X_n) = \text{Var}(X_1) + \dots + \text{Var}(X_n)$$
+
+So,
+
+$$\text{Var}(X) = p(1-p) + \dots + p(1-p) = np(1-p)$$
+:::
 
 ------------------------------------------------------------------------
 
@@ -238,11 +347,11 @@ $$
 
 That is:
 
-- Mean $= np$
-- Variance $= np(1-p)$
-- Standard deviation $= \sqrt{np(1-p)}$
+-   Mean $= np$
+-   Variance $= np(1-p)$
+-   Standard deviation $= \sqrt{np(1-p)}$
 
----
+------------------------------------------------------------------------
 
 ### When is the approximation good?
 
@@ -254,7 +363,7 @@ np \ge 5
 n(1-p) \ge 5.
 $$
 
----
+------------------------------------------------------------------------
 
 ### Continuity correction
 
@@ -270,19 +379,17 @@ $$
 
 using the normal distribution.
 
----
+------------------------------------------------------------------------
 
-### Example
+#### Example
 
 Suppose $X \sim \text{Bin}(100, 0.5)$.
 
-Mean:
-$$
+Mean: $$
 \mu = np = 50
 $$
 
-Standard deviation:
-$$
+Standard deviation: $$
 \sigma = \sqrt{100(0.5)(0.5)} = 5.
 $$
 
@@ -302,7 +409,7 @@ The rest follows using the standard normal table.
 
 ------------------------------------------------------------------------
 
-## Another Example: Normal Approximation to the Binomial
+#### Another Example
 
 Suppose a fair coin is tossed $100$ times.
 
@@ -324,9 +431,7 @@ $$
 \sigma = \sqrt{np(1-p)} = \sqrt{100(0.5)(0.5)} = 5.
 $$
 
----
-
-**Example 1: Approximate $P(X \ge 60)$**
+**1: Approximate** $P(X \ge 60)$
 
 **Step 2: Apply continuity correction**
 
@@ -336,7 +441,7 @@ $$
 P(X \ge 60) \approx P(X \ge 59.5).
 $$
 
-**Step 3: Convert to a $z$-score**
+**Step 3: Convert to a** $z$-score
 
 $$
 z = \frac{59.5 - 50}{5}
@@ -366,9 +471,8 @@ $$
 
 So there is roughly a $2.9\%$ chance of obtaining 60 or more heads.
 
----
 
-**Example 2: Approximate $P(45 \le X \le 55)$**
+**2: Approximate** $P(45 \le X \le 55)$
 
 **Step 2: Continuity correction**
 
@@ -378,7 +482,7 @@ P(45 \le X \le 55)
 P(44.5 \le X \le 55.5).
 $$
 
-**Step 3: Convert to $z$-scores**
+**Step 3: Convert to** $z$-scores
 
 Lower bound:
 
@@ -410,7 +514,7 @@ P(-1.1 \le Z \le 1.1)
 = 0.7286.
 $$
 
-*Final Answer**
+**Final Answer**
 
 $$
 P(45 \le X \le 55) \approx 0.7286.
@@ -424,17 +528,17 @@ So about $73\%$ of the time, the number of heads will fall between 45 and 55.
 
 The **Poisson distribution** models the number of events occurring in a fixed interval of time or space when events occur:
 
-- independently,
-- randomly,
-- at a constant average rate.
+-   independently,
+-   randomly,
+-   at a constant average rate.
 
 Typical examples:
 
-- Number of calls per hour,
-- Number of defects per page,
-- Number of accidents per month.
+-   Number of calls per hour,
+-   Number of defects per page,
+-   Number of accidents per month.
 
----
+------------------------------------------------------------------------
 
 ## The Poisson Formula
 
@@ -451,10 +555,10 @@ $$
 
 Where:
 
-- $\mu$ = average number of events,
-- $e \approx 2.71828$.
+-   $\mu$ = average number of events,
+-   $e \approx 2.71828$.
 
----
+------------------------------------------------------------------------
 
 ### Mean and variance
 
@@ -470,7 +574,7 @@ $$
 
 Thus, the mean and variance are equal.
 
----
+------------------------------------------------------------------------
 
 ### Example
 
@@ -481,16 +585,19 @@ P(X=0) = \frac{e^{-1.5} 1.5^0}{0!}
 = e^{-1.5}
 \approx 0.2231.
 $$
+which represents the probability of no errors in a 100 pages.
 
-------------------------------------------------------------------------
+Here, again we can use the Poisson formula to find $P(X=1), P(X=2), \dots$ corresponding to the probability of one error, two errors per 100 pages, and so on. 
+
+---
 
 ## Binomial–Poisson connection
 
 When:
 
-- $n$ is large,
-- $p$ is small,
-- and $\mu = np$ remains moderate,
+-   $n$ is large,
+-   $p$ is small,
+-   and $\mu = np$ remains moderate,
 
 the binomial distribution can be approximated by a Poisson distribution:
 
@@ -500,6 +607,15 @@ $$
 
 This is especially useful for modeling rare events.
 
+------------------------------------------------------------------------
+
+## The Geometric and Negative Binomial Distribution
+
+------------------------------------------------------------------------
+
+## The Hypergeometric Distribution
+
+------------------------------------------------------------------------
 
 ::: callout-important
 ### Chapter Summary
@@ -513,68 +629,72 @@ The binomial distribution models the number of successes in repeated independent
 
 ### Conceptual Understanding
 
-1. What are the four conditions required for a binomial experiment?
+1.  What are the four conditions required for a binomial experiment?
 
-2. Explain why independence of trials is crucial for the binomial formula.
+2.  Explain why independence of trials is crucial for the binomial formula.
 
-3. When is the Poisson distribution more appropriate than the binomial?
+3.  When is the Poisson distribution more appropriate than the binomial?
 
-4. Why does the normal approximation improve as $n$ increases?
+4.  Why does the normal approximation improve as $n$ increases?
 
----
+------------------------------------------------------------------------
 
 ### Binomial Calculations
 
-5. A multiple-choice test has 20 questions with 4 possible answers each.
+5.  A multiple-choice test has 20 questions with 4 possible answers each.
 
-   (a) If a student guesses randomly, what is the probability of exactly 8 correct answers?  
-   (b) What are the mean and standard deviation?
+    (a) If a student guesses randomly, what is the probability of exactly 8 correct answers?\
+    (b) What are the mean and standard deviation?
 
-6. A manufacturing process produces defective items with probability $p = 0.02$.
+6.  A manufacturing process produces defective items with probability $p = 0.02$.
 
-   (a) In a batch of 50 items, what is the probability of exactly 1 defect?  
-   (b) What is the probability of no defects?
+    (a) In a batch of 50 items, what is the probability of exactly 1 defect?\
+    (b) What is the probability of no defects?
 
----
+------------------------------------------------------------------------
 
 ### Normal Approximation
 
-7. Suppose $X \sim \text{Bin}(200, 0.4)$.
+7.  Suppose $X \sim \text{Bin}(200, 0.4)$.
 
-   (a) Compute the mean and standard deviation.  
-   (b) Approximate $P(X \ge 90)$ using the normal approximation.  
-   (c) Clearly show the continuity correction and $z$-steps.
+    (a) Compute the mean and standard deviation.\
+    (b) Approximate $P(X \ge 90)$ using the normal approximation.\
+    (c) Clearly show the continuity correction and $z$-steps.
 
-8. A factory produces lightbulbs with defect probability $p = 0.1$.
+8.  A factory produces lightbulbs with defect probability $p = 0.1$.
 
-   In a shipment of 120 bulbs:
+    In a shipment of 120 bulbs:
 
-   (a) Approximate the probability that between 8 and 18 bulbs are defective.  
-   (b) Compare your answer to what you expect intuitively.
+    (a) Approximate the probability that between 8 and 18 bulbs are defective.\
+    (b) Compare your answer to what you expect intuitively.
 
----
+------------------------------------------------------------------------
 
 ### Poisson Applications
 
-9. Customers arrive at a bank at an average rate of 3 per minute.
+9.  Customers arrive at a bank at an average rate of 3 per minute.
 
-   (a) What is the probability that exactly 5 customers arrive in one minute?  
-   (b) What is the probability that no customers arrive in two minutes?
+    (a) What is the probability that exactly 5 customers arrive in one minute?\
+    (b) What is the probability that no customers arrive in two minutes?
 
 10. Calls arrive at a call center at a rate of 2 per hour.
 
-    (a) What is the probability of 6 or more calls in one hour?  
+    (a) What is the probability of 6 or more calls in one hour?\
     (b) What is the probability of exactly 1 call in 30 minutes?
 
----
+------------------------------------------------------------------------
 
 ### Synthesis
 
 11. Under what conditions can:
 
-   (a) The binomial be approximated by the normal?  
-   (b) The binomial be approximated by the Poisson?
+<!-- -->
+
+(a) The binomial be approximated by the normal?\
+(b) The binomial be approximated by the Poisson?
+
+<!-- -->
 
 12. Suppose $n$ is very large and $p$ is very small.
 
-   Explain intuitively why the Poisson distribution emerges from the binomial.
+Explain intuitively why the Poisson distribution emerges from the binomial.
