@@ -88,7 +88,8 @@ $$
 ::: {.callout-note collapse="true"}
 ### Derivations of mean and variance for the Uniform Distribution (OPTIONAL)
 
-Let $X$ be a continuous random variable following a uniform distribution, $X \sim U(a, b)$, with the probability density function (PDF): $$f(x) = \frac{1}{b-a}, \quad a \le x \le b$$
+Let $X$ be a continuous random variable following a uniform distribution, $X \sim U(a, b)$, with the probability density function (PDF):
+$$f(x) = \frac{1}{b-a}, \quad a \le x \le b$$
 
 #### 1. Derivation of the Mean $E(X)$ {.unnumbered}
 
@@ -104,7 +105,7 @@ E(X) &= \frac{a+b}{2}
 \end{aligned}
 $$
 
-------------------------------------------------------------------------
+---
 
 #### 2. Derivation of the Variance $\text{Var}(X)$ {.unnumbered}
 
@@ -179,7 +180,8 @@ Smaller values of $\lambda$ imply a flatter curve and a larger expected waiting 
 ::: {.callout-note collapse="true"}
 ### Derivations of the mean and variance for the Exponential Distribution (OPTIONAL)
 
-Let $X$ be a continuous random variable following an exponential distribution, $X \sim \text{Exp}(\lambda)$, with the probability density function (PDF): $$f(x) = \lambda e^{-\lambda x}, \quad x \ge 0$$
+Let $X$ be a continuous random variable following an exponential distribution, $X \sim \text{Exp}(\lambda)$, with the probability density function (PDF):
+$$f(x) = \lambda e^{-\lambda x}, \quad x \ge 0$$
 
 #### 1. Derivation of the Mean $E(X)$ {.unnumbered}
 
@@ -198,7 +200,7 @@ E(X) &= \frac{1}{\lambda}
 \end{aligned}
 $$
 
-------------------------------------------------------------------------
+---
 
 #### 2. Derivation of the Variance $\text{Var}(X)$ {.unnumbered}
 
@@ -239,6 +241,7 @@ Of course,
 $$
 \text{SD}(X) = \sqrt{\text{Var}(X)} =  \frac{1}{\lambda}
 $$
+
 :::
 
 ------------------------------------------------------------------------
@@ -465,6 +468,8 @@ For each situation below, indicate whether a **uniform** or **exponential** dist
 (c) The time until a randomly chosen unemployed worker finds a job.
 
 (d) The location of a buyer’s ideal price within a fixed bargaining range.
+
+------------------------------------------------------------------------
 
 ::: callout-important
 ### Big Picture Reflection
