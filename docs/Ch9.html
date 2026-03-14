@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Binomial and Poisson Distributions – Probability &amp; Statistics 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Ch10.html" rel="next">
+<link href="./Ch8.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-aa8caffdbb89bd39c6d7bdf7bae5a6aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch9.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Probability &amp; Statistics 101</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphical Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Numerical Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Normal Distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Elementary Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch9.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uniform and Exponential Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Expected Value and Standard Error</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#counting-principles" id="toc-counting-principles" class="nav-link active" data-scroll-target="#counting-principles"><span class="header-section-number">8.1</span> Counting principles</a>
+  <ul class="collapse">
+  <li><a href="#the-multiplication-rule-of-counting" id="toc-the-multiplication-rule-of-counting" class="nav-link" data-scroll-target="#the-multiplication-rule-of-counting"><span class="header-section-number">8.1.1</span> The multiplication rule of counting</a></li>
+  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations"><span class="header-section-number">8.1.2</span> Permutations</a></li>
+  <li><a href="#combinations" id="toc-combinations" class="nav-link" data-scroll-target="#combinations"><span class="header-section-number">8.1.3</span> Combinations</a></li>
+  </ul></li>
+  <li><a href="#the-binomial-distribution" id="toc-the-binomial-distribution" class="nav-link" data-scroll-target="#the-binomial-distribution"><span class="header-section-number">8.2</span> The Binomial Distribution</a>
+  <ul class="collapse">
+  <li><a href="#conditions-for-a-binomial-model" id="toc-conditions-for-a-binomial-model" class="nav-link" data-scroll-target="#conditions-for-a-binomial-model"><span class="header-section-number">8.2.1</span> Conditions for a binomial model</a></li>
+  <li><a href="#box-model-example" id="toc-box-model-example" class="nav-link" data-scroll-target="#box-model-example"><span class="header-section-number">8.2.2</span> Box Model Example</a></li>
+  <li><a href="#the-binomial-formula" id="toc-the-binomial-formula" class="nav-link" data-scroll-target="#the-binomial-formula"><span class="header-section-number">8.2.3</span> The Binomial Formula</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">8.2.4</span> Example</a></li>
+  <li><a href="#mean-and-variance-of-the-binomial" id="toc-mean-and-variance-of-the-binomial" class="nav-link" data-scroll-target="#mean-and-variance-of-the-binomial"><span class="header-section-number">8.2.5</span> Mean and variance of the binomial</a></li>
+  </ul></li>
+  <li><a href="#normal-approximation-to-the-binomial-distribution" id="toc-normal-approximation-to-the-binomial-distribution" class="nav-link" data-scroll-target="#normal-approximation-to-the-binomial-distribution"><span class="header-section-number">8.3</span> Normal approximation to the binomial distribution</a>
+  <ul class="collapse">
+  <li><a href="#when-is-the-approximation-good" id="toc-when-is-the-approximation-good" class="nav-link" data-scroll-target="#when-is-the-approximation-good"><span class="header-section-number">8.3.1</span> When is the approximation good?</a></li>
+  <li><a href="#continuity-correction" id="toc-continuity-correction" class="nav-link" data-scroll-target="#continuity-correction"><span class="header-section-number">8.3.2</span> Continuity correction</a></li>
+  </ul></li>
+  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="header-section-number">8.4</span> The Poisson Distribution</a></li>
+  <li><a href="#the-poisson-formula" id="toc-the-poisson-formula" class="nav-link" data-scroll-target="#the-poisson-formula"><span class="header-section-number">8.5</span> The Poisson Formula</a>
+  <ul class="collapse">
+  <li><a href="#mean-and-variance" id="toc-mean-and-variance" class="nav-link" data-scroll-target="#mean-and-variance"><span class="header-section-number">8.5.1</span> Mean and variance</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">8.5.2</span> Example</a></li>
+  </ul></li>
+  <li><a href="#binomialpoisson-connection" id="toc-binomialpoisson-connection" class="nav-link" data-scroll-target="#binomialpoisson-connection"><span class="header-section-number">8.6</span> Binomial–Poisson connection</a></li>
+  <li><a href="#the-geometric-and-negative-binomial-distribution" id="toc-the-geometric-and-negative-binomial-distribution" class="nav-link" data-scroll-target="#the-geometric-and-negative-binomial-distribution"><span class="header-section-number">8.7</span> The Geometric and Negative Binomial Distribution</a></li>
+  <li><a href="#the-hypergeometric-distribution" id="toc-the-hypergeometric-distribution" class="nav-link" data-scroll-target="#the-hypergeometric-distribution"><span class="header-section-number">8.8</span> The Hypergeometric Distribution</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.9</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-understanding" id="toc-conceptual-understanding" class="nav-link" data-scroll-target="#conceptual-understanding"><span class="header-section-number">8.9.1</span> Conceptual Understanding</a></li>
+  <li><a href="#binomial-calculations" id="toc-binomial-calculations" class="nav-link" data-scroll-target="#binomial-calculations"><span class="header-section-number">8.9.2</span> Binomial Calculations</a></li>
+  <li><a href="#normal-approximation" id="toc-normal-approximation" class="nav-link" data-scroll-target="#normal-approximation"><span class="header-section-number">8.9.3</span> Normal Approximation</a></li>
+  <li><a href="#poisson-applications" id="toc-poisson-applications" class="nav-link" data-scroll-target="#poisson-applications"><span class="header-section-number">8.9.4</span> Poisson Applications</a></li>
+  <li><a href="#synthesis" id="toc-synthesis" class="nav-link" data-scroll-target="#synthesis"><span class="header-section-number">8.9.5</span> Synthesis</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="ch9" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Learning objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you should be able to:</p>
+<ul>
+<li>apply basic counting principles (permutations and combinations),</li>
+<li>derive and use the binomial probability formula,</li>
+<li>compute probabilities for “exactly <span class="math inline">\(x\)</span> successes” problems,</li>
+<li>understand when the normal distribution approximates the binomial,</li>
+<li>define and apply the Poisson distribution,</li>
+<li>recognize when binomial and Poisson models are appropriate.</li>
+<li>briefly introduce the geometric and negative binomial distribution.</li>
+<li>briefly mention the hypergeometric distribution.</li>
+</ul>
+</div>
+</div>
+<hr>
+<section id="counting-principles" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="counting-principles"><span class="header-section-number">8.1</span> Counting principles</h2>
+<p>Before introducing the binomial formula, we need a short detour into <strong>counting</strong>.</p>
+<p>Probability often reduces to a simple question:</p>
+<blockquote class="blockquote">
+<p>How many possible outcomes are there?</p>
+</blockquote>
+<section id="the-multiplication-rule-of-counting" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="the-multiplication-rule-of-counting"><span class="header-section-number">8.1.1</span> The multiplication rule of counting</h3>
+<p>If one task can be performed in <span class="math inline">\(m\)</span> ways and a second task in <span class="math inline">\(n\)</span> ways, then the two tasks together can be performed in <span class="math inline">\(m \times n\)</span> ways.</p>
+<p><strong>Example:</strong><br>
+A restaurant offers 3 starters and 4 main courses.<br>
+The number of possible meals is:</p>
+<p><span class="math display">\[
+3 \times 4 = 12.
+\]</span></p>
+<p>This simple idea lies behind much of probability theory.</p>
+<hr>
+</section>
+<section id="permutations" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="permutations"><span class="header-section-number">8.1.2</span> Permutations</h3>
+<p>A <strong>permutation</strong> counts the number of ways to arrange objects when order matters.</p>
+<p>The number of ways to arrange <span class="math inline">\(n\)</span> distinct objects is:</p>
+<p><span class="math display">\[
+n! = n(n-1)(n-2)\dots 1.
+\]</span></p>
+<p>If we choose <span class="math inline">\(k\)</span> objects out of <span class="math inline">\(n\)</span> and order matters, the number of permutations is:</p>
+<p><span class="math display">\[
+P(n,k) = \frac{n!}{(n-k)!}.
+\]</span></p>
+<hr>
+</section>
+<section id="combinations" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="combinations"><span class="header-section-number">8.1.3</span> Combinations</h3>
+<p>A <strong>combination</strong> counts the number of ways to choose objects when order does <em>not</em> matter.</p>
+<p>The number of combinations of <span class="math inline">\(k\)</span> objects from <span class="math inline">\(n\)</span> is:</p>
+<p><span class="math display">\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}.
+\]</span></p>
+<p>This expression is called the <strong>binomial coefficient</strong>.</p>
+<p>It plays a central role in the binomial distribution.</p>
+<hr>
+</section>
+</section>
+<section id="the-binomial-distribution" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="the-binomial-distribution"><span class="header-section-number">8.2</span> The Binomial Distribution</h2>
+<p>We often encounter problems of the form:</p>
+<ul>
+<li>A coin is tossed 4 times. What is the probability of exactly 1 head?</li>
+<li>A die is rolled 10 times. What is the probability of exactly 3 sixes?</li>
+<li>A box contains 1 red and 9 green marbles. Five draws are made <em>with replacement</em>. What is the probability of exactly 2 red marbles?</li>
+</ul>
+<p>These are examples of <strong>binomial experiments</strong>.</p>
+<section id="conditions-for-a-binomial-model" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="conditions-for-a-binomial-model"><span class="header-section-number">8.2.1</span> Conditions for a binomial model</h3>
+<p>A binomial model applies when:</p>
+<ol type="1">
+<li>The number of trials <span class="math inline">\(n\)</span> is fixed.</li>
+<li>Each trial has two possible outcomes (success/failure).</li>
+<li>The probability of success <span class="math inline">\(p\)</span> is constant.</li>
+<li>The trials are independent.</li>
+</ol>
+<hr>
+</section>
+<section id="box-model-example" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="box-model-example"><span class="header-section-number">8.2.2</span> Box Model Example</h3>
+<p>Let’s look more closely at the last example above. We might start with a box model:</p>
+<div id="fig-r-g" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch8/r-g.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Box Model
+</figcaption>
+</figure>
+</div>
+<p>From the above, we draw 5 tickets at random with replacement. But we want exactly 2 R’s and 3 G’s (e.g., <span class="math inline">\(\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}\)</span> or <span class="math inline">\(\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}\)</span>, etc.). The exact probability can be found using 3 simple steps:</p>
+<p><strong>1) Find all the possible ways:</strong> <span class="math display">\[
+\frac{5!}{2! \times 3!} = \frac{\text{total cases}}{\text{no. of successes} \times \text{no. of failures}}
+\]</span></p>
+<p><strong>2) Calculate the chance of each:</strong> <span class="math display">\[
+\frac{1}{10} \times \frac{1}{10} \times \frac{9}{10} \times \frac{9}{10} \times \frac{9}{10} = \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3
+\]</span></p>
+<p><strong>3) Use the addition rule to add up the chances:</strong> <span class="math display">\[
+\frac{5!}{2! \times 3!} \times \left( \frac{1}{10}\right)^2 \left( \frac{9}{10}\right)^3 \approx 7\%
+\]</span></p>
+<p>This can be interpreted as the chance of getting exactly 2 <span class="math inline">\(\fbox{R}\)</span>’s.</p>
+<p>Note that <strong>step 1</strong> is actually the <em>binomial coefficient</em>, which gives us the total number of combinations of arranging 2 R’s and 3 G’s. In <strong>step 2</strong>, the chance of getting <span class="math inline">\(\fbox{R}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{G}\)</span> is the same as getting <span class="math inline">\(\fbox{G}, \fbox{R}, \fbox{G}, \fbox{G}, \fbox{R}\)</span>, and so on. Lastly, <strong>step 3</strong> involves the addition rules as all events are mutually exclusive (disjoint).</p>
+</section>
+<section id="the-binomial-formula" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="the-binomial-formula"><span class="header-section-number">8.2.3</span> The Binomial Formula</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Binomial Probability Formula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> counts the number of successes in <span class="math inline">\(n\)</span> independent trials with success probability <span class="math inline">\(p\)</span>, then</p>
+<p><span class="math display">\[
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x},
+\quad x = 0,1,\dots,n.
+\]</span></p>
+</div>
+</div>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> = number of trials<br>
+</li>
+<li><span class="math inline">\(x\)</span> = number of successes<br>
+</li>
+<li><span class="math inline">\(p\)</span> = probability of success</li>
+</ul>
+<p>In short, we can write <span class="math inline">\(X \sim \text{Bin}(n, p)\)</span>.</p>
+<hr>
+</section>
+<section id="example" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="example"><span class="header-section-number">8.2.4</span> Example</h3>
+<p>A neighbor has 3 children. What is the probability exactly 2 are boys?</p>
+<p>Assuming <span class="math inline">\(p = 1/2\)</span>,</p>
+<p><span class="math display">\[
+P(X=2) = \binom{3}{2}
+\left(\frac{1}{2}\right)^2
+\left(\frac{1}{2}\right)^1
+= \frac{3}{8}.
+\]</span></p>
+<p>This is exactly the same as the probability of 2 heads in 3 coin tosses.</p>
+<p>Note that you can get all <span class="math inline">\(P(X=0), P(X=1), P(X=2), and P(X=3),\)</span> using the binomial formula, i.e.e the entire distribution corresponding to the probability of no boys, one boy, … , all three boys for my neighbor with 3 children!</p>
+<hr>
+</section>
+<section id="mean-and-variance-of-the-binomial" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="mean-and-variance-of-the-binomial"><span class="header-section-number">8.2.5</span> Mean and variance of the binomial</h3>
+<p>If <span class="math inline">\(X \sim \text{Bin}(n,p)\)</span>, then</p>
+<p><span class="math display">\[
+E(X) = np
+\]</span></p>
+<p><span class="math display">\[
+\text{Var}(X) = np(1-p)
+\]</span></p>
+<p>These formulas are extremely useful.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Derivation of the Mean and Variance of a Binomial Distribution (<strong>OPTIONAL</strong>)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X \sim \text{Bin}(n, p)\)</span>, where the probability mass function is:</p>
+<p><span class="math display">\[P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}\]</span></p>
+<section id="derivation-of-the-mean-or-expected-value" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derivation-of-the-mean-or-expected-value">1. Derivation of the Mean or Expected Value</h4>
+<p>By definition, the expected value is:</p>
+<p><span class="math display">\[E(X) = \sum_{x=0}^{n} X \cdot P(X=x) = \sum_{x=0}^{n} X \binom{n}{x} p^x (1-p)^{n-x}\]</span></p>
+<p>Drop the <span class="math inline">\(X=0\)</span> term, since the first term is <span class="math inline">\(0 \cdot P(X=0)\)</span>, we can start the sum at <span class="math inline">\(X=1\)</span>.</p>
+<p>We can simplify the combination by the identity <span class="math inline">\(X \binom{n}{x} = n \binom{n-1}{x-1}\)</span>.</p>
+<p><span class="math display">\[E(X) = \sum_{x=1}^{n} n \binom{n-1}{x-1} p^x (1-p)^{n-x}\]</span></p>
+<p>Factor out <span class="math inline">\(np\)</span>. That is, pull a <span class="math inline">\(n\)</span> and one <span class="math inline">\(p\)</span> outside the summation.</p>
+<p><span class="math display">\[E(X) = np \sum_{x=1}^{n} \binom{n-1}{x-1} p^{x-1} (1-p)^{n-x}\]</span></p>
+<p>Let’s re-index the sum. Let <span class="math inline">\(k = x-1\)</span>. As <span class="math inline">\(x\)</span> goes from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>, <span class="math inline">\(k\)</span> goes from <span class="math inline">\(0\)</span> to <span class="math inline">\(n-1\)</span>.</p>
+<p><span class="math display">\[E(X) = np \sum_{k=0}^{n-1} \binom{n-1}{k} p^k (1-p)^{(n-1)-k}\]</span></p>
+<p>Apply the Binomial Theorem. The entire summation is just the expansion of <span class="math inline">\((p + (1-p))^{n-1}\)</span>. Since <span class="math inline">\((p + 1 - p) = 1\)</span>, the sum is <span class="math inline">\(1^{n-1} = 1\)</span>.</p>
+<p><span class="math display">\[E(X) = np \times 1 = np\]</span></p>
+<p>Another way to see this, which is quicker, is to think of a Binomial random variable <span class="math inline">\(X\)</span> as the sum of <span class="math inline">\(n\)</span> independent Bernoulli trials (<span class="math inline">\(X_1, X_2, \dots, X_n\)</span>), where each <span class="math inline">\(X_i\)</span> is 1 for a success and 0 for a failure.</p>
+<p><span class="math display">\[X = X_1 + X_2 + \dots + X_n\]</span></p>
+<p>Hence, the mean of a single trial is <span class="math inline">\(E(X_i) = (1 \times p) + (0 \times (1-p)) = p\)</span>.</p>
+<p>And using the linearity of expectation, the expected value of a sum is the sum of the expected values:</p>
+<p><span class="math display">\[E(X) = E(X_1) + E(X_2) + \dots + E(X_n)\]</span></p>
+<p>So,</p>
+<p><span class="math display">\[
+E(X) = p + p + \dots + p = np
+\]</span></p>
+<hr>
+</section>
+<section id="derivation-of-the-variance" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derivation-of-the-variance">2. Derivation of the Variance</h4>
+<p>To derive the variance of a binomial distribution, we typically use the formula:</p>
+<p><span class="math display">\[
+\text{Var}(X) = E(X^2) - [E(X)]^2
+\]</span></p>
+<p>Since we already know that <span class="math inline">\(E(X) = np\)</span>, we only need to find <span class="math inline">\(E(X^2)\)</span>.</p>
+<p>A common “trick” in discrete math is to rewrite <span class="math inline">\(X^2\)</span> as <span class="math inline">\(X(X-1) + X\)</span>. This allows us to use the same combination-reduction trick we used for the mean.</p>
+<p><span class="math display">\[\text{Var}(X) = E(X(X-1)) + E(X) - [E(X)]^2\]</span></p>
+<p>First, calculate <span class="math inline">\(E(X(X-1))\)</span>:</p>
+<p>Using the PMF of the binomial distribution:</p>
+<p><span class="math display">\[E[X(X-1)] = \sum_{X=0}^{n} X(X-1) \binom{n}{x} p^x (1-p)^{n-x}\]</span></p>
+<p>Here again the terms for <span class="math inline">\(X=0\)</span> and <span class="math inline">\(X=1\)</span> are zero, so the sum starts at <span class="math inline">\(X=2\)</span>.</p>
+<p>Let’s reduce the combination. Use the identity <span class="math inline">\(X(X-1) \binom{n}{x} = n(n-1) \binom{n-2}{x-2}\)</span>.</p>
+<p><span class="math display">\[E[X(X-1)] = \sum_{x=2}^{n} n(n-1) \binom{n-2}{x-2} p^x (1-p)^{n-x}\]</span></p>
+<p>And factor out constants, i.e.&nbsp;pull out <span class="math inline">\(n(n-1)\)</span> and <span class="math inline">\(p^2\)</span>.</p>
+<p><span class="math display">\[E[X(X-1)] = n(n-1)p^2 \sum_{x=2}^{n} \binom{n-2}{x-2} p^{x-2} (1-p)^{n-x}\]</span></p>
+<p>Lastly sum to 1. Just like in the mean derivation, the remaining sum is the binomial expansion of <span class="math inline">\((p + (1-p))^{n-2}\)</span>, which equals <span class="math inline">\(1\)</span>.</p>
+<p><span class="math display">\[E[X(X-1)] = n(n-1)p^2\]</span></p>
+<p>Now substitute everything back into the variance formula:</p>
+<p><span class="math display">\[\text{Var}(X) = E(X(X-1)) + E(X) - [E(X)]^2\]</span></p>
+<p><span class="math display">\[\text{Var}(X) = n(n-1)p^2 + np - (np)^2\]</span> Expand terms:</p>
+<p><span class="math display">\[\text{Var}(X) = n^2p^2 - np^2 + np - n^2p^2\]</span></p>
+<p>The <span class="math inline">\(n^2p^2\)</span> terms cancel out, leaving</p>
+<p><span class="math display">\[\text{Var}(X) = np - (np)^2 = np(1-p)\]</span></p>
+<p>The intuitive shortcut, if you prefer, is to use the linearity of expectation approach again. The variance of a single Bernoulli trial (<span class="math inline">\(X_i\)</span>) is <span class="math inline">\(p(1-p)\)</span>. Since the trials are independent, the variance of the sum is the sum of the variances:</p>
+<p><span class="math display">\[\text{Var}(X_1 + \dots + X_n) = \text{Var}(X_1) + \dots + \text{Var}(X_n)\]</span></p>
+<p>So,</p>
+<p><span class="math display">\[\text{Var}(X) = p(1-p) + \dots + p(1-p) = np(1-p)\]</span></p>
+</section>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="normal-approximation-to-the-binomial-distribution" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="normal-approximation-to-the-binomial-distribution"><span class="header-section-number">8.3</span> Normal approximation to the binomial distribution</h2>
+<p>When <span class="math inline">\(n\)</span> is large, calculating binomial probabilities directly can be tedious.</p>
+<p>Fortunately, the <strong>Central Limit Theorem</strong> tells us that the binomial distribution becomes approximately normal when <span class="math inline">\(n\)</span> is large.</p>
+<p>If</p>
+<p><span class="math display">\[
+X \sim \text{Bin}(n,p),
+\]</span></p>
+<p>then for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+X \approx N\big(np,\; np(1-p)\big).
+\]</span></p>
+<p>That is:</p>
+<ul>
+<li>Mean <span class="math inline">\(= np\)</span></li>
+<li>Variance <span class="math inline">\(= np(1-p)\)</span></li>
+<li>Standard deviation <span class="math inline">\(= \sqrt{np(1-p)}\)</span></li>
+</ul>
+<hr>
+<section id="when-is-the-approximation-good" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="when-is-the-approximation-good"><span class="header-section-number">8.3.1</span> When is the approximation good?</h3>
+<p>A common rule of thumb is:</p>
+<p><span class="math display">\[
+np \ge 5
+\quad \text{and} \quad
+n(1-p) \ge 5.
+\]</span></p>
+<hr>
+</section>
+<section id="continuity-correction" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="continuity-correction"><span class="header-section-number">8.3.2</span> Continuity correction</h3>
+<p>Because the binomial distribution is discrete and the normal distribution is continuous, we use a <strong>continuity correction</strong>.</p>
+<p>For example:</p>
+<p>To approximate <span class="math inline">\(P(X \le 10)\)</span>, compute</p>
+<p><span class="math display">\[
+P(X \le 10.5)
+\]</span></p>
+<p>using the normal distribution.</p>
+<hr>
+<section id="example-1" class="level4" data-number="8.3.2.1">
+<h4 data-number="8.3.2.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">8.3.2.1</span> Example</h4>
+<p>Suppose <span class="math inline">\(X \sim \text{Bin}(100, 0.5)\)</span>.</p>
+<p>Mean: <span class="math display">\[
+\mu = np = 50
+\]</span></p>
+<p>Standard deviation: <span class="math display">\[
+\sigma = \sqrt{100(0.5)(0.5)} = 5.
+\]</span></p>
+<p>To approximate</p>
+<p><span class="math display">\[
+P(X \ge 60),
+\]</span></p>
+<p>we compute</p>
+<p><span class="math display">\[
+P\left(Z \ge \frac{59.5 - 50}{5}\right).
+\]</span></p>
+<p>The rest follows using the standard normal table.</p>
+<hr>
+</section>
+<section id="another-example" class="level4" data-number="8.3.2.2">
+<h4 data-number="8.3.2.2" class="anchored" data-anchor-id="another-example"><span class="header-section-number">8.3.2.2</span> Another Example</h4>
+<p>Suppose a fair coin is tossed <span class="math inline">\(100\)</span> times.</p>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads.</p>
+<p>Then</p>
+<p><span class="math display">\[
+X \sim \text{Bin}(100, 0.5).
+\]</span></p>
+<p><strong>Step 1: Compute mean and standard deviation</strong></p>
+<p><span class="math display">\[
+\mu = np = 100(0.5) = 50
+\]</span></p>
+<p><span class="math display">\[
+\sigma = \sqrt{np(1-p)} = \sqrt{100(0.5)(0.5)} = 5.
+\]</span></p>
+<p><strong>1: Approximate</strong> <span class="math inline">\(P(X \ge 60)\)</span></p>
+<p><strong>Step 2: Apply continuity correction</strong></p>
+<p>Because the binomial is discrete, we approximate:</p>
+<p><span class="math display">\[
+P(X \ge 60) \approx P(X \ge 59.5).
+\]</span></p>
+<p><strong>Step 3: Convert to a</strong> <span class="math inline">\(z\)</span>-score</p>
+<p><span class="math display">\[
+z = \frac{59.5 - 50}{5}
+= \frac{9.5}{5}
+= 1.9.
+\]</span></p>
+<p><strong>Step 4: Use the standard normal table</strong></p>
+<p>From the table:</p>
+<p><span class="math display">\[
+P(Z \le 1.9) = 0.9713.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P(Z \ge 1.9) = 1 - 0.9713 = 0.0287.
+\]</span></p>
+<p><strong>Final Answer</strong></p>
+<p><span class="math display">\[
+P(X \ge 60) \approx 0.0287.
+\]</span></p>
+<p>So there is roughly a <span class="math inline">\(2.9\%\)</span> chance of obtaining 60 or more heads.</p>
+<p><strong>2: Approximate</strong> <span class="math inline">\(P(45 \le X \le 55)\)</span></p>
+<p><strong>Step 2: Continuity correction</strong></p>
+<p><span class="math display">\[
+P(45 \le X \le 55)
+\approx
+P(44.5 \le X \le 55.5).
+\]</span></p>
+<p><strong>Step 3: Convert to</strong> <span class="math inline">\(z\)</span>-scores</p>
+<p>Lower bound:</p>
+<p><span class="math display">\[
+z_1 = \frac{44.5 - 50}{5}
+= -1.1.
+\]</span></p>
+<p>Upper bound:</p>
+<p><span class="math display">\[
+z_2 = \frac{55.5 - 50}{5}
+= 1.1.
+\]</span></p>
+<p><strong>Step 3: Look up table values</strong></p>
+<p>From the standard normal table:</p>
+<p><span class="math display">\[
+P(0 \le Z \le 1.1) = 0.3643.
+\]</span></p>
+<p>By symmetry:</p>
+<p><span class="math display">\[
+P(-1.1 \le Z \le 1.1)
+= 2(0.3643)
+= 0.7286.
+\]</span></p>
+<p><strong>Final Answer</strong></p>
+<p><span class="math display">\[
+P(45 \le X \le 55) \approx 0.7286.
+\]</span></p>
+<p>So about <span class="math inline">\(73\%\)</span> of the time, the number of heads will fall between 45 and 55.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="the-poisson-distribution" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="the-poisson-distribution"><span class="header-section-number">8.4</span> The Poisson Distribution</h2>
+<p>The <strong>Poisson distribution</strong> models the number of events occurring in a fixed interval of time or space when events occur:</p>
+<ul>
+<li>independently,</li>
+<li>randomly,</li>
+<li>at a constant average rate.</li>
+</ul>
+<p>Typical examples:</p>
+<ul>
+<li>Number of calls per hour,</li>
+<li>Number of defects per page,</li>
+<li>Number of accidents per month.</li>
+</ul>
+<hr>
+</section>
+<section id="the-poisson-formula" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="the-poisson-formula"><span class="header-section-number">8.5</span> The Poisson Formula</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Poisson Probability Function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> follows a Poisson distribution with mean <span class="math inline">\(\mu\)</span>, then</p>
+<p><span class="math display">\[
+P(X = x) = \frac{e^{-\mu} \mu^x}{x!},
+\quad x = 0,1,2,\dots
+\]</span></p>
+</div>
+</div>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span> = average number of events,</li>
+<li><span class="math inline">\(e \approx 2.71828\)</span>.</li>
+</ul>
+<hr>
+<section id="mean-and-variance" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="mean-and-variance"><span class="header-section-number">8.5.1</span> Mean and variance</h3>
+<p>For a Poisson distribution:</p>
+<p><span class="math display">\[
+E(X) = \mu
+\]</span></p>
+<p><span class="math display">\[
+\text{Var}(X) = \mu.
+\]</span></p>
+<p>Thus, the mean and variance are equal.</p>
+<hr>
+</section>
+<section id="example-2" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="example-2"><span class="header-section-number">8.5.2</span> Example</h3>
+<p>If typographical errors follow a Poisson distribution with mean <span class="math inline">\(\mu = 1.5\)</span> per 100 pages, then</p>
+<p><span class="math display">\[
+P(X=0) = \frac{e^{-1.5} 1.5^0}{0!}
+= e^{-1.5}
+\approx 0.2231.
+\]</span> which represents the probability of no errors in a 100 pages.</p>
+<p>Here, again we can use the Poisson formula to find <span class="math inline">\(P(X=1), P(X=2), \dots\)</span> corresponding to the probability of one error, two errors per 100 pages, and so on.</p>
+<hr>
+</section>
+</section>
+<section id="binomialpoisson-connection" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="binomialpoisson-connection"><span class="header-section-number">8.6</span> Binomial–Poisson connection</h2>
+<p>When:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> is large,</li>
+<li><span class="math inline">\(p\)</span> is small,</li>
+<li>and <span class="math inline">\(\mu = np\)</span> remains moderate,</li>
+</ul>
+<p>the binomial distribution can be approximated by a Poisson distribution:</p>
+<p><span class="math display">\[
+\text{Bin}(n,p) \approx \text{Poisson}(\mu = np).
+\]</span></p>
+<p>This is especially useful for modeling rare events.</p>
+<hr>
+</section>
+<section id="the-geometric-and-negative-binomial-distribution" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="the-geometric-and-negative-binomial-distribution"><span class="header-section-number">8.7</span> The Geometric and Negative Binomial Distribution</h2>
+<hr>
+</section>
+<section id="the-hypergeometric-distribution" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="the-hypergeometric-distribution"><span class="header-section-number">8.8</span> The Hypergeometric Distribution</h2>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Chapter Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The binomial distribution models the number of successes in repeated independent trials with constant probability <span class="math inline">\(p\)</span>, while the Poisson distribution models rare events occurring over time or space with average rate <span class="math inline">\(\mu\)</span>. The binomial has mean <span class="math inline">\(np\)</span> and variance <span class="math inline">\(np(1-p)\)</span>; the Poisson has mean and variance both equal to <span class="math inline">\(\mu\)</span>. For large samples, the binomial distribution can be approximated by the normal distribution using standardization with <span class="math inline">\(z\)</span>-scores. Together, these models allow us to quantify uncertainty in repeated trials, rare events, and large-sample settings.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="exercises" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.9</span> Exercises</h2>
+<section id="conceptual-understanding" class="level3" data-number="8.9.1">
+<h3 data-number="8.9.1" class="anchored" data-anchor-id="conceptual-understanding"><span class="header-section-number">8.9.1</span> Conceptual Understanding</h3>
+<ol type="1">
+<li><p>What are the four conditions required for a binomial experiment?</p></li>
+<li><p>Explain why independence of trials is crucial for the binomial formula.</p></li>
+<li><p>When is the Poisson distribution more appropriate than the binomial?</p></li>
+<li><p>Why does the normal approximation improve as <span class="math inline">\(n\)</span> increases?</p></li>
+</ol>
+<hr>
+</section>
+<section id="binomial-calculations" class="level3" data-number="8.9.2">
+<h3 data-number="8.9.2" class="anchored" data-anchor-id="binomial-calculations"><span class="header-section-number">8.9.2</span> Binomial Calculations</h3>
+<ol start="5" type="1">
+<li><p>A multiple-choice test has 20 questions with 4 possible answers each.</p>
+<ol type="a">
+<li>If a student guesses randomly, what is the probability of exactly 8 correct answers?<br>
+</li>
+<li>What are the mean and standard deviation?</li>
+</ol></li>
+<li><p>A manufacturing process produces defective items with probability <span class="math inline">\(p = 0.02\)</span>.</p>
+<ol type="a">
+<li>In a batch of 50 items, what is the probability of exactly 1 defect?<br>
+</li>
+<li>What is the probability of no defects?</li>
+</ol></li>
+</ol>
+<hr>
+</section>
+<section id="normal-approximation" class="level3" data-number="8.9.3">
+<h3 data-number="8.9.3" class="anchored" data-anchor-id="normal-approximation"><span class="header-section-number">8.9.3</span> Normal Approximation</h3>
+<ol start="7" type="1">
+<li><p>Suppose <span class="math inline">\(X \sim \text{Bin}(200, 0.4)\)</span>.</p>
+<ol type="a">
+<li>Compute the mean and standard deviation.<br>
+</li>
+<li>Approximate <span class="math inline">\(P(X \ge 90)\)</span> using the normal approximation.<br>
+</li>
+<li>Clearly show the continuity correction and <span class="math inline">\(z\)</span>-steps.</li>
+</ol></li>
+<li><p>A factory produces lightbulbs with defect probability <span class="math inline">\(p = 0.1\)</span>.</p>
+<p>In a shipment of 120 bulbs:</p>
+<ol type="a">
+<li>Approximate the probability that between 8 and 18 bulbs are defective.<br>
+</li>
+<li>Compare your answer to what you expect intuitively.</li>
+</ol></li>
+</ol>
+<hr>
+</section>
+<section id="poisson-applications" class="level3" data-number="8.9.4">
+<h3 data-number="8.9.4" class="anchored" data-anchor-id="poisson-applications"><span class="header-section-number">8.9.4</span> Poisson Applications</h3>
+<ol start="9" type="1">
+<li><p>Customers arrive at a bank at an average rate of 3 per minute.</p>
+<ol type="a">
+<li>What is the probability that exactly 5 customers arrive in one minute?<br>
+</li>
+<li>What is the probability that no customers arrive in two minutes?</li>
+</ol></li>
+<li><p>Calls arrive at a call center at a rate of 2 per hour.</p>
+<ol type="a">
+<li>What is the probability of 6 or more calls in one hour?<br>
+</li>
+<li>What is the probability of exactly 1 call in 30 minutes?</li>
+</ol></li>
+</ol>
+<hr>
+</section>
+<section id="synthesis" class="level3" data-number="8.9.5">
+<h3 data-number="8.9.5" class="anchored" data-anchor-id="synthesis"><span class="header-section-number">8.9.5</span> Synthesis</h3>
+<ol start="11" type="1">
+<li>Under what conditions can:</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>The binomial be approximated by the normal?<br>
+</li>
+<li>The binomial be approximated by the Poisson?</li>
+</ol>
+<!-- -->
+<ol start="12" type="1">
+<li>Suppose <span class="math inline">\(n\)</span> is very large and <span class="math inline">\(p\)</span> is very small.</li>
+</ol>
+<p>Explain intuitively why the Poisson distribution emerges from the binomial.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Ch8.html" class="pagination-link" aria-label="Discrete Probability Distribution">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Ch10.html" class="pagination-link" aria-label="Uniform and Exponential Probability Distributions">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uniform and Exponential Probability Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,105 @@
+# Introduction {#ch1}
+
+::: callout-note
+### Learning objectives
+
+By the end of this chapter, you should be able to:
+
+-   explain what statistics is and why it is useful,
+-   distinguish clearly between data and information,
+-   describe the difference between descriptive and inferential statistics,
+-   explain the concepts of population, sample, parameter, and statistic,
+-   understand why inference requires probability,
+-   recognize the classical and Bayesian approaches to statistics.
+:::
+
+::: callout-note
+### How to use these notes
+
+This book is written to be read **narratively**, not just consulted for formulas. Each chapter introduces ideas gradually, motivating statistical concepts through explanation, examples, and visual intuition before formal definitions appear.
+
+You are encouraged to: - read the text carefully before focusing on formulas, - study graphs and numerical examples together, - pause at highlighted boxes to reflect on key ideas and common pitfalls, - attempt the end-of-chapter exercises to check and deepen your understanding.
+
+Later chapters build on earlier ones, so a solid grasp of the foundational concepts in descriptive statistics and probability will make the material on correlation and statistical inference much easier to follow.
+
+Statistics is best learned by **thinking with data**, not by memorizing techniques. This book is designed to support that process.
+:::
+
+## What is statistics?
+
+Today’s world is full of data. Data have become indispensable for making informed decisions, finding solutions to problems, understanding complex situations, and developing strategies that ultimately improve the lives of individuals and communities.[^ch1-1]
+
+[^ch1-1]: Think about the last decision you made using numbers—was it about money, health, grades, or something else?
+
+Although the terms *data* and *information* are often used interchangeably, they have distinct meanings. **Data** can be regarded as facts—especially numerical facts—that are collected for reference or analysis. **Information**, on the other hand, is knowledge communicated about some particular fact or phenomenon of interest.
+
+::: callout-note
+### Big picture
+
+Data by themselves are often messy and overwhelming. Statistics provides the tools that turn raw data into meaningful **information**.
+:::
+
+Put simply, **statistics** is a **tool** for extracting **information from data**. What the consumer of statistics ultimately seeks is information—something that helps them see through and make sense of the maze and dazzle of raw data.
+
+Statistics helps us create new understanding from data. Broadly speaking, there are two main branches of statistics:
+
+-   **Descriptive statistics**, which focus on organizing, summarizing, and presenting data in a clear and informative way.
+-   **Inferential statistics**, which use data from a sample to make conclusions or draw inferences about some unknown aspect of a population.
+
+::: callout-important
+### Key idea
+
+**Descriptive statistics** describe *what the data look like*.
+
+**Inferential statistics** help us learn about *what we cannot directly observe*.
+:::
+
+## Statistical inference
+
+Descriptive statistics rely on graphical summaries and numerical techniques. **Statistical inference**, in contrast, involves making estimates, predictions, and decisions about a population based on information obtained from a sample.
+
+![Statistical Inference](figs/ch1/inference.png){#fig-inference fig-align="center"}
+
+In practice, what a statistician is often interested in is a **population**—a collection of all possible individuals, objects, or measurements of interest. Of particular importance is some numerical characteristic of the population, known as a **parameter**.
+
+Because it is usually impossible (or impractical) to observe the entire population, a **sample** is drawn. From this sample, a **statistic**—a numerical quantity describing some feature of the sample—is calculated. Statistical inference then uses this statistic to say something about the corresponding population parameter.
+
+Before we treat inferential statistics later in this book in detail, we begin with a discussion of basic statistical concepts that are best introduced through descriptive statistics, together with an introduction to elementary probability, which is essential for understanding statistical inference.
+
+## Pioneers of statistics
+
+There are several approaches to doing statistics. In this book, we primarily adopt the **classical approach**, developed largely by **Sir Ronald Aylmer Fisher (1890–1962)**—a British statistician, geneticist, and professor. For his contributions, Fisher has been described as *“a genius who almost single-handedly created the foundations for modern statistical science.”* [@efron1998fisher]
+
+Another important framework is the **Bayesian approach**, associated with **Thomas Bayes (1702–1761)**, an English statistician, philosopher, and Presbyterian minister. Bayes is best known for formulating what is now called **Bayes’ theorem**, which will be introduced in a later chapter.[^ch1-2]
+
+[^ch1-2]: Interestingly, Bayes never published what would become his most famous accomplishment; his notes were edited and published after his death by Richard Price.
+
+------------------------------------------------------------------------
+
+## Key terms
+
+### Data
+
+Data are characteristics or pieces of information—usually numerical—collected through observation. More formally, **data** are sets of values of qualitative or quantitative variables measured on one or more individuals or objects. A **datum** (the singular of data) refers to a single value of a single variable.
+
+### Statistics
+
+Statistics is the discipline concerned with the **collection, organization, analysis, interpretation, and presentation of data**.
+
+### Descriptive statistics
+
+Descriptive statistics refers to the process of **summarizing and describing data**, typically using tables, graphs, and numerical measures.
+
+### Inferential statistics
+
+Inferential statistics (or statistical inference) is the process of **using data from a sample to draw conclusions about an underlying population or probability distribution**.
+
+::: callout-important
+### Chapter summary
+
+Statistics provides tools for turning raw data into meaningful information.
+
+Descriptive statistics summarize and present data, while inferential statistics use data from samples to draw conclusions about populations. Central to statistical reasoning are the ideas of populations, samples, parameters, and statistics, as well as the role of probability in making inference possible.
+
+This chapter sets the conceptual foundation for the rest of the book and motivates the need for the descriptive and inferential tools developed in later chapters.
+:::

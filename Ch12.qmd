@@ -1,0 +1,232 @@
+# Chance Errors in Samples {#ch12}
+
+## Learning Objectives
+
+After studying this chapter, you should be able to:
+
+- Explain why **sample percentages vary from sample to sample** due to chance error.
+- Understand how **expected value** and **standard error (SE)** describe sampling variability.
+- Calculate the **standard error for sums and percentages** using the box model.
+- Explain how **sample size affects accuracy** through the **square-root law**.
+- Distinguish between **sampling with replacement and without replacement**.
+- Interpret the **law of averages** and avoid the **gambler’s fallacy**.
+- Understand the intuition behind the **central limit theorem (CLT)**.
+- Construct and interpret **confidence intervals** for population means and percentages.
+
+---
+
+## Key Idea: Chance Error
+
+::: {.callout-important}
+### Chance Error
+
+When we take a random sample, the result will typically differ slightly from the true population value.
+
+This difference is called **chance error**.
+
+Chance error arises because **different samples contain different individuals**.
+:::
+
+---
+
+## Key Formula: Standard Error of a Percentage
+
+::: {.callout-tip}
+### Standard Error for a Percentage
+
+If a population contains proportion \(p\) of “successes”, then for a sample of size \(n\):
+
+\[
+SE_{\%} = \sqrt{\frac{p(1-p)}{n}} \times 100
+\]
+
+This measures the **typical size of the chance error** in the sample percentage.
+:::
+
+---
+
+## Concept Check
+
+::: {.callout-note}
+### Concept Check
+
+Suppose a population has **40% smokers**.
+
+If we draw a random sample of **100 people**, will the sample always contain exactly **40 smokers**?
+
+Explain why or why not.
+:::
+
+---
+
+## Chapter Summary
+
+::: {.callout-important}
+### Summary
+
+1. **Sample statistics vary due to chance error.**
+
+2. The **expected value of a sample percentage equals the population percentage**.
+
+3. The **standard error (SE)** measures the typical size of the chance error.
+
+4. When sample size increases:
+   - SE of the **sum increases**.
+   - SE of the **percentage decreases**.
+
+5. The relationship follows the **square-root law**:
+
+\[
+SE \propto \frac{1}{\sqrt{n}}
+\]
+
+6. The **law of averages** explains why relative errors shrink as the number of observations grows.
+
+7. The **central limit theorem** states that the sampling distribution of sums or averages tends toward a **normal distribution** when the sample size is large.
+:::
+
+---
+
+## Exercises
+
+### Conceptual Questions
+
+### 1. Estimating a Percentage {.unnumbered}
+
+In a simple random sample of **100 graduates** from a certain college, **48** were earning **Baht 50,000 per month or more**.
+
+1. Estimate the percentage of all graduates of that college earning at least Baht 50,000 per month.
+2. Put a **give-or-take number** on the estimate.
+
+---
+
+### 2. Standard Error of a Percentage {.unnumbered}
+
+Suppose there is a box of **100,000 tickets**, each marked **0 or 1**.
+
+Assume **20% of the tickets are 1's**.
+
+Calculate the **standard error for the percentage of 1's** in **400 draws** from the box.
+
+---
+
+### Confidence Intervals
+
+### 3. Election Poll {.unnumbered}
+
+In a poll of **200 voters**, **92** stated they would vote for the **YY party**.
+
+1. Construct a **95% confidence interval** for the true population percentage of YY supporters.
+2. Do you think this estimate is accurate enough to advise YY to contest the election?
+3. How could the **accuracy of the estimate be improved**?
+
+---
+
+### 4. Health Insurance Survey {.unnumbered}
+
+A survey of **400 people** finds that **80** have health insurance.
+
+Find the **90% confidence interval** for the percentage of the population who have health insurance.
+
+---
+
+### Sampling from a Population
+
+### 5. A Town Census {.unnumbered}
+
+A town has **100,000 residents aged 18 and above**.
+
+Population characteristics:
+
+- **60% married**
+- **10% earn over 75,000 Baht/month**
+- **20% have university degrees**
+
+A simple random sample of **1,600 people** is drawn.
+
+---
+
+#### (a)
+
+To find the chance that **58% of the sample are married**, a box model is needed.
+
+Should the number of tickets in the box be **1,600 or 100,000**?
+
+Explain and estimate the probability.
+
+---
+
+#### (b)
+
+To find the chance that **11% or more of the sample earn over 75,000 Baht**, a box model is needed.
+
+Should each ticket show the **exact income**?
+
+Explain and estimate the probability.
+
+---
+
+#### (c)
+
+Find the chance that **between 19% and 21% of the sample have a university degree**.
+
+---
+
+### Chance Models
+
+### 6. Drawing Marbles {.unnumbered}
+
+A box contains **1 red marble and 99 blue marbles**.
+
+Ten marbles are drawn **with replacement**.
+
+---
+
+#### (a)
+
+Find the **expected number of red marbles**.
+
+#### (b)
+
+Find the **standard error**.
+
+#### (c)
+
+What is the chance of drawing **fewer than 0 red marbles**?
+
+#### (d)
+
+Use the **normal approximation** to estimate the chance.
+
+#### (e)
+
+Does the probability histogram for the number of red marbles look **approximately normal**?
+
+Explain.
+
+---
+
+### Challenge Problems
+
+### 7. Understanding the Square-Root Law {.unnumbered}
+
+Suppose a population proportion is **50%**.
+
+1. Compute the SE of the sample percentage for **n = 100**.
+2. Compute the SE for **n = 400**.
+3. Compare the results and explain how they illustrate the **square-root law**.
+
+---
+
+### 8. Simulation Exercise (Optional) {.unnumbered}
+
+Use R to simulate repeated samples from a population with **64% males**.
+
+```{r}
+p <- 0.64
+n <- 100
+sim <- replicate(10000, mean(rbinom(n,1,p)))
+
+hist(sim)
+```
+
