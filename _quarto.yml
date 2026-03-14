@@ -17,6 +17,7 @@ book:
     - Ch9.qmd
     - Ch10.qmd
     - Ch11.qmd
+    - Ch12.qmd
 
 bibliography: references.bib
 

@@ -6,7 +6,7 @@ After studying this chapter, you should be able to:
 
 - Explain why **sample percentages vary from sample to sample** due to chance error.
 - Understand how **expected value** and **standard error (SE)** describe sampling variability.
-- Calculate the **standard error for sums and percentages** using the box model.
+- Calculate the **standard error for percentages** using the box model.
 - Explain how **sample size affects accuracy** through the **square-root law**.
 - Distinguish between **sampling with replacement and without replacement**.
 - Interpret the **law of averages** and avoid the **gambler’s fallacy**.
@@ -31,108 +31,252 @@ Chance error arises because **different samples contain different individuals**.
 
 ## Key Formula: Standard Error of a Percentage
 
-::: {.callout-tip}
+Let's move to **percentage** instead of **sums** in the last chapter.
+
+Assumee a health study is done on a representative cross section of 4,738 adults. 
+The researcher can sample, say, only 100 of them. 
+Our question is whether the sample is representative? Assume further that the population had
+3,032 (64%) men. It is possible that we might pick a random sample and count
+63 men in the sample. We didn't get exactly 64% men. Are you okay with your sample?
+Do you think this sample can represent the population?  
+
+We might repeat this, say, 250 times; that is, we sample 250 times, with each sample consisting of 100 individuals and record the percentage
+of men. We'd get something like:
+
+![](figs\ch12\samples_250.png)
+
+Note that first entry on the top left is our first sample with $64$% men.
+Over the 250 samples, we find that only 18 of the 250
+samples of 100 individuals had exactly 64 men. This means that
+getting a sample with the same percentage as the population
+(64%) is pretty uncommon. Below is a histogram of the number of men
+from the samples of size 100 persons (i.e. the 250 repetitions):
+
+![Sampling Distribution of Percentage, n = 100](figs\ch12\sample_n100.png){#fig-n100}
+
+Essentially, the mean of the 250 numbers which us shown by the above histogram is 64.26%, which is pretty close the the population percentage of 64%.  
+We can also calculate the spread or *standard deviation* of the 250 numbers, which we now call the **standard error** -- taking a calculator, we got 4.72%.
+
+What are the corresponding formulas for the percentage expected value and its standard error?
+
+First, we can expect our sample percentage to be more or less equal to the percentage of the population, which is represented by the box.
+
+::: callout-important
+### Expected Value for a Percentage
+
+$$
+EV(\%) = \frac{EV_{sum}}{n} \times 100 {\%} = {\%}_\text{Box}
+$$
+:::
+
+So basically we divide the expected value of the sum by sample size $n$ then multiply by 100%.
+
+The same procedure is applied to the standard error:
+
+::: callout-important
 ### Standard Error for a Percentage
 
-If a population contains proportion \(p\) of “successes”, then for a sample of size \(n\):
+$$
+SE(\%) = \frac{SE_{sum}}{n} \times 100 {\%}
+$$
+Interestingly, if a population contains proportion \(p\) of “successes” or 1's, then for a sample of size $n$:
 
-\[
-SE_{\%} = \sqrt{\frac{p(1-p)}{n}} \times 100
-\]
+$$
+SE_{\%} = \sqrt{\frac{p(1-p)}{n}} \times 100 {\%}
+$$
 
 This measures the **typical size of the chance error** in the sample percentage.
 :::
 
----
+Returning to the above example, the following box-and-ticket model is used to represent the population:
 
-## Concept Check
+![](figs\ch12\box.png){fig-align="center" width="40%"}
 
-::: {.callout-note}
-### Concept Check
+The SD of the box is $\sqrt{.64 \times .36}$. And with a sample of 100 random draws with
+replacement made, the SE of the sum of draws, i.e. $\sqrt{n} \times$ SD, is 4.8%. 
 
-Suppose a population has **40% smokers**.
+To get the SE of percentage:
 
-If we draw a random sample of **100 people**, will the sample always contain exactly **40 smokers**?
+$$
+SE(\%) = \frac{SE_{sum}}{n} \times 100 {\%} = 4.8{\%}
+$$
 
-Explain why or why not.
+That is, the sampling distribution of men will have an expected value of 64% and standard error of 4.8%.
+
+## Increasing the Sample Size
+
+But what if we increase the sample size, say, from 100 to say 400? Collecting abotehr 250 samples of size $n=400$ and plotting gives:
+
+![Sampling Distribution of Percentage, n = 400](figs\ch12\sample_n400.png){#fig-n400}
+
+Notice that the mean of this histogram, which is the sampling distribution of percentage of sample size 400, is essentially the same at around $64$%. This should be reasonable: we shouldn't expect anything different -- we should expect the sample percentage to be the same as the population percentage irrespective of the sample size. 
+
+As we have seen before, the percentage of a single
+sample need not be exactly equal to the population percentage -- it may be off because of chance error, which is measured by the standard
+error (of the percentage). However, the standard error **falls** as the sample size increases. The sampling distribution becomes narrower. 
+That is, given that the percentage in any sample is equal to the percentage
+in the population plus some chance error, we find that the bigger
+the sample, the closer the sample percentage to the population
+percentage. In other words, with a simple random sample, the
+expected value for the sample percentage equals the population
+percentage.
+
+In fact, the **square root law** continues to work in the background -- as seen by the formula, when sample size increases four-fold, the SE of percentage **halves** (or decreases twice.) So SE percentage is $2.4$% when sample size i $400$ compared to  $4.8$% when $n=100$.    
+
+## Comparing the SE's of sum and percentages
+
+Note what happens as the sample size get bigger in the case of sums and percentages. With the sample
+size, say, 400 (from 100), the SE of sum is $\sqrt{400} \times 0.48 =
+9.6$. But, 9.6 represents 2.4% of 400; that is the SE for the
+percentage of men in the sample of 400 is 2.4%. Hence,
+multiplying the sample size by 4 reduced the SE of percentage by
+$\sqrt{4}$. In general, multiplying the size of the sample by some
+factor, while increasing the standard error of sum, reduces the SE for a percentage, not by the whole
+factor but by its square root.
+
+::: callput-note
+### SE of Sum and Percentage
+
+Keep in mind that the two SE's for the sum and for
+the percentage behave quite differently
+
+- When the sample size goes up, the SE for sum goes up, but the SE for percentage goes down!
+
+The SE for the sample sum goes up by the square root of the sample size, while the SE for the sample percentage goes down by the
+square root of the sample size.
 :::
+
+## SE with and without replacement##
+
+So far we have not explicitly differentiated between sampling with replacement and without replacement.
+Obviously, when collected a sample of people, random sampling *with* replacement may not be appropriate.
+Rather random sampling **without** replacement is conducted, but here the actual SE
+will differ slightly depending on the population and the sample.
+When drawing without replacement, to get the exact SE you usually have to multiply by the correction factor:
+
+$$
+\sqrt{\frac{N-n}{n-1}} \notag
+$$
+
+where $N$ is the population size and $n$ is the sample size.
+Note however that when the number of the tickets in the box is much larger
+than the number of draws, $N>>n$ the correction factor is nearly one, and we easily ignore it in the calculations.
+
+
+## The Law of Averages
+
+Often, when we toss a coin and get, for example, a series of
+heads, we believe that the next time the coin is tossed, we should
+get a tails to balance things off. But a run of heads doesn't make
+tails more likely the next time. Of course, the probability of a
+fair coin remains the unchanged from toss to toss. It is the law
+of average that tricks us into this illusion. Let's make this more
+explicit.
+
+John Kerrich a South African POW during World War II tossed a coin
+and recorded the outcomes 10,000 times. Below is a table showing
+the number of tosses, the number of heads and the difference from
+what would have been expected in theory from an unbiased
+coin.[^ch12-1]
+
+[^ch12-1]: The actual number of expected heads = half the number of tosses $+/-$ chance error.
+
+::: {#tbl-cointoss}
+
+| no. of tosses | no. of heads | difference |
+|---------------|--------------|------------|
+| 10            | 4            | -1         |
+| 50            | 25           | 0          |
+| 100           | 44           | -6         |
+| 500           | 255          | 5          |
+| 1000          | 502          | 2          |
+| 5000          | 2533         | 33         |
+| 10000         | 5067         | 67         |
+
+Kerrich Coin Toss: 
+See [Link](see https://riatto.substack.com/p/the-coin-that-tamed-uncertainty)
+:::
+
+What we observe here is that as the number of tosses increases,
+the difference of the actual number of heads observed and what is
+expected does not decrease. In fact, with more and more tosses,
+the absolute value of the chance error (which we termed
+"differences" in the table above) increases. In fact, note that
+at the absolute error or difference at 10,000 tosses was about 10
+times larger than at 100 tosses - this is the square root law at
+work.
+
+What is important to realize is that the **relative** chance error,
+which is chance error expressed as a fraction of the number of
+throws, tends to decrease as the number of tosses increases. This
+is the **law of averages** at work.
 
 ---
 
 ## Chapter Summary
 
-::: {.callout-important}
-### Summary
-
-1. **Sample statistics vary due to chance error.**
-
-2. The **expected value of a sample percentage equals the population percentage**.
-
-3. The **standard error (SE)** measures the typical size of the chance error.
-
-4. When sample size increases:
+* **Sample statistics vary due to chance error.**
+* The **expected value of a sample percentage equals the population percentage**.
+* The **standard error (SE)** measures the typical size of the chance error.
+* When sample size increases:
    - SE of the **sum increases**.
    - SE of the **percentage decreases**.
+* The relationship follows the **square-root law**:
 
-5. The relationship follows the **square-root law**:
-
-\[
+$$
 SE \propto \frac{1}{\sqrt{n}}
-\]
+$$
 
-6. The **law of averages** explains why relative errors shrink as the number of observations grows.
+* The **law of averages** explains why relative errors of percentage shrinsk as the number of observations grows.
 
-7. The **central limit theorem** states that the sampling distribution of sums or averages tends toward a **normal distribution** when the sample size is large.
-:::
-
----
+------------------------------------------------------------------------
 
 ## Exercises
 
 ### Conceptual Questions
 
-### 1. Estimating a Percentage {.unnumbered}
+1. Suppose a population has **40% smokers**.
+If we draw a random sample of **100 people**, will the sample always contain exactly **40 smokers**?
+Explain why or why not.
 
-In a simple random sample of **100 graduates** from a certain college, **48** were earning **Baht 50,000 per month or more**.
+2. In a simple random sample of **100 graduates** from a certain college, **48** were earning **Baht 50,000 per month or more**.
 
-1. Estimate the percentage of all graduates of that college earning at least Baht 50,000 per month.
-2. Put a **give-or-take number** on the estimate.
+- Estimate the percentage of all graduates of that college earning at least Baht 50,000 per month.
+- Put a **give-or-take number** on the estimate.
 
 ---
 
 ### 2. Standard Error of a Percentage {.unnumbered}
 
-Suppose there is a box of **100,000 tickets**, each marked **0 or 1**.
+3. Suppose there is a box of **100,000 tickets**, each marked **0 or 1**.
 
 Assume **20% of the tickets are 1's**.
 
-Calculate the **standard error for the percentage of 1's** in **400 draws** from the box.
+- Calculate the **standard error for the percentage of 1's** in **100 draws** from the box.
+- Calculate the **standard error for the percentage of 1's** in **400 draws** from the box.
 
 ---
 
-### Confidence Intervals
+### Application
 
-### 3. Election Poll {.unnumbered}
+#### 3. Election Poll {.unnumbered}
 
 In a poll of **200 voters**, **92** stated they would vote for the **YY party**.
 
-1. Construct a **95% confidence interval** for the true population percentage of YY supporters.
-2. Do you think this estimate is accurate enough to advise YY to contest the election?
-3. How could the **accuracy of the estimate be improved**?
+- Do you think this estimate is accurate enough to advise YY to contest the election?
+- How could the accuracy of the estimate be improved?
 
----
+<!-- #### 4. Health Insurance Survey {.unnumbered} -->
 
-### 4. Health Insurance Survey {.unnumbered}
+<!-- A survey of **400 people** finds that **80** have health insurance. -->
 
-A survey of **400 people** finds that **80** have health insurance.
-
-Find the **90% confidence interval** for the percentage of the population who have health insurance.
+<!-- Find the **90% confidence interval** for the percentage of the population who have health insurance. -->
 
 ---
 
 ### Sampling from a Population
 
-### 5. A Town Census {.unnumbered}
+#### 4. A Town Census {.unnumbered}
 
 A town has **100,000 residents aged 18 and above**.
 
@@ -144,9 +288,7 @@ Population characteristics:
 
 A simple random sample of **1,600 people** is drawn.
 
----
-
-#### (a)
+#### (a) {.unnumbered}
 
 To find the chance that **58% of the sample are married**, a box model is needed.
 
@@ -154,9 +296,7 @@ Should the number of tickets in the box be **1,600 or 100,000**?
 
 Explain and estimate the probability.
 
----
-
-#### (b)
+#### (b) {.unnumbered}
 
 To find the chance that **11% or more of the sample earn over 75,000 Baht**, a box model is needed.
 
@@ -164,9 +304,7 @@ Should each ticket show the **exact income**?
 
 Explain and estimate the probability.
 
----
-
-#### (c)
+#### (c) {.unnumbered}
 
 Find the chance that **between 19% and 21% of the sample have a university degree**.
 
@@ -174,31 +312,29 @@ Find the chance that **between 19% and 21% of the sample have a university degre
 
 ### Chance Models
 
-### 6. Drawing Marbles {.unnumbered}
+### 5. Drawing Marbles {.unnumbered}
 
 A box contains **1 red marble and 99 blue marbles**.
 
 Ten marbles are drawn **with replacement**.
 
----
-
-#### (a)
+#### (a) {.unnumbered}
 
 Find the **expected number of red marbles**.
 
-#### (b)
+#### (b) {.unnumbered}
 
 Find the **standard error**.
 
-#### (c)
+#### (c) {.unnumbered}
 
 What is the chance of drawing **fewer than 0 red marbles**?
 
-#### (d)
+#### (d) {.unnumbered}
 
 Use the **normal approximation** to estimate the chance.
 
-#### (e)
+#### (e) {.unnumbered}
 
 Does the probability histogram for the number of red marbles look **approximately normal**?
 
@@ -208,7 +344,7 @@ Explain.
 
 ### Challenge Problems
 
-### 7. Understanding the Square-Root Law {.unnumbered}
+### 6. Understanding the Square-Root Law {.unnumbered}
 
 Suppose a population proportion is **50%**.
 
@@ -216,9 +352,7 @@ Suppose a population proportion is **50%**.
 2. Compute the SE for **n = 400**.
 3. Compare the results and explain how they illustrate the **square-root law**.
 
----
-
-### 8. Simulation Exercise (Optional) {.unnumbered}
+### 7. Simulation Exercise (Optional) {.unnumbered}
 
 Use R to simulate repeated samples from a population with **64% males**.
 
@@ -229,4 +363,5 @@ sim <- replicate(10000, mean(rbinom(n,1,p)))
 
 hist(sim)
 ```
+
 

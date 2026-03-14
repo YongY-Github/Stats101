@@ -9,9 +9,9 @@ By the end of this chapter, you will be able to:
 
 -   Model random processes using the **Box Model** framework.
 -   Calculate the **Expected Value (EV)** for a sum of random draws.
--   Apply the **Square Root Law** to determine the **Standard Error (SE)**.
+-   Determine its **Standard Error (SE)**.
 -   Distinguish between the Standard Deviation (SD) of a population and the Standard Error (SE) of a sample.
--   Describe the characteristics of a **Sampling Distribution**.
+-   Describe the characteristics of a **Sampling Distribution**, especially the **Square Root Law**.
 :::
 
 ## Expected Value (EV)
@@ -208,7 +208,9 @@ Key characteristics include:
 2.  **Central Limit Theorem (CLT):** This sampling distribution will follow a normal distribution as $n$ increases. Even if your box only contains "1"s and "5"s, the sampling distribution will tend towards looking like the smooth bell curve.
 3.  **Parameters:** Since the sampling distribution tends towards a normal distribution, we need only its mean (**EV**) and its spread (**SE**) to fully characterize it.
 
-### The Conceptual Process (Monte-Carlo Simulation)
+------------------------------------------------------------------------
+
+### Visualization: Monte-Carlo Simulation
 
 To visualize how a sampling distribution is constructed, imagine following these three steps repeatedly:
 
@@ -216,56 +218,12 @@ To visualize how a sampling distribution is constructed, imagine following these
 2.  **Calculate**: Sum the values of the tickets you drew (call this $SUM_1$).
 3.  **Repeat**: Repeat the process hundreds of times to get $SUM_2, SUM_3, \dots, SUM_{10,000}$.
 
-If you create a histogram of these 10,000 different sums, you are looking at the **sampling distribution of the sum**.[^ch11-1]
+Let's return to Example 1 with the box-and-ticket model \[1,1,1,5\]. To see how the Expected Value (EV) and Standard Error (SE) emerge from random chance, we can simulate the process using any software. Instead of calculating the sum of 100 draws once, we repeat the entire experiment 10,000 times. Then by plotting these 10,000 sums, we draw the **sampling distribution of the sum**.[^ch11-1]
 
 [^ch11-1]: Actually you are supposed to repeat this infinite number of times.
 
-### Connection to the Central Limit Theorem (CLT)
-
-The most powerful tool in statistics is the **Central Limit Theorem**. It tells us that regardless of the shape of the original box (even if the box is highly skewed), the sampling distribution of the sum will begin to look like a **Normal Curve** as the number of draws ($n$) increases.
-
-::: callout-important
-### Two Parameters characterize the Sampling Distribution
-
-Because the sampling distribution is Normal, it is entirely defined by the two parameters we calculated earlier:
-
-1.  **Center**: It is centered at the **Expected Value (EV)**.
-2.  **Spread**: The width of the sampling distribution is measured by the **Standard Error (SE)**.
-:::
-
-------------------------------------------------------------------------
-
-### Visualization: The Effect of Sample Size
-
-As $n$ (the number of draws) increases, two things happen to the **sampling distribution of sums**:
-
--   **The Center Moves**: Since $EV = \text{Average of Box} \times n$, the center of the distribution shifts to the right.[^ch11-2]
--   **The Spread Increases**: With larger smaple size, the **standard error of sums** will increase by the **square root law** -- that is, increasing the sample size, by say, **four** times will result in an increase of the standard error by **two** (or *square root of four*) times.  
-
-[^ch11-2]: We are assuming nonnegative numbers in the box and at least one greater than zero. Or if we have some tickets with negative numbers, their mean should be greater than zero.
-
-------------------------------------------------------------------------
-
-### Summary of Notation
-
-| Term        | Applies to...          | Calculated as...                   |
-|-------------|------------------------|------------------------------------|
-| **Average** | The Box (Population)   | Sum of labels / Number of tickets  |
-| **SD**      | The Box (Population)   | Root-mean-square of deviations     |
-| **EV**      | The Sample (Statistic) | $n \times \text{Average of Box}$   |
-| **SE**      | The Sample (Statistic) | $\sqrt{n} \times \text{SD of Box}$ |
-
-------------------------------------------------------------------------
-
-### Simulating the sampling distribution
-
-Let's return to Example 1 with the box-and-ticket model \[1,1,1,5\]. To see how the Expected Value (EV) and Standard Error (SE) emerge from random chance, we can simulate the process using any software. Instead of calculating the sum of 100 draws once, we repeat the entire experiment 10,000 times. Then by plotting these 10,000 sums, we acan draw the Sampling Distribution. You will notice two key insights from the simulation:
-
--   The Bell Curve: Even though our box only contains two types of tickets (1 and 5), the distribution of the sums takes on the characteristic bell shape of a Normal distribution. This is the Central Limit Theorem in action.
--   Predictability: The center of the histogram aligns precisely with our calculated EV (200), and the spread of these sums from different samples reflects our calculated SE (17.32).
-
 ```{r}
-#| label: fig-sampling-dist-sim
+#| label: fig-sampling-dist-sim100
 #| echo: false
 #| message: false
 #| warning: false
@@ -282,13 +240,13 @@ sample_sums <- replicate(n_simulations, sum(sample(box, n_draws, replace = TRUE)
 
 # 3. Calculate Parameters
 box_avg <- 2.0
-box_sd  <- 1.732
+box_sd  <- 2
 ev      <- n_draws * box_avg
 se      <- sqrt(n_draws) * box_sd
 
 # 4. Save the figure
 if(!dir.exists("figs/ch11")) dir.create("figs/ch11", recursive = TRUE)
-png("figs/ch11/sampling_dist.png", width = 800, height = 500, res = 120)
+png("figs/ch11/sampling_dist_100.png", width = 800, height = 500, res = 120)
 
 hist(sample_sums, breaks = 30, probability = TRUE, 
      main = "", xlab = "Sum of 100 Draws", col = "lightblue", border = "white")
@@ -301,17 +259,142 @@ text(ev + 15, 0.02, "EV (200)", col = "red")
 dev.off()
 ```
 
-![Simulation of the Sampling Distribution for the Sum of 100 Draws](figs/ch11/sampling_dist.png){#fig-sampling-dist-sim fig-align="center" width="70%"}
+![Simulation of the Sampling Distribution for the Sum of 100 Draws from [1,1,1,5]](figs/ch11/sampling_dist.png){#fig-sampling-dist-sim fig-align="center" width="70%"}
 
-::: callout-tip
-### Try this
+You will notice two key insights from the simulation:
 
-For the same box-and-ticket model above, run the simulation with sample size 400, and find the expected value and standard error.
+-   The Bell Curve: Even though our box only contains two types of tickets (1 and 5), the distribution of the sums takes on the characteristic bell shape of a Normal distribution. This is the Central Limit Theorem in action.
+-   Predictability: The center of the histogram aligns precisely with our calculated EV (200), and the spread of these sums from different samples reflects our calculated SE (17.32).
 
-> In excel you can use the command `=+CHOOSE(RANDBETWEEN(1,4),1,1,1,5)`
+### Connection to the Central Limit Theorem (CLT)
 
-Make sure to observe what happens to the espected value and standard errors. Make sure you can see the **Square Root Law** at work!  
+The most powerful tool in statistics is the **Central Limit Theorem**. It tells us that regardless of the shape of the original box (even if the box is highly skewed), the sampling distribution of the sum will begin to look like a **Normal Curve** as the number of draws ($n$) increases.
+
+::: callout-important
+### Two Parameters characterize the Sampling Distribution
+
+Because the sampling distribution is Normal, it is entirely defined by the two parameters we calculated earlier:
+
+1.  **Center**: It is centered at the **Expected Value (EV)**.
+2.  **Spread**: The width of the sampling distribution is measured by the **Standard Error (SE)**.
 :::
+
+------------------------------------------------------------------------
+
+### The Effect of Sample Size
+
+As $n$ the number of draws increases, two things happen to the **sampling distribution of sums**:
+
+-   **The Center Shifts**: Since $EV = \text{Average of Box} \times n$, the center of the distribution shifts to the right.[^ch11-2]
+-   **The Spread Increases**: With larger smaple size, the **standard error of sums** will increase by the **square root law** -- that is, increasing the sample size, by say, **four** times will result in an increase of the standard error by **two** (or *square root of four*) times. You can see the **Square Root Law** at work!  
+
+[^ch11-2]: We are assuming non-negative numbers in the box and at least one greater than zero. Or if we have some tickets with negative numbers, their mean should be greater than zero.
+
+::: callout-important
+### Square Root Law
+
+As the sample size $n$ increases, say $k-$fold, the standard error of sum increases too, but only by the the square root of $k$.
+:::
+
+
+```{r}
+#| label: fig-sampling-dist-sim400
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+
+# 1. Define the Box [1, 1, 1, 5]
+box <- c(1, 1, 1, 5)
+n_draws <- 400
+n_simulations <- 10000
+
+# 2. Run simulation
+set.seed(1234)
+sample_sums <- replicate(n_simulations, sum(sample(box, n_draws, replace = TRUE)))
+
+# 3. Calculate Parameters
+box_avg <- 2.0
+box_sd  <- 2
+ev      <- n_draws * box_avg
+se      <- sqrt(n_draws) * box_sd
+
+# 4. Save the figure
+# if(!dir.exists("figs/ch11")) dir.create("figs/ch11", recursive = TRUE)
+png("figs/ch11/sampling_dist_400.png", width = 800, height = 500, res = 120)
+
+hist(sample_sums, breaks = 30, probability = TRUE, 
+     main = "", xlab = "Sum of 400 Draws", col = "lightblue", border = "white")
+
+x_vals <- seq(min(sample_sums), max(sample_sums), length = 100)
+lines(x_vals, dnorm(x_vals, mean = ev, sd = se), col = "darkred", lwd = 2)
+abline(v = ev, col = "red", lty = 2, lwd = 2)
+text(ev + 15, 0.02, "EV (800)", col = "red")
+
+dev.off()
+```
+
+![Simulation of the Sampling Distribution for the Sum of 400 Draws from [1,1,1,5]](figs/ch11/sampling_dist_400.png){#fig-sampling-dist-sim400 fig-align="center" width="70%"}
+
+---
+
+## The Central Limit Theorem
+
+When drawing from random with replacement from a box, the
+probability histogram of the sum (a number or statistic that comes
+from samples of the population we are interested in) will tend to
+follow a normal curve, even if the contents of the box (i.e.
+population) do not. This histogram, which we have already called
+the sampling distribution, is usually expressed in standard units,
+and the number of draws must be reasonably large for it to assume
+a bell-shape curve. As with other normal distributions, the
+expected value pins its center to the horizontal axis, while the
+standard error fixes its spread.
+
+What if we draw from a box containing 10 tickets, nine 0's and a
+single 1? Does the normal approximation work for this *lopsided*
+population? The answer is yes. But, if the size of the sample is
+small, then the resulting empirical distribution may fail to
+converge to a normal distribution. For less *lopsided* boxes,
+for example one containing 3 tickets marked 1, 2 and 3, relatively
+smaller sized samples would converge to a normal distribution.
+That is, the more the histogram of the numbers in a box differ
+from the normal curve, the larger the sample will be needed before
+the approximation to a normal distribution takes hold.
+
+Be as it may, the central limit theorem (CLT) states that when
+drawing from a box randomly with replacement, the probability
+histogram of the sum will follow a normal curve, even if the
+contents of the box (that is the population) do not. An example
+should clarify this. the diagram below shows a population with an
+unknown density distribution function (e.g. a bimodal distribution
+as shown by the top diagram). If a random sample of $n$
+observations are taken and their means calculated repeatedly for
+many times, we get the plot of the the histogram of means below,
+which as can be seen resembles a normal distribution (see the
+bottom diagram). Whatever the underlying distribution, repeated
+sampling and plotting the sample averages will five a histogram of
+more or less normally distributed means.
+
+What is also interesting to note is that if you take a random
+sample of $n$ observations from any population, then provided $n$
+is sufficiently large, the distribution of the means will be
+approximately normal, with a mean of sample averages equal to the
+population mean, and a standard deviation equal to $1/\sqrt{n}$ of
+the standard deviation of the population. We are however going
+ahead of ourselves. Before we speak of the mean, let's first look
+at the percentages or proportions.
+
+---
+
+### Summary of Notation
+
+| Term        | Applies to...          | Calculated as...                   |
+|-------------|------------------------|------------------------------------|
+| **Average** | The Box (Population)   | Sum of labels / Number of tickets  |
+| **SD**      | The Box (Population)   | Root-mean-square of deviations     |
+| **EV**      | The Sample (Statistic) | $n \times \text{Average of Box}$   |
+| **SE**      | The Sample (Statistic) | $\sqrt{n} \times \text{SD of Box}$ |
 
 ------------------------------------------------------------------------
 
@@ -321,6 +404,7 @@ Make sure to observe what happens to the espected value and standard errors. Mak
 -   The **Expected Value (EV)** predicts the average outcome of a random process.
 -   The **Standard Error (SE)** measures the likely magnitude of the chance error.
 -   According to the **Square Root Law**, the SE of a sum grows with $\sqrt{n}$, meaning it increases slower than the number of draws itself.
+-   The **central limit theorem** states that the sampling distribution of sums or averages tends toward a **normal distribution** when the sample size is large.
 
 ------------------------------------------------------------------------
 
@@ -417,13 +501,13 @@ $$
 1,\;1,\;2,\;2,\;2,\;4
 $$
 
-### (a)
+#### (a) {.unnumbered}
 
 What is the **smallest possible sum** of the 100 draws?
 
 What is the **largest possible sum**?
 
-### (b)
+#### (b) {.unnumbered}
 
 The expected sum of the draws will be around
 
@@ -435,35 +519,48 @@ give or take
 
 or so.
 
-### (c)
+#### (c) {.unnumbered}
 
 The chance that the sum will be **greater than 250** is almost
 
 \[ \_\_\_ %. \]
 
-### 6. Another Box of Tickets
+### 6. Another Box of Tickets  {.unnumbered}
 
-One hundred draws are made **with replacement** from the box
+One hundred draws are made **with replacement** from the box (from Example 2 in the chapter):
 
 $$
 0,\;2,\;3,\;4,\;6
 $$
 
-### (a)
+#### (a) {.unnumbered}
 
 How **small** can the sum be?
 
 How **large** can it be?
 
-### (b)
+#### (b) {.unnumbered}
 
 How likely is the sum to lie between **370 and 430**?
 
 Explain briefly.
 
+#### (c) {.unnumbered}
+
+Assume this time you pick 25 times form the box with replacement.
+
+The expected sum of the draws will be around
+
+\[ \_\_\_ \]
+
+give or take
+
+\[ \_\_\_ \]
+
 ------------------------------------------------------------------------
 
-### Choosing between risky options
+#### Choosing between risky options
+
 
 ### 7. Choosing How Many Draws to Make {.unnumbered}
 
@@ -477,19 +574,20 @@ You win **Baht 100** if certain conditions are met.
 
 How many draws should you make?
 
-### (a)
+#### (a) {.unnumbered}
 
 You win if the **sum equals 5**, and nothing otherwise.
 
-### (b)
+#### (b) {.unnumbered}
 
 You win if the **sum is −5 or less**, and nothing otherwise.
 
-### (c)
+#### (c) {.unnumbered}
 
 You win if the **sum lies between −5 and 5**, and nothing otherwise.
 
 *No calculations are necessary, but explain your reasoning.*
+
 
 ### 8. Choosing Between Two Games {.unnumbered}
 
@@ -499,13 +597,13 @@ The numbers are not all the same, but the **average of the box is 0**.
 
 You have two choices:
 
-#### Game A
+#### Game A {.unnumbered}
 
 Draw **100 times** with replacement.
 
 You win **Baht 100** if the sum is between **−15 and 15**.
 
-#### Game B
+#### Game B {.unnumbered}
 
 Draw **200 times** with replacement.
 
@@ -528,7 +626,7 @@ Explain your reasoning.
 
 A die is rolled **60 times**.
 
-### (a)
+#### (a) {.unnumbered}
 
 The **total of the spots** should be around
 
@@ -540,7 +638,7 @@ give or take
 
 or so.
 
-### (b)
+#### (b) {.unnumbered}
 
 The number of **6's** should be around
 
@@ -552,21 +650,23 @@ give or take
 
 or so.
 
+
 ### 10. Tossing a Coin {.unnumbered}
 
-A coin is tossed **100 times**.
+A fair coin is tossed **100 times**.
 
-### (a)
+#### (a) {.unnumbered}
 
 Find the **expected number of heads**.
 
-### (b)
+#### (b) {.unnumbered}
 
 Find the **standard error** for the number of heads.
 
-### (c)
+#### (c) {.unnumbered}
 
 Estimate the chance that the number of heads is **between 40 and 60**.
+
 
 ### 11. Counting a Particular Ticket {.unnumbered}
 
@@ -603,6 +703,7 @@ Use **R** to simulate the following experiment:
 
 Estimate the probability that the **sum lies between 370 and 430**.
 
+> In excel you can use the command `=+CHOOSE(RANDBETWEEN(1,5),0,2,3,4,6)`
 
 Below is code you can use:
 

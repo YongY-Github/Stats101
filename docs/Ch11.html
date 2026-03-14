@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Ch12.html" rel="next">
 <link href="./Ch10.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -239,6 +240,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Expected Value and Standard Error</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chance Errors in Samples</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -259,47 +266,35 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sampling-distribution" id="toc-sampling-distribution" class="nav-link" data-scroll-target="#sampling-distribution"><span class="header-section-number">10.3</span> Sampling Distribution</a>
   <ul class="collapse">
-  <li><a href="#the-conceptual-process-monte-carlo-simulation" id="toc-the-conceptual-process-monte-carlo-simulation" class="nav-link" data-scroll-target="#the-conceptual-process-monte-carlo-simulation"><span class="header-section-number">10.3.1</span> The Conceptual Process (Monte-Carlo Simulation)</a></li>
+  <li><a href="#visualization-monte-carlo-simulation" id="toc-visualization-monte-carlo-simulation" class="nav-link" data-scroll-target="#visualization-monte-carlo-simulation"><span class="header-section-number">10.3.1</span> Visualization: Monte-Carlo Simulation</a></li>
   <li><a href="#connection-to-the-central-limit-theorem-clt" id="toc-connection-to-the-central-limit-theorem-clt" class="nav-link" data-scroll-target="#connection-to-the-central-limit-theorem-clt"><span class="header-section-number">10.3.2</span> Connection to the Central Limit Theorem (CLT)</a></li>
-  <li><a href="#visualization-the-effect-of-sample-size" id="toc-visualization-the-effect-of-sample-size" class="nav-link" data-scroll-target="#visualization-the-effect-of-sample-size"><span class="header-section-number">10.3.3</span> Visualization: The Effect of Sample Size</a></li>
-  <li><a href="#summary-of-notation" id="toc-summary-of-notation" class="nav-link" data-scroll-target="#summary-of-notation"><span class="header-section-number">10.3.4</span> Summary of Notation</a></li>
-  <li><a href="#simulating-the-sampling-distribution" id="toc-simulating-the-sampling-distribution" class="nav-link" data-scroll-target="#simulating-the-sampling-distribution"><span class="header-section-number">10.3.5</span> Simulating the sampling distribution</a></li>
+  <li><a href="#the-effect-of-sample-size" id="toc-the-effect-of-sample-size" class="nav-link" data-scroll-target="#the-effect-of-sample-size"><span class="header-section-number">10.3.3</span> The Effect of Sample Size</a></li>
   </ul></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">10.4</span> Chapter Summary</a></li>
-  <li><a href="#exercises-expected-value-and-the-standard-error" id="toc-exercises-expected-value-and-the-standard-error" class="nav-link" data-scroll-target="#exercises-expected-value-and-the-standard-error"><span class="header-section-number">10.5</span> Exercises: Expected Value and the Standard Error</a>
+  <li><a href="#the-central-limit-theorem" id="toc-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-central-limit-theorem"><span class="header-section-number">10.4</span> The Central Limit Theorem</a>
   <ul class="collapse">
-  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">10.5.1</span> Conceptual questions</a></li>
+  <li><a href="#summary-of-notation" id="toc-summary-of-notation" class="nav-link" data-scroll-target="#summary-of-notation"><span class="header-section-number">10.4.1</span> Summary of Notation</a></li>
+  </ul></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">10.5</span> Chapter Summary</a></li>
+  <li><a href="#exercises-expected-value-and-the-standard-error" id="toc-exercises-expected-value-and-the-standard-error" class="nav-link" data-scroll-target="#exercises-expected-value-and-the-standard-error"><span class="header-section-number">10.6</span> Exercises: Expected Value and the Standard Error</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">10.6.1</span> Conceptual questions</a></li>
   <li><a href="#betting-on-a-single-number" id="toc-betting-on-a-single-number" class="nav-link" data-scroll-target="#betting-on-a-single-number">1. Betting on a Single Number</a></li>
   <li><a href="#the-square-root-law" id="toc-the-square-root-law" class="nav-link" data-scroll-target="#the-square-root-law">2. The Square-Root Law</a></li>
   <li><a href="#interpreting-standard-error" id="toc-interpreting-standard-error" class="nav-link" data-scroll-target="#interpreting-standard-error">3. Interpreting Standard Error</a></li>
-  <li><a href="#guided-practice" id="toc-guided-practice" class="nav-link" data-scroll-target="#guided-practice"><span class="header-section-number">10.5.2</span> Guided practice</a></li>
+  <li><a href="#guided-practice" id="toc-guided-practice" class="nav-link" data-scroll-target="#guided-practice"><span class="header-section-number">10.6.2</span> Guided practice</a></li>
   <li><a href="#the-100-draw-box" id="toc-the-100-draw-box" class="nav-link" data-scroll-target="#the-100-draw-box">4. The 100-Draw Box</a></li>
-  <li><a href="#box-models-and-repeated-draws" id="toc-box-models-and-repeated-draws" class="nav-link" data-scroll-target="#box-models-and-repeated-draws"><span class="header-section-number">10.5.3</span> Box models and repeated draws</a></li>
+  <li><a href="#box-models-and-repeated-draws" id="toc-box-models-and-repeated-draws" class="nav-link" data-scroll-target="#box-models-and-repeated-draws"><span class="header-section-number">10.6.3</span> Box models and repeated draws</a></li>
   <li><a href="#repeated-draws-from-a-box" id="toc-repeated-draws-from-a-box" class="nav-link" data-scroll-target="#repeated-draws-from-a-box">5. Repeated Draws from a Box</a></li>
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a"><span class="header-section-number">10.5.4</span> (a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b"><span class="header-section-number">10.5.5</span> (b)</a></li>
-  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c"><span class="header-section-number">10.5.6</span> (c)</a></li>
-  <li><a href="#another-box-of-tickets" id="toc-another-box-of-tickets" class="nav-link" data-scroll-target="#another-box-of-tickets"><span class="header-section-number">10.5.7</span> 6. Another Box of Tickets</a></li>
-  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1"><span class="header-section-number">10.5.8</span> (a)</a></li>
-  <li><a href="#b-1" id="toc-b-1" class="nav-link" data-scroll-target="#b-1"><span class="header-section-number">10.5.9</span> (b)</a></li>
-  <li><a href="#choosing-between-risky-options" id="toc-choosing-between-risky-options" class="nav-link" data-scroll-target="#choosing-between-risky-options"><span class="header-section-number">10.5.10</span> Choosing between risky options</a></li>
+  <li><a href="#another-box-of-tickets" id="toc-another-box-of-tickets" class="nav-link" data-scroll-target="#another-box-of-tickets">6. Another Box of Tickets</a></li>
   <li><a href="#choosing-how-many-draws-to-make" id="toc-choosing-how-many-draws-to-make" class="nav-link" data-scroll-target="#choosing-how-many-draws-to-make">7. Choosing How Many Draws to Make</a></li>
-  <li><a href="#a-2" id="toc-a-2" class="nav-link" data-scroll-target="#a-2"><span class="header-section-number">10.5.11</span> (a)</a></li>
-  <li><a href="#b-2" id="toc-b-2" class="nav-link" data-scroll-target="#b-2"><span class="header-section-number">10.5.12</span> (b)</a></li>
-  <li><a href="#c-1" id="toc-c-1" class="nav-link" data-scroll-target="#c-1"><span class="header-section-number">10.5.13</span> (c)</a></li>
   <li><a href="#choosing-between-two-games" id="toc-choosing-between-two-games" class="nav-link" data-scroll-target="#choosing-between-two-games">8. Choosing Between Two Games</a></li>
-  <li><a href="#standard-error-in-familiar-settings" id="toc-standard-error-in-familiar-settings" class="nav-link" data-scroll-target="#standard-error-in-familiar-settings"><span class="header-section-number">10.5.14</span> Standard error in familiar settings</a></li>
+  <li><a href="#standard-error-in-familiar-settings" id="toc-standard-error-in-familiar-settings" class="nav-link" data-scroll-target="#standard-error-in-familiar-settings"><span class="header-section-number">10.6.4</span> Standard error in familiar settings</a></li>
   <li><a href="#rolling-dice" id="toc-rolling-dice" class="nav-link" data-scroll-target="#rolling-dice">9. Rolling Dice</a></li>
-  <li><a href="#a-3" id="toc-a-3" class="nav-link" data-scroll-target="#a-3"><span class="header-section-number">10.5.15</span> (a)</a></li>
-  <li><a href="#b-3" id="toc-b-3" class="nav-link" data-scroll-target="#b-3"><span class="header-section-number">10.5.16</span> (b)</a></li>
   <li><a href="#tossing-a-coin" id="toc-tossing-a-coin" class="nav-link" data-scroll-target="#tossing-a-coin">10. Tossing a Coin</a></li>
-  <li><a href="#a-4" id="toc-a-4" class="nav-link" data-scroll-target="#a-4"><span class="header-section-number">10.5.17</span> (a)</a></li>
-  <li><a href="#b-4" id="toc-b-4" class="nav-link" data-scroll-target="#b-4"><span class="header-section-number">10.5.18</span> (b)</a></li>
-  <li><a href="#c-2" id="toc-c-2" class="nav-link" data-scroll-target="#c-2"><span class="header-section-number">10.5.19</span> (c)</a></li>
   <li><a href="#counting-a-particular-ticket" id="toc-counting-a-particular-ticket" class="nav-link" data-scroll-target="#counting-a-particular-ticket">11. Counting a Particular Ticket</a></li>
-  <li><a href="#challenging-questions" id="toc-challenging-questions" class="nav-link" data-scroll-target="#challenging-questions"><span class="header-section-number">10.5.20</span> Challenging questions</a></li>
+  <li><a href="#challenging-questions" id="toc-challenging-questions" class="nav-link" data-scroll-target="#challenging-questions"><span class="header-section-number">10.6.5</span> Challenging questions</a></li>
   <li><a href="#explaining-the-square-root-law" id="toc-explaining-the-square-root-law" class="nav-link" data-scroll-target="#explaining-the-square-root-law">12. Explaining the Square-Root Law</a></li>
-  <li><a href="#simulation-challenge-optional" id="toc-simulation-challenge-optional" class="nav-link" data-scroll-target="#simulation-challenge-optional"><span class="header-section-number">10.5.21</span> 13. Simulation Challenge (Optional)</a></li>
+  <li><a href="#simulation-challenge-optional" id="toc-simulation-challenge-optional" class="nav-link" data-scroll-target="#simulation-challenge-optional"><span class="header-section-number">10.6.6</span> 13. Simulation Challenge (Optional)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -341,9 +336,9 @@ window.Quarto = {
 <ul>
 <li>Model random processes using the <strong>Box Model</strong> framework.</li>
 <li>Calculate the <strong>Expected Value (EV)</strong> for a sum of random draws.</li>
-<li>Apply the <strong>Square Root Law</strong> to determine the <strong>Standard Error (SE)</strong>.</li>
+<li>Determine its <strong>Standard Error (SE)</strong>.</li>
 <li>Distinguish between the Standard Deviation (SD) of a population and the Standard Error (SE) of a sample.</li>
-<li>Describe the characteristics of a <strong>Sampling Distribution</strong>.</li>
+<li>Describe the characteristics of a <strong>Sampling Distribution</strong>, especially the <strong>Square Root Law</strong>.</li>
 </ul>
 </div>
 </div>
@@ -432,15 +427,31 @@ SE_{\text{sum}} = \sqrt{n} \times \text{SD of Box}
 <li><strong>Central Limit Theorem (CLT):</strong> This sampling distribution will follow a normal distribution as <span class="math inline">\(n\)</span> increases. Even if your box only contains “1”s and “5”s, the sampling distribution will tend towards looking like the smooth bell curve.</li>
 <li><strong>Parameters:</strong> Since the sampling distribution tends towards a normal distribution, we need only its mean (<strong>EV</strong>) and its spread (<strong>SE</strong>) to fully characterize it.</li>
 </ol>
-<section id="the-conceptual-process-monte-carlo-simulation" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="the-conceptual-process-monte-carlo-simulation"><span class="header-section-number">10.3.1</span> The Conceptual Process (Monte-Carlo Simulation)</h3>
+<hr>
+<section id="visualization-monte-carlo-simulation" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="visualization-monte-carlo-simulation"><span class="header-section-number">10.3.1</span> Visualization: Monte-Carlo Simulation</h3>
 <p>To visualize how a sampling distribution is constructed, imagine following these three steps repeatedly:</p>
 <ol type="1">
 <li><strong>Draw</strong>: Take a random sample of size <span class="math inline">\(n\)</span> with replacement from your box.</li>
 <li><strong>Calculate</strong>: Sum the values of the tickets you drew (call this <span class="math inline">\(SUM_1\)</span>).</li>
 <li><strong>Repeat</strong>: Repeat the process hundreds of times to get <span class="math inline">\(SUM_2, SUM_3, \dots, SUM_{10,000}\)</span>.</li>
 </ol>
-<p>If you create a histogram of these 10,000 different sums, you are looking at the <strong>sampling distribution of the sum</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Let’s return to Example 1 with the box-and-ticket model [1,1,1,5]. To see how the Expected Value (EV) and Standard Error (SE) emerge from random chance, we can simulate the process using any software. Instead of calculating the sum of 100 draws once, we repeat the entire experiment 10,000 times. Then by plotting these 10,000 sums, we draw the <strong>sampling distribution of the sum</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div id="fig-sampling-dist-sim" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sampling-dist-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch11/sampling_dist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sampling-dist-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Simulation of the Sampling Distribution for the Sum of 100 Draws from [1,1,1,5]
+</figcaption>
+</figure>
+</div>
+<p>You will notice two key insights from the simulation:</p>
+<ul>
+<li>The Bell Curve: Even though our box only contains two types of tickets (1 and 5), the distribution of the sums takes on the characteristic bell shape of a Normal distribution. This is the Central Limit Theorem in action.</li>
+<li>Predictability: The center of the histogram aligns precisely with our calculated EV (200), and the spread of these sums from different samples reflects our calculated SE (17.32).</li>
+</ul>
 </section>
 <section id="connection-to-the-central-limit-theorem-clt" class="level3" data-number="10.3.2">
 <h3 data-number="10.3.2" class="anchored" data-anchor-id="connection-to-the-central-limit-theorem-clt"><span class="header-section-number">10.3.2</span> Connection to the Central Limit Theorem (CLT)</h3>
@@ -464,17 +475,48 @@ SE_{\text{sum}} = \sqrt{n} \times \text{SD of Box}
 </div>
 <hr>
 </section>
-<section id="visualization-the-effect-of-sample-size" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="visualization-the-effect-of-sample-size"><span class="header-section-number">10.3.3</span> Visualization: The Effect of Sample Size</h3>
-<p>As <span class="math inline">\(n\)</span> (the number of draws) increases, two things happen to the <strong>sampling distribution of sums</strong>:</p>
+<section id="the-effect-of-sample-size" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="the-effect-of-sample-size"><span class="header-section-number">10.3.3</span> The Effect of Sample Size</h3>
+<p>As <span class="math inline">\(n\)</span> the number of draws increases, two things happen to the <strong>sampling distribution of sums</strong>:</p>
 <ul>
-<li><strong>The Center Moves</strong>: Since <span class="math inline">\(EV = \text{Average of Box} \times n\)</span>, the center of the distribution shifts to the right.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
-<li><strong>The Spread Increases</strong>: With larger smaple size, the <strong>standard error of sums</strong> will increase by the <strong>square root law</strong> – that is, increasing the sample size, by say, <strong>four</strong> times will result in an increase of the standard error by <strong>two</strong> (or <em>square root of four</em>) times.</li>
+<li><strong>The Center Shifts</strong>: Since <span class="math inline">\(EV = \text{Average of Box} \times n\)</span>, the center of the distribution shifts to the right.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li><strong>The Spread Increases</strong>: With larger smaple size, the <strong>standard error of sums</strong> will increase by the <strong>square root law</strong> – that is, increasing the sample size, by say, <strong>four</strong> times will result in an increase of the standard error by <strong>two</strong> (or <em>square root of four</em>) times. You can see the <strong>Square Root Law</strong> at work!</li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Square Root Law
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As the sample size <span class="math inline">\(n\)</span> increases, say <span class="math inline">\(k-\)</span>fold, the standard error of sum increases too, but only by the the square root of <span class="math inline">\(k\)</span>.</p>
+</div>
+</div>
+<div id="fig-sampling-dist-sim400" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sampling-dist-sim400-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ch11/sampling_dist_400.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sampling-dist-sim400-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.2: Simulation of the Sampling Distribution for the Sum of 400 Draws from [1,1,1,5]
+</figcaption>
+</figure>
+</div>
 <hr>
 </section>
-<section id="summary-of-notation" class="level3" data-number="10.3.4">
-<h3 data-number="10.3.4" class="anchored" data-anchor-id="summary-of-notation"><span class="header-section-number">10.3.4</span> Summary of Notation</h3>
+</section>
+<section id="the-central-limit-theorem" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="the-central-limit-theorem"><span class="header-section-number">10.4</span> The Central Limit Theorem</h2>
+<p>When drawing from random with replacement from a box, the probability histogram of the sum (a number or statistic that comes from samples of the population we are interested in) will tend to follow a normal curve, even if the contents of the box (i.e. population) do not. This histogram, which we have already called the sampling distribution, is usually expressed in standard units, and the number of draws must be reasonably large for it to assume a bell-shape curve. As with other normal distributions, the expected value pins its center to the horizontal axis, while the standard error fixes its spread.</p>
+<p>What if we draw from a box containing 10 tickets, nine 0’s and a single 1? Does the normal approximation work for this <em>lopsided</em> population? The answer is yes. But, if the size of the sample is small, then the resulting empirical distribution may fail to converge to a normal distribution. For less <em>lopsided</em> boxes, for example one containing 3 tickets marked 1, 2 and 3, relatively smaller sized samples would converge to a normal distribution. That is, the more the histogram of the numbers in a box differ from the normal curve, the larger the sample will be needed before the approximation to a normal distribution takes hold.</p>
+<p>Be as it may, the central limit theorem (CLT) states that when drawing from a box randomly with replacement, the probability histogram of the sum will follow a normal curve, even if the contents of the box (that is the population) do not. An example should clarify this. the diagram below shows a population with an unknown density distribution function (e.g.&nbsp;a bimodal distribution as shown by the top diagram). If a random sample of <span class="math inline">\(n\)</span> observations are taken and their means calculated repeatedly for many times, we get the plot of the the histogram of means below, which as can be seen resembles a normal distribution (see the bottom diagram). Whatever the underlying distribution, repeated sampling and plotting the sample averages will five a histogram of more or less normally distributed means.</p>
+<p>What is also interesting to note is that if you take a random sample of <span class="math inline">\(n\)</span> observations from any population, then provided <span class="math inline">\(n\)</span> is sufficiently large, the distribution of the means will be approximately normal, with a mean of sample averages equal to the population mean, and a standard deviation equal to <span class="math inline">\(1/\sqrt{n}\)</span> of the standard deviation of the population. We are however going ahead of ourselves. Before we speak of the mean, let’s first look at the percentages or proportions.</p>
+<hr>
+<section id="summary-of-notation" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="summary-of-notation"><span class="header-section-number">10.4.1</span> Summary of Notation</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
@@ -513,55 +555,20 @@ SE_{\text{sum}} = \sqrt{n} \times \text{SD of Box}
 </table>
 <hr>
 </section>
-<section id="simulating-the-sampling-distribution" class="level3" data-number="10.3.5">
-<h3 data-number="10.3.5" class="anchored" data-anchor-id="simulating-the-sampling-distribution"><span class="header-section-number">10.3.5</span> Simulating the sampling distribution</h3>
-<p>Let’s return to Example 1 with the box-and-ticket model [1,1,1,5]. To see how the Expected Value (EV) and Standard Error (SE) emerge from random chance, we can simulate the process using any software. Instead of calculating the sum of 100 draws once, we repeat the entire experiment 10,000 times. Then by plotting these 10,000 sums, we acan draw the Sampling Distribution. You will notice two key insights from the simulation:</p>
-<ul>
-<li>The Bell Curve: Even though our box only contains two types of tickets (1 and 5), the distribution of the sums takes on the characteristic bell shape of a Normal distribution. This is the Central Limit Theorem in action.</li>
-<li>Predictability: The center of the histogram aligns precisely with our calculated EV (200), and the spread of these sums from different samples reflects our calculated SE (17.32).</li>
-</ul>
-<div id="fig-sampling-dist-sim" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sampling-dist-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch11/sampling_dist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sampling-dist-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.1: Simulation of the Sampling Distribution for the Sum of 100 Draws
-</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Try this
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For the same box-and-ticket model above, run the simulation with sample size 400, and find the expected value and standard error.</p>
-<blockquote class="blockquote">
-<p>In excel you can use the command <code>=+CHOOSE(RANDBETWEEN(1,4),1,1,1,5)</code></p>
-</blockquote>
-<p>Make sure to observe what happens to the espected value and standard errors. Make sure you can see the <strong>Square Root Law</strong> at work!</p>
-</div>
-</div>
-<hr>
 </section>
-</section>
-<section id="chapter-summary" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">10.4</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">10.5</span> Chapter Summary</h2>
 <ul>
 <li>The <strong>Box Model</strong> helps us visualize population parameters.</li>
 <li>The <strong>Expected Value (EV)</strong> predicts the average outcome of a random process.</li>
 <li>The <strong>Standard Error (SE)</strong> measures the likely magnitude of the chance error.</li>
 <li>According to the <strong>Square Root Law</strong>, the SE of a sum grows with <span class="math inline">\(\sqrt{n}\)</span>, meaning it increases slower than the number of draws itself.</li>
+<li>The <strong>central limit theorem</strong> states that the sampling distribution of sums or averages tends toward a <strong>normal distribution</strong> when the sample size is large.</li>
 </ul>
 <hr>
 </section>
-<section id="exercises-expected-value-and-the-standard-error" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="exercises-expected-value-and-the-standard-error"><span class="header-section-number">10.5</span> Exercises: Expected Value and the Standard Error</h2>
+<section id="exercises-expected-value-and-the-standard-error" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="exercises-expected-value-and-the-standard-error"><span class="header-section-number">10.6</span> Exercises: Expected Value and the Standard Error</h2>
 <p>In the following exercises we explore how expected value and the standard error help us understand the outcomes of repeated random events.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -586,8 +593,8 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{one draw})
 </div>
 </div>
 <hr>
-<section id="conceptual-questions" class="level3" data-number="10.5.1">
-<h3 data-number="10.5.1" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">10.5.1</span> Conceptual questions</h3>
+<section id="conceptual-questions" class="level3" data-number="10.6.1">
+<h3 data-number="10.6.1" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">10.6.1</span> Conceptual questions</h3>
 </section>
 <section id="betting-on-a-single-number" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="betting-on-a-single-number">1. Betting on a Single Number</h3>
@@ -617,8 +624,8 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{one draw})
 <p>If a player plays 100 times, is it unusual for them to be <strong>down $50</strong>? Explain using the <strong>empirical rule</strong>.</p>
 <hr>
 </section>
-<section id="guided-practice" class="level3" data-number="10.5.2">
-<h3 data-number="10.5.2" class="anchored" data-anchor-id="guided-practice"><span class="header-section-number">10.5.2</span> Guided practice</h3>
+<section id="guided-practice" class="level3" data-number="10.6.2">
+<h3 data-number="10.6.2" class="anchored" data-anchor-id="guided-practice"><span class="header-section-number">10.6.2</span> Guided practice</h3>
 </section>
 <section id="the-100-draw-box" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-100-draw-box">4. The 100-Draw Box</h3>
@@ -659,8 +666,8 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 </div>
 <hr>
 </section>
-<section id="box-models-and-repeated-draws" class="level3" data-number="10.5.3">
-<h3 data-number="10.5.3" class="anchored" data-anchor-id="box-models-and-repeated-draws"><span class="header-section-number">10.5.3</span> Box models and repeated draws</h3>
+<section id="box-models-and-repeated-draws" class="level3" data-number="10.6.3">
+<h3 data-number="10.6.3" class="anchored" data-anchor-id="box-models-and-repeated-draws"><span class="header-section-number">10.6.3</span> Box models and repeated draws</h3>
 </section>
 <section id="repeated-draws-from-a-box" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="repeated-draws-from-a-box">5. Repeated Draws from a Box</h3>
@@ -668,45 +675,53 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 <p><span class="math display">\[
 1,\;1,\;2,\;2,\;2,\;4
 \]</span></p>
-</section>
-<section id="a" class="level3" data-number="10.5.4">
-<h3 data-number="10.5.4" class="anchored" data-anchor-id="a"><span class="header-section-number">10.5.4</span> (a)</h3>
+<section id="a" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="a">(a)</h4>
 <p>What is the <strong>smallest possible sum</strong> of the 100 draws?</p>
 <p>What is the <strong>largest possible sum</strong>?</p>
 </section>
-<section id="b" class="level3" data-number="10.5.5">
-<h3 data-number="10.5.5" class="anchored" data-anchor-id="b"><span class="header-section-number">10.5.5</span> (b)</h3>
+<section id="b" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="b">(b)</h4>
 <p>The expected sum of the draws will be around</p>
 <p>[ ___ ]</p>
 <p>give or take</p>
 <p>[ ___ ]</p>
 <p>or so.</p>
 </section>
-<section id="c" class="level3" data-number="10.5.6">
-<h3 data-number="10.5.6" class="anchored" data-anchor-id="c"><span class="header-section-number">10.5.6</span> (c)</h3>
+<section id="c" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="c">(c)</h4>
 <p>The chance that the sum will be <strong>greater than 250</strong> is almost</p>
 <p>[ ___ %. ]</p>
 </section>
-<section id="another-box-of-tickets" class="level3" data-number="10.5.7">
-<h3 data-number="10.5.7" class="anchored" data-anchor-id="another-box-of-tickets"><span class="header-section-number">10.5.7</span> 6. Another Box of Tickets</h3>
-<p>One hundred draws are made <strong>with replacement</strong> from the box</p>
+</section>
+<section id="another-box-of-tickets" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="another-box-of-tickets">6. Another Box of Tickets</h3>
+<p>One hundred draws are made <strong>with replacement</strong> from the box (from Example 2 in the chapter):</p>
 <p><span class="math display">\[
 0,\;2,\;3,\;4,\;6
 \]</span></p>
-</section>
-<section id="a-1" class="level3" data-number="10.5.8">
-<h3 data-number="10.5.8" class="anchored" data-anchor-id="a-1"><span class="header-section-number">10.5.8</span> (a)</h3>
+<section id="a-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="a-1">(a)</h4>
 <p>How <strong>small</strong> can the sum be?</p>
 <p>How <strong>large</strong> can it be?</p>
 </section>
-<section id="b-1" class="level3" data-number="10.5.9">
-<h3 data-number="10.5.9" class="anchored" data-anchor-id="b-1"><span class="header-section-number">10.5.9</span> (b)</h3>
+<section id="b-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="b-1">(b)</h4>
 <p>How likely is the sum to lie between <strong>370 and 430</strong>?</p>
 <p>Explain briefly.</p>
+</section>
+<section id="c-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="c-1">(c)</h4>
+<p>Assume this time you pick 25 times form the box with replacement.</p>
+<p>The expected sum of the draws will be around</p>
+<p>[ ___ ]</p>
+<p>give or take</p>
+<p>[ ___ ]</p>
 <hr>
 </section>
-<section id="choosing-between-risky-options" class="level3" data-number="10.5.10">
-<h3 data-number="10.5.10" class="anchored" data-anchor-id="choosing-between-risky-options"><span class="header-section-number">10.5.10</span> Choosing between risky options</h3>
+<section id="choosing-between-risky-options" class="level4" data-number="10.6.3.1">
+<h4 data-number="10.6.3.1" class="anchored" data-anchor-id="choosing-between-risky-options"><span class="header-section-number">10.6.3.1</span> Choosing between risky options</h4>
+</section>
 </section>
 <section id="choosing-how-many-draws-to-make" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="choosing-how-many-draws-to-make">7. Choosing How Many Draws to Make</h3>
@@ -716,32 +731,32 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 \]</span></p>
 <p>You win <strong>Baht 100</strong> if certain conditions are met.</p>
 <p>How many draws should you make?</p>
-</section>
-<section id="a-2" class="level3" data-number="10.5.11">
-<h3 data-number="10.5.11" class="anchored" data-anchor-id="a-2"><span class="header-section-number">10.5.11</span> (a)</h3>
+<section id="a-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="a-2">(a)</h4>
 <p>You win if the <strong>sum equals 5</strong>, and nothing otherwise.</p>
 </section>
-<section id="b-2" class="level3" data-number="10.5.12">
-<h3 data-number="10.5.12" class="anchored" data-anchor-id="b-2"><span class="header-section-number">10.5.12</span> (b)</h3>
+<section id="b-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="b-2">(b)</h4>
 <p>You win if the <strong>sum is −5 or less</strong>, and nothing otherwise.</p>
 </section>
-<section id="c-1" class="level3" data-number="10.5.13">
-<h3 data-number="10.5.13" class="anchored" data-anchor-id="c-1"><span class="header-section-number">10.5.13</span> (c)</h3>
+<section id="c-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="c-2">(c)</h4>
 <p>You win if the <strong>sum lies between −5 and 5</strong>, and nothing otherwise.</p>
 <p><em>No calculations are necessary, but explain your reasoning.</em></p>
+</section>
 </section>
 <section id="choosing-between-two-games" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="choosing-between-two-games">8. Choosing Between Two Games</h3>
 <p>A box contains <strong>10 tickets</strong>, each marked with a whole number between <strong>−5 and 5</strong>.</p>
 <p>The numbers are not all the same, but the <strong>average of the box is 0</strong>.</p>
 <p>You have two choices:</p>
-<section id="game-a" class="level4" data-number="10.5.13.1">
-<h4 data-number="10.5.13.1" class="anchored" data-anchor-id="game-a"><span class="header-section-number">10.5.13.1</span> Game A</h4>
+<section id="game-a" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="game-a">Game A</h4>
 <p>Draw <strong>100 times</strong> with replacement.</p>
 <p>You win <strong>Baht 100</strong> if the sum is between <strong>−15 and 15</strong>.</p>
 </section>
-<section id="game-b" class="level4" data-number="10.5.13.2">
-<h4 data-number="10.5.13.2" class="anchored" data-anchor-id="game-b"><span class="header-section-number">10.5.13.2</span> Game B</h4>
+<section id="game-b" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="game-b">Game B</h4>
 <p>Draw <strong>200 times</strong> with replacement.</p>
 <p>You win <strong>Baht 100</strong> if the sum is between <strong>−30 and 30</strong>.</p>
 <p>Which option gives the <strong>better chance of winning</strong>?</p>
@@ -758,44 +773,44 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 <hr>
 </section>
 </section>
-<section id="standard-error-in-familiar-settings" class="level3" data-number="10.5.14">
-<h3 data-number="10.5.14" class="anchored" data-anchor-id="standard-error-in-familiar-settings"><span class="header-section-number">10.5.14</span> Standard error in familiar settings</h3>
+<section id="standard-error-in-familiar-settings" class="level3" data-number="10.6.4">
+<h3 data-number="10.6.4" class="anchored" data-anchor-id="standard-error-in-familiar-settings"><span class="header-section-number">10.6.4</span> Standard error in familiar settings</h3>
 </section>
 <section id="rolling-dice" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rolling-dice">9. Rolling Dice</h3>
 <p>A die is rolled <strong>60 times</strong>.</p>
-</section>
-<section id="a-3" class="level3" data-number="10.5.15">
-<h3 data-number="10.5.15" class="anchored" data-anchor-id="a-3"><span class="header-section-number">10.5.15</span> (a)</h3>
+<section id="a-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="a-3">(a)</h4>
 <p>The <strong>total of the spots</strong> should be around</p>
 <p>[ ___ ]</p>
 <p>give or take</p>
 <p>[ ___ ]</p>
 <p>or so.</p>
 </section>
-<section id="b-3" class="level3" data-number="10.5.16">
-<h3 data-number="10.5.16" class="anchored" data-anchor-id="b-3"><span class="header-section-number">10.5.16</span> (b)</h3>
+<section id="b-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="b-3">(b)</h4>
 <p>The number of <strong>6’s</strong> should be around</p>
 <p>[ ___ ]</p>
 <p>give or take</p>
 <p>[ ___ ]</p>
 <p>or so.</p>
 </section>
+</section>
 <section id="tossing-a-coin" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="tossing-a-coin">10. Tossing a Coin</h3>
-<p>A coin is tossed <strong>100 times</strong>.</p>
-</section>
-<section id="a-4" class="level3" data-number="10.5.17">
-<h3 data-number="10.5.17" class="anchored" data-anchor-id="a-4"><span class="header-section-number">10.5.17</span> (a)</h3>
+<p>A fair coin is tossed <strong>100 times</strong>.</p>
+<section id="a-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="a-4">(a)</h4>
 <p>Find the <strong>expected number of heads</strong>.</p>
 </section>
-<section id="b-4" class="level3" data-number="10.5.18">
-<h3 data-number="10.5.18" class="anchored" data-anchor-id="b-4"><span class="header-section-number">10.5.18</span> (b)</h3>
+<section id="b-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="b-4">(b)</h4>
 <p>Find the <strong>standard error</strong> for the number of heads.</p>
 </section>
-<section id="c-2" class="level3" data-number="10.5.19">
-<h3 data-number="10.5.19" class="anchored" data-anchor-id="c-2"><span class="header-section-number">10.5.19</span> (c)</h3>
+<section id="c-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="c-3">(c)</h4>
 <p>Estimate the chance that the number of heads is <strong>between 40 and 60</strong>.</p>
+</section>
 </section>
 <section id="counting-a-particular-ticket" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="counting-a-particular-ticket">11. Counting a Particular Ticket</h3>
@@ -804,8 +819,8 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 <p>Explain briefly.</p>
 <hr>
 </section>
-<section id="challenging-questions" class="level3" data-number="10.5.20">
-<h3 data-number="10.5.20" class="anchored" data-anchor-id="challenging-questions"><span class="header-section-number">10.5.20</span> Challenging questions</h3>
+<section id="challenging-questions" class="level3" data-number="10.6.5">
+<h3 data-number="10.6.5" class="anchored" data-anchor-id="challenging-questions"><span class="header-section-number">10.6.5</span> Challenging questions</h3>
 </section>
 <section id="explaining-the-square-root-law" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="explaining-the-square-root-law">12. Explaining the Square-Root Law</h3>
@@ -818,8 +833,8 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 </ol>
 <p>Explain clearly how the <strong>square-root law</strong> determines your answer.</p>
 </section>
-<section id="simulation-challenge-optional" class="level3" data-number="10.5.21">
-<h3 data-number="10.5.21" class="anchored" data-anchor-id="simulation-challenge-optional"><span class="header-section-number">10.5.21</span> 13. Simulation Challenge (Optional)</h3>
+<section id="simulation-challenge-optional" class="level3" data-number="10.6.6">
+<h3 data-number="10.6.6" class="anchored" data-anchor-id="simulation-challenge-optional"><span class="header-section-number">10.6.6</span> 13. Simulation Challenge (Optional)</h3>
 <p>Use <strong>R</strong> to simulate the following experiment:</p>
 <ul>
 <li>Draw 100 times with replacement from the box<br>
@@ -829,6 +844,9 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 <li>Repeat the experiment <strong>10,000 times</strong></li>
 </ul>
 <p>Estimate the probability that the <strong>sum lies between 370 and 430</strong>.</p>
+<blockquote class="blockquote">
+<p>In excel you can use the command <code>=+CHOOSE(RANDBETWEEN(1,5),0,2,3,4,6)</code></p>
+</blockquote>
 <p>Below is code you can use:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>box <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -856,7 +874,7 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
 <hr>
 <ol>
 <li id="fn1"><p>Actually you are supposed to repeat this infinite number of times.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>We are assuming nonnegative numbers in the box and at least one greater than zero. Or if we have some tickets with negative numbers, their mean should be greater than zero.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>We are assuming non-negative numbers in the box and at least one greater than zero. Or if we have some tickets with negative numbers, their mean should be greater than zero.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1268,6 +1286,9 @@ SE(\text{sum}) = \sqrt{n} \times SD(\text{box})
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Ch12.html" class="pagination-link" aria-label="Chance Errors in Samples">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chance Errors in Samples</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
