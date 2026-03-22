@@ -45,7 +45,7 @@ of men. We'd get something like:
 
 ![](figs\ch12\samples_250.png)
 
-Note that first entry on the top left is our first sample with $64$% men.
+Note that first entry on the top left is our first sample with 64% men.
 Over the 250 samples, we find that only 18 of the 250
 samples of 100 individuals had exactly 64 men. This means that
 getting a sample with the same percentage as the population
@@ -121,13 +121,12 @@ percentage. In other words, with a simple random sample, the
 expected value for the sample percentage equals the population
 percentage.
 
-In fact, the **square root law** continues to work in the background -- as seen by the formula, when sample size increases four-fold, the SE of percentage **halves** (or decreases twice.) So SE percentage is $2.4$% when sample size i $400$ compared to  $4.8$% when $n=100$.    
+In fact, the **square root law** continues to work in the background -- as seen by the formula, when sample size increases four-fold, the SE of percentage **halves** (or decreases twice.) So SE percentage is 2.4% when sample size is 400 compared to4.8% when the sammple size is 100.    
 
 ## Comparing the SE's of sum and percentages
 
 Note what happens as the sample size get bigger in the case of sums and percentages. With the sample
-size, say, 400 (from 100), the SE of sum is $\sqrt{400} \times 0.48 =
-9.6$. But, 9.6 represents 2.4% of 400; that is the SE for the
+size, say, 400 (from 100), the SE of sum is $\sqrt{400} \times 0.48 = 9.6$. But, 9.6 represents 2.4% of 400; that is the SE for the
 percentage of men in the sample of 400 is 2.4%. Hence,
 multiplying the sample size by 4 reduced the SE of percentage by
 $\sqrt{4}$. In general, multiplying the size of the sample by some

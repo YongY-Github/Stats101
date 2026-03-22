@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Ch13.html" rel="next">
 <link href="./Ch11.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -245,6 +246,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chance Errors in Samples</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bootstrapping and Confidence Intervals</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -343,7 +350,7 @@ window.Quarto = {
 <p>Assumee a health study is done on a representative cross section of 4,738 adults. The researcher can sample, say, only 100 of them. Our question is whether the sample is representative? Assume further that the population had 3,032 (64%) men. It is possible that we might pick a random sample and count 63 men in the sample. We didn’t get exactly 64% men. Are you okay with your sample? Do you think this sample can represent the population?</p>
 <p>We might repeat this, say, 250 times; that is, we sample 250 times, with each sample consisting of 100 individuals and record the percentage of men. We’d get something like:</p>
 <p><img src="figs\ch12\samples_250.png" class="img-fluid"></p>
-<p>Note that first entry on the top left is our first sample with <span class="math inline">\(64\)</span>% men. Over the 250 samples, we find that only 18 of the 250 samples of 100 individuals had exactly 64 men. This means that getting a sample with the same percentage as the population (64%) is pretty uncommon. Below is a histogram of the number of men from the samples of size 100 persons (i.e.&nbsp;the 250 repetitions):</p>
+<p>Note that first entry on the top left is our first sample with 64% men. Over the 250 samples, we find that only 18 of the 250 samples of 100 individuals had exactly 64 men. This means that getting a sample with the same percentage as the population (64%) is pretty uncommon. Below is a histogram of the number of men from the samples of size 100 persons (i.e.&nbsp;the 250 repetitions):</p>
 <div id="fig-n100" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-n100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -422,12 +429,11 @@ Figure&nbsp;11.2: Sampling Distribution of Percentage, n = 400
 </div>
 <p>Notice that the mean of this histogram, which is the sampling distribution of percentage of sample size 400, is essentially the same at around <span class="math inline">\(64\)</span>%. This should be reasonable: we shouldn’t expect anything different – we should expect the sample percentage to be the same as the population percentage irrespective of the sample size.</p>
 <p>As we have seen before, the percentage of a single sample need not be exactly equal to the population percentage – it may be off because of chance error, which is measured by the standard error (of the percentage). However, the standard error <strong>falls</strong> as the sample size increases. The sampling distribution becomes narrower. That is, given that the percentage in any sample is equal to the percentage in the population plus some chance error, we find that the bigger the sample, the closer the sample percentage to the population percentage. In other words, with a simple random sample, the expected value for the sample percentage equals the population percentage.</p>
-<p>In fact, the <strong>square root law</strong> continues to work in the background – as seen by the formula, when sample size increases four-fold, the SE of percentage <strong>halves</strong> (or decreases twice.) So SE percentage is <span class="math inline">\(2.4\)</span>% when sample size i <span class="math inline">\(400\)</span> compared to <span class="math inline">\(4.8\)</span>% when <span class="math inline">\(n=100\)</span>.</p>
+<p>In fact, the <strong>square root law</strong> continues to work in the background – as seen by the formula, when sample size increases four-fold, the SE of percentage <strong>halves</strong> (or decreases twice.) So SE percentage is 2.4% when sample size is 400 compared to4.8% when the sammple size is 100.</p>
 </section>
 <section id="comparing-the-ses-of-sum-and-percentages" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="comparing-the-ses-of-sum-and-percentages"><span class="header-section-number">11.5</span> Comparing the SE’s of sum and percentages</h2>
-<p>Note what happens as the sample size get bigger in the case of sums and percentages. With the sample size, say, 400 (from 100), the SE of sum is <span class="math inline">\(\sqrt{400} \times 0.48 =
-9.6\)</span>. But, 9.6 represents 2.4% of 400; that is the SE for the percentage of men in the sample of 400 is 2.4%. Hence, multiplying the sample size by 4 reduced the SE of percentage by <span class="math inline">\(\sqrt{4}\)</span>. In general, multiplying the size of the sample by some factor, while increasing the standard error of sum, reduces the SE for a percentage, not by the whole factor but by its square root.</p>
+<p>Note what happens as the sample size get bigger in the case of sums and percentages. With the sample size, say, 400 (from 100), the SE of sum is <span class="math inline">\(\sqrt{400} \times 0.48 = 9.6\)</span>. But, 9.6 represents 2.4% of 400; that is the SE for the percentage of men in the sample of 400 is 2.4%. Hence, multiplying the sample size by 4 reduced the SE of percentage by <span class="math inline">\(\sqrt{4}\)</span>. In general, multiplying the size of the sample by some factor, while increasing the standard error of sum, reduces the SE for a percentage, not by the whole factor but by its square root.</p>
 <section id="se-of-sum-and-percentage" class="level3 callput-note" data-number="11.5.1">
 <h3 data-number="11.5.1" class="anchored" data-anchor-id="se-of-sum-and-percentage"><span class="header-section-number">11.5.1</span> SE of Sum and Percentage</h3>
 <p>Keep in mind that the two SE’s for the sum and for the percentage behave quite differently</p>
@@ -1079,6 +1085,9 @@ SE \propto \frac{1}{\sqrt{n}}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Ch13.html" class="pagination-link" aria-label="Bootstrapping and Confidence Intervals">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bootstrapping and Confidence Intervals</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

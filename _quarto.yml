@@ -18,6 +18,8 @@ book:
     - Ch10.qmd
     - Ch11.qmd
     - Ch12.qmd
+    - Ch13.qmd
+    - Ch14.qmd
 
 bibliography: references.bib
 

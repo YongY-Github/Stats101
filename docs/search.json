@@ -914,7 +914,7 @@
     "href": "Ch12.html#key-formula-standard-error-of-a-percentage",
     "title": "11  Chance Errors in Samples",
     "section": "11.3 Key Formula: Standard Error of a Percentage",
-    "text": "11.3 Key Formula: Standard Error of a Percentage\nLet’s move to percentage instead of sums in the last chapter.\nAssumee a health study is done on a representative cross section of 4,738 adults. The researcher can sample, say, only 100 of them. Our question is whether the sample is representative? Assume further that the population had 3,032 (64%) men. It is possible that we might pick a random sample and count 63 men in the sample. We didn’t get exactly 64% men. Are you okay with your sample? Do you think this sample can represent the population?\nWe might repeat this, say, 250 times; that is, we sample 250 times, with each sample consisting of 100 individuals and record the percentage of men. We’d get something like:\n\nNote that first entry on the top left is our first sample with \\(64\\)% men. Over the 250 samples, we find that only 18 of the 250 samples of 100 individuals had exactly 64 men. This means that getting a sample with the same percentage as the population (64%) is pretty uncommon. Below is a histogram of the number of men from the samples of size 100 persons (i.e. the 250 repetitions):\n\n\n\n\n\n\nFigure 11.1: Sampling Distribution of Percentage, n = 100\n\n\n\nEssentially, the mean of the 250 numbers which us shown by the above histogram is 64.26%, which is pretty close the the population percentage of 64%.\nWe can also calculate the spread or standard deviation of the 250 numbers, which we now call the standard error – taking a calculator, we got 4.72%.\nWhat are the corresponding formulas for the percentage expected value and its standard error?\nFirst, we can expect our sample percentage to be more or less equal to the percentage of the population, which is represented by the box.\n\n\n\n\n\n\nImportantExpected Value for a Percentage\n\n\n\n\\[\nEV(\\%) = \\frac{EV_{sum}}{n} \\times 100 {\\%} = {\\%}_\\text{Box}\n\\]\n\n\nSo basically we divide the expected value of the sum by sample size \\(n\\) then multiply by 100%.\nThe same procedure is applied to the standard error:\n\n\n\n\n\n\nImportantStandard Error for a Percentage\n\n\n\n\\[\nSE(\\%) = \\frac{SE_{sum}}{n} \\times 100 {\\%}\n\\] Interestingly, if a population contains proportion (p) of “successes” or 1’s, then for a sample of size \\(n\\):\n\\[\nSE_{\\%} = \\sqrt{\\frac{p(1-p)}{n}} \\times 100 {\\%}\n\\]\nThis measures the typical size of the chance error in the sample percentage.\n\n\nReturning to the above example, the following box-and-ticket model is used to represent the population:\n\n\n\n\n\nThe SD of the box is \\(\\sqrt{.64 \\times .36}\\). And with a sample of 100 random draws with replacement made, the SE of the sum of draws, i.e. \\(\\sqrt{n} \\times\\) SD, is 4.8%.\nTo get the SE of percentage:\n\\[\nSE(\\%) = \\frac{SE_{sum}}{n} \\times 100 {\\%} = 4.8{\\%}\n\\]\nThat is, the sampling distribution of men will have an expected value of 64% and standard error of 4.8%.",
+    "text": "11.3 Key Formula: Standard Error of a Percentage\nLet’s move to percentage instead of sums in the last chapter.\nAssumee a health study is done on a representative cross section of 4,738 adults. The researcher can sample, say, only 100 of them. Our question is whether the sample is representative? Assume further that the population had 3,032 (64%) men. It is possible that we might pick a random sample and count 63 men in the sample. We didn’t get exactly 64% men. Are you okay with your sample? Do you think this sample can represent the population?\nWe might repeat this, say, 250 times; that is, we sample 250 times, with each sample consisting of 100 individuals and record the percentage of men. We’d get something like:\n\nNote that first entry on the top left is our first sample with 64% men. Over the 250 samples, we find that only 18 of the 250 samples of 100 individuals had exactly 64 men. This means that getting a sample with the same percentage as the population (64%) is pretty uncommon. Below is a histogram of the number of men from the samples of size 100 persons (i.e. the 250 repetitions):\n\n\n\n\n\n\nFigure 11.1: Sampling Distribution of Percentage, n = 100\n\n\n\nEssentially, the mean of the 250 numbers which us shown by the above histogram is 64.26%, which is pretty close the the population percentage of 64%.\nWe can also calculate the spread or standard deviation of the 250 numbers, which we now call the standard error – taking a calculator, we got 4.72%.\nWhat are the corresponding formulas for the percentage expected value and its standard error?\nFirst, we can expect our sample percentage to be more or less equal to the percentage of the population, which is represented by the box.\n\n\n\n\n\n\nImportantExpected Value for a Percentage\n\n\n\n\\[\nEV(\\%) = \\frac{EV_{sum}}{n} \\times 100 {\\%} = {\\%}_\\text{Box}\n\\]\n\n\nSo basically we divide the expected value of the sum by sample size \\(n\\) then multiply by 100%.\nThe same procedure is applied to the standard error:\n\n\n\n\n\n\nImportantStandard Error for a Percentage\n\n\n\n\\[\nSE(\\%) = \\frac{SE_{sum}}{n} \\times 100 {\\%}\n\\] Interestingly, if a population contains proportion (p) of “successes” or 1’s, then for a sample of size \\(n\\):\n\\[\nSE_{\\%} = \\sqrt{\\frac{p(1-p)}{n}} \\times 100 {\\%}\n\\]\nThis measures the typical size of the chance error in the sample percentage.\n\n\nReturning to the above example, the following box-and-ticket model is used to represent the population:\n\n\n\n\n\nThe SD of the box is \\(\\sqrt{.64 \\times .36}\\). And with a sample of 100 random draws with replacement made, the SE of the sum of draws, i.e. \\(\\sqrt{n} \\times\\) SD, is 4.8%.\nTo get the SE of percentage:\n\\[\nSE(\\%) = \\frac{SE_{sum}}{n} \\times 100 {\\%} = 4.8{\\%}\n\\]\nThat is, the sampling distribution of men will have an expected value of 64% and standard error of 4.8%.",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Chance Errors in Samples</span>"
     ]
@@ -944,7 +944,7 @@
     "href": "Ch12.html#comparing-the-ses-of-sum-and-percentages",
     "title": "11  Chance Errors in Samples",
     "section": "11.5 Comparing the SE’s of sum and percentages",
-    "text": "11.5 Comparing the SE’s of sum and percentages\nNote what happens as the sample size get bigger in the case of sums and percentages. With the sample size, say, 400 (from 100), the SE of sum is \\(\\sqrt{400} \\times 0.48 =\n9.6\\). But, 9.6 represents 2.4% of 400; that is the SE for the percentage of men in the sample of 400 is 2.4%. Hence, multiplying the sample size by 4 reduced the SE of percentage by \\(\\sqrt{4}\\). In general, multiplying the size of the sample by some factor, while increasing the standard error of sum, reduces the SE for a percentage, not by the whole factor but by its square root.\n\n11.5.1 SE of Sum and Percentage\nKeep in mind that the two SE’s for the sum and for the percentage behave quite differently\n\nWhen the sample size goes up, the SE for sum goes up, but the SE for percentage goes down!\n\nThe SE for the sample sum goes up by the square root of the sample size, while the SE for the sample percentage goes down by the square root of the sample size.",
+    "text": "11.5 Comparing the SE’s of sum and percentages\nNote what happens as the sample size get bigger in the case of sums and percentages. With the sample size, say, 400 (from 100), the SE of sum is \\(\\sqrt{400} \\times 0.48 = 9.6\\). But, 9.6 represents 2.4% of 400; that is the SE for the percentage of men in the sample of 400 is 2.4%. Hence, multiplying the sample size by 4 reduced the SE of percentage by \\(\\sqrt{4}\\). In general, multiplying the size of the sample by some factor, while increasing the standard error of sum, reduces the SE for a percentage, not by the whole factor but by its square root.\n\n11.5.1 SE of Sum and Percentage\nKeep in mind that the two SE’s for the sum and for the percentage behave quite differently\n\nWhen the sample size goes up, the SE for sum goes up, but the SE for percentage goes down!\n\nThe SE for the sample sum goes up by the square root of the sample size, while the SE for the sample percentage goes down by the square root of the sample size.",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Chance Errors in Samples</span>"
     ]
@@ -994,7 +994,7 @@
     "href": "Ch12.html#increasing-the-sample-size",
     "title": "11  Chance Errors in Samples",
     "section": "11.4 Increasing the Sample Size",
-    "text": "11.4 Increasing the Sample Size\nBut what if we increase the sample size, say, from 100 to say 400? Collecting abotehr 250 samples of size \\(n=400\\) and plotting gives:\n\n\n\n\n\n\nFigure 11.2: Sampling Distribution of Percentage, n = 400\n\n\n\nNotice that the mean of this histogram, which is the sampling distribution of percentage of sample size 400, is essentially the same at around \\(64\\)%. This should be reasonable: we shouldn’t expect anything different – we should expect the sample percentage to be the same as the population percentage irrespective of the sample size.\nAs we have seen before, the percentage of a single sample need not be exactly equal to the population percentage – it may be off because of chance error, which is measured by the standard error (of the percentage). However, the standard error falls as the sample size increases. The sampling distribution becomes narrower. That is, given that the percentage in any sample is equal to the percentage in the population plus some chance error, we find that the bigger the sample, the closer the sample percentage to the population percentage. In other words, with a simple random sample, the expected value for the sample percentage equals the population percentage.\nIn fact, the square root law continues to work in the background – as seen by the formula, when sample size increases four-fold, the SE of percentage halves (or decreases twice.) So SE percentage is \\(2.4\\)% when sample size i \\(400\\) compared to \\(4.8\\)% when \\(n=100\\).",
+    "text": "11.4 Increasing the Sample Size\nBut what if we increase the sample size, say, from 100 to say 400? Collecting abotehr 250 samples of size \\(n=400\\) and plotting gives:\n\n\n\n\n\n\nFigure 11.2: Sampling Distribution of Percentage, n = 400\n\n\n\nNotice that the mean of this histogram, which is the sampling distribution of percentage of sample size 400, is essentially the same at around \\(64\\)%. This should be reasonable: we shouldn’t expect anything different – we should expect the sample percentage to be the same as the population percentage irrespective of the sample size.\nAs we have seen before, the percentage of a single sample need not be exactly equal to the population percentage – it may be off because of chance error, which is measured by the standard error (of the percentage). However, the standard error falls as the sample size increases. The sampling distribution becomes narrower. That is, given that the percentage in any sample is equal to the percentage in the population plus some chance error, we find that the bigger the sample, the closer the sample percentage to the population percentage. In other words, with a simple random sample, the expected value for the sample percentage equals the population percentage.\nIn fact, the square root law continues to work in the background – as seen by the formula, when sample size increases four-fold, the SE of percentage halves (or decreases twice.) So SE percentage is 2.4% when sample size is 400 compared to4.8% when the sammple size is 100.",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Chance Errors in Samples</span>"
     ]
@@ -1037,6 +1037,466 @@
     "text": "11.10 Exercises",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Chance Errors in Samples</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html",
+    "href": "Ch13.html",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "",
+    "text": "12.1 Learning objectives\nBy the end of this chapter, you should be able to:",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#estimating-variability-from-the-sample",
+    "href": "Ch13.html#estimating-variability-from-the-sample",
+    "title": "Untitled",
+    "section": "15.1 Estimating variability from the sample",
+    "text": "15.1 Estimating variability from the sample\nWe go around this problem by using the sample itself to estimate variability.\nIn this case:\n\n53% of observations are 1 (support)\n47% are 0 (do not support)\n\nThe standard deviation of the sample, which we denote \\(SD^+\\) of such a 0–1 variable is approximately:\n\\[\nSD^+ = (1-0) \\sqrt{0.53 \\times 0.47} \\approx 0.5\n\\]\nUsing this, the standard error becomes approximately:\n\\[\nSE(\\%) = \\frac{SD^+}{n} \\times 100\\% \\approx 1\\%\n\\]\nSo the estimate of 53% is likely to be off by about 1%.\n\n\n\n\n\n\nTipInterpretation\n\n\n\nBeing off by 3% would correspond to about 3 standard errors, which is unlikely.\n\n\nConclusion: The candidate is very likely above 50% support and may reasonably decide to run.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Untitled</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#estimating-support",
+    "href": "Ch13.html#estimating-support",
+    "title": "Untitled",
+    "section": "25.1 1. Estimating support",
+    "text": "25.1 1. Estimating support\nA poll of 400 voters finds that 220 support a policy.\n\nWhat is the sample percentage?\nEstimate the standard error of the percentage.\nConstruct a 95% confidence interval.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Untitled</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#accuracy-and-sample-size",
+    "href": "Ch13.html#accuracy-and-sample-size",
+    "title": "Untitled",
+    "section": "25.2 2. Accuracy and sample size",
+    "text": "25.2 2. Accuracy and sample size\nUsing the approximation\n\\[\nSE(%) \\approx \\frac{50}{\\sqrt{n}}\n\\]\n\nCompute the SE for \\(n = 100\\)\nCompute the SE for \\(n = 2{,}500\\)\nExplain how sample size affects accuracy",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Untitled</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#interpreting-intervals",
+    "href": "Ch13.html#interpreting-intervals",
+    "title": "Untitled",
+    "section": "25.3 3. Interpreting intervals",
+    "text": "25.3 3. Interpreting intervals\nA survey reports:\n\\[\n48% \\pm 3% \\quad (95% \\text{ confidence})\n\\]\nWhich of the following statements are correct?\n\nThere is a 95% chance the true value is between 45% and 51%\nThe true value is fixed, but the interval would change with a different sample\nAbout 95% of similarly constructed intervals would contain the true value\n\nExplain your answers.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Untitled</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#election-decision",
+    "href": "Ch13.html#election-decision",
+    "title": "Untitled",
+    "section": "25.4 4. Election decision",
+    "text": "25.4 4. Election decision\nA candidate has estimated support of 51% with an SE of 2%.\n\nConstruct a 95% confidence interval.\nIs the candidate safely above 50%?\nWhat additional information would you want before advising the candidate?",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Untitled</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#conceptual-question",
+    "href": "Ch13.html#conceptual-question",
+    "title": "Untitled",
+    "section": "25.5 5. Conceptual question",
+    "text": "25.5 5. Conceptual question\nExplain in your own words:\n\nWhy is it incorrect to say “there is a 95% chance the true value lies in the interval”?",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Untitled</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#learning-objectives",
+    "href": "Ch13.html#learning-objectives",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "",
+    "text": "understand why sample percentages differ from population percentages\ncalculate and interpret the standard error of a percentage\nconstruct confidence intervals using the empirical rule\ncorrectly interpret what a confidence interval does and does not mean\ndistinguish between point estimates and interval estimates",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#motivation-should-the-politician-run",
+    "href": "Ch13.html#motivation-should-the-politician-run",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.2 Motivation: Should the politician run?",
+    "text": "12.2 Motivation: Should the politician run?\nA politician is deciding whether to enter an election. In a village of 100,000 eligible voters, a survey of 2,500 people finds that 1,328 support the candidate, which is about 53%.\nShould the politician run?\nAt first glance, the answer seems obvious: 53% is greater than 50%. But this conclusion depends on how accurate the estimate is. The key question is:\n\nHow far might the sample percentage be from the true population percentage?\n\n\n\n\n\n\n\nNoteKey idea\n\n\n\nA sample percentage is only an estimate. It is subject to chance error due to random sampling.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#from-samples-to-uncertainty",
+    "href": "Ch13.html#from-samples-to-uncertainty",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.3 From samples to uncertainty",
+    "text": "12.3 From samples to uncertainty\nThe sample percentage, 53%, is a point estimate of the population percentage. But different random samples would give slightly different results.\nTo quantify this uncertainty, we use the standard error (SE).\nFor a percentage, the standard error is:\n\\[\nSE(\\%) = \\frac{SD(\\text{box})}{\\sqrt{n}} \\times 100\n\\]\nBut there is a problem: we do not know the standard deviation of the box/population.\n\n12.3.1 Estimating variability from the sample\nWe go around this problem by using the sample itself to estimate variability.\nIn this case:\n\n53% of observations are 1 (support)\n47% are 0 (do not support)\n\nThe standard deviation of the sample, which we denote \\(SD^+\\) of such a 0–1 variable is approximately:\n\\[\nSD^+ = (1-0) \\sqrt{0.53 \\times 0.47} \\approx 0.5\n\\]\nUsing this, the standard error becomes approximately:\n\\[\nSE(\\%) = \\frac{SD^+}{n} \\times 100\\% \\approx 1\\%\n\\]\nSo the estimate of 53% is likely to be off by about 1%.\n\n\n\n\n\n\nTipInterpretation\n\n\n\nBeing off by 3% would correspond to about 3 standard errors, which is unlikely.\n\n\nConclusion: The candidate is very likely above 50% support and may reasonably decide to run.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#confidence-intervals",
+    "href": "Ch13.html#confidence-intervals",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.4 Confidence intervals",
+    "text": "12.4 Confidence intervals\nSometimes instead of a point estimate, we can provide an interval estiate to account for uncertainty.\nA confidence interval provides a range of plausible values for the population percentage.\nUsing the empirical rule:\n\n\n\n\n\n\nNoteConfidence Interval\n\n\n\n\n\\(\\pm 1\\) SE gives about 68% confidence\n\\(\\pm 2\\) SE gives about 95% confidence\n\\(\\pm 3\\) SE gives about 99.7% confidence\n\n\n\nIn our example:\n\\[\n53\\% \\pm 2\\% = [51\\%, 55\\%]\n\\]\nThat is, a 95% confidence interval is approximately:\n\\[\n\\text{estimate} \\pm 2 \\times SE\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#a-common-misunderstanding",
+    "href": "Ch13.html#a-common-misunderstanding",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.5 A common misunderstanding",
+    "text": "12.5 A common misunderstanding\nIt is tempting to say:\n\nThere is a 95% chance that the true percentage lies between 51% and 55%.\n\nThis is incorrect.\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nThe population percentage is fixed. It does not vary.\nThe interval varies because it depends on the sample.\n\n\nThe correct interpretation is:\n\nIf we repeatedly took samples and constructed confidence intervals, about 95% of those intervals would contain the true population percentage.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#confidence-intervals-as-repeated-sampling",
+    "href": "Ch13.html#confidence-intervals-as-repeated-sampling",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.6 Confidence intervals as repeated sampling",
+    "text": "12.6 Confidence intervals as repeated sampling\nImagine drawing 100 different samples of 2,500 voters.\nEach sample gives:\n\na different percentage\na different confidence interval\n\nSome intervals will include the true value. Others will miss it.\n\n\n\n\n\n\nNoteKey idea\n\n\n\nA 95% confidence level means that about 95 out of 100 such intervals will capture the true parameter.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#simulation-one-poll",
+    "href": "Ch13.html#simulation-one-poll",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.7 Simulation: One poll",
+    "text": "12.7 Simulation: One poll\nLet us simulate one poll where the true population support rate is 80%, and each sample contains 2,500 observations.\n\nset.seed(123)\n\nn &lt;- 2500\np_true &lt;- 0.80\n\nsample_draw &lt;- rbinom(n, size = 1, prob = p_true)\np_hat &lt;- mean(sample_draw)\nse_hat &lt;- sqrt(p_hat * (1 - p_hat) / n)\n\np_hat\n\n[1] 0.8032\n\nse_hat\n\n[1] 0.007951598\n\n\nThe estimated percentage is:\n\nround(100 * p_hat, 2)\n\n[1] 80.32\n\n\nThe estimated standard error in percentage points is:\n\nround(100 * se_hat, 2)\n\n[1] 0.8\n\n\nThe approximate 95% confidence interval is:\n\nlower &lt;- p_hat - 2 * se_hat\nupper &lt;- p_hat + 2 * se_hat\n\nround(100 * c(lower, upper), 2)\n\n[1] 78.73 81.91",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#simulation-100-confidence-intervals",
+    "href": "Ch13.html#simulation-100-confidence-intervals",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.8 Simulation: 100 confidence intervals",
+    "text": "12.8 Simulation: 100 confidence intervals\nNow let us simulate 100 independent samples, each of size 2,500, from a population where the true percentage is 80%.\n\n\n  sample_id  p_hat      se_hat     lower     upper covers\n1         1 0.8032 0.007951598 0.7872968 0.8191032   TRUE\n2         2 0.8008 0.007987975 0.7848241 0.8167759   TRUE\n3         3 0.8020 0.007969843 0.7860603 0.8179397   TRUE\n4         4 0.8144 0.007775671 0.7988487 0.8299513   TRUE\n5         5 0.7932 0.008100216 0.7769996 0.8094004   TRUE\n6         6 0.7932 0.008100216 0.7769996 0.8094004   TRUE\n\n\nHow many of these 100 intervals cover the true population percentage?\n\nsum(results$covers)\n\n[1] 98\n\n\nWhat percentage of intervals cover the true value?\n\nmean(results$covers) * 100\n\n[1] 98",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#plot-100-confidence-intervals",
+    "href": "Ch13.html#plot-100-confidence-intervals",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.9 Plot: 100 confidence intervals",
+    "text": "12.9 Plot: 100 confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipHow to read the figure\n\n\n\nEach horizontal line is a 95% confidence interval from one sample.\n\nThe vertical line marks the true population percentage, 80%.\nIntervals that cross the vertical line capture the true value.\nIntervals that do not cross it miss the true value.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#why-some-intervals-fail",
+    "href": "Ch13.html#why-some-intervals-fail",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.10 Why some intervals fail",
+    "text": "12.10 Why some intervals fail\nEven when the method is correct, some intervals will fail to include the true value. That is not a mistake. It is exactly what a 95% confidence level implies: about 5% of intervals will miss the true value just by chance.\n\n\n\n\n\n\nImportantImportant\n\n\n\nA confidence procedure can be reliable without guaranteeing success in every single sample.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#deduction-vs-induction",
+    "href": "Ch13.html#deduction-vs-induction",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.11 Deduction vs induction",
+    "text": "12.11 Deduction vs induction\nThere are two directions of reasoning in statistics:\n\nDeduction: from population to sample\nInduction: from sample back to population\n\nConfidence intervals are a tool for inductive reasoning.\n\n\n\n\n\n\nNoteKey idea\n\n\n\nStatistical inference is about learning about the population from a sample.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#chapter-summary",
+    "href": "Ch13.html#chapter-summary",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.12 Chapter summary",
+    "text": "12.12 Chapter summary\n\nSample percentages vary due to chance error.\nThe standard error measures the typical size of this variation.\nConfidence intervals provide a range of plausible values for the population parameter.\nA 95% confidence interval captures the true value in about 95% of repeated samples.\nThe interval varies across samples; the parameter does not.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#exercises",
+    "href": "Ch13.html#exercises",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.13 Exercises",
+    "text": "12.13 Exercises",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#optional-extension-using-ggplot2",
+    "href": "Ch13.html#optional-extension-using-ggplot2",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "12.14 Optional extension: Using ggplot2",
+    "text": "12.14 Optional extension: Using ggplot2\nIf you prefer a cleaner plot, here is a ggplot2 version.\n\nlibrary(ggplot2)\n\nggplot(results, aes(y = sample_id, x = p_hat)) +\n  geom_segment(aes(x = lower, xend = upper, yend = sample_id, linetype = covers)) +\n  geom_point(aes(shape = covers)) +\n  geom_vline(xintercept = p_true) +\n  scale_x_continuous(labels = function(x) paste0(round(100 * x), \"%\")) +\n  labs(\n    title = \"95% confidence intervals for 100 samples\",\n    x = \"Estimated population percentage\",\n    y = \"Sample number\"\n  ) +\n  theme_minimal()",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#graduate-earnings",
+    "href": "Ch13.html#graduate-earnings",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "1. Graduate earnings",
+    "text": "1. Graduate earnings\nA simple random sample of 100 graduates from a certain college found that 48 were earning Baht 50,000 per month or more.\n\nEstimate the percentage of all graduates from that college who earn Baht 50,000 per month or more.\nAttach a “give-or-take” number to your estimate by computing the standard error of the percentage.\nWrite one sentence interpreting your result in plain language.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#standard-error-from-a-box-model",
+    "href": "Ch13.html#standard-error-from-a-box-model",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "2. Standard error from a box model",
+    "text": "2. Standard error from a box model\nSuppose there is a box of 100,000 tickets, each marked either 0 or 1. In fact, 20% of the tickets are 1s.\nA sample of 400 draws is taken at random.\n\nWhat is the expected percentage of 1s in the sample?\nCalculate the standard error of the percentage of 1s.\nExplain briefly why the standard error becomes smaller when the sample size increases.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#internet-use-among-subscribers",
+    "href": "Ch13.html#internet-use-among-subscribers",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "3. Internet use among subscribers",
+    "text": "3. Internet use among subscribers\nTRUE company serves 1,000,000 subscribers. As part of a market survey, a simple random sample of 3,600 people was taken. In the sample:\n\n1,080 use the internet for banking\n720 use the internet for reading the news\n1,440 use the internet for online games\n\nAnswer the following:\n\nWhat percentage of customers use the internet for:\n\nbanking,\nreading the news,\nonline games?\n\nCompute the standard error for each percentage.\nFor internet banking, what is the approximate probability that the sample percentage lies between 28% and 32%?",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#polling-support-for-a-political-party",
+    "href": "Ch13.html#polling-support-for-a-political-party",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "4. Polling support for a political party",
+    "text": "4. Polling support for a political party\nIn a poll of 200 voters, 92 said that they would vote for the YY Party.\n\nEstimate the percentage of all voters who support the YY Party.\nConstruct an approximate 95% confidence interval for the true population percentage.\nDo you think this estimate is accurate enough to advise the YY Party to enter the election?\nHow could the accuracy of the estimate be improved?",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#percentages-in-a-town-population",
+    "href": "Ch13.html#percentages-in-a-town-population",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "5. Percentages in a town population",
+    "text": "5. Percentages in a town population\nAccording to a census, a certain town has 100,000 people aged 18 and over. Of these:\n\n60% are married\n10% earn more than Baht 75,000 per month\n20% have university degrees\n\nA simple random sample of 1,600 people will be drawn from this population.\n\n(a) Marriage\nTo study marriage, a box model is needed.\n\nShould the box contain 1,600 tickets or 100,000 tickets? Explain.\nWhat is the chance that 58% of the sample are married?\n\n\n\n(b) High income\nTo study the proportion earning more than Baht 75,000 per month:\n\nShould each ticket in the box show the person’s exact income? Explain.\nWhat is the chance that 11% or more of the sample earn above Baht 75,000 per month?\n\n\n\n(c) University degree\nFind the chance that between 19% and 21% of the sample have a university degree.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#health-insurance",
+    "href": "Ch13.html#health-insurance",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "6. Health insurance",
+    "text": "6. Health insurance\nA survey of 400 people finds that 80 have health insurance.\n\nEstimate the percentage of the population with health insurance.\nConstruct a 90% confidence interval for the population percentage.\nExplain what your interval means.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#consumer-survey-televisions-and-vcrs",
+    "href": "Ch13.html#consumer-survey-televisions-and-vcrs",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "7. Consumer survey: televisions and VCRs",
+    "text": "7. Consumer survey: televisions and VCRs\nA utility company serves 50,000 households. As part of a survey of consumer attitudes, it takes a simple random sample of 750 households. The average number of television sets in the sample is 1.86, and the sample SD is 0.80.\n\n(a) Average number of television sets\n\nIf possible, construct a 95% confidence interval for the average number of television sets in all 50,000 households.\nIf this is not possible, explain why.\n\n\n\n(b) Percentage with VCRs\nOut of the 750 households in the survey, 351 have VCRs.\n\nEstimate the percentage of all 50,000 households with VCRs.\nIf possible, construct a 99.7% confidence interval for that percentage.\n\n\n\n(c) Households without a television\nAmong those surveyed, 749 households have at least one television set.\n\nEstimate the percentage of households with no television set.\nIf possible, construct a 68% confidence interval for the percentage of all 50,000 households with no television set.\nIf this is not possible, explain why.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#red-and-blue-marbles",
+    "href": "Ch13.html#red-and-blue-marbles",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "8. Red and blue marbles",
+    "text": "8. Red and blue marbles\nA box contains 1 red marble and 99 blue marbles. Ten marbles are drawn at random with replacement.\n\nFind the expected number of red marbles in the 10 draws.\nFind the standard error of the number of red marbles.\nWhat is the chance of drawing fewer than 0 red marbles?\nUse the normal curve to estimate this chance.\nDoes the probability histogram for the number of red marbles look like a normal curve? Explain.\n\n\n\n12.13.1 Conceptual question",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#concept-check-point-estimates-and-confidence-intervals",
+    "href": "Ch13.html#concept-check-point-estimates-and-confidence-intervals",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "9. Concept check: point estimates and confidence intervals",
+    "text": "9. Concept check: point estimates and confidence intervals\nFor each statement below, say whether it is true or false, and explain briefly.\n\nA sample percentage is usually equal to the population percentage.\nA larger sample gives a smaller standard error.\nA 95% confidence interval means there is a 95% chance that the true value is inside the interval.\nIf we repeatedly draw samples and construct 95% confidence intervals, about 95% of them will contain the true population value.\n\n\n\n10. Conceptual question\n(a) Why do statisticians usually prefer a confidence interval to a point estimate when reporting survey results?\n(b) Explain in your own words: Why is it incorrect to say “there is a 95% chance the true value lies in the interval?",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch13.html#point-estimates-and-confidence-intervals",
+    "href": "Ch13.html#point-estimates-and-confidence-intervals",
+    "title": "12  Bootstrapping and Confidence Intervals",
+    "section": "9. Point estimates and confidence intervals",
+    "text": "9. Point estimates and confidence intervals\nFor each statement below, say whether it is true or false, and explain briefly.\n\nA sample percentage is usually equal to the population percentage.\nA larger sample gives a smaller standard error.\nA 95% confidence interval means there is a 95% chance that the true value is inside the interval.\nIf we repeatedly draw samples and construct 95% confidence intervals, about 95% of them will contain the true population value.\n\n(a) Why do statisticians usually prefer a confidence interval to a point estimate when reporting survey results?\n(b) Explain in your own words: Why is it incorrect to say “there is a 95% chance the true value lies in the interval?",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Bootstrapping and Confidence Intervals</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html",
+    "href": "Ch14.html",
+    "title": "13  The Accuracy of Averages",
+    "section": "",
+    "text": "13.1 Learning objectives\nBy the end of this chapter, you should be able to:",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#learning-objectives",
+    "href": "Ch14.html#learning-objectives",
+    "title": "13  The Accuracy of Averages",
+    "section": "",
+    "text": "distinguish between an estimator and an estimate\nunderstand the concepts of unbiasedness and efficiency\nexplain why sample averages vary across samples\ncompute and interpret the standard error of the mean\nconnect the standard error of sums to averages, counts, and percentages",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#estimators-and-estimates",
+    "href": "Ch14.html#estimators-and-estimates",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.2 Estimators and estimates",
+    "text": "13.2 Estimators and estimates\nThe goal of statistical inference is to learn about a population using a sample.\nHowever, it is important to distinguish between:\n\nan estimator: a rule or formula used to estimate a population parameter\n\nan estimate: the numerical value obtained from applying that rule\n\n\n\n\n\n\n\nNoteKey idea\n\n\n\nAn estimator is a method or rule.\nAn estimate is a number.\n\n\nFor example, the sample mean\n\\[\n\\bar{X} = \\frac{1}{n}\\sum X_i\n\\]\nis an estimator of the population mean \\(\\mu\\).\n\n\n13.2.1 What makes a good estimator?\nTwo important properties:\n\n13.2.1.1 1. Unbiasedness\nAn estimator is unbiased if, on average, it equals the true population value.\n\n\n\n\n\n\nNoteKey idea\n\n\n\nThe sample mean is an unbiased estimator of the population mean.\n\n\nIn contrast, some estimators are biased. For example, the naive variance formula:\n\\[\n\\frac{1}{n}\\sum (X - \\bar{X})^2\n\\]\nunderestimates the true population variance.\n\n\n\n13.2.1.2 2. Efficiency\nEven among unbiased estimators, some are better than others.\nAn estimator is efficient if it has smaller variability across samples.\n\n\n\n\n\n\nTipIntuition\n\n\n\nA good estimator is not only correct on average, but also stable across samples.\n\n\n\n\n\n\n13.2.2 Sampling variation\nEven with a good estimator, different samples give different results.\nThis is called sampling variation.\nThe key question becomes:\n\nHow much does the sample mean typically vary?\n\nThe answer is given by the standard error (SE).",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#sampling-distribution-of-the-mean",
+    "href": "Ch14.html#sampling-distribution-of-the-mean",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.3 Sampling distribution of the mean",
+    "text": "13.3 Sampling distribution of the mean\nWe now study how averages behave when we repeatedly draw samples.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#the-box-model",
+    "href": "Ch14.html#the-box-model",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.4 The box model",
+    "text": "13.4 The box model\nConsider a box with 7 tickets:\n\n\n\n\n\nThe average of the box is:\n\\[\n\\frac{1+2+3+4+5+6+7}{7} = 4\n\\]\n\n\n13.4.1 Sampling from the box\nSuppose we take 25 draws (with replacement).\nExample 1:\n\nSum = 105\nAverage = 4.2\n\nExample 2:\n\nSum = 95\nAverage = 3.8\n\nDifferent samples give different averages.\n\n\n\n\n\n\n\nNoteKey idea\n\n\n\nThe sample average varies from sample to sample, but it is centered around the population mean.\n\n\n\n\n\n13.4.2 Standard error of the average\nWe want a “give-or-take” number for the average.\n\n\n\n\n\n\nNoteKey formula\n\n\n\nThe standard error of the average is:\n\\[\nSE(\\text{average}) = \\frac{SD(\\text{box})}{\\sqrt{n}}\n\\]\n\n\n\nSo start with the sum:\n\nSD of box = 2\nNumber of draws = 25\n\n\\[\nSE(\\text{sum}) = \\sqrt{n} \\times SD = 5 \\times 2 = 10\n\\]\nThen divide by the sample size, n:\n\\[\nSE(\\text{average}) = \\frac{10}{25} = 0.4\n\\]\n\nSo in this example:\n\nAverage = 4, give or take 0.4",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#simulation-sampling-distribution-of-the-mean",
+    "href": "Ch14.html#simulation-sampling-distribution-of-the-mean",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.5 Simulation: Sampling Distribution of the Mean",
+    "text": "13.5 Simulation: Sampling Distribution of the Mean\nTo understand how the sample average behaves, we simulate repeated samples from the box.\n\n# Set seed for reproducibility\nset.seed(123)\n\n# Parameters\nn &lt;- 25          # sample size\nn_sims &lt;- 1000   # number of simulations\n\n# Box with tickets 1 to 7\nbox &lt;- 1:7\n\n# Simulate sample means\nmeans &lt;- replicate(n_sims, {\n  sample_draws &lt;- sample(box, size = n, replace = TRUE)\n  mean(sample_draws)\n})\n\n# Plot histogram\nhist(\n  means,\n  breaks = 30,\n  main = \"Sampling Distribution of the Mean (n = 25)\",\n  xlab = \"Sample Average\",\n  border = \"white\"\n)\n\n# Add true mean\nabline(v = mean(box), lwd = 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteKey insight\n\n\n\nEven though individual draws are spread out, the average is tightly concentrated around the population mean.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#which-standard-error",
+    "href": "Ch14.html#which-standard-error",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.7 Which standard error?",
+    "text": "13.7 Which standard error?\nThere are four common operations:\n\nSum\nAverage\nCount\nPercentage\n\nEach has its own standard error.\n\n13.7.1 Summary table\n\n\n\nQuantity\nStandard Error\n\n\n\n\nSum\n\\(\\sqrt{n} \\times SD\\)\n\n\nAverage\n\\(SD / \\sqrt{n}\\)\n\n\nCount\nSame as sum (for 0–1 box)\n\n\nPercentage\n\\((SE(\\text{count}) / n) \\times 100\\)\n\n\n\n\n\n\n\n\n\nImportantImportant\n\n\n\nAll standard errors come from one fundamental idea:\n\\[\nSE(\\text{sum}) = \\sqrt{n} \\times SD\n\\]\nEverything else is derived from this.\n\n\n\n\n\n13.7.2 Unknown SD: bootstrapping idea\nIn practice, the SD of the box is often unknown.\nWe estimate it using the sample:\n\\[\nSD(\\text{box}) \\approx SD^+\n\\]\n\n\n\n\n\n\nNoteBootstrapping\n\n\n\nWhen the population SD is unknown, use the sample SD as an estimate.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#chapter-summary",
+    "href": "Ch14.html#chapter-summary",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.10 Chapter summary",
+    "text": "13.10 Chapter summary\n\nAn estimator is a rule; an estimate is a number.\nGood estimators are unbiased and efficient.\nSample averages vary due to sampling variation.\nThe standard error measures the typical size of this variation.\nFor averages:\n\n\\[\nSE(\\text{average}) = \\frac{SD}{\\sqrt{n}}\n\\]\n\nLarger samples lead to more precise estimates.\nAll standard errors are derived from the SE of the sum.\n\n\n\n\n\n\n\nImportantBig picture\n\n\n\nAll statistical inference follows the same logic:\nEstimate using a sample Measure uncertainty using standard error Construct a confidence interval\n\n\nFinal insight\nAs sample size increases:\nthe standard error shrinks confidence intervals become narrower estimates become more precise\n\n\n\n\n\n\nTipTakeaway\n\n\n\nMore data does not change the truth — it improves how precisely we can estimate it.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#exercises",
+    "href": "Ch14.html#exercises",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.11 Exercises",
+    "text": "13.11 Exercises\n\n1. Draws from a box\n\n\n\n\n\nSuppose 100 draws are made at random with replacement from the box shown above.\n\nThe average of the draws will be around ______, give or take ______ or so.\nEstimate the chance that the average of the draws will be more than 4.2.\n\nNow suppose instead that 400 draws are made at random with replacement from the same box.\n\nThe average of the draws will be around ______, give or take ______ or so.\nEstimate the chance that the average of the draws will be more than 4.2.\n\n\n\n\n\n\n\nNoteHint\n\n\n\nFor draws made with replacement from a box:\n\nthe expected value of the sample average is the average of the box\nthe standard error of the sample average is\n\n\\[\nSE(\\text{average}) = \\frac{SD(\\text{box})}{\\sqrt{n}}\n\\]\nAs the number of draws increases, the standard error gets smaller.\n\n\n\n\n\n2. Average age of university students\nA university has 30,000 students. As part of a survey, 900 students are chosen at random. The average age in the sample is 22.3 years, and the sample standard deviation is 4.5 years.\n\nEstimate the average age of all 30,000 students.\nAttach a “give-or-take” number to your estimate.\nConstruct an approximate 95% confidence interval for the average age of all 30,000 students.\n\n\n\n\n\n\n\nNoteHint\n\n\n\nWhen the sample is large, the sample SD can be used to estimate the SD of the box.\n\n\n\n\n\n3. Is the claimed box average plausible?\nA total of 100 draws are made at random with replacement from a box. The average of the draws is 102.7, and the SD of the draws is 10.\nSomeone claims that the average of the box is 100.\n\nIs that claim plausible? Explain.\nNow suppose instead that the average of the draws is 101.1, with the same SD of 10. Is the claim that the box average is 100 more plausible in this case? Explain.\n\n\n\n\n\n\n\nImportantWhat to think about\n\n\n\nCompare the observed sample average to the claimed box average using the standard error of the average. Ask: how many standard errors away is the observed result from the claim?",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#what-happens-if-we-increase-the-sample-size",
+    "href": "Ch14.html#what-happens-if-we-increase-the-sample-size",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.6 What happens if we increase the sample size?",
+    "text": "13.6 What happens if we increase the sample size?\nAs with the sum and the percentage, we can ask what happens to the expected value and standard error of the average when the sample size increases.\nFirst, the expected value of the sample average does not depend on sample size. It remains equal to the population average.\nHowever, the standard error becomes smaller as the sample size increases.\n\n\n\n\n\n\nTipThe square-root law again\n\n\n\nThe larger the sample size, the smaller the standard error of the average. This means that the sample average is more likely to be close to the true population average.\nIf the sample size becomes \\(n\\) times larger, the standard error falls by a factor of \\(\\sqrt{n}\\).\n\n\nLet’s run the same code above, but this time with n=100.\n\n13.6.1 Simulation: Effect of Sample Size on the Mean\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteWhat to observe\n\n\n\n\nBoth distributions are centered at the same value (the true mean = 4)\nThe darker distribution (n = 100) is more tightly concentrated\nIncreasing the sample size reduces the standard error",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#from-standard-error-to-confidence-interval",
+    "href": "Ch14.html#from-standard-error-to-confidence-interval",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.9 From standard error to confidence interval",
+    "text": "13.9 From standard error to confidence interval\nRecall:\n\\[\nSE(\\text{average}) = \\frac{SD}{\\sqrt{n}}\n\\]\nThis tells us the typical size of the sampling error.\nUsing the empirical rule:\n\nabout 68% of sample averages fall within \\(\\pm 1\\) SE\n\nabout 95% fall within \\(\\pm 2\\) SE\n\nabout 99.7% fall within \\(\\pm 3\\) SE\n\n\n\n\n\n\n\nNoteKey idea\n\n\n\nA 95% confidence interval for the population mean is:\n\\[\n\\text{sample average} \\pm 2 \\times SE\n\\]\n\n\n\n\n13.9.1 Worked example\nSuppose:\n\nsample size: \\(n = 100\\)\n\nsample average: \\(\\bar{X} = 50\\)\n\nsample SD: \\(SD^+ = 10\\)\n\nThen:\n\\[\nSE = \\frac{10}{\\sqrt{100}} = 1\n\\]\nSo the 95% confidence interval is:\n\\[\n50 \\pm 2(1) = [48, 52]\n\\]\n\n\n\n\n\n\n\nTipInterpretation\n\n\n\nWe estimate that the population mean is between 48 and 52, with about 95% confidence.\n\n\n\n\n\n13.9.2 Important interpretation\nAs before, we must be careful.\nIt is tempting to say:\n\nThere is a 95% chance that the true mean lies between 48 and 52.\n\nThis is not correct.\n\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nThe population mean is fixed.\nThe interval varies from sample to sample.\n\n\n\nThe correct interpretation is:\n\nIf we repeatedly took samples and constructed intervals in this way, about 95% of those intervals would contain the true mean.\n\n\n\n\n13.9.3 Simulation: confidence intervals for averages\nLet us simulate this idea.\n\nset.seed(101)\n\nn &lt;- 100\nn_sims &lt;- 100\nmu_true &lt;- 50\nsd_true &lt;- 10\n\nresults &lt;- data.frame(\n  sample_id = 1:n_sims,\n  mean = NA,\n  lower = NA,\n  upper = NA,\n  covers = NA\n)\n\nfor (i in 1:n_sims) {\n  x &lt;- rnorm(n, mean = mu_true, sd = sd_true)\n  \n  m &lt;- mean(x)\n  se &lt;- sd(x) / sqrt(n)\n  \n  lower &lt;- m - 2 * se\n  upper &lt;- m + 2 * se\n  \n  results$mean[i] &lt;- m\n  results$lower[i] &lt;- lower\n  results$upper[i] &lt;- upper\n  results$covers[i] &lt;- (lower &lt;= mu_true) & (upper &gt;= mu_true)\n}\n\nHow many intervals capture the true mean?\n\nsum(results$covers)\n\n[1] 96\n\n\nLet’s plot the confidence intervals.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHow to read the figure\n\n\n\n\nEach horizontal line is a confidence interval\nThe vertical line is the true population mean\nMost intervals cross the true value\nA few do not — this is expected",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#worked-example",
+    "href": "Ch14.html#worked-example",
+    "title": "13  The Accuracy of Averages",
+    "section": "14.2 Worked example",
+    "text": "14.2 Worked example\nSuppose:\n\nsample size: \\(n = 100\\)\n\nsample average: \\(\\bar{X} = 50\\)\n\nsample SD: \\(SD^+ = 10\\)\n\nThen:\n\\[\nSE = \\frac{10}{\\sqrt{100}} = 1\n\\]\nSo the 95% confidence interval is:\n\\[\n50 \\pm 2(1) = [48, 52]\n\\]\n\n\n\n\n\n\n\nTipInterpretation\n\n\n\nWe estimate that the population mean is between 48 and 52, with about 95% confidence.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#important-interpretation",
+    "href": "Ch14.html#important-interpretation",
+    "title": "13  The Accuracy of Averages",
+    "section": "14.3 Important interpretation",
+    "text": "14.3 Important interpretation\nAs before, we must be careful.\nIt is tempting to say:\n\nThere is a 95% chance that the true mean lies between 48 and 52.\n\nThis is not correct.\n\n\n\n\n\n\n\nWarningCommon pitfall\n\n\n\nThe population mean is fixed.\nThe interval varies from sample to sample.\n\n\n\nThe correct interpretation is:\n\nIf we repeatedly took samples and constructed intervals in this way, about 95% of those intervals would contain the true mean.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#simulation-confidence-intervals-for-averages",
+    "href": "Ch14.html#simulation-confidence-intervals-for-averages",
+    "title": "13  The Accuracy of Averages",
+    "section": "14.4 Simulation: confidence intervals for averages",
+    "text": "14.4 Simulation: confidence intervals for averages\nLet us simulate this idea.\n\nset.seed(101)\n\nn &lt;- 100\nn_sims &lt;- 100\nmu_true &lt;- 50\nsd_true &lt;- 10\n\nresults &lt;- data.frame(\n  sample_id = 1:n_sims,\n  mean = NA,\n  lower = NA,\n  upper = NA,\n  covers = NA\n)\n\nfor (i in 1:n_sims) {\n  x &lt;- rnorm(n, mean = mu_true, sd = sd_true)\n  \n  m &lt;- mean(x)\n  se &lt;- sd(x) / sqrt(n)\n  \n  lower &lt;- m - 2 * se\n  upper &lt;- m + 2 * se\n  \n  results$mean[i] &lt;- m\n  results$lower[i] &lt;- lower\n  results$upper[i] &lt;- upper\n  results$covers[i] &lt;- (lower &lt;= mu_true) & (upper &gt;= mu_true)\n}\n\nHow many intervals capture the true mean?\n\nsum(results$covers)\n\n[1] 96\n\n\nLet’s plot the confidence intervals.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHow to read the figure\n\n\n\n\nEach horizontal line is a confidence interval\nThe vertical line is the true population mean\nMost intervals cross the true value\nA few do not — this is expected",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
+    ]
+  },
+  {
+    "objectID": "Ch14.html#from-averages-to-confidence-intervals",
+    "href": "Ch14.html#from-averages-to-confidence-intervals",
+    "title": "13  The Accuracy of Averages",
+    "section": "13.8 From averages to confidence intervals",
+    "text": "13.8 From averages to confidence intervals\nSo far, we have learned how to describe the accuracy of an average using the standard error.\nBut in practice, we usually want to go one step further:\n\nWe want to use the sample average to say something about the unknown population mean.\n\nThis is where confidence intervals for averages come in.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The Accuracy of Averages</span>"
     ]
   }
 ]

@@ -1,0 +1,456 @@
+# Bootstrapping and Confidence Intervals  {#ch13}
+
+## Learning objectives
+
+By the end of this chapter, you should be able to:
+
+- understand why sample percentages differ from population percentages
+- calculate and interpret the standard error of a percentage
+- construct confidence intervals using the empirical rule
+- correctly interpret what a confidence interval does and does not mean
+- distinguish between point estimates and interval estimates
+
+## Motivation: Should the politician run?
+
+A politician is deciding whether to enter an election. In a village of 100,000 eligible voters, a survey of 2,500 people finds that 1,328 support the candidate, which is about 53%.
+
+Should the politician run?
+
+At first glance, the answer seems obvious: 53% is greater than 50%. But this conclusion depends on how accurate the estimate is. The key question is:
+
+> How far might the sample percentage be from the true population percentage?
+
+::: {.callout-note title="Key idea"}
+A sample percentage is only an estimate. It is subject to **chance error** due to random sampling.
+:::
+
+## From samples to uncertainty
+
+The sample percentage, 53%, is a **point estimate** of the population percentage. But different random samples would give slightly different results.
+
+To quantify this uncertainty, we use the **standard error (SE)**.
+
+For a percentage, the standard error is:
+
+$$
+SE(\%) = \frac{SD(\text{box})}{\sqrt{n}} \times 100
+$$
+
+But there is a problem: we do not know the standard deviation of the box/population.
+
+### Estimating variability from the sample
+
+We go around this problem by using the sample itself to estimate variability.
+
+In this case:
+
+- 53% of observations are 1 (support)
+- 47% are 0 (do not support)
+
+The standard deviation of the sample, which we denote $SD^+$ of such a 0--1 variable is approximately:
+
+$$
+SD^+ = (1-0) \sqrt{0.53 \times 0.47} \approx 0.5
+$$
+
+Using this, the standard error becomes approximately:
+
+$$
+SE(\%) = \frac{SD^+}{n} \times 100\% \approx 1\%
+$$
+
+So the estimate of 53% is likely to be off by about 1%.
+
+::: {.callout-tip title="Interpretation"}
+Being off by 3% would correspond to about 3 standard errors, which is unlikely.
+:::
+
+**Conclusion:** The candidate is very likely above 50% support and may reasonably decide to run.
+
+## Confidence intervals
+
+Sometimes instead of a **point estimate**, we can provide an **interval estiate** to account for uncertainty.
+
+A **confidence interval** provides a range of plausible values for the population percentage.
+
+Using the empirical rule:
+
+::: {.callout-note title="Confidence Interval"}
+- $\pm 1$ SE gives about 68% confidence
+- $\pm 2$ SE gives about 95% confidence
+- $\pm 3$ SE gives about 99.7% confidence
+:::
+
+In our example:
+
+$$
+53\% \pm 2\% = [51\%, 55\%]
+$$
+
+That is, a 95% confidence interval is approximately:
+
+$$
+\text{estimate} \pm 2 \times SE
+$$
+
+
+## A common misunderstanding
+
+It is tempting to say:
+
+> There is a 95% chance that the true percentage lies between 51% and 55%.
+
+This is incorrect.
+
+::: {.callout-warning title="Common pitfall"}
+The population percentage is fixed. It does not vary.
+
+The interval varies because it depends on the sample.
+:::
+
+The correct interpretation is:
+
+> If we repeatedly took samples and constructed confidence intervals, about 95% of those intervals would contain the true population percentage.
+
+## Confidence intervals as repeated sampling
+
+Imagine drawing 100 different samples of 2,500 voters.
+
+Each sample gives:
+
+- a different percentage
+- a different confidence interval
+
+Some intervals will include the true value. Others will miss it.
+
+::: {.callout-note title="Key idea"}
+A 95% confidence level means that about 95 out of 100 such intervals will capture the true parameter.
+:::
+
+## Simulation: One poll
+
+Let us simulate one poll where the true population support rate is 80%, and each sample contains 2,500 observations.
+
+```{r}
+set.seed(123)
+
+n <- 2500
+p_true <- 0.80
+
+sample_draw <- rbinom(n, size = 1, prob = p_true)
+p_hat <- mean(sample_draw)
+se_hat <- sqrt(p_hat * (1 - p_hat) / n)
+
+p_hat
+se_hat
+```
+
+The estimated percentage is:
+
+```{r}
+round(100 * p_hat, 2)
+```
+
+The estimated standard error in percentage points is:
+
+```{r}
+round(100 * se_hat, 2)
+```
+
+The approximate 95% confidence interval is:
+
+```{r}
+lower <- p_hat - 2 * se_hat
+upper <- p_hat + 2 * se_hat
+
+round(100 * c(lower, upper), 2)
+```
+
+## Simulation: 100 confidence intervals
+
+Now let us simulate 100 independent samples, each of size 2,500, from a population where the true percentage is 80%.
+
+```{r}
+#| echo: false
+set.seed(123)
+
+n_sims <- 100
+n <- 2500
+p_true <- 0.80
+
+results <- data.frame(
+  sample_id = 1:n_sims,
+  p_hat = NA_real_,
+  se_hat = NA_real_,
+  lower = NA_real_,
+  upper = NA_real_,
+  covers = NA
+)
+
+for (i in 1:n_sims) {
+  x <- rbinom(n, size = 1, prob = p_true)
+  p_hat_i <- mean(x)
+  se_hat_i <- sqrt(p_hat_i * (1 - p_hat_i) / n)
+  lower_i <- p_hat_i - 2 * se_hat_i
+  upper_i <- p_hat_i + 2 * se_hat_i
+  covers_i <- (lower_i <= p_true) & (upper_i >= p_true)
+  
+  results$p_hat[i] <- p_hat_i
+  results$se_hat[i] <- se_hat_i
+  results$lower[i] <- lower_i
+  results$upper[i] <- upper_i
+  results$covers[i] <- covers_i
+}
+
+head(results)
+```
+
+How many of these 100 intervals cover the true population percentage?
+
+```{r}
+sum(results$covers)
+```
+
+What percentage of intervals cover the true value?
+
+```{r}
+mean(results$covers) * 100
+```
+
+## Plot: 100 confidence intervals
+
+```{r}
+#| echo: false
+plot(
+  x = NULL, y = NULL,
+  xlim = c(min(results$lower), max(results$upper)),
+  ylim = c(1, n_sims),
+  xlab = "Estimated population percentage",
+  ylab = "Sample number",
+  main = "95% confidence intervals for 100 samples",
+  xaxt = "n"
+)
+
+axis(1, at = seq(0.74, 0.86, by = 0.02), labels = paste0(seq(74, 86, by = 2), "%"))
+
+for (i in 1:n_sims) {
+  if (results$covers[i]) {
+    segments(results$lower[i], i, results$upper[i], i)
+    points(results$p_hat[i], i, pch = 16)
+  } else {
+    segments(results$lower[i], i, results$upper[i], i, lty = 2, lwd = 2)
+    points(results$p_hat[i], i, pch = 1, cex = 1.1)
+  }
+}
+
+abline(v = p_true, lwd = 2)
+```
+
+::: {.callout-tip title="How to read the figure"}
+Each horizontal line is a 95% confidence interval from one sample.
+
+* The vertical line marks the true population percentage, 80%.
+* Intervals that cross the vertical line capture the true value.
+* Intervals that do not cross it miss the true value.
+:::
+
+## Why some intervals fail
+
+Even when the method is correct, some intervals will fail to include the true value. That is not a mistake. It is exactly what a 95% confidence level implies: about 5% of intervals will miss the true value just by chance.
+
+::: {.callout-important title="Important"}
+A confidence procedure can be reliable without guaranteeing success in every single sample.
+:::
+
+## Deduction vs induction
+
+There are two directions of reasoning in statistics:
+
+* **Deduction:** from population to sample
+* **Induction:** from sample back to population
+
+Confidence intervals are a tool for **inductive reasoning**.
+
+::: {.callout-note title="Key idea"}
+Statistical inference is about learning about the population from a sample.
+:::
+
+## Chapter summary
+
+* Sample percentages vary due to chance error.
+* The standard error measures the typical size of this variation.
+* Confidence intervals provide a range of plausible values for the population parameter.
+* A 95% confidence interval captures the true value in about 95% of repeated samples.
+* The interval varies across samples; the parameter does not.
+
+## Exercises
+
+## 1. Graduate earnings {.unnumbered}
+
+A simple random sample of 100 graduates from a certain college found that 48 were earning **Baht 50,000 per month or more**.
+
+1. Estimate the percentage of all graduates from that college who earn Baht 50,000 per month or more.
+2. Attach a “give-or-take” number to your estimate by computing the standard error of the percentage.
+3. Write one sentence interpreting your result in plain language.
+
+---
+
+## 2. Standard error from a box model {.unnumbered}
+
+Suppose there is a box of 100,000 tickets, each marked either 0 or 1. In fact, **20%** of the tickets are 1s.
+
+A sample of **400 draws** is taken at random.
+
+1. What is the expected percentage of 1s in the sample?
+2. Calculate the standard error of the percentage of 1s.
+3. Explain briefly why the standard error becomes smaller when the sample size increases.
+
+---
+
+## 3. Internet use among subscribers {.unnumbered}
+
+TRUE company serves **1,000,000 subscribers**. As part of a market survey, a simple random sample of **3,600 people** was taken. In the sample:
+
+- 1,080 use the internet for banking
+- 720 use the internet for reading the news
+- 1,440 use the internet for online games
+
+Answer the following:
+
+1. What percentage of customers use the internet for:
+   - banking,
+   - reading the news,
+   - online games?
+2. Compute the standard error for each percentage.
+3. For internet banking, what is the approximate probability that the sample percentage lies between **28% and 32%**?
+
+---
+
+## 4. Polling support for a political party {.unnumbered}
+
+In a poll of **200 voters**, 92 said that they would vote for the **YY Party**.
+
+1. Estimate the percentage of all voters who support the YY Party.
+2. Construct an approximate **95% confidence interval** for the true population percentage.
+3. Do you think this estimate is accurate enough to advise the YY Party to enter the election?
+4. How could the accuracy of the estimate be improved?
+
+---
+
+## 5. Percentages in a town population {.unnumbered}
+
+According to a census, a certain town has **100,000 people aged 18 and over**. Of these:
+
+- **60%** are married
+- **10%** earn more than **Baht 75,000 per month**
+- **20%** have university degrees
+
+A simple random sample of **1,600 people** will be drawn from this population.
+
+### (a) Marriage {.unnumbered}
+
+To study marriage, a box model is needed.
+
+1. Should the box contain **1,600 tickets** or **100,000 tickets**? Explain.
+2. What is the chance that **58%** of the sample are married?
+
+### (b) High income {.unnumbered}
+
+To study the proportion earning more than Baht 75,000 per month:
+
+1. Should each ticket in the box show the person’s exact income? Explain.
+2. What is the chance that **11% or more** of the sample earn above Baht 75,000 per month?
+
+### (c) University degree {.unnumbered}
+
+Find the chance that **between 19% and 21%** of the sample have a university degree.
+
+---
+
+## 6. Health insurance {.unnumbered}
+
+A survey of **400 people** finds that **80** have health insurance.
+
+1. Estimate the percentage of the population with health insurance.
+2. Construct a **90% confidence interval** for the population percentage.
+3. Explain what your interval means.
+
+---
+
+## 7. Consumer survey: televisions and VCRs {.unnumbered}
+
+A utility company serves **50,000 households**. As part of a survey of consumer attitudes, it takes a simple random sample of **750 households**. The average number of television sets in the sample is **1.86**, and the sample SD is **0.80**.
+
+### (a) Average number of television sets {.unnumbered}
+
+1. If possible, construct a **95% confidence interval** for the average number of television sets in all 50,000 households.
+2. If this is not possible, explain why.
+
+### (b) Percentage with VCRs {.unnumbered}
+
+Out of the 750 households in the survey, **351 have VCRs**.
+
+1. Estimate the percentage of all 50,000 households with VCRs.
+2. If possible, construct a **99.7% confidence interval** for that percentage.
+
+### (c) Households without a television {.unnumbered}
+
+Among those surveyed, **749 households have at least one television set**.
+
+1. Estimate the percentage of households with **no television set**.
+2. If possible, construct a **68% confidence interval** for the percentage of all 50,000 households with no television set.
+3. If this is not possible, explain why.
+
+---
+
+## 8. Red and blue marbles {.unnumbered}
+
+A box contains **1 red marble** and **99 blue marbles**. Ten marbles are drawn at random **with replacement**.
+
+1. Find the **expected number** of red marbles in the 10 draws.
+2. Find the **standard error** of the number of red marbles.
+3. What is the chance of drawing **fewer than 0 red marbles**?
+4. Use the normal curve to estimate this chance.
+5. Does the probability histogram for the number of red marbles look like a normal curve? Explain.
+
+---
+
+### Conceptual question
+
+## 9. Point estimates and confidence intervals {.unnumbered}
+
+For each statement below, say whether it is **true or false**, and explain briefly.
+
+1. A sample percentage is usually equal to the population percentage.
+2. A larger sample gives a smaller standard error.
+3. A 95% confidence interval means there is a 95% chance that the true value is inside the interval.
+4. If we repeatedly draw samples and construct 95% confidence intervals, about 95% of them will contain the true population value.
+
+**(a)** Why do statisticians usually prefer a **confidence interval** to a **point estimate** when reporting survey results?
+
+**(b)** Explain in your own words: Why is it incorrect to say “there is a 95% chance the true value lies in the interval?
+
+<!--
+
+## Optional extension: Using ggplot2
+
+If you prefer a cleaner plot, here is a `ggplot2` version.
+
+```{r}
+library(ggplot2)
+
+ggplot(results, aes(y = sample_id, x = p_hat)) +
+  geom_segment(aes(x = lower, xend = upper, yend = sample_id, linetype = covers)) +
+  geom_point(aes(shape = covers)) +
+  geom_vline(xintercept = p_true) +
+  scale_x_continuous(labels = function(x) paste0(round(100 * x), "%")) +
+  labs(
+    title = "95% confidence intervals for 100 samples",
+    x = "Estimated population percentage",
+    y = "Sample number"
+  ) +
+  theme_minimal()
+```
+
+-->
+
