@@ -1,0 +1,755 @@
+# Hypothesis Testing   {#ch15}
+
+## Learning objectives
+
+By the end of this chapter, you should be able to:
+
+- formulate **null and alternative hypotheses**
+- compute and interpret a **test statistic**
+- understand and use **critical values** and **p-values**
+- connect hypothesis testing with **confidence intervals**
+- understand when to use the **t-distribution**
+- distinguish between **Type I and Type II errors**
+
+---
+
+In this chapter we put together everything we've discussed above into a formal method for testing hypothesis.
+
+## Motivation: Should the new system be adopted?
+
+A manager is considering introducing a new billing system.
+
+She believes the system is worthwhile **only if the average monthly account exceeds \$170**.
+
+A random sample of **400 accounts** is drawn, and the sample mean is **\$178**.  
+Assume accounts are approximately normally distributed with **SD = \$65**.
+
+> Can we conclude that the new system is cost-effective?
+
+---
+
+::: {.callout-note title="Key idea"}
+We are not just asking whether the sample mean is above 170.
+
+We are asking whether the difference could be explained by **chance variation**.
+:::
+
+---
+
+Hypothesis testing can be broken into three essential
+steps, namely, 1) setting up the hypothesis, 2) calculating the
+test statistic, and 3) concluding.
+
+## Step 1: Setting up the hypothesis
+
+We begin by stating two competing hypotheses:
+
+- $H_0$: $\mu = 170$  
+- $H_a$: $\mu > 170$
+
+---
+
+::: {.callout-tip title="Interpretation"}
+- The **null hypothesis** represents the “status quo” or no effect  
+- The **alternative hypothesis** is what we are trying to find evidence for  
+:::
+
+---
+
+::: {.callout-warning title="Common pitfall"}
+We do not “prove” the alternative hypothesis.
+
+We assess whether the data provide **strong evidence against the null**.
+:::
+
+---
+
+## Step 2: The test statistic
+
+We compute how far the observed value is from what the null states, measured in standard errors:
+
+$$
+\text{TS} = \frac{\text{observed} - \text{expected}}{SE}
+$$
+
+---
+
+### Compute the standard error
+
+Recall that we have four SEs (sum, count, percentage and average). We are talking about the "average" monthly accounts.
+
+$$
+SE(avg.) = \frac{SE(sum)}{n} = \frac{SD_{box}}{\sqrt{n}} = \frac{65}{\sqrt{400}} = \frac{65}{20} = 3.25
+$$
+
+---
+
+### Compute the test statistic
+
+$$
+\text{TS} = \frac{178 - 170}{3.25} \approx 2.46
+$$
+
+---
+
+::: {.callout-note title="Key idea"}
+The test statistic tells us:
+
+> How many standard errors away the sample mean is from the null hypothesis.
+:::
+
+---
+
+## Step 3: How to conclude
+
+We will now learn 3 ways to conclude, namely, the critical value method, the p-value method, and by constructing confidence
+intervals. All 3 methods are intrinsically related.
+
+---
+
+### Method 1: Critical value method
+
+::: {.callout-important title="Critical value method"}
+The decision rule is
+
+- Reject the null if |TS| > "critical value"
+:::
+
+For a **one-sided test** at the 5% significance level, from the standard normal table:
+
+- critical value = **1.645**
+
+Since:
+
+$$
+|2.46| > 1.645
+$$
+
+we reject the null.
+
+```{r}
+#| echo: false
+# Increase bottom margin (key!)
+par(mar = c(7, 4, 3, 1))
+
+# Standard normal
+x_vals <- seq(-3.5, 3.5, length.out = 600)
+y_vals <- dnorm(x_vals)
+
+z_crit <- 1.645
+z_obs  <- 2.46
+
+plot(
+  x_vals, y_vals, type = "l", lwd = 2,
+  xlab = "", ylab = "Density",
+  main = "One-sided Test (5% level)",
+  ylim = c(0, max(y_vals) * 1.15)
+)
+
+# Shade rejection region
+x_fill <- seq(z_crit, max(x_vals), length.out = 300)
+polygon(
+  c(x_fill, rev(x_fill)),
+  c(dnorm(x_fill), rep(0, length(x_fill))),
+  col = "grey70", border = NA
+)
+
+lines(x_vals, y_vals, lwd = 2)
+
+# -------------------------
+# Axis ticks for CV and TS
+# -------------------------
+axis(
+  1,
+  at = c(z_crit, z_obs),
+  labels = FALSE,
+  tcl = -2.0,
+  lwd.ticks = 1.5
+)
+
+# -------------------------
+# Clean labels BELOW axis
+# -------------------------
+mtext("CV = 1.645", side = 1, at = z_crit, line = 2.0, cex = 0.9)
+mtext("TS = 2.46",  side = 1, at = z_obs,  line = 2.8, cex = 0.9)
+
+# -------------------------
+# Annotation
+# -------------------------
+text(2.9, 0.08, "Rejection region (5%)", cex = 0.9)
+```
+
+
+The shaded region represents the rejection region for a one-sided test at the 5% level.  
+
+The critical value is 1.645, meaning we reject the null if the test statistic exceeds this threshold.
+
+In other words, since the observed test statistic (2.46) lies within the shaded region, we reject the null hypothesis.
+
+
+---
+
+### Method 2: p-value
+
+
+```{r}
+#| eval: false
+#| include: false
+mu0 <- 170
+sigma <- 65
+n <- 400
+se <- sigma / sqrt(n)
+
+set.seed(123)
+sample_means <- rnorm(10000, mean = mu0, sd = se)
+x_obs <- 178
+
+hist(
+  sample_means,
+  breaks = 40,
+  freq = FALSE,
+  col = "grey85",
+  border = "grey60",
+  main = "Sampling Distribution Under the Null Hypothesis",
+  xlab = "Sample mean",
+  ylim = c(0, 0.14)
+)
+
+curve(
+  dnorm(x, mean = mu0, sd = se),
+  from = mu0 - 4 * se,
+  to = mu0 + 4 * se,
+  add = TRUE,
+  lwd = 2
+)
+
+abline(v = mu0, lwd = 2)
+abline(v = x_obs, lwd = 2, lty = 2)
+
+x_fill <- seq(x_obs, mu0 + 4 * se, length.out = 300)
+y_fill <- dnorm(x_fill, mean = mu0, sd = se)
+polygon(
+  c(x_fill, rev(x_fill)),
+  c(y_fill, rep(0, length(y_fill))),
+  col = "grey50",
+  border = NA
+)
+
+legend(
+  "topright",
+  legend = c("Null mean = 170", "Observed mean = 178", "p-value area"),
+  lwd = c(2, 2, NA),
+  lty = c(1, 2, NA),
+  fill = c(NA, NA, "grey50"),
+  border = NA,
+  bty = "n"
+)
+```
+
+::: {.callout-important title="Critical value method"}
+The decision rule is
+
+- Reject the null if p-value < significance level $\alpha$
+:::
+
+The **p-value** is the probability of observing a result as extreme as this one, assuming the null is true.
+
+Here, from the standard normal table:
+
+$$
+P(Z > 2.46) \approx 0.007
+$$
+
+::: {.callout-note title="Interpretation"}
+A p-value of 0.007 means:
+
+> There is only a 0.7% chance of observing such a large difference if the true mean were 170.
+:::
+
+Since:
+
+$$
+0.007 < 0.05
+$$
+
+we **reject the null hypothesis**.
+
+```{r}
+#| echo: false
+par(mar = c(6, 4, 3, 1))   # extra bottom space
+
+# Parameters
+mu0 <- 170
+sigma <- 65
+n <- 400
+se <- sigma / sqrt(n)
+x_obs <- 178
+
+# Grid
+x_vals <- seq(mu0 - 4 * se, mu0 + 4 * se, length.out = 600)
+y_vals <- dnorm(x_vals, mean = mu0, sd = se)
+
+# Plot
+plot(
+  x_vals, y_vals, type = "l", lwd = 2,
+  xlab = "", ylab = "Density",
+  main = "P-value for a One-sided Test",
+  ylim = c(0, max(y_vals) * 1.15)
+)
+
+# Shade p-value
+x_fill <- seq(x_obs, max(x_vals), length.out = 300)
+y_fill <- dnorm(x_fill, mean = mu0, sd = se)
+
+polygon(
+  c(x_fill, rev(x_fill)),
+  c(y_fill, rep(0, length(y_fill))),
+  col = "grey70",
+  border = NA
+)
+
+# Curve on top
+lines(x_vals, y_vals, lwd = 2)
+
+# -------------------------
+# MAIN AXIS (sample mean)
+# -------------------------
+axis(1)
+
+# -------------------------
+# SECOND AXIS (labels only)
+# -------------------------
+axis(
+  side = 1,
+  at = c(mu0, x_obs),
+  labels = c(expression(mu[0]), "2.46"),
+  line = 3,
+  tcl = -0.7,
+  lwd.ticks = 1.5
+)
+
+# -------------------------
+# Annotation
+# -------------------------
+text(180.5, 0.025, expression(p-value == 0.007), cex = 0.95)
+```
+
+The p-value can also be calculated directly from the normal distribution:
+
+```{r}
+#| echo: true
+z_stat <- (178 - 170) / 3.25
+p_value <- 1 - pnorm(z_stat)
+
+z_stat
+p_value
+```
+
+
+So the observed sample mean is about **2.46 standard errors** above the null value, giving a p-value of about **0.007**.
+
+::: {.callout-note title="What the figure shows"}
+* The sampling distribution represents the sample means we would expect **if the null hypothesis were true**
+* The shaded area to the right of thetest statistic of 2.46 is the **p-value**
+* Because this area is very small, the observed result would be unlikely if the true mean were 170
+:::
+
+---
+
+### Method 3: Confidence intervals
+
+::: {.callout-note title="Decision rule"}
+If the null value (170) is **not inside** the interval, reject the null.
+:::
+
+Construct a 90% confidence interval:
+
+$$
+178 \pm (1.645 \times 3.25) = [172.65, 183.35]
+$$
+
+```{r}
+#| include: false
+png("figs/ch15/ci_line.png", width = 1200, height = 260, res = 150)
+
+par(mar = c(2.2, 4, 0.2, 0.5))
+
+# Values
+ci_lower <- 172.65
+ci_upper <- 183.35
+mu0 <- 170
+
+# Empty plot
+plot(
+  NA, NA,
+  xlim = c(168, 186),
+  ylim = c(-0.18, 0.22),
+  xlab = "", ylab = "",
+  main = "",
+  axes = FALSE,
+  xaxs = "i",
+  yaxs = "i"
+)
+
+# Custom bottom axis
+axis_y <- -0.08
+segments(168, axis_y, 186, axis_y)
+
+ticks <- c(170, 175, 180, 185)
+tick_len <- 0.025
+segments(ticks, axis_y, ticks, axis_y - tick_len)
+
+text(
+  ticks, axis_y - 0.045,
+  labels = c("170", "175", "180", "185"),
+  cex = 0.9
+)
+
+# CI segment
+segments(ci_lower, 0, ci_upper, 0, lwd = 4)
+
+# Brackets
+segments(ci_lower, -0.02, ci_lower, 0.02, lwd = 2)
+segments(ci_upper, -0.02, ci_upper, 0.02, lwd = 2)
+
+# Labels above brackets
+text(ci_lower, 0.05, "172.65", cex = 0.9)
+text(ci_upper, 0.05, "183.35", cex = 0.9)
+
+# Null marker
+points(mu0, 0, pch = 4, cex = 1.5, lwd = 2)
+text(mu0, 0.10, expression(mu[0] == 170), cex = 0.9)
+
+dev.off()
+```
+
+![](figs/ch15/ci_line.png){fig-align="center" width="90%"}
+
+Since the null of 170 is outside the interval, we reject the null.
+
+---
+
+### Conclusion
+
+All three methods agree:
+
+> There is strong evidence that the average monthly account exceeds \$170.
+
+::: {.callout-important title="Managerial decision"}
+The data suggest that the new billing system is likely to be **cost-effective**.
+:::
+
+---
+
+## One-sided vs two-sided tests
+
+- One-sided: $H_a: \mu > 170$  
+- Two-sided: $H_a: \mu \neq 170$
+
+::: {.callout-note title="Rule of thumb"}
+Taking $\alpha$ as 5%:
+
+- One-sided → place all $\alpha$ in one tail → critical value = 1.645  
+- Two-sided → split $\alpha$ → critical value = 1.96  
+:::
+
+So, the same sample evidence can be interpreted differently depending on the alternative hypothesis.
+
+- In a **one-sided test**, we ask whether the mean is **greater than** a benchmark:
+  
+  $$
+  H_0:\mu = 170 \qquad H_a:\mu > 170
+  $$
+
+- In a **two-sided test**, we ask whether the mean is simply **different from** the benchmark:
+  
+  $$
+  H_0:\mu = 170 \qquad H_a:\mu \neq 170
+  $$
+
+In both cases, the observed sample mean is 178, and the null distribution is centered at 170.
+
+```{r}
+#| echo: false
+## Critical values: one-sided vs two-sided tests
+# Set margins: extra room at bottom for the extra labels
+par(mar = c(6, 4, 3, 1))
+
+# Parameters
+mu0 <- 170
+sigma <- 65
+n <- 400
+se <- sigma / sqrt(n)
+
+# Critical values (z)
+z_crit_one <- 1.645
+z_crit_two <- 1.96
+
+# Convert to sample-mean scale
+x_crit_one <- mu0 + z_crit_one * se
+x_crit_two_upper <- mu0 + z_crit_two * se
+x_crit_two_lower <- mu0 - z_crit_two * se
+
+# Grid
+x_vals <- seq(mu0 - 4 * se, mu0 + 4 * se, length.out = 600)
+y_vals <- dnorm(x_vals, mean = mu0, sd = se)
+
+# Plot
+plot(
+  x_vals, y_vals, type = "l", lwd = 2,
+  xlab = "", ylab = "Density",
+  main = "Critical Values (5% level)",
+  ylim = c(-0.03, max(y_vals) * 1.15),
+  axes = FALSE
+)
+
+# Main axes only
+axis(1)
+axis(2)
+
+# -------------------------
+# Shaded regions
+# -------------------------
+
+# One-sided rejection region
+x_fill_one <- seq(x_crit_one, max(x_vals), length.out = 300)
+y_fill_one <- dnorm(x_fill_one, mean = mu0, sd = se)
+polygon(
+  c(x_fill_one, rev(x_fill_one)),
+  c(y_fill_one, rep(0, length(y_fill_one))),
+  col = "grey75", border = NA
+)
+
+# Additional left tail for two-sided test
+x_fill_left <- seq(min(x_vals), x_crit_two_lower, length.out = 300)
+y_fill_left <- dnorm(x_fill_left, mean = mu0, sd = se)
+polygon(
+  c(x_fill_left, rev(x_fill_left)),
+  c(y_fill_left, rep(0, length(y_fill_left))),
+  col = "grey45", border = NA
+)
+
+# Additional right tail for two-sided test
+x_fill_right <- seq(x_crit_two_upper, max(x_vals), length.out = 300)
+y_fill_right <- dnorm(x_fill_right, mean = mu0, sd = se)
+polygon(
+  c(x_fill_right, rev(x_fill_right)),
+  c(y_fill_right, rep(0, length(y_fill_right))),
+  col = "grey45", border = NA
+)
+
+# Re-draw density curve on top
+lines(x_vals, y_vals, lwd = 2)
+
+# -------------------------
+# Vertical lines
+# -------------------------
+abline(v = mu0, lwd = 2)
+abline(v = x_crit_one, lwd = 2, lty = 3)
+abline(v = x_crit_two_upper, lwd = 2, lty = 4)
+abline(v = x_crit_two_lower, lwd = 2, lty = 4)
+
+# -------------------------
+# Null label
+# -------------------------
+text(
+  x = mu0,
+  y = -0.010,
+  labels = expression("null (" * mu == 170 * ")"),
+  xpd = TRUE
+)
+
+# -------------------------
+# Extra critical-value labels at bottom
+# -------------------------
+
+# Row 1: ±1.96
+text(
+  x = c(x_crit_two_lower, x_crit_two_upper),
+  y = -0.012,
+  labels = c("-1.96", "        1.96"),
+  xpd = TRUE,
+  cex = 0.9
+)
+
+# Row 2: ±1.645
+text(
+  x = c(mu0 - z_crit_one * se, mu0 + z_crit_one * se),
+  y = -0.023,
+  labels = c("", "1.645"),
+  xpd = TRUE,
+  cex = 0.9
+)
+
+# -------------------------
+# Legend
+# -------------------------
+legend(
+  "topright",
+  legend = c(
+    "One-sided rejection region",
+    "Additional (two-sided)"
+  ),
+  fill = c("grey75", "grey45"),
+  border = NA,
+  bty = "n",
+  inset = 0.02
+)
+```
+
+::: {.callout-note title="What the figure shows"}
+* In the **one-sided test**, the rejection region is the area in the **right tail only**, from 1.645 onwards
+* In the **two-sided test**, the rejection area includes **both tails**: either ends from -1.96 and 1.96
+:::
+
+
+> For our numerical example, the test statistic is 2.46, so in either case (whether one-sided or two-sided) we reject the null.
+
+---
+
+## The t-test
+
+The standard normal distribution is **not** the only sampling distribution considered. If the
+sample size is small and/or the standard deviation of the
+population is **unknown** (and has to be estimated by the unbiased
+sample estimate), then the t-distribution or Student's t-distribution
+is appropriate.^[The derivation of the t-distribution was
+first published in 1908 by William Sealy Gosset, while he worked
+at a Guinness Brewery in Dublin. He was prohibited from publishing
+under his own name, so the paper was written under the pseudonym
+Student. The t-test and the associated theory became well-known
+through the work of R.A. Fisher, who called the distribution
+``Student's distribution''.]
+
+::: {.callout-note title="Key idea"}
+So far, we assumed the population SD is known. In practice, it is often **unknown**.
+
+> When SD is unknown, replace it with the sample SD and use the **t-distribution**.
+:::
+
+---
+
+![Student's t-distribution](figs/ch15/t.png){fig-align="center" width="90%"}
+
+A shown in the figure above, the t-distributions is shaped like the normal
+distribution but has fatter, thicker tails on both ends. As with
+the normal distribution, we might be interested in the area under
+the curve. Recall that for the normal distribution, we need to
+have 2 parameters, the mean $\mu$ and the SD or variance. For the
+t-distribution, only one parameter, the **degrees of freedom**
+is all that is required.
+
+The degrees of freedom for our purposes, which we
+will denote $df$, is for our purposes the sample size less one, $(n-1)$. Note
+that the larger the sample size, the more and more the
+t-distribution looks like the normal curve.
+
+To find probabilities, we can use the Student's t-table shown [here], from which we can get the critical values for the t-test. The
+first column shows the degree of freedom, and the top row
+corresponds to the area to the right of the critical t-values. For
+example, for 5 degrees of freedom at the 0.05 level, the
+corresponding t-stat would be 2.015.^[If the exact degree of freedom is not in the table, just use the nearest one.]
+
+You can acccess the t-table from [LINK](figs/ch15/t.pdf){target="_blank"}
+
+::: {.callout-note title="t-distributions"}
+The student's t-distribution requires
+
+> Degrees of freedom: $df = n - 1$  
+
+And for large $n$, the t-distribution is close to normal.
+:::
+
+---
+
+## Types of error
+
+The task of statistical inference is to make some statement
+about a population parameter given a sample statistic.
+In hypothesis testing, the researcher sets up a null hypothesis without really knowing
+whether it is correct or wrong. Of course, he or she will determine a
+value from learned judgement and/or past researches if any. Be as it
+may, there is always possibility for error in hypothesis testing, which
+cannot be avoided. Hypothesis testing involves uncertainty.
+
+---
+
+### Type I error
+
+Rejecting the null when it is actually true.
+
+- “False alarm” (*seeing* a problem when none exists) 
+- Probability = $\alpha$, i.e. probability of rejecting a hypothesis when
+it is in fact true.
+
+---
+
+### Type II error
+
+Failing to reject the null when it is false.
+
+- “Missed detection”  
+- Probability = $\beta$, i.e. probability of **not** rejecting a hypothesis when
+it is in fact false.
+
+![Type-I and Type-II error](figs/ch15/typesoferrors.png){fig-align="center" width="90%"}
+
+---
+
+An analogy of a household smoke detector helps clarify these ideas. Suppose the null hypothesis is “no fire.” A very sensitive alarm may go off even when there is no fire—this is a **Type I error** (or false positive), where we reject a true null hypothesis.
+
+Conversely, there may be a real fire, but the alarm fails to sound. In this case, the null hypothesis (“no fire”) is false, yet we do not reject it. This is known as a **Type II error** (or false negative), where we fail to detect a real effect.
+
+| Decision / Reality  | (H_0) true                | (H_0) false                |
+| ------------------- | ------------------------- | -------------------------- |
+| Reject (H_0)        | ❌ Type I (False Positive) | ✅ Correct                  |
+| Do not reject (H_0) | ✅ Correct                 | ❌ Type II (False Negative) |
+
+::: {.callout-tip title="Intuition: fire alarm"}
+- Type I error → alarm rings but no fire  
+- Type II error → fire but no alarm  
+:::
+
+---
+
+### Trade-off
+
+Note that to reduce Type-I error for the example of the fire alarm, we
+could simply remove the batteries. Then the alarm will never go off
+and this increases Type-II error. In effect, there is a trade-off between
+Type-I and Type-II error: Reducing one type of error often increases the other.
+
+One must decide in terms of cost which error is less desirable when designing a test.
+
+---
+
+## Power of a test
+
+Obviously we would like a test to reject a false null
+most of the time. In fact this is known as the power of test, which is $(1-\beta)$
+
+
+::: {.callout-important title="Key concept"}
+The **power of a test** is:
+
+$$
+1 - \beta
+$$
+
+It measures the ability to detect a false null hypothesis.
+:::
+
+---
+
+## Chapter summary
+
+- Hypothesis testing evaluates whether observed data are consistent with a null hypothesis  
+- The **test statistic** measures deviations in units of standard error  
+- The **critical value method** quantifies evidence against the null  
+- The **p-value** and **confidence interval method** give equivalent decisions  
+- One-sided and two-sided tests differ in how evidence is evaluated  
+- When the population SD is unknown, we use the sample SD and the **t-distribution**  
+- Two types of error exist:
+  - Type I: false rejection (false positive)
+  - Type II: failure to reject a false null (false negative) 
+- Statistical decisions always involve **uncertainty and trade-offs**
