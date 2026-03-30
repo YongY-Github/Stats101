@@ -289,15 +289,17 @@ window.Quarto = {
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">14.5.4</span> Conclusion</a></li>
   </ul></li>
   <li><a href="#one-sided-vs-two-sided-tests" id="toc-one-sided-vs-two-sided-tests" class="nav-link" data-scroll-target="#one-sided-vs-two-sided-tests"><span class="header-section-number">14.6</span> One-sided vs two-sided tests</a></li>
-  <li><a href="#the-t-test" id="toc-the-t-test" class="nav-link" data-scroll-target="#the-t-test"><span class="header-section-number">14.7</span> The t-test</a></li>
-  <li><a href="#types-of-error" id="toc-types-of-error" class="nav-link" data-scroll-target="#types-of-error"><span class="header-section-number">14.8</span> Types of error</a>
+  <li><a href="#working-with-different-level-of-significance" id="toc-working-with-different-level-of-significance" class="nav-link" data-scroll-target="#working-with-different-level-of-significance"><span class="header-section-number">14.7</span> Working with different level of significance</a></li>
+  <li><a href="#estimator-vs.-estimation" id="toc-estimator-vs.-estimation" class="nav-link" data-scroll-target="#estimator-vs.-estimation"><span class="header-section-number">14.8</span> Estimator vs.&nbsp;Estimation</a></li>
+  <li><a href="#the-t-test" id="toc-the-t-test" class="nav-link" data-scroll-target="#the-t-test"><span class="header-section-number">14.9</span> The t-test</a></li>
+  <li><a href="#types-of-error" id="toc-types-of-error" class="nav-link" data-scroll-target="#types-of-error"><span class="header-section-number">14.10</span> Types of error</a>
   <ul class="collapse">
-  <li><a href="#type-i-error" id="toc-type-i-error" class="nav-link" data-scroll-target="#type-i-error"><span class="header-section-number">14.8.1</span> Type I error</a></li>
-  <li><a href="#type-ii-error" id="toc-type-ii-error" class="nav-link" data-scroll-target="#type-ii-error"><span class="header-section-number">14.8.2</span> Type II error</a></li>
-  <li><a href="#trade-off" id="toc-trade-off" class="nav-link" data-scroll-target="#trade-off"><span class="header-section-number">14.8.3</span> Trade-off</a></li>
+  <li><a href="#type-i-error" id="toc-type-i-error" class="nav-link" data-scroll-target="#type-i-error"><span class="header-section-number">14.10.1</span> Type I error</a></li>
+  <li><a href="#type-ii-error" id="toc-type-ii-error" class="nav-link" data-scroll-target="#type-ii-error"><span class="header-section-number">14.10.2</span> Type II error</a></li>
+  <li><a href="#trade-off" id="toc-trade-off" class="nav-link" data-scroll-target="#trade-off"><span class="header-section-number">14.10.3</span> Trade-off</a></li>
   </ul></li>
-  <li><a href="#power-of-a-test" id="toc-power-of-a-test" class="nav-link" data-scroll-target="#power-of-a-test"><span class="header-section-number">14.9</span> Power of a test</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.10</span> Chapter summary</a></li>
+  <li><a href="#power-of-a-test" id="toc-power-of-a-test" class="nav-link" data-scroll-target="#power-of-a-test"><span class="header-section-number">14.11</span> Power of a test</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.12</span> Chapter summary</a></li>
   </ul>
 </nav>
     </div>
@@ -331,6 +333,7 @@ window.Quarto = {
 <li>compute and interpret a <strong>test statistic</strong></li>
 <li>understand and use <strong>critical values</strong> and <strong>p-values</strong></li>
 <li>connect hypothesis testing with <strong>confidence intervals</strong></li>
+<li>understadn what is meant by a <strong>good estiator</strong></li>
 <li>understand when to use the <strong>t-distribution</strong></li>
 <li>distinguish between <strong>Type I and Type II errors</strong></li>
 </ul>
@@ -697,8 +700,16 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </blockquote>
 <hr>
 </section>
-<section id="the-t-test" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="the-t-test"><span class="header-section-number">14.7</span> The t-test</h2>
+<section id="working-with-different-level-of-significance" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="working-with-different-level-of-significance"><span class="header-section-number">14.7</span> Working with different level of significance</h2>
+<hr>
+</section>
+<section id="estimator-vs.-estimation" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="estimator-vs.-estimation"><span class="header-section-number">14.8</span> Estimator vs.&nbsp;Estimation</h2>
+<hr>
+</section>
+<section id="the-t-test" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="the-t-test"><span class="header-section-number">14.9</span> The t-test</h2>
 <p>The standard normal distribution is <strong>not</strong> the only sampling distribution considered. If the sample size is small and/or the standard deviation of the population is <strong>unknown</strong> (and has to be estimated by the unbiased sample estimate), then the t-distribution or Student’s t-distribution is appropriate.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Key idea">
 <div class="callout-header d-flex align-content-center">
@@ -746,12 +757,12 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </div>
 <hr>
 </section>
-<section id="types-of-error" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="types-of-error"><span class="header-section-number">14.8</span> Types of error</h2>
+<section id="types-of-error" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="types-of-error"><span class="header-section-number">14.10</span> Types of error</h2>
 <p>The task of statistical inference is to make some statement about a population parameter given a sample statistic. In hypothesis testing, the researcher sets up a null hypothesis without really knowing whether it is correct or wrong. Of course, he or she will determine a value from learned judgement and/or past researches if any. Be as it may, there is always possibility for error in hypothesis testing, which cannot be avoided. Hypothesis testing involves uncertainty.</p>
 <hr>
-<section id="type-i-error" class="level3" data-number="14.8.1">
-<h3 data-number="14.8.1" class="anchored" data-anchor-id="type-i-error"><span class="header-section-number">14.8.1</span> Type I error</h3>
+<section id="type-i-error" class="level3" data-number="14.10.1">
+<h3 data-number="14.10.1" class="anchored" data-anchor-id="type-i-error"><span class="header-section-number">14.10.1</span> Type I error</h3>
 <p>Rejecting the null when it is actually true.</p>
 <ul>
 <li>“False alarm” (<em>seeing</em> a problem when none exists)</li>
@@ -759,8 +770,8 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </ul>
 <hr>
 </section>
-<section id="type-ii-error" class="level3" data-number="14.8.2">
-<h3 data-number="14.8.2" class="anchored" data-anchor-id="type-ii-error"><span class="header-section-number">14.8.2</span> Type II error</h3>
+<section id="type-ii-error" class="level3" data-number="14.10.2">
+<h3 data-number="14.10.2" class="anchored" data-anchor-id="type-ii-error"><span class="header-section-number">14.10.2</span> Type II error</h3>
 <p>Failing to reject the null when it is false.</p>
 <ul>
 <li>“Missed detection”<br>
@@ -822,15 +833,15 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </div>
 <hr>
 </section>
-<section id="trade-off" class="level3" data-number="14.8.3">
-<h3 data-number="14.8.3" class="anchored" data-anchor-id="trade-off"><span class="header-section-number">14.8.3</span> Trade-off</h3>
+<section id="trade-off" class="level3" data-number="14.10.3">
+<h3 data-number="14.10.3" class="anchored" data-anchor-id="trade-off"><span class="header-section-number">14.10.3</span> Trade-off</h3>
 <p>Note that to reduce Type-I error for the example of the fire alarm, we could simply remove the batteries. Then the alarm will never go off and this increases Type-II error. In effect, there is a trade-off between Type-I and Type-II error: Reducing one type of error often increases the other.</p>
 <p>One must decide in terms of cost which error is less desirable when designing a test.</p>
 <hr>
 </section>
 </section>
-<section id="power-of-a-test" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="power-of-a-test"><span class="header-section-number">14.9</span> Power of a test</h2>
+<section id="power-of-a-test" class="level2" data-number="14.11">
+<h2 data-number="14.11" class="anchored" data-anchor-id="power-of-a-test"><span class="header-section-number">14.11</span> Power of a test</h2>
 <p>Obviously we would like a test to reject a false null most of the time. In fact this is known as the power of test, which is <span class="math inline">\((1-\beta)\)</span></p>
 <div class="callout callout-style-default callout-important callout-titled" title="Key concept">
 <div class="callout-header d-flex align-content-center">
@@ -851,8 +862,8 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">14.10</span> Chapter summary</h2>
+<section id="chapter-summary" class="level2" data-number="14.12">
+<h2 data-number="14.12" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">14.12</span> Chapter summary</h2>
 <ul>
 <li>Hypothesis testing evaluates whether observed data are consistent with a null hypothesis<br>
 </li>
@@ -864,6 +875,7 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </li>
 <li>One-sided and two-sided tests differ in how evidence is evaluated<br>
 </li>
+<li>A good estiator is one that is <strong>unbiased</strong> and <strong>efficient</strong></li>
 <li>When the population SD is unknown, we use the sample SD and the <strong>t-distribution</strong><br>
 </li>
 <li>Two types of error exist:

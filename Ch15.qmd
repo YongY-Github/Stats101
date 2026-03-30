@@ -8,6 +8,7 @@ By the end of this chapter, you should be able to:
 - compute and interpret a **test statistic**
 - understand and use **critical values** and **p-values**
 - connect hypothesis testing with **confidence intervals**
+- understadn what is meant by a **good estiator**
 - understand when to use the **t-distribution**
 - distinguish between **Type I and Type II errors**
 
@@ -607,6 +608,14 @@ legend(
 
 ---
 
+## Working with different level of significance
+
+---
+
+## Estimator vs. Estimation
+
+---
+
 ## The t-test
 
 The standard normal distribution is **not** the only sampling distribution considered. If the
@@ -748,6 +757,7 @@ It measures the ability to detect a false null hypothesis.
 - The **critical value method** quantifies evidence against the null  
 - The **p-value** and **confidence interval method** give equivalent decisions  
 - One-sided and two-sided tests differ in how evidence is evaluated  
+- A good estiator is one that is **unbiased** and **efficient**
 - When the population SD is unknown, we use the sample SD and the **t-distribution**  
 - Two types of error exist:
   - Type I: false rejection (false positive)

@@ -1514,7 +1514,7 @@
     "href": "Ch15.html#learning-objectives",
     "title": "14  Hypothesis Testing",
     "section": "",
-    "text": "formulate null and alternative hypotheses\ncompute and interpret a test statistic\nunderstand and use critical values and p-values\nconnect hypothesis testing with confidence intervals\nunderstand when to use the t-distribution\ndistinguish between Type I and Type II errors",
+    "text": "formulate null and alternative hypotheses\ncompute and interpret a test statistic\nunderstand and use critical values and p-values\nconnect hypothesis testing with confidence intervals\nunderstadn what is meant by a good estiator\nunderstand when to use the t-distribution\ndistinguish between Type I and Type II errors",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
     ]
@@ -1623,8 +1623,8 @@
     "objectID": "Ch15.html#the-t-test",
     "href": "Ch15.html#the-t-test",
     "title": "14  Hypothesis Testing",
-    "section": "14.7 The t-test",
-    "text": "14.7 The t-test\nThe standard normal distribution is not the only sampling distribution considered. If the sample size is small and/or the standard deviation of the population is unknown (and has to be estimated by the unbiased sample estimate), then the t-distribution or Student’s t-distribution is appropriate.1\n\n\n\n\n\n\nNoteKey idea\n\n\n\nSo far, we assumed the population SD is known. In practice, it is often unknown.\n\nWhen SD is unknown, replace it with the sample SD and use the t-distribution.\n\n\n\n\n\n\n\nStudent’s t-distribution\n\n\nA shown in the figure above, the t-distributions is shaped like the normal distribution but has fatter, thicker tails on both ends. As with the normal distribution, we might be interested in the area under the curve. Recall that for the normal distribution, we need to have 2 parameters, the mean \\(\\mu\\) and the SD or variance. For the t-distribution, only one parameter, the degrees of freedom is all that is required.\nThe degrees of freedom for our purposes, which we will denote \\(df\\), is for our purposes the sample size less one, \\((n-1)\\). Note that the larger the sample size, the more and more the t-distribution looks like the normal curve.\nTo find probabilities, we can use the Student’s t-table shown [here], from which we can get the critical values for the t-test. The first column shows the degree of freedom, and the top row corresponds to the area to the right of the critical t-values. For example, for 5 degrees of freedom at the 0.05 level, the corresponding t-stat would be 2.015.2\nYou can acccess the t-table from LINK\n\n\n\n\n\n\nNotet-distributions\n\n\n\nThe student’s t-distribution requires\n\nDegrees of freedom: \\(df = n - 1\\)\n\nAnd for large \\(n\\), the t-distribution is close to normal.",
+    "section": "14.9 The t-test",
+    "text": "14.9 The t-test\nThe standard normal distribution is not the only sampling distribution considered. If the sample size is small and/or the standard deviation of the population is unknown (and has to be estimated by the unbiased sample estimate), then the t-distribution or Student’s t-distribution is appropriate.1\n\n\n\n\n\n\nNoteKey idea\n\n\n\nSo far, we assumed the population SD is known. In practice, it is often unknown.\n\nWhen SD is unknown, replace it with the sample SD and use the t-distribution.\n\n\n\n\n\n\n\nStudent’s t-distribution\n\n\nA shown in the figure above, the t-distributions is shaped like the normal distribution but has fatter, thicker tails on both ends. As with the normal distribution, we might be interested in the area under the curve. Recall that for the normal distribution, we need to have 2 parameters, the mean \\(\\mu\\) and the SD or variance. For the t-distribution, only one parameter, the degrees of freedom is all that is required.\nThe degrees of freedom for our purposes, which we will denote \\(df\\), is for our purposes the sample size less one, \\((n-1)\\). Note that the larger the sample size, the more and more the t-distribution looks like the normal curve.\nTo find probabilities, we can use the Student’s t-table shown [here], from which we can get the critical values for the t-test. The first column shows the degree of freedom, and the top row corresponds to the area to the right of the critical t-values. For example, for 5 degrees of freedom at the 0.05 level, the corresponding t-stat would be 2.015.2\nYou can acccess the t-table from LINK\n\n\n\n\n\n\nNotet-distributions\n\n\n\nThe student’s t-distribution requires\n\nDegrees of freedom: \\(df = n - 1\\)\n\nAnd for large \\(n\\), the t-distribution is close to normal.",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
     ]
@@ -1633,8 +1633,8 @@
     "objectID": "Ch15.html#types-of-error",
     "href": "Ch15.html#types-of-error",
     "title": "14  Hypothesis Testing",
-    "section": "14.8 Types of error",
-    "text": "14.8 Types of error\nThe task of statistical inference is to make some statement about a population parameter given a sample statistic. In hypothesis testing, the researcher sets up a null hypothesis without really knowing whether it is correct or wrong. Of course, he or she will determine a value from learned judgement and/or past researches if any. Be as it may, there is always possibility for error in hypothesis testing, which cannot be avoided. Hypothesis testing involves uncertainty.\n\n\n14.8.1 Type I error\nRejecting the null when it is actually true.\n\n“False alarm” (seeing a problem when none exists)\nProbability = \\(\\alpha\\), i.e. probability of rejecting a hypothesis when it is in fact true.\n\n\n\n\n14.8.2 Type II error\nFailing to reject the null when it is false.\n\n“Missed detection”\n\nProbability = \\(\\beta\\), i.e. probability of not rejecting a hypothesis when it is in fact false.\n\n\n\n\nType-I and Type-II error\n\n\n\nAn analogy of a household smoke detector helps clarify these ideas. Suppose the null hypothesis is “no fire.” A very sensitive alarm may go off even when there is no fire—this is a Type I error (or false positive), where we reject a true null hypothesis.\nConversely, there may be a real fire, but the alarm fails to sound. In this case, the null hypothesis (“no fire”) is false, yet we do not reject it. This is known as a Type II error (or false negative), where we fail to detect a real effect.\n\n\n\n\n\n\n\n\nDecision / Reality\n(H_0) true\n(H_0) false\n\n\n\n\nReject (H_0)\n❌ Type I (False Positive)\n✅ Correct\n\n\nDo not reject (H_0)\n✅ Correct\n❌ Type II (False Negative)\n\n\n\n\n\n\n\n\n\nTipIntuition: fire alarm\n\n\n\n\nType I error → alarm rings but no fire\n\nType II error → fire but no alarm\n\n\n\n\n\n\n\n14.8.3 Trade-off\nNote that to reduce Type-I error for the example of the fire alarm, we could simply remove the batteries. Then the alarm will never go off and this increases Type-II error. In effect, there is a trade-off between Type-I and Type-II error: Reducing one type of error often increases the other.\nOne must decide in terms of cost which error is less desirable when designing a test.",
+    "section": "14.10 Types of error",
+    "text": "14.10 Types of error\nThe task of statistical inference is to make some statement about a population parameter given a sample statistic. In hypothesis testing, the researcher sets up a null hypothesis without really knowing whether it is correct or wrong. Of course, he or she will determine a value from learned judgement and/or past researches if any. Be as it may, there is always possibility for error in hypothesis testing, which cannot be avoided. Hypothesis testing involves uncertainty.\n\n\n14.10.1 Type I error\nRejecting the null when it is actually true.\n\n“False alarm” (seeing a problem when none exists)\nProbability = \\(\\alpha\\), i.e. probability of rejecting a hypothesis when it is in fact true.\n\n\n\n\n14.10.2 Type II error\nFailing to reject the null when it is false.\n\n“Missed detection”\n\nProbability = \\(\\beta\\), i.e. probability of not rejecting a hypothesis when it is in fact false.\n\n\n\n\nType-I and Type-II error\n\n\n\nAn analogy of a household smoke detector helps clarify these ideas. Suppose the null hypothesis is “no fire.” A very sensitive alarm may go off even when there is no fire—this is a Type I error (or false positive), where we reject a true null hypothesis.\nConversely, there may be a real fire, but the alarm fails to sound. In this case, the null hypothesis (“no fire”) is false, yet we do not reject it. This is known as a Type II error (or false negative), where we fail to detect a real effect.\n\n\n\n\n\n\n\n\nDecision / Reality\n(H_0) true\n(H_0) false\n\n\n\n\nReject (H_0)\n❌ Type I (False Positive)\n✅ Correct\n\n\nDo not reject (H_0)\n✅ Correct\n❌ Type II (False Negative)\n\n\n\n\n\n\n\n\n\nTipIntuition: fire alarm\n\n\n\n\nType I error → alarm rings but no fire\n\nType II error → fire but no alarm\n\n\n\n\n\n\n\n14.10.3 Trade-off\nNote that to reduce Type-I error for the example of the fire alarm, we could simply remove the batteries. Then the alarm will never go off and this increases Type-II error. In effect, there is a trade-off between Type-I and Type-II error: Reducing one type of error often increases the other.\nOne must decide in terms of cost which error is less desirable when designing a test.",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
     ]
@@ -1683,8 +1683,8 @@
     "objectID": "Ch15.html#power-of-a-test",
     "href": "Ch15.html#power-of-a-test",
     "title": "14  Hypothesis Testing",
-    "section": "14.9 Power of a test",
-    "text": "14.9 Power of a test\nObviously we would like a test to reject a false null most of the time. In fact this is known as the power of test, which is \\((1-\\beta)\\)\n\n\n\n\n\n\nImportantKey concept\n\n\n\nThe power of a test is:\n\\[\n1 - \\beta\n\\]\nIt measures the ability to detect a false null hypothesis.",
+    "section": "14.11 Power of a test",
+    "text": "14.11 Power of a test\nObviously we would like a test to reject a false null most of the time. In fact this is known as the power of test, which is \\((1-\\beta)\\)\n\n\n\n\n\n\nImportantKey concept\n\n\n\nThe power of a test is:\n\\[\n1 - \\beta\n\\]\nIt measures the ability to detect a false null hypothesis.",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
     ]
@@ -1693,8 +1693,28 @@
     "objectID": "Ch15.html#chapter-summary",
     "href": "Ch15.html#chapter-summary",
     "title": "14  Hypothesis Testing",
-    "section": "14.10 Chapter summary",
-    "text": "14.10 Chapter summary\n\nHypothesis testing evaluates whether observed data are consistent with a null hypothesis\n\nThe test statistic measures deviations in units of standard error\n\nThe critical value method quantifies evidence against the null\n\nThe p-value and confidence interval method give equivalent decisions\n\nOne-sided and two-sided tests differ in how evidence is evaluated\n\nWhen the population SD is unknown, we use the sample SD and the t-distribution\n\nTwo types of error exist:\n\nType I: false rejection (false positive)\nType II: failure to reject a false null (false negative)\n\nStatistical decisions always involve uncertainty and trade-offs",
+    "section": "14.12 Chapter summary",
+    "text": "14.12 Chapter summary\n\nHypothesis testing evaluates whether observed data are consistent with a null hypothesis\n\nThe test statistic measures deviations in units of standard error\n\nThe critical value method quantifies evidence against the null\n\nThe p-value and confidence interval method give equivalent decisions\n\nOne-sided and two-sided tests differ in how evidence is evaluated\n\nA good estiator is one that is unbiased and efficient\nWhen the population SD is unknown, we use the sample SD and the t-distribution\n\nTwo types of error exist:\n\nType I: false rejection (false positive)\nType II: failure to reject a false null (false negative)\n\nStatistical decisions always involve uncertainty and trade-offs",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
+    ]
+  },
+  {
+    "objectID": "Ch15.html#working-with-different-level-of-significance",
+    "href": "Ch15.html#working-with-different-level-of-significance",
+    "title": "14  Hypothesis Testing",
+    "section": "14.7 Working with different level of significance",
+    "text": "14.7 Working with different level of significance",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
+    ]
+  },
+  {
+    "objectID": "Ch15.html#estimator-vs.-estimation",
+    "href": "Ch15.html#estimator-vs.-estimation",
+    "title": "14  Hypothesis Testing",
+    "section": "14.8 Estimator vs. Estimation",
+    "text": "14.8 Estimator vs. Estimation",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
     ]
