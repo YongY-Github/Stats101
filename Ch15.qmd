@@ -430,7 +430,7 @@ Since the null of 170 is outside the interval, we reject the null.
 
 ---
 
-### Conclusion
+### Summary
 
 All three methods agree:
 
@@ -704,9 +704,9 @@ Var(\tilde{X}) &= Var\left( \frac{X_1 + X_2}{2} \right) \\
 \end{aligned}
 $$
 
-**Comparison:** Why $\bar{X}$ is "More Efficient"? When $n=2$, the variance of both estimators are the same; however, with $n>2$, $Var(\overline{X}) < Var(\tilde{X})$.
+**Comparison:** Why $\bar{X}$ is "More Efficient"? When $n=2$, the variance of both estimators are the same; however, with $n>2$, we observe that $Var(\overline{X}) < Var(\tilde{X})$.
 
-> Both estimators are **unbiased** ("on target"), but the sample mean $\overline{X}$ is more effiicent ("sharper".
+> Both estimators are **unbiased** ("on target"), but the sample mean $\overline{X}$ is more efficient ("sharper").
 
 ---
 
