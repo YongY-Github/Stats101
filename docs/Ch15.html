@@ -290,16 +290,28 @@ window.Quarto = {
   </ul></li>
   <li><a href="#one-sided-vs-two-sided-tests" id="toc-one-sided-vs-two-sided-tests" class="nav-link" data-scroll-target="#one-sided-vs-two-sided-tests"><span class="header-section-number">14.6</span> One-sided vs two-sided tests</a></li>
   <li><a href="#working-with-different-level-of-significance" id="toc-working-with-different-level-of-significance" class="nav-link" data-scroll-target="#working-with-different-level-of-significance"><span class="header-section-number">14.7</span> Working with different level of significance</a></li>
-  <li><a href="#estimator-vs.-estimation" id="toc-estimator-vs.-estimation" class="nav-link" data-scroll-target="#estimator-vs.-estimation"><span class="header-section-number">14.8</span> Estimator vs.&nbsp;Estimation</a></li>
-  <li><a href="#the-t-test" id="toc-the-t-test" class="nav-link" data-scroll-target="#the-t-test"><span class="header-section-number">14.9</span> The t-test</a></li>
-  <li><a href="#types-of-error" id="toc-types-of-error" class="nav-link" data-scroll-target="#types-of-error"><span class="header-section-number">14.10</span> Types of error</a>
+  <li><a href="#the-role-of-the-significance-level" id="toc-the-role-of-the-significance-level" class="nav-link" data-scroll-target="#the-role-of-the-significance-level"><span class="header-section-number">14.8</span> The Role of the Significance Level</a>
   <ul class="collapse">
-  <li><a href="#type-i-error" id="toc-type-i-error" class="nav-link" data-scroll-target="#type-i-error"><span class="header-section-number">14.10.1</span> Type I error</a></li>
-  <li><a href="#type-ii-error" id="toc-type-ii-error" class="nav-link" data-scroll-target="#type-ii-error"><span class="header-section-number">14.10.2</span> Type II error</a></li>
-  <li><a href="#trade-off" id="toc-trade-off" class="nav-link" data-scroll-target="#trade-off"><span class="header-section-number">14.10.3</span> Trade-off</a></li>
+  <li><a href="#how-different-significance-levels-affects-the-test" id="toc-how-different-significance-levels-affects-the-test" class="nav-link" data-scroll-target="#how-different-significance-levels-affects-the-test"><span class="header-section-number">14.8.1</span> How different significance levels affects the test</a></li>
+  <li><a href="#example-critical-values-for-the-z-distribution" id="toc-example-critical-values-for-the-z-distribution" class="nav-link" data-scroll-target="#example-critical-values-for-the-z-distribution"><span class="header-section-number">14.8.2</span> Example: Critical Values for the Z-distribution</a></li>
   </ul></li>
-  <li><a href="#power-of-a-test" id="toc-power-of-a-test" class="nav-link" data-scroll-target="#power-of-a-test"><span class="header-section-number">14.11</span> Power of a test</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.12</span> Chapter summary</a></li>
+  <li><a href="#estimator-vs.-estimation" id="toc-estimator-vs.-estimation" class="nav-link" data-scroll-target="#estimator-vs.-estimation"><span class="header-section-number">14.9</span> Estimator vs.&nbsp;Estimation</a></li>
+  <li><a href="#the-t-test" id="toc-the-t-test" class="nav-link" data-scroll-target="#the-t-test"><span class="header-section-number">14.10</span> The t-test</a>
+  <ul class="collapse">
+  <li><a href="#numerical-example-are-drivers-speeding" id="toc-numerical-example-are-drivers-speeding" class="nav-link" data-scroll-target="#numerical-example-are-drivers-speeding"><span class="header-section-number">14.10.1</span> Numerical example: Are drivers speeding?</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">0. Descriptive Statistics</a></li>
+  <li><a href="#set-up-our-null-hypothesis" id="toc-set-up-our-null-hypothesis" class="nav-link" data-scroll-target="#set-up-our-null-hypothesis">1. Set up our Null Hypothesis</a></li>
+  <li><a href="#calculating-the-test-statistic" id="toc-calculating-the-test-statistic" class="nav-link" data-scroll-target="#calculating-the-test-statistic">2. Calculating the Test Statistic</a></li>
+  <li><a href="#conclude" id="toc-conclude" class="nav-link" data-scroll-target="#conclude">3. Conclude</a></li>
+  </ul></li>
+  <li><a href="#types-of-error" id="toc-types-of-error" class="nav-link" data-scroll-target="#types-of-error"><span class="header-section-number">14.11</span> Types of error</a>
+  <ul class="collapse">
+  <li><a href="#type-i-error" id="toc-type-i-error" class="nav-link" data-scroll-target="#type-i-error"><span class="header-section-number">14.11.1</span> Type I error</a></li>
+  <li><a href="#type-ii-error" id="toc-type-ii-error" class="nav-link" data-scroll-target="#type-ii-error"><span class="header-section-number">14.11.2</span> Type II error</a></li>
+  <li><a href="#trade-off" id="toc-trade-off" class="nav-link" data-scroll-target="#trade-off"><span class="header-section-number">14.11.3</span> Trade-off</a></li>
+  </ul></li>
+  <li><a href="#power-of-a-test" id="toc-power-of-a-test" class="nav-link" data-scroll-target="#power-of-a-test"><span class="header-section-number">14.12</span> Power of a test</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.13</span> Chapter summary</a></li>
   </ul>
 </nav>
     </div>
@@ -702,14 +714,141 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </section>
 <section id="working-with-different-level-of-significance" class="level2" data-number="14.7">
 <h2 data-number="14.7" class="anchored" data-anchor-id="working-with-different-level-of-significance"><span class="header-section-number">14.7</span> Working with different level of significance</h2>
+<p>Here is a cleaned and refined version of your text, formatted to match a high-quality economics or statistics textbook. I have corrected the typos, clarified the logic, and filled in the standard Z-score values.</p>
 <hr>
 </section>
-<section id="estimator-vs.-estimation" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="estimator-vs.-estimation"><span class="header-section-number">14.8</span> Estimator vs.&nbsp;Estimation</h2>
+<section id="the-role-of-the-significance-level" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="the-role-of-the-significance-level"><span class="header-section-number">14.8</span> The Role of the Significance Level</h2>
+<p>While we have used a <strong>5% (<span class="math inline">\(\alpha = 0.05\)</span>)</strong> significance level so far, this is not a universal rule. In practice, researchers often choose different levels depending on the “cost” of making a mistake. The most common alternatives are:</p>
+<ul>
+<li><strong><span class="math inline">\(\alpha = 0.10\)</span> (10%):</strong> A more “liberal” level, often used in exploratory research.</li>
+<li><strong><span class="math inline">\(\alpha = 0.01\)</span> (1%):</strong> A “stringent” level, used when we want to be very sure before claiming a discovery (common in medical trials).</li>
+</ul>
+<section id="how-different-significance-levels-affects-the-test" class="level3" data-number="14.8.1">
+<h3 data-number="14.8.1" class="anchored" data-anchor-id="how-different-significance-levels-affects-the-test"><span class="header-section-number">14.8.1</span> How different significance levels affects the test</h3>
+<p>Changing the significance level directly shifts the “threshold” for what we consider statistically significant. Specifically, it influences:</p>
+<ol type="1">
+<li><strong>The Critical Value:</strong> As <span class="math inline">\(\alpha\)</span> gets smaller, the critical value moves further into the tail (gets larger in absolute terms), making it harder to reject the null hypothesis.</li>
+<li><strong>The Confidence Interval:</strong> A smaller <span class="math inline">\(\alpha\)</span> results in a wider confidence interval (<span class="math inline">\(1 - \alpha\)</span>).</li>
+<li><strong>The P-value Benchmark:</strong> The p-value is compared directly to <span class="math inline">\(\alpha\)</span>. If you lower <span class="math inline">\(\alpha\)</span> from 0.05 to 0.01, a result that was “significant” at 4%, for example, is no longer significant.</li>
+</ol>
+</section>
+<section id="example-critical-values-for-the-z-distribution" class="level3" data-number="14.8.2">
+<h3 data-number="14.8.2" class="anchored" data-anchor-id="example-critical-values-for-the-z-distribution"><span class="header-section-number">14.8.2</span> Example: Critical Values for the Z-distribution</h3>
+<p>If we assume a standard normal distribution (Z), the critical values shift as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Significance Level (<span class="math inline">\(\alpha\)</span>)</th>
+<th style="text-align: left;">One-sided Test (<span class="math inline">\(Z_{\alpha}\)</span>)</th>
+<th style="text-align: left;">Two-sided Test (<span class="math inline">\(Z_{\alpha/2}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>10% (<span class="math inline">\(\alpha = 0.10\)</span>)</strong></td>
+<td style="text-align: left;"><strong>1.28</strong></td>
+<td style="text-align: left;"><strong>1.645</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>5% (<span class="math inline">\(\alpha = 0.05\)</span>)</strong></td>
+<td style="text-align: left;">1.645</td>
+<td style="text-align: left;">1.96</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>1% (<span class="math inline">\(\alpha = 0.01\)</span>)</strong></td>
+<td style="text-align: left;">2.33</td>
+<td style="text-align: left;">2.58</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Trade-off
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Choosing a smaller <span class="math inline">\(\alpha\)</span> (e.g., 1%) reduces the risk of a <strong>Type-I Error</strong> (false positive), but it simultaneously increases the risk of a <strong>Type-II Error</strong> (failing to detect a real effect) because the “bar” for evidence is set much higher.</p>
+</div>
+</div>
 <hr>
 </section>
-<section id="the-t-test" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="the-t-test"><span class="header-section-number">14.9</span> The t-test</h2>
+</section>
+<section id="estimator-vs.-estimation" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="estimator-vs.-estimation"><span class="header-section-number">14.9</span> Estimator vs.&nbsp;Estimation</h2>
+<p>It is crucial to distinguish between an <strong>estimator</strong> (the rule or function) and an <strong>estimation</strong> (the specific value produced by that rule).</p>
+<p>In statistics, our primary focus is studying the properties of <strong>estimators</strong>. Our goal is to develop and use “good” estimators to infer population parameters.</p>
+<p>But what exactly defines a <strong>good</strong> estimator?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Properties of a Good Estimator">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Properties of a Good Estimator
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>good</strong> estimator <span class="math inline">\(\hat{\theta}\)</span> is typically characterized by two key properties:</p>
+<ul>
+<li><p><strong>Unbiasedness:</strong> <span class="math inline">\(E[\hat{\theta}] = \theta\)</span>. This means that, on average, the estimator hits the true population parameter exactly. There is no systematic over- or under-estimation.</p></li>
+<li><p><strong>Efficiency:</strong> <span class="math inline">\(Var(\hat{\theta}_1) &lt; Var(\hat{\theta}_2)\)</span>. Among a class of unbiased estimators, the most efficient one is the one with the smallest variance. It is the “tightest” rule, meaning its individual estimates are more likely to be close to the true value.</p></li>
+</ul>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Key Distinction:</strong> An <em>estimator</em> is a random variable (the formula), while an <em>estimation</em> is a single realization (the number) calculated from a specific sample.</p>
+</blockquote>
+<p>Let’s take a closer look at two estimators (rules) for average: (1) <span class="math inline">\(\overline{X} = \frac{\sum X}{n}\)</span>, and (2) <span class="math inline">\(\tilde{X} = \frac{X_1 + X_2}{2}\)</span></p>
+<p>To verify whether they are biased or unbiased, we take their expectations assuming each <span class="math inline">\(X_i\)</span> is drawn from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and the draws are independent:</p>
+<ol type="1">
+<li>The Sample Mean, <span class="math inline">\(\bar{X}\)</span>:</li>
+</ol>
+<p><span class="math display">\[E[\overline{X}] = E\left[ \frac{1}{n} \sum_{i=1}^{n} X_i \right] = \frac{1}{n} \sum_{i=1}^{n} E[X_i] = \frac{1}{n} (n\mu) = \mu\]</span></p>
+<p>Since <span class="math inline">\(E[\bar{X}] = \mu\)</span>, the sample mean is an unbiased estimator.</p>
+<ol start="2" type="1">
+<li>The Two-Point Average, (<span class="math inline">\(\tilde{X}\)</span>):</li>
+</ol>
+<p><span class="math display">\[E[\tilde{X}] = E\left[ \frac{X_1 + X_2}{2} \right] = \frac{1}{2} (E[X_1] + E[X_2]) = \frac{1}{2} (\mu + \mu) = \mu\]</span></p>
+<p>Since <span class="math inline">\(E[\tilde{X}] = \mu\)</span>, this rule is also unbiased.</p>
+<p>We turn to their variances. Using the variance rules, and assuming each <span class="math inline">\(X_i\)</span> is drawn from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and the draws are independent:</p>
+<ol type="1">
+<li>Variance of the Sample Mean , <span class="math inline">\(\bar{X}\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+Var(\overline{X}) &amp;= Var\left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) \\
+             &amp;= \frac{1}{n^2} \sum_{i=1}^{n} Var(X_i) = \frac{1}{n^2} (n\sigma^2) = \frac{\sigma^2}{n}
+\end{aligned}
+\]</span></p>
+<p><strong>Insight:</strong> As the sample size <span class="math inline">\(n\)</span> increases, the variance of the estimator shrinks toward zero. This is the mathematical basis for the “Law of Large Numbers.”</p>
+<ol start="2" type="1">
+<li>Variance of the Two-Point Average, <span class="math inline">\(\tilde{X}\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+Var(\tilde{X}) &amp;= Var\left( \frac{X_1 + X_2}{2} \right) \\
+               &amp;= \frac{1}{2^2} \left[ Var(X_1) + Var(X_2) \right] \\
+               &amp;= \frac{1}{4} (\sigma^2 + \sigma^2) = \frac{2\sigma^2}{4} = \frac{\sigma^2}{2}
+\end{aligned}
+\]</span></p>
+<p><strong>Comparison:</strong> Why <span class="math inline">\(\bar{X}\)</span> is “More Efficient”? When <span class="math inline">\(n=2\)</span>, the variance of both estimators are the same; however, with <span class="math inline">\(n&gt;2\)</span>, <span class="math inline">\(Var(\overline{X}) &lt; Var(\tilde{X})\)</span>.</p>
+<blockquote class="blockquote">
+<p>Both estimators are <strong>unbiased</strong> (“on target”), but the sample mean <span class="math inline">\(\overline{X}\)</span> is more effiicent (“sharper”.</p>
+</blockquote>
+<hr>
+</section>
+<section id="the-t-test" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="the-t-test"><span class="header-section-number">14.10</span> The t-test</h2>
 <p>The standard normal distribution is <strong>not</strong> the only sampling distribution considered. If the sample size is small and/or the standard deviation of the population is <strong>unknown</strong> (and has to be estimated by the unbiased sample estimate), then the t-distribution or Student’s t-distribution is appropriate.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Key idea">
 <div class="callout-header d-flex align-content-center">
@@ -755,14 +894,81 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 <p>And for large <span class="math inline">\(n\)</span>, the t-distribution is close to normal.</p>
 </div>
 </div>
+<section id="numerical-example-are-drivers-speeding" class="level3" data-number="14.10.1">
+<h3 data-number="14.10.1" class="anchored" data-anchor-id="numerical-example-are-drivers-speeding"><span class="header-section-number">14.10.1</span> Numerical example: Are drivers speeding?</h3>
+<p>Suppose we want to determine if drivers in a specific city are abiding by the <strong>100 km/h</strong> speed limit. We randomly measure the speeds of 5 cars:</p>
+<p><span class="math display">\[\text{108, 113, 98, 102, 118}\]</span></p>
+</section>
+<section id="descriptive-statistics" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="descriptive-statistics">0. Descriptive Statistics</h3>
+<p>First, we calculate the basic properties of our sample:</p>
+<ul>
+<li><strong>Sample Average (<span class="math inline">\(\bar{X}\)</span>):</strong> <span class="math inline">\(107.8 \text{ km/h}\)</span></li>
+<li><strong>Sample Standard Deviation (<span class="math inline">\(SD^+\)</span>):</strong> <span class="math inline">\(8.07\)</span></li>
+<li><strong>Sample Size (<span class="math inline">\(n\)</span>):</strong> <span class="math inline">\(5\)</span></li>
+</ul>
+<p><strong>Note</strong> here that for the sample standard deviation we use the <strong>unbiased</strong> estimator for the population standard deviation:</p>
+<p><span class="math display">\[
+SD^+ = \sqrt{ \frac{\sum (X-\overline{X})^2}{n-1}}
+\]</span></p>
+</section>
+<section id="set-up-our-null-hypothesis" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="set-up-our-null-hypothesis">1. Set up our Null Hypothesis</h3>
+<p><span class="math inline">\(H_0\)</span>: Drivers abide by the speed limit (<span class="math inline">\(\mu = 100\)</span> km/h)<br>
+<span class="math inline">\(H_a\)</span>: Drivers do NOT abide by the speed limit (<span class="math inline">\(\mu &gt; 100\)</span> km/h)</p>
+</section>
+<section id="calculating-the-test-statistic" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="calculating-the-test-statistic">2. Calculating the Test Statistic</h3>
+<p>We need the Standard Error (SE) of the <strong>average</strong>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+SE_{\text{sum}} &amp;= \sqrt{n} \times SD^+ = \sqrt{5} \times 8.07 \approx 18.05 \\
+SE_{\text{avg}} &amp;= \frac{SE_{\text{sum}}}{n} = \frac{18.05}{5} = 3.61
+\end{aligned}
+\]</span></p>
+<p>Then the test statistic (t-stat) measures how many standard errors our observed average is away from the expected value (null hypothesis):</p>
+<p><span class="math display">\[
+TS = \frac{\text{observed} - \text{expected}}{SE} = \frac{107.8 - 100}{3.61} \approx 2.16
+\]</span></p>
+</section>
+<section id="conclude" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="conclude">3. Conclude</h3>
+<p>Why do we use the t-distribution? If we used a standard normal curve (Z-test), a score of <span class="math inline">\(2.16\)</span> would give a p-value of approximately <span class="math inline">\(1.5\%\)</span>. However, the normal curve is less reliable for small samples (<span class="math inline">\(n &lt; 30\)</span>).</p>
+<p>Instead, we use <strong>Student’s t-distribution</strong>, which adjusted for the extra uncertainty of small samples by having “thicker tails.” To use it, we must calculate the <strong>Degrees of Freedom (df)</strong>:</p>
+<p><span class="math display">\[df = n - 1 = 5 - 1 = 4\]</span></p>
+<p><strong>Finding the P-value</strong></p>
+<p>We look for the area to the right of <strong>2.16</strong> in the t-table with <strong>4 degrees of freedom</strong>.</p>
+<ul>
+<li>According to the t-table for <span class="math inline">\(df = 4\)</span>:
+<ul>
+<li>The value for <span class="math inline">\(5\%\)</span> is <span class="math inline">\(2.13\)</span></li>
+<li>The value for <span class="math inline">\(2.5\%\)</span> is <span class="math inline">\(2.78\)</span></li>
+</ul></li>
+<li>Since our <span class="math inline">\(t = 2.16\)</span> falls between these two, our <strong>p-value is between 2.5% and 5%</strong>.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Conclusion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because the p-value is less than <span class="math inline">\(5\%\)</span>, we reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level. There is statistical evidence that the average speed in this city exceeds the limit.</p>
+</div>
+</div>
+<p>Of course, we can use the <strong>critical value</strong> method or the <strong>confidence interval</strong> method to get the same conclusion.</p>
 <hr>
 </section>
-<section id="types-of-error" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="types-of-error"><span class="header-section-number">14.10</span> Types of error</h2>
+</section>
+<section id="types-of-error" class="level2" data-number="14.11">
+<h2 data-number="14.11" class="anchored" data-anchor-id="types-of-error"><span class="header-section-number">14.11</span> Types of error</h2>
 <p>The task of statistical inference is to make some statement about a population parameter given a sample statistic. In hypothesis testing, the researcher sets up a null hypothesis without really knowing whether it is correct or wrong. Of course, he or she will determine a value from learned judgement and/or past researches if any. Be as it may, there is always possibility for error in hypothesis testing, which cannot be avoided. Hypothesis testing involves uncertainty.</p>
 <hr>
-<section id="type-i-error" class="level3" data-number="14.10.1">
-<h3 data-number="14.10.1" class="anchored" data-anchor-id="type-i-error"><span class="header-section-number">14.10.1</span> Type I error</h3>
+<section id="type-i-error" class="level3" data-number="14.11.1">
+<h3 data-number="14.11.1" class="anchored" data-anchor-id="type-i-error"><span class="header-section-number">14.11.1</span> Type I error</h3>
 <p>Rejecting the null when it is actually true.</p>
 <ul>
 <li>“False alarm” (<em>seeing</em> a problem when none exists)</li>
@@ -770,8 +976,8 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </ul>
 <hr>
 </section>
-<section id="type-ii-error" class="level3" data-number="14.10.2">
-<h3 data-number="14.10.2" class="anchored" data-anchor-id="type-ii-error"><span class="header-section-number">14.10.2</span> Type II error</h3>
+<section id="type-ii-error" class="level3" data-number="14.11.2">
+<h3 data-number="14.11.2" class="anchored" data-anchor-id="type-ii-error"><span class="header-section-number">14.11.2</span> Type II error</h3>
 <p>Failing to reject the null when it is false.</p>
 <ul>
 <li>“Missed detection”<br>
@@ -785,7 +991,7 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </figure>
 </div>
 <hr>
-<p>An analogy of a household smoke detector helps clarify these ideas. Suppose the null hypothesis is “no fire.” A very sensitive alarm may go off even when there is no fire—this is a <strong>Type I error</strong> (or false positive), where we reject a true null hypothesis.</p>
+<p>An analogy of a household smoke detector helps clarify these ideas. Suppose the <strong>null hypothesis is “no fire.”</strong> A very sensitive alarm may go off even when there is no fire—this is a <strong>Type I error</strong> (or false positive), where we reject a true null hypothesis.</p>
 <p>Conversely, there may be a real fire, but the alarm fails to sound. In this case, the null hypothesis (“no fire”) is false, yet we do not reject it. This is known as a <strong>Type II error</strong> (or false negative), where we fail to detect a real effect.</p>
 <table class="caption-top table">
 <colgroup>
@@ -833,15 +1039,15 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </div>
 <hr>
 </section>
-<section id="trade-off" class="level3" data-number="14.10.3">
-<h3 data-number="14.10.3" class="anchored" data-anchor-id="trade-off"><span class="header-section-number">14.10.3</span> Trade-off</h3>
+<section id="trade-off" class="level3" data-number="14.11.3">
+<h3 data-number="14.11.3" class="anchored" data-anchor-id="trade-off"><span class="header-section-number">14.11.3</span> Trade-off</h3>
 <p>Note that to reduce Type-I error for the example of the fire alarm, we could simply remove the batteries. Then the alarm will never go off and this increases Type-II error. In effect, there is a trade-off between Type-I and Type-II error: Reducing one type of error often increases the other.</p>
 <p>One must decide in terms of cost which error is less desirable when designing a test.</p>
 <hr>
 </section>
 </section>
-<section id="power-of-a-test" class="level2" data-number="14.11">
-<h2 data-number="14.11" class="anchored" data-anchor-id="power-of-a-test"><span class="header-section-number">14.11</span> Power of a test</h2>
+<section id="power-of-a-test" class="level2" data-number="14.12">
+<h2 data-number="14.12" class="anchored" data-anchor-id="power-of-a-test"><span class="header-section-number">14.12</span> Power of a test</h2>
 <p>Obviously we would like a test to reject a false null most of the time. In fact this is known as the power of test, which is <span class="math inline">\((1-\beta)\)</span></p>
 <div class="callout callout-style-default callout-important callout-titled" title="Key concept">
 <div class="callout-header d-flex align-content-center">
@@ -862,8 +1068,8 @@ H_0:\mu = 170 \qquad H_a:\mu \neq 170
 </div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="14.12">
-<h2 data-number="14.12" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">14.12</span> Chapter summary</h2>
+<section id="chapter-summary" class="level2" data-number="14.13">
+<h2 data-number="14.13" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">14.13</span> Chapter summary</h2>
 <ul>
 <li>Hypothesis testing evaluates whether observed data are consistent with a null hypothesis<br>
 </li>

@@ -610,9 +610,103 @@ legend(
 
 ## Working with different level of significance
 
+Here is a cleaned and refined version of your text, formatted to match a high-quality economics or statistics textbook. I have corrected the typos, clarified the logic, and filled in the standard Z-score values.
+
+---
+
+## The Role of the Significance Level
+
+While we have used a **5% ($\alpha = 0.05$)** significance level so far, this is not a universal rule. In practice, researchers often choose different levels depending on the "cost" of making a mistake. The most common alternatives are:
+
+* **$\alpha = 0.10$ (10%):** A more "liberal" level, often used in exploratory research.
+* **$\alpha = 0.01$ (1%):** A "stringent" level, used when we want to be very sure before claiming a discovery (common in medical trials).
+
+### How different significance levels affects the test
+
+Changing the significance level directly shifts the "threshold" for what we consider statistically significant. Specifically, it influences:
+
+1.  **The Critical Value:** As $\alpha$ gets smaller, the critical value moves further into the tail (gets larger in absolute terms), making it harder to reject the null hypothesis.
+2.  **The Confidence Interval:** A smaller $\alpha$ results in a wider confidence interval ($1 - \alpha$).
+3.  **The P-value Benchmark:** The p-value is compared directly to $\alpha$. If you lower $\alpha$ from 0.05 to 0.01, a result that was "significant" at 4%, for example, is no longer significant.
+
+### Example: Critical Values for the Z-distribution
+
+If we assume a standard normal distribution (Z), the critical values shift as follows:
+
+| Significance Level ($\alpha$) | One-sided Test ($Z_{\alpha}$) | Two-sided Test ($Z_{\alpha/2}$) |
+| :--- | :--- | :--- |
+| **10% ($\alpha = 0.10$)** | **1.28** | **1.645** |
+| **5% ($\alpha = 0.05$)** | 1.645 | 1.96 |
+| **1% ($\alpha = 0.01$)** | 2.33 | 2.58 |
+
+::: {.callout-important}
+### The Trade-off
+
+Choosing a smaller $\alpha$ (e.g., 1%) reduces the risk of a **Type-I Error** (false positive), but it simultaneously increases the risk of a **Type-II Error** (failing to detect a real effect) because the "bar" for evidence is set much higher.
+:::
+
 ---
 
 ## Estimator vs. Estimation
+
+It is crucial to distinguish between an **estimator** (the rule or function) and an **estimation** (the specific value produced by that rule). 
+
+In statistics, our primary focus is studying the properties of **estimators**. Our goal is to develop and use "good" estimators to infer population parameters.
+
+But what exactly defines a **good** estimator?
+
+::: {.callout-note title="Properties of a Good Estimator"}
+A **good** estimator $\hat{\theta}$ is typically characterized by two key properties:
+
+* **Unbiasedness:** $E[\hat{\theta}] = \theta$. This means that, on average, the estimator hits the true population parameter exactly. There is no systematic over- or under-estimation.
+
+* **Efficiency:** $Var(\hat{\theta}_1) < Var(\hat{\theta}_2)$. Among a class of unbiased estimators, the most efficient one is the one with the smallest variance. It is the "tightest" rule, meaning its individual estimates are more likely to be close to the true value.
+:::
+
+> **Key Distinction:** An *estimator* is a random variable (the formula), while an *estimation* is a single realization (the number) calculated from a specific sample.
+
+Let's take a closer look at two estimators (rules) for average: (1) $\overline{X} = \frac{\sum X}{n}$, and (2) $\tilde{X} = \frac{X_1 + X_2}{2}$
+
+To verify whether they are biased or unbiased, we take their expectations assuming each $X_i$ is drawn from a population with mean $\mu$ and variance $\sigma^2$, and the draws are independent:
+
+(1) The Sample Mean, $\bar{X}$:
+
+$$E[\overline{X}] = E\left[ \frac{1}{n} \sum_{i=1}^{n} X_i \right] = \frac{1}{n} \sum_{i=1}^{n} E[X_i] = \frac{1}{n} (n\mu) = \mu$$
+
+Since $E[\bar{X}] = \mu$, the sample mean is an unbiased estimator.
+
+(2) The Two-Point Average, ($\tilde{X}$):
+
+$$E[\tilde{X}] = E\left[ \frac{X_1 + X_2}{2} \right] = \frac{1}{2} (E[X_1] + E[X_2]) = \frac{1}{2} (\mu + \mu) = \mu$$
+
+Since $E[\tilde{X}] = \mu$, this rule is also unbiased.
+
+We turn to their variances. Using the variance rules, and assuming each $X_i$ is drawn from a population with mean $\mu$ and variance $\sigma^2$, and the draws are independent:
+
+(1) Variance of the Sample Mean , $\bar{X}$:
+
+$$
+\begin{aligned}
+Var(\overline{X}) &= Var\left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) \\
+             &= \frac{1}{n^2} \sum_{i=1}^{n} Var(X_i) = \frac{1}{n^2} (n\sigma^2) = \frac{\sigma^2}{n}
+\end{aligned}
+$$
+
+**Insight:** As the sample size $n$ increases, the variance of the estimator shrinks toward zero. This is the mathematical basis for the "Law of Large Numbers."
+
+(2) Variance of the Two-Point Average, $\tilde{X}$:
+
+$$
+\begin{aligned}
+Var(\tilde{X}) &= Var\left( \frac{X_1 + X_2}{2} \right) \\
+               &= \frac{1}{2^2} \left[ Var(X_1) + Var(X_2) \right] \\
+               &= \frac{1}{4} (\sigma^2 + \sigma^2) = \frac{2\sigma^2}{4} = \frac{\sigma^2}{2}
+\end{aligned}
+$$
+
+**Comparison:** Why $\bar{X}$ is "More Efficient"? When $n=2$, the variance of both estimators are the same; however, with $n>2$, $Var(\overline{X}) < Var(\tilde{X})$.
+
+> Both estimators are **unbiased** ("on target"), but the sample mean $\overline{X}$ is more effiicent ("sharper".
 
 ---
 
@@ -669,6 +763,73 @@ The student's t-distribution requires
 And for large $n$, the t-distribution is close to normal.
 :::
 
+### Numerical example: Are drivers speeding?
+
+Suppose we want to determine if drivers in a specific city are abiding by the **100 km/h** speed limit. We randomly measure the speeds of 5 cars:
+
+$$\text{108, 113, 98, 102, 118}$$
+
+### 0. Descriptive Statistics {.unnumbered}
+
+First, we calculate the basic properties of our sample:
+
+* **Sample Average ($\bar{X}$):** $107.8 \text{ km/h}$
+* **Sample Standard Deviation ($SD^+$):** $8.07$
+* **Sample Size ($n$):** $5$
+
+**Note** here that for the sample standard deviation we use the **unbiased** estimator for the population standard deviation:
+
+$$
+SD^+ = \sqrt{ \frac{\sum (X-\overline{X})^2}{n-1}}
+$$
+
+### 1. Set up our Null Hypothesis {.unnumbered}
+
+$H_0$: Drivers abide by the speed limit ($\mu = 100$ km/h)\
+$H_a$: Drivers do NOT abide by the speed limit ($\mu > 100$ km/h)
+
+### 2. Calculating the Test Statistic {.unnumbered}
+
+We need the Standard Error (SE) of the **average**:
+
+$$
+\begin{aligned}
+SE_{\text{sum}} &= \sqrt{n} \times SD^+ = \sqrt{5} \times 8.07 \approx 18.05 \\
+SE_{\text{avg}} &= \frac{SE_{\text{sum}}}{n} = \frac{18.05}{5} = 3.61
+\end{aligned}
+$$
+
+Then the test statistic (t-stat) measures how many standard errors our observed average is away from the expected value (null hypothesis):
+
+$$
+TS = \frac{\text{observed} - \text{expected}}{SE} = \frac{107.8 - 100}{3.61} \approx 2.16
+$$
+
+### 3. Conclude {.unnumbered}
+
+Why do we use the t-distribution? If we used a standard normal curve (Z-test), a score of $2.16$ would give a p-value of approximately $1.5\%$. However, the normal curve is less reliable for small samples ($n < 30$).
+
+Instead, we use **Student’s t-distribution**, which adjusted for the extra uncertainty of small samples by having "thicker tails." 
+To use it, we must calculate the **Degrees of Freedom (df)**:
+
+$$df = n - 1 = 5 - 1 = 4$$
+
+**Finding the P-value**
+
+We look for the area to the right of **2.16** in the t-table with **4 degrees of freedom**. 
+
+* According to the t-table for $df = 4$:
+    * The value for $5\%$ is $2.13$
+    * The value for $2.5\%$ is $2.78$
+* Since our $t = 2.16$ falls between these two, our **p-value is between 2.5% and 5%**.
+
+::: {.callout-note}
+### Conclusion
+Because the p-value is less than $5\%$, we reject the null hypothesis at the $5\%$ significance level. There is statistical evidence that the average speed in this city exceeds the limit.
+:::
+
+Of course, we can use the **critical value** method or the **confidence interval** method to get the same conclusion.
+
 ---
 
 ## Types of error
@@ -705,7 +866,7 @@ it is in fact false.
 
 ---
 
-An analogy of a household smoke detector helps clarify these ideas. Suppose the null hypothesis is “no fire.” A very sensitive alarm may go off even when there is no fire—this is a **Type I error** (or false positive), where we reject a true null hypothesis.
+An analogy of a household smoke detector helps clarify these ideas. Suppose the **null hypothesis is “no fire.”** A very sensitive alarm may go off even when there is no fire—this is a **Type I error** (or false positive), where we reject a true null hypothesis.
 
 Conversely, there may be a real fire, but the alarm fails to sound. In this case, the null hypothesis (“no fire”) is false, yet we do not reject it. This is known as a **Type II error** (or false negative), where we fail to detect a real effect.
 
