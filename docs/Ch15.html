@@ -312,6 +312,14 @@ window.Quarto = {
   </ul></li>
   <li><a href="#power-of-a-test" id="toc-power-of-a-test" class="nav-link" data-scroll-target="#power-of-a-test"><span class="header-section-number">14.12</span> Power of a test</a></li>
   <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.13</span> Chapter summary</a></li>
+  <li><a href="#exercises-statistical-inference-and-hypothesis-testing" id="toc-exercises-statistical-inference-and-hypothesis-testing" class="nav-link" data-scroll-target="#exercises-statistical-inference-and-hypothesis-testing"><span class="header-section-number">14.14</span> Exercises: Statistical Inference and Hypothesis Testing</a>
+  <ul class="collapse">
+  <li><a href="#proportions-and-binary-outcomes" id="toc-proportions-and-binary-outcomes" class="nav-link" data-scroll-target="#proportions-and-binary-outcomes"><span class="header-section-number">14.14.1</span> Proportions and Binary Outcomes</a></li>
+  <li><a href="#inference-for-means-large-samples" id="toc-inference-for-means-large-samples" class="nav-link" data-scroll-target="#inference-for-means-large-samples"><span class="header-section-number">14.14.2</span> Inference for Means (Large Samples)</a></li>
+  <li><a href="#the-missing-data-challenge" id="toc-the-missing-data-challenge" class="nav-link" data-scroll-target="#the-missing-data-challenge"><span class="header-section-number">14.14.3</span> The “Missing Data” Challenge</a></li>
+  <li><a href="#small-samples-and-the-t-test" id="toc-small-samples-and-the-t-test" class="nav-link" data-scroll-target="#small-samples-and-the-t-test"><span class="header-section-number">14.14.4</span> Small Samples and the t-test</a></li>
+  <li><a href="#types-of-error-1" id="toc-types-of-error-1" class="nav-link" data-scroll-target="#types-of-error-1"><span class="header-section-number">14.14.5</span> Types of Error</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1091,8 +1099,142 @@ TS = \frac{\text{observed} - \text{expected}}{SE} = \frac{107.8 - 100}{3.61} \ap
 </ul></li>
 <li>Statistical decisions always involve <strong>uncertainty and trade-offs</strong></li>
 </ul>
+<hr>
+</section>
+<section id="exercises-statistical-inference-and-hypothesis-testing" class="level2" data-number="14.14">
+<h2 data-number="14.14" class="anchored" data-anchor-id="exercises-statistical-inference-and-hypothesis-testing"><span class="header-section-number">14.14</span> Exercises: Statistical Inference and Hypothesis Testing</h2>
+<section id="proportions-and-binary-outcomes" class="level3" data-number="14.14.1">
+<h3 data-number="14.14.1" class="anchored" data-anchor-id="proportions-and-binary-outcomes"><span class="header-section-number">14.14.1</span> Proportions and Binary Outcomes</h3>
+<ol type="1">
+<li><strong>Demographics and Births:</strong> Demographers theorize that <span class="math inline">\(55\%\)</span> of newborns are male. In a specific hospital, 568 out of 1000 consecutive births are male.
+<ul>
+<li>Are these data consistent with the demographers’ theory?</li>
+<li>Formulate a null hypothesis and calculate the z-statistic.</li>
+</ul></li>
+<li><strong>The Fair Coin Test:</strong> A coin is tossed 10,000 times and lands heads 5,067 times.
+<ul>
+<li><ol type="a">
+<li>Formulate the null and alternative hypotheses to test if the coin is fair.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Compute the z-statistic and the p-value.</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Based on your results, are there “too many” heads to suggest the coin is fair?</li>
+</ol></li>
+</ul></li>
+</ol>
+</section>
+<section id="inference-for-means-large-samples" class="level3" data-number="14.14.2">
+<h3 data-number="14.14.2" class="anchored" data-anchor-id="inference-for-means-large-samples"><span class="header-section-number">14.14.2</span> Inference for Means (Large Samples)</h3>
+<ol start="3" type="1">
+<li><strong>The Box Model:</strong> An investigator treats data as 400 draws made at random from a large box. The null hypothesis states the average is 50; the alternative says the average is more than 50. The sample average is 52.7 with an SD of 25.
+<ul>
+<li>Calculate the Standard Error and the z-statistic.</li>
+<li>What is your conclusion?</li>
+</ul></li>
+<li><strong>Quality Control in Manufacturing:</strong> YY Golf Club Manufacturing Co.&nbsp;uses equipment designed to produce golf balls with an average travel distance of 295 yards. An inspector samples 50 balls for quality control.
+<ul>
+<li>Define the null hypothesis.</li>
+<li>If the sample mean is significantly different from 295, what action should the inspector take regarding the equipment?</li>
+</ul></li>
+<li><strong>Weights and Measures:</strong> An importer claims the average weight of saffron packets is 20 grams. A sample of 36 packets has an average weight of 19.5 grams and a sample standard deviation (<span class="math inline">\(SD^+\)</span>) of 1.0 grams.
+<ul>
+<li><ol type="a">
+<li>Set up <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Calculate the test statistic.</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Are the importer’s claims valid at <span class="math inline">\(\alpha = 0.05\)</span>?</li>
+</ol></li>
+</ul></li>
+<li><strong>Randomness vs.&nbsp;Haphazardness:</strong> A lab’s mice have an average weight of 30g (SD 5g). Students haphazardly (without a formal method) chose 25 mice each, resulting in a sample mean of 33g and an SD of 7g.
+<ul>
+<li>Use a z-test to determine if “haphazard” selection is statistically equivalent to “random” selection.</li>
+</ul></li>
+<li><strong>The Box Average:</strong> 100 draws are made from a box (<span class="math inline">\(n=100\)</span>). The sample average is 102.7 and the SD is 10.
+<ul>
+<li><ol type="a">
+<li>Is it plausible that the box average is actually 100?</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>How would your conclusion change if the sample average was 101.1 instead?</li>
+</ol></li>
+</ul></li>
+</ol>
+</section>
+<section id="the-missing-data-challenge" class="level3" data-number="14.14.3">
+<h3 data-number="14.14.3" class="anchored" data-anchor-id="the-missing-data-challenge"><span class="header-section-number">14.14.3</span> The “Missing Data” Challenge</h3>
+<ol start="8" type="1">
+<li><strong>The Rain-Soaked Report:</strong> Fill in the missing values marked with “—” in the table below.</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">n</th>
+<th style="text-align: center;">Mean</th>
+<th style="text-align: center;">SD</th>
+<th style="text-align: center;">SE</th>
+<th style="text-align: center;">95% Confidence Interval</th>
+<th style="text-align: center;">z-stat (against <span class="math inline">\(\mu=0\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">5.600</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">(3.81081, 7.38919)</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<ol start="9" type="1">
+<li><strong>Critical Value Method:</strong> Using the z-statistic calculated in Question 9, conclude the test at a 5% significance level. Is your conclusion based on a 1-sided or 2-sided test?</li>
+</ol>
+</section>
+<section id="small-samples-and-the-t-test" class="level3" data-number="14.14.4">
+<h3 data-number="14.14.4" class="anchored" data-anchor-id="small-samples-and-the-t-test"><span class="header-section-number">14.14.4</span> Small Samples and the t-test</h3>
+<ol start="10" type="1">
+<li><strong>Machine Calibration:</strong> A machine is calibrated to read 70. Six readings are taken: 72, 79, 65, 84, 67, and 77.
+<ul>
+<li>Does the machine need to be fixed? Conduct a t-test to see if these readings are significantly different from 70.</li>
+</ul></li>
+<li><strong>Employee Training:</strong> Last year, maintenance training took an average of 59 days. The division claims new employees are “better” (faster). A sample of 20 new employees shows the following times:</li>
+</ol>
+<blockquote class="blockquote">
+<p>52, 59, 54, 42, 44, 50, 42, 48, 55, 54, 60, 55, 44, 62, 62, 57, 45, 46, 43, 56</p>
+</blockquote>
+<p>Set up the null hypothesis and use the t-table to conclude if the training time has decreased (<span class="math inline">\(\alpha = 0.05\)</span>).</p>
+<ol start="12" type="1">
+<li><strong>Cereal Packaging:</strong> A machine must package boxes with a mean weight of 453 grams. A sample of 50 boxes shows a mean of 449.8 grams and an SD of 5.3. Is the machine functioning properly? Perform a two-sided test.</li>
+</ol>
+</section>
+<section id="types-of-error-1" class="level3" data-number="14.14.5">
+<h3 data-number="14.14.5" class="anchored" data-anchor-id="types-of-error-1"><span class="header-section-number">14.14.5</span> Types of Error</h3>
+<ol start="13" type="1">
+<li><strong>Cost-Benefit Analysis:</strong> A manager considers a new billing system that is only beneficial if the average daily account exceeds Baht 170. A random sample of 400 accounts shows a mean of Baht 178 with an SD of Baht 65. (This is the same example in the chapter)</li>
+</ol>
+<ul>
+<li>Calculate the probability of Type-I error<br>
+</li>
+<li>If the true mean is 180 Baht, calculate the the probability of Type-II error</li>
+<li>What is the power of the test?</li>
+</ul>
 
 
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
