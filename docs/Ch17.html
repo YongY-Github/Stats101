@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Correlation – Probability &amp; Statistics 101</title>
+<title>16&nbsp; The Chi-square Test – Probability &amp; Statistics 101</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ch6.html" rel="next">
-<link href="./Ch3.html" rel="prev">
+<link href="./Ch18.html" rel="next">
+<link href="./Ch16.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -112,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch17.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Chi-square Test</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +165,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Ch4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
   </div>
 </li>
@@ -237,7 +237,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch17.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ch17.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Chi-square Test</span></span></a>
   </div>
 </li>
@@ -257,20 +257,26 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#graphical-representation" id="toc-graphical-representation" class="nav-link active" data-scroll-target="#graphical-representation"><span class="header-section-number">4.1</span> Graphical representation</a></li>
-  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">4.2</span> Correlation</a></li>
-  <li><a href="#correlation-coefficient" id="toc-correlation-coefficient" class="nav-link" data-scroll-target="#correlation-coefficient"><span class="header-section-number">4.3</span> Correlation coefficient</a>
+  <li><a href="#goodness-of-fit-test" id="toc-goodness-of-fit-test" class="nav-link active" data-scroll-target="#goodness-of-fit-test"><span class="header-section-number">16.1</span> Goodness-of-Fit Test</a>
   <ul class="collapse">
-  <li><a href="#how-correlation-is-computed" id="toc-how-correlation-is-computed" class="nav-link" data-scroll-target="#how-correlation-is-computed"><span class="header-section-number">4.3.1</span> How correlation is computed</a></li>
-  <li><a href="#why-this-method-matters" id="toc-why-this-method-matters" class="nav-link" data-scroll-target="#why-this-method-matters"><span class="header-section-number">4.3.2</span> Why this method matters</a></li>
+  <li><a href="#example-testing-a-die" id="toc-example-testing-a-die" class="nav-link" data-scroll-target="#example-testing-a-die"><span class="header-section-number">16.1.1</span> Example: Testing a Die</a></li>
+  <li><a href="#the-chi2-distribution" id="toc-the-chi2-distribution" class="nav-link" data-scroll-target="#the-chi2-distribution"><span class="header-section-number">16.1.2</span> The <span class="math inline">\(\chi^2\)</span> Distribution</a></li>
+  <li><a href="#hypothesis-testing-for-goofness-of-fit-test" id="toc-hypothesis-testing-for-goofness-of-fit-test" class="nav-link" data-scroll-target="#hypothesis-testing-for-goofness-of-fit-test"><span class="header-section-number">16.1.3</span> Hypothesis Testing for Goofness-of-fit Test</a></li>
   </ul></li>
-  <li><a href="#association-is-not-causation" id="toc-association-is-not-causation" class="nav-link" data-scroll-target="#association-is-not-causation"><span class="header-section-number">4.4</span> Association is not causation</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.5</span> Exercises</a>
+  <li><a href="#test-for-independence" id="toc-test-for-independence" class="nav-link" data-scroll-target="#test-for-independence"><span class="header-section-number">16.2</span> Test for Independence</a>
   <ul class="collapse">
-  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">4.5.1</span> Conceptual questions</a></li>
-  <li><a href="#understanding-correlation" id="toc-understanding-correlation" class="nav-link" data-scroll-target="#understanding-correlation"><span class="header-section-number">4.5.2</span> Understanding correlation</a></li>
-  <li><a href="#computation-and-interpretation" id="toc-computation-and-interpretation" class="nav-link" data-scroll-target="#computation-and-interpretation"><span class="header-section-number">4.5.3</span> Computation and interpretation</a></li>
-  <li><a href="#optional-challenge" id="toc-optional-challenge" class="nav-link" data-scroll-target="#optional-challenge"><span class="header-section-number">4.5.4</span> Optional challenge</a></li>
+  <li><a href="#example-handedness-and-gender" id="toc-example-handedness-and-gender" class="nav-link" data-scroll-target="#example-handedness-and-gender"><span class="header-section-number">16.2.1</span> Example: Handedness and Gender</a></li>
+  <li><a href="#calculating-expected-frequencies" id="toc-calculating-expected-frequencies" class="nav-link" data-scroll-target="#calculating-expected-frequencies"><span class="header-section-number">16.2.2</span> Calculating Expected Frequencies</a></li>
+  <li><a href="#comparing-observed-and-expected" id="toc-comparing-observed-and-expected" class="nav-link" data-scroll-target="#comparing-observed-and-expected"><span class="header-section-number">16.2.3</span> Comparing Observed and Expected</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">16.2.4</span> Conclusion</a></li>
+  </ul></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">16.3</span> Chapter Summary</a></li>
+  <li><a href="#exercises-chi-square-tests" id="toc-exercises-chi-square-tests" class="nav-link" data-scroll-target="#exercises-chi-square-tests"><span class="header-section-number">17</span> Exercises: Chi-Square Tests</a>
+  <ul class="collapse">
+  <li><a href="#advertising-and-market-share" id="toc-advertising-and-market-share" class="nav-link" data-scroll-target="#advertising-and-market-share">1. Advertising and Market Share</a></li>
+  <li><a href="#marital-status-and-gender" id="toc-marital-status-and-gender" class="nav-link" data-scroll-target="#marital-status-and-gender">2. Marital Status and Gender</a></li>
+  <li><a href="#the-two-way-die-test" id="toc-the-two-way-die-test" class="nav-link" data-scroll-target="#the-two-way-die-test">3. The “Two-Way” Die Test</a></li>
+  <li><a href="#academic-intentions" id="toc-academic-intentions" class="nav-link" data-scroll-target="#academic-intentions">4. Academic Intentions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -280,7 +286,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ch4" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></h1>
+<h1 class="title"><span id="ch17" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Chi-square Test</span></span></h1>
 </div>
 
 
@@ -309,50 +315,190 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>By the end of this chapter, you should be able to:</p>
 <ul>
-<li>distinguish between univariate and bivariate data,</li>
-<li>use graphical tools to describe relationships between two variables,</li>
-<li>explain why means and standard deviations are insufficient for describing association,</li>
-<li>define and interpret the correlation coefficient,</li>
-<li>compute correlation using standard units,</li>
-<li>understand the limitations of correlation, especially with respect to causation.</li>
+<li>Distinguish between the <strong>Goodness-of-Fit</strong> test and the <strong>Test for Independence</strong>.</li>
+<li>Calculate the <span class="math inline">\(\chi^2\)</span> test statistic using observed and expected frequencies.</li>
+<li>Determine the appropriate degrees of freedom for different table structures.</li>
+<li>Use the <span class="math inline">\(\chi^2\)</span> table to make statistical inferences about categorical data.</li>
 </ul>
 </div>
 </div>
-<section id="graphical-representation" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="graphical-representation"><span class="header-section-number">4.1</span> Graphical representation</h2>
-<p>So far, we have focused on a single variable—what is known as <strong>univariate data</strong>—and examined their graphical and numerical summaries. We now turn to <strong>bivariate data</strong>, that is, data involving two variables.</p>
-<p>As economists, we are often interested in understanding relationships between variables—for example, wages and education, CEO performance and salaries, economic growth and foreign aid, and many others. As with univariate data, both <strong>graphical</strong> and <strong>numerical</strong> summaries can be used.</p>
+<p>The <span class="math inline">\(\chi^2\)</span>-test (pronounced “kai-square”) is due to the prominent statistician Karl Pearson. While <span class="math inline">\(z\)</span>-tests and <span class="math inline">\(t\)</span>-tests are appropriate for numerical data or binary (0-1) outcomes, the <span class="math inline">\(\chi^2\)</span>-test is designed for situations involving three or more <strong>categories</strong>.</p>
+<p>In this chapter, we examine two primary applications:</p>
+<ol type="1">
+<li><strong>The Goodness-of-Fit Test:</strong> Does the data fit a specific predetermined model?<br>
+</li>
+<li><strong>The Test for Independence:</strong> Are two categorical variables related or independent?</li>
+</ol>
+<hr>
+<section id="goodness-of-fit-test" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="goodness-of-fit-test"><span class="header-section-number">16.1</span> Goodness-of-Fit Test</h2>
+<p>This test asks whether observed data “fits” a theoretical expectation. For example, consider testing whether a die is fair. If we toss a die 60 times, a fair die should result in each face appearing approximately 10 times.</p>
+<section id="example-testing-a-die" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="example-testing-a-die"><span class="header-section-number">16.1.1</span> Example: Testing a Die</h3>
+<p>Suppose we observe the following frequencies after 60 throws:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Outcome</th>
+<th style="text-align: center;">Observed Frequency (<span class="math inline">\(O\)</span>)</th>
+<th style="text-align: center;">Expected Frequency (<span class="math inline">\(E\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Sum</strong></td>
+<td style="text-align: center;"><strong>60</strong></td>
+<td style="text-align: center;"><strong>60</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Clearly, the observed and expected frequencies differ—for example, there are fewer 1s and more 3s than expected. The <span class="math inline">\(\chi^2\)</span>-test allows us to determine if these deviations are due to chance or because the die is biased.</p>
+</section>
+<section id="the-chi2-distribution" class="level3" data-number="16.1.2">
+<h3 data-number="16.1.2" class="anchored" data-anchor-id="the-chi2-distribution"><span class="header-section-number">16.1.2</span> The <span class="math inline">\(\chi^2\)</span> Distribution</h3>
+<p>Unlike the symmetric <span class="math inline">\(z\)</span> or <span class="math inline">\(t\)</span> distributions, the <span class="math inline">\(\chi^2\)</span> distribution is <strong>skewed to the right</strong>, particularly for small degrees of freedom. As the degrees of freedom (<span class="math inline">\(df\)</span>) increase, it begins to look more like a normal distribution.</p>
+<div id="chi-square" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/ch17/chi-square.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Chi-square</figcaption>
+</figure>
+</div>
+<p>The <span class="math inline">\(\chi^2\)</span>-table <a href="figs\ch17\chisquared.pdf" target="_blank">LINK</a> is read like the student’s t-table. The first column represents the degrees of freedom, while the top row corresponds to the area under the curve to the right of the <span class="math inline">\(\chi^2\)</span>-values shown below. For example, at <span class="math inline">\(df=5\)</span> and .05 significance level, the <span class="math inline">\(\chi^2\)</span>-critical value is 14.2.</p>
+</section>
+<section id="hypothesis-testing-for-goofness-of-fit-test" class="level3" data-number="16.1.3">
+<h3 data-number="16.1.3" class="anchored" data-anchor-id="hypothesis-testing-for-goofness-of-fit-test"><span class="header-section-number">16.1.3</span> Hypothesis Testing for Goofness-of-fit Test</h3>
+<ol type="1">
+<li><p><strong>Hypotheses:</strong></p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: The die is fair (Observed fits Expected).</li>
+<li><span class="math inline">\(H_a\)</span>: The die is biased (Bad fit).</li>
+</ul></li>
+<li><p><strong>Test Statistic (<span class="math inline">\(TS\)</span>):</strong> <span class="math display">\[\chi^2 = \sum \frac{(\text{observed} - \text{expected})^2}{\text{expected}}\]</span></p></li>
+<li><p><strong>Decision Rule:</strong><br>
+As before, reject the null if the test statistic is larger than the critical value.<br>
+For our die example, the calculated <span class="math inline">\(\chi^2 = 14.2\)</span>. The degrees of freedom is <span class="math inline">\(6 - 1 = 5\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<ul>
+<li>At <span class="math inline">\(\alpha = 0.05\)</span> and <span class="math inline">\(df = 5\)</span>, the critical value is <strong>11.07</strong>.</li>
+<li>Since <span class="math inline">\(14.2 &gt; 11.07\)</span>, we <strong>reject the null hypothesis</strong>. The die is likely biased.</li>
+</ul></li>
+</ol>
+<p>Likewise, we can get the p-value from the <span class="math inline">\(\chi^2\)</span>-table. For <span class="math inline">\(df = 5\)</span>, the table shows that the corresponding area to the right of 14.2 is between 5<span class="math inline">\(\%\)</span> (that is the area to the right of 11.07) and 1<span class="math inline">\(\%\)</span> (the area to the right of 15.09). In other words, the p-value is between 5 and 1<span class="math inline">\(\%\)</span>, which is less than our depicted <span class="math inline">\(\alpha\)</span>. Hence we reject the null.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key graphical tools for two variables
+<span class="screen-reader-only">Note</span>Rule of Thumb
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The two most important graphical summaries for bivariate data are:</p>
-<ul>
-<li><strong>Contingency tables</strong>, usually for categorical variables<br>
-</li>
-<li><strong>Scatter diagrams</strong>, usually for quantitative variables</li>
-</ul>
+<p>The <span class="math inline">\(\chi^2\)</span>-test is most reliable when the expected frequency (<span class="math inline">\(E\)</span>) for each category is <strong>5 or more</strong>.</p>
 </div>
 </div>
-<p>A <strong>contingency table</strong> lists the frequency of each combination of values of two categorical variables. For example, a survey of 2,237 people recording gender and handedness might produce the following table.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div id="tbl-income" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.1: Gender and handedness
-</figcaption>
-<div aria-describedby="tbl-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<hr>
+</section>
+</section>
+<section id="test-for-independence" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="test-for-independence"><span class="header-section-number">16.2</span> Test for Independence</h2>
+<p>The <span class="math inline">\(\chi^2\)</span> test for independence evaluates whether two categorical variables (e.g., Gender and Handedness) are related in the population.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<section id="example-handedness-and-gender" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="example-handedness-and-gender"><span class="header-section-number">16.2.1</span> Example: Handedness and Gender</h3>
+<p>A survey of 2,237 people yielded the following data:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Male</th>
+<th style="text-align: center;">Female</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Right-handed</td>
+<td style="text-align: center;">934</td>
+<td style="text-align: center;">1070</td>
+<td style="text-align: center;">2004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Left-handed</td>
+<td style="text-align: center;">113</td>
+<td style="text-align: center;">92</td>
+<td style="text-align: center;">205</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ambidextrous</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>1067</strong></td>
+<td style="text-align: center;"><strong>1170</strong></td>
+<td style="text-align: center;"><strong>2237</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The research question is: Are gender and handedness independent? There can be various reasons why a researcher might be interested in such a question. For example, in neurophysiology, it could be hypothesized that women use relatively more their brain’s left-side (i.e.&nbsp;their rational faculty) than men do. This could explain why women are more rational then men. Sociologist on the other hand argue that women are under greater pressure to abide to the social norm than men. The alternative is that handedness is distributed the same for men and women in the population, and any difference in the sample data is due to mere chance. Be as it may, the <span class="math inline">\(\chi^2\)</span>-test can bring some light to such a question.</p>
+<p><strong>Hypotheses:</strong><br>
+<span class="math inline">\(H_0\)</span>: Handedness and gender are independent.<br>
+<span class="math inline">\(H_a\)</span>: Handedness and gender are not independent.</p>
+</section>
+<section id="calculating-expected-frequencies" class="level3" data-number="16.2.2">
+<h3 data-number="16.2.2" class="anchored" data-anchor-id="calculating-expected-frequencies"><span class="header-section-number">16.2.2</span> Calculating Expected Frequencies</h3>
+<p>If the variables are independent, the distribution of handedness should be the same for both genders.<br>
+1. Calculate the overall ratio for a category (e.g., Right-handed: <span class="math inline">\(2004 / 2237 \approx 89.6\%\)</span>).<br>
+2. Apply this ratio to the gender totals (e.g., Expected Right-handed Males: <span class="math inline">\(0.896 \times 1067 = 956\)</span>).</p>
+<p>and so on.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
 <th></th>
-<th>Male</th>
-<th>Female</th>
+<th>observed Male</th>
+<th>Observed Female</th>
+<th>Ratio (%)</th>
+<th>Expected Male</th>
+<th>Expected Female</th>
 </tr>
 </thead>
 <tbody>
@@ -360,490 +506,222 @@ Table&nbsp;4.1: Gender and handedness
 <td>Right-handed</td>
 <td>934</td>
 <td>1070</td>
+<td>89.6</td>
+<td>956</td>
+<td>1048</td>
 </tr>
 <tr class="even">
 <td>Left-handed</td>
 <td>113</td>
 <td>92</td>
+<td>9.1</td>
+<td>98</td>
+<td>107</td>
 </tr>
 <tr class="odd">
 <td>Ambidextrous</td>
 <td>20</td>
 <td>8</td>
+<td>1.3</td>
+<td>13</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>Sum</td>
+<td>1067</td>
+<td>1170</td>
+<td>100</td>
+<td>1067</td>
+<td>1170</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-<p>When dealing with <strong>cardinal (quantitative) data</strong>, the relationship between two variables is better visualized using a <strong>scatter diagram</strong>. The figure below shows the association between the duration of eruptions of Old Faithful and the waiting time between eruptions.</p>
-<div id="fig-oldfaithful" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-oldfaithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/scatter_1.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oldfaithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Waiting time and eruption duration of Old Faithful
-</figcaption>
-</figure>
-</div>
 </section>
-<section id="correlation" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="correlation"><span class="header-section-number">4.2</span> Correlation</h2>
-<p>Graphs are informative, but they also have limitations. For this reason, we need <strong>numerical summaries</strong> that describe the relationship between two variables.</p>
-<p>In earlier chapters, we introduced the <strong>mean</strong> and <strong>standard deviation</strong> as the most important numerical summaries for univariate data. One might therefore ask: <em>Why are these not sufficient for bivariate data?</em></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Why means and SDs are not enough
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Two datasets can have the same mean and standard deviation for each variable, yet exhibit very different relationships between those variables.</p>
-</div>
-</div>
-<p>Consider a university that has offered two statistics sections, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, over several years. For each student, midterm and final exam scores (out of 200) are recorded and plotted.</p>
-<div id="fig-scatterscores" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-scatterscores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/scatter-ab.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterscores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Students’ score: Section A and B
-</figcaption>
-</figure>
-</div>
-<p>Points lying on the 45<span class="math inline">\(^\circ\)</span> line represent students whose midterm and final scores are the same.</p>
-<p>If there is a <strong>strong association</strong>, knowing one variable helps predict the other. If the association is weak, knowing one variable provides little predictive power.</p>
-<p>For example, a student in section <span class="math inline">\(A\)</span> who scored 150 on the midterm could plausibly score anywhere between 60 and 160 on the final. In section <span class="math inline">\(B\)</span>, a student with the same midterm score would likely score between 100 and 160. Midterm scores therefore provide better predictive information in section <span class="math inline">\(B\)</span>.</p>
-<p>More strikingly, the <strong>means</strong> and <strong>standard deviations</strong> of both midterm and final scores are almost identical across the two sections. This means that we cannot distinguish the sections using only these summaries.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>We need a new measure
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To capture how tightly points cluster around a line in a scatter diagram, we introduce the <strong>correlation coefficient</strong>, denoted by <span class="math inline">\(r\)</span>.</p>
-</div>
-</div>
-</section>
-<section id="correlation-coefficient" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="correlation-coefficient"><span class="header-section-number">4.3</span> Correlation coefficient</h2>
-<p>The <strong>correlation coefficient</strong> is a pure number between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="comparing-observed-and-expected" class="level3" data-number="16.2.3">
+<h3 data-number="16.2.3" class="anchored" data-anchor-id="comparing-observed-and-expected"><span class="header-section-number">16.2.3</span> Comparing Observed and Expected</h3>
+<p>Applying the <span class="math inline">\(\chi^2\)</span> formula to all cells:</p>
 <p><span class="math display">\[
--1 \leq Corr(X,Y) \leq 1
+\begin{aligned}
+\chi^2 &amp;= \frac{(934-956)^2}{956} + \frac{(1070-1048)^2}{1048} + \dots \\
+&amp;\approx 12
+\end{aligned}
 \]</span></p>
-</div>
-</div>
-<p>Furthermore:</p>
-<ul>
-<li><span class="math inline">\(r = 1\)</span> or <span class="math inline">\(r = -1\)</span> indicates <strong>perfect correlation</strong></li>
-<li>A positive value of <span class="math inline">\(r\)</span> indicates a <strong>positive relationship</strong></li>
-<li>A negative value of <span class="math inline">\(r\)</span> indicates a <strong>negative relationship</strong></li>
-</ul>
-<p>The figures below show two variables with the same mean (3) and standard deviation (1), but different correlations.</p>
-<div id="fig-positive-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-positive-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/positive-r.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-positive-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: Positive correlation
-</figcaption>
-</figure>
-</div>
-<div id="fig-negative-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-negative-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/negative-r.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-negative-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.4: Negative correlation
-</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>A technical detail
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If either variable has a standard deviation equal to zero, then <span class="math inline">\(r = 0\)</span>. Correlation requires variation in <em>both</em> variables.</p>
-</div>
-</div>
-<section id="how-correlation-is-computed" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="how-correlation-is-computed"><span class="header-section-number">4.3.1</span> How correlation is computed</h3>
-<p>To compute the correlation coefficient:</p>
-<ol type="1">
-<li>Convert each variable into <strong>standard units</strong></li>
-<li>Multiply the standard units pairwise</li>
-<li>Take the <strong>average</strong> of these products</li>
-</ol>
-<p>Standard units measure distance from the mean in terms of standard deviations.</p>
-<p>For the list <span class="math inline">\(1, 3, 4, 5, 7\)</span>, the mean is 4 and the standard deviation is 2. The values in standard units are: <span class="math inline">\(-1.5,\; -0.5,\; 0,\; 0.5,\; 1.5\)</span></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Standard units
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Standard units measure how far a value lies from the mean relative to the spread of the data.</p>
-</div>
-</div>
-<p>Now consider the five points: <span class="math inline">\((1,5), (3,9), (4,7), (5,1), (7,13)\)</span>.</p>
-<p>The mean of <span class="math inline">\(X\)</span> is 4 with <span class="math inline">\(SD_X = 2\)</span>, and the mean of <span class="math inline">\(Y\)</span> is 7 with <span class="math inline">\(SD_Y = 4\)</span>.</p>
-<div id="tbl-calculating-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-calculating-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.2: Calculating the correlation coefficient
-</figcaption>
-<div aria-describedby="tbl-calculating-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><strong>Degrees of Freedom:</strong> For a table with <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns: <span class="math display">\[df = (r - 1) \times (c - 1)\]</span> In this case: <span class="math inline">\((3 - 1) \times (2 - 1) = 2\)</span>.</p>
+<p>The following table shows the difference between the observed and expected values, i.e.&nbsp;the deviations.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
-<th><span class="math inline">\(SU_X\)</span></th>
-<th><span class="math inline">\(SU_Y\)</span></th>
-<th>Product</th>
+<th></th>
+<th>Male</th>
+<th>Female</th>
+<th>Sum</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>5</td>
-<td>-1.5</td>
-<td>-0.5</td>
-<td>0.75</td>
+<td>Right-handed</td>
+<td>-22</td>
+<td>22</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<td>3</td>
-<td>9</td>
-<td>-0.5</td>
-<td>0.5</td>
-<td>-0.25</td>
+<td>Left-handed</td>
+<td>-15</td>
+<td>15</td>
+<td>0</td>
 </tr>
 <tr class="odd">
-<td>4</td>
+<td>Ambidextrous</td>
 <td>7</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
+<td>-7</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>1</td>
-<td>0.5</td>
-<td>-1.5</td>
-<td>-0.75</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>13</td>
-<td>1.5</td>
-<td>1.5</td>
-<td>2.25</td>
+<td>Sum</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-<p>The correlation coefficient is the <strong>average of the last column</strong>, which equals <span class="math inline">\(r = 0.4\)</span>.</p>
-</section>
-<section id="why-this-method-matters" class="level3 callout-example" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="why-this-method-matters"><span class="header-section-number">4.3.2</span> Why this method matters</h3>
-<p>This approach shows that correlation:</p>
-<ul>
-<li>has <strong>no units</strong></li>
-<li>is unchanged by rescaling variables</li>
-<li>measures <strong>relative</strong>, not absolute, clustering</li>
-</ul>
-</section>
-<p>There are many other ways to compute the correlation coefficient, but we will stick to the above method as it reveals best how the correlation coefficient works.</p>
-<p>In many textbooks, the formula for correlation is written as:<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Correlation coefficient
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[
-Corr(X,Y) = \frac{\sum_{i=1}^{n} (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^{n} (X_i - \overline{X})^2} \sqrt{\sum_{i=1}^{n} (Y_i - \overline{Y})^2}}
-\]</span></p>
-<p>Another definition commonly used is:</p>
-<p><span class="math display">\[
-Corr(X,Y) = \displaystyle \frac{\text{Covariance}(X,Y)}{SD_x SD_y}
-\]</span></p>
-</div>
-</div>
+<p>The bottom row and left-most column show that the vertical and horizontal sums respectively, or what is the sum of deviation, add to zero. This means that we need to know only 2 deviations (of the six), and the others can be automatically found, hence the degrees of freedom is 2. In sum, when testing independence in a <span class="math inline">\(m\times n\)</span> table with no other constraints on their probabilities, there are <span class="math inline">\((m-1) \times (n-1)\)</span> degrees of freedom.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Exercise: Correlation coefficients
+<span class="screen-reader-only">Tip</span>Degree of Freedom Logic
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Compute the <strong>correlation coefficient</strong> for each of the following datasets.</p>
-<p><strong>(a)</strong></p>
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
+<p>The <span class="math inline">\(df=2\)</span> reflects the fact that in the deviation table (Observed - Expected), once you know two values in a column, the third is “fixed” because the total deviations must sum to zero.</p>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level3" data-number="16.2.4">
+<h3 data-number="16.2.4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">16.2.4</span> Conclusion</h3>
+<p>At <span class="math inline">\(df=2\)</span> and <span class="math inline">\(\alpha=0.05\)</span>, the critical value is <strong>5.99</strong>. Since our test statistic <span class="math inline">\(12 &gt; 5.99\)</span>, we reject the null hypothesis. There is a statistically significant relationship between gender and handedness.</p>
+<p>The p-value is the area to the right of <span class="math inline">\(\chi^2 = 12\)</span> at 2 degrees of freedom. From the table, the p-value is less than <span class="math inline">\(1\%\)</span>, which is less than the significance level of <span class="math inline">\(5\%\)</span>, hence we reject the null.</p>
+</section>
+</section>
+<section id="chapter-summary" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">16.3</span> Chapter Summary</h2>
+<ul>
+<li><strong>Goodness-of-Fit</strong> compares one sample to a theoretical distribution.</li>
+<li><strong>Independence</strong> compares two categorical variables to each other.</li>
+<li>A <strong>large <span class="math inline">\(\chi^2\)</span> value</strong> indicates a large discrepancy between what we see and what we expect, typically leading to a rejection of the null hypothesis.</li>
+</ul>
+<hr>
+</section>
+<section id="exercises-chi-square-tests" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Exercises: Chi-Square Tests</h1>
+<section id="advertising-and-market-share" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="advertising-and-market-share">1. Advertising and Market Share</h3>
+<p>Companies A and B dominated the market with shares of <strong>45%</strong> and <strong>40%</strong> respectively (the remaining 15% belonged to other competitors). After an aggressive advertising campaign, a survey of 200 customers revealed the following preferences:</p>
+<ul>
+<li><strong>Company A:</strong> 102 customers</li>
+<li><strong>Company B:</strong> 82 customers</li>
+<li><strong>Others:</strong> 16 customers</li>
+</ul>
+<p><strong>Task:</strong> Using a Goodness-of-Fit test at the 5% significance level, determine if customer preferences have shifted significantly away from the initial market shares.</p>
+</section>
+<section id="marital-status-and-gender" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="marital-status-and-gender">2. Marital Status and Gender</h3>
+<p>A sociological study sampled 103 persons (48 men and 55 women) to examine marital status. The data is presented as percentages within each gender:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">\(X\)</span></th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-<th>3</th>
-<th>3</th>
-<th>4</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: center;">Men (%)</th>
+<th style="text-align: center;">Women (%)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(Y\)</span></td>
-<td>5</td>
-<td>3</td>
-<td>5</td>
-<td>7</td>
-<td>3</td>
-<td>3</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td style="text-align: left;">Never Married</td>
+<td style="text-align: center;">43.8%</td>
+<td style="text-align: center;">16.4%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Married</td>
+<td style="text-align: center;">41.7%</td>
+<td style="text-align: center;">70.9%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Divorced / Widowed</td>
+<td style="text-align: center;">14.5%</td>
+<td style="text-align: center;">12.7%</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><strong>(b)</strong></p>
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
+<ol type="a">
+<li>Convert these percentages back into raw counts (frequencies) for a contingency table.</li>
+<li>Perform a test for independence. Are the marital status distributions statistically different for men and women?</li>
+</ol>
+</section>
+<section id="the-two-way-die-test" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-two-way-die-test">3. The “Two-Way” Die Test</h3>
+<p>To test if a die is fair, a researcher rolls it 600 times. Instead of recording faces 1 through 6, they categorize each roll in two ways: <strong>Size</strong> (Large: 4,5,6 vs.&nbsp;Small: 1,2,3) and <strong>Parity</strong> (Even vs.&nbsp;Odd).</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">\(X\)</span></th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-<th>3</th>
-<th>3</th>
-<th>4</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Large (4,5,6)</th>
+<th style="text-align: center;">Small (1,2,3)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(Y\)</span></td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>3</td>
-<td>1</td>
-<td>4</td>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
+<td style="text-align: left;"><strong>Even</strong></td>
+<td style="text-align: center;">183</td>
+<td style="text-align: center;">113</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Odd</strong></td>
+<td style="text-align: center;">88</td>
+<td style="text-align: center;">216</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><strong>(c)</strong></p>
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
+<ol type="a">
+<li>If the die were fair, what would be the expected frequency for each of the four cells?</li>
+<li>Based on the <span class="math inline">\(\chi^2\)</span> test, is the die fair?</li>
+<li>Looking at the table, does the die seem biased toward specific numbers?</li>
+</ol>
+</section>
+<section id="academic-intentions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="academic-intentions">4. Academic Intentions</h3>
+<p>300 prospective students were surveyed regarding their intended field of study. The administration wants to know if there is a gender bias in faculty choice.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">\(X\)</span></th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-<th>3</th>
-<th>3</th>
-<th>4</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Engineering</th>
+<th style="text-align: center;">Science</th>
+<th style="text-align: center;">Art</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(Y\)</span></td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>6</td>
-<td>6</td>
-<td>8</td>
+<td style="text-align: left;"><strong>Male</strong></td>
+<td style="text-align: center;">37</td>
+<td style="text-align: center;">41</td>
+<td style="text-align: center;">44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Female</strong></td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">72</td>
+<td style="text-align: center;">71</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><strong>Question.</strong><br>
-What do you observe about the values of the correlation coefficients across the three cases?</p>
-</div>
-</div>
-<p>Note that the correlation coefficient is a pure number without any units, which is noted by the conversion to standard units.</p>
-<p>Moreover, the correlation coefficient is *not** affected by any of the three changes: - 1) interchanging the two variables, - 2) adding the same number to all the values of one variable, and - 3) multiplying all the values of one variable by the same positive number.</p>
-<p>This basically means that changing the scale of any of the variables leaves the correlation coefficient unchanged.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/ch4/corr-mag.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
-</figure>
-</div>
-<p>Be warned, looks can be deceiving. A quick glance at the above scatter plots would easily convince someone that the points in (a) is more tightly clustered, and thus having a correlation coefficient closer to 1, than (b). This cannot be further than the truth, because in fact = 0.7 for both diagrams. (b) is simply a magnification of (a). What is important to realize is that calculating involves converting variables to standard units (deviation from average divided by SD) and therefore it measures clustering not in absolute terms, but in relative terms (more specifically, relative to their standard deviations). That is, although plot (a) may appear more tightly clustered than plot (b), both have <span class="math inline">\(r = 0.7\)</span>. Plot (b) is simply a magnified version of plot (a). Correlation measures clustering <strong>relative to standard deviation</strong>, not in absolute terms.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Correlation measures linear association
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The correlation coefficient captures <strong>linear relationships only</strong>. Nonlinear relationships may have low correlation even when variables are strongly related.</p>
-</div>
-</div>
-</section>
-<section id="association-is-not-causation" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="association-is-not-causation"><span class="header-section-number">4.4</span> Association is not causation</h2>
-<p>The last piece of warning when using correlation coefficients is to realize that what we have is a representation of association, that is how the variables move relative to each other. The correlation coefficient does not establish causation. This is best left to economic theory, which is called upon to interpret and explain the data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Correlation measures <strong>association</strong>, not <strong>causation</strong>.</p>
-</div>
-</div>
-<p>A positive or negative correlation does not explain <em>why</em> variables move together. Establishing causation requires economic theory and careful empirical reasoning.</p>
-<p>For example, education is often thought to cause higher wages because more educated individuals tend to earn more. However, a third factor—such as <strong>individual determination or motivation</strong>—may influence both education and wages.</p>
-<p>Such a factor is known as a <strong>confounding variable</strong>, and its presence can invalidate causal interpretations based solely on correlation.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Takeaway
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Correlation is a powerful descriptive tool, but causal claims require much more than a high value of <span class="math inline">\(r\)</span>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Chapter summary
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Correlation provides a numerical summary of the strength and direction of linear association between two variables.</p>
-<p>Scatter diagrams help visualize relationships, while the correlation coefficient measures how tightly points cluster around a straight line. However, correlation alone cannot establish causation, and careful reasoning is required to interpret empirical relationships correctly.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercises" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.5</span> Exercises</h2>
-<section id="conceptual-questions" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">4.5.1</span> Conceptual questions</h3>
-<ol type="1">
-<li><p>Explain the difference between univariate and bivariate data.</p></li>
-<li><p>Why are scatter diagrams useful for studying relationships between quantitative variables?</p></li>
-<li><p>Explain why two datasets can have identical means and standard deviations but very different correlations.</p></li>
-</ol>
-<hr>
-</section>
-<section id="understanding-correlation" class="level3" data-number="4.5.2">
-<h3 data-number="4.5.2" class="anchored" data-anchor-id="understanding-correlation"><span class="header-section-number">4.5.2</span> Understanding correlation</h3>
-<ol start="4" type="1">
-<li><p>What does the sign of the correlation coefficient indicate?</p></li>
-<li><p>What does the magnitude of the correlation coefficient tell us?</p></li>
-<li><p>Why must both variables exhibit variation for correlation to be meaningful?</p></li>
-</ol>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Common pitfall
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A high correlation does not imply a causal relationship.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="computation-and-interpretation" class="level3" data-number="4.5.3">
-<h3 data-number="4.5.3" class="anchored" data-anchor-id="computation-and-interpretation"><span class="header-section-number">4.5.3</span> Computation and interpretation</h3>
-<ol start="7" type="1">
-<li><p>Explain how converting variables to standard units removes units from the correlation coefficient.</p></li>
-<li><p>Why is correlation unaffected by changes in scale or units?</p></li>
-<li><p>Give an example of a nonlinear relationship that might have low correlation.</p></li>
-</ol>
-<hr>
-</section>
-<section id="optional-challenge" class="level3" data-number="4.5.4">
-<h3 data-number="4.5.4" class="anchored" data-anchor-id="optional-challenge"><span class="header-section-number">4.5.4</span> Optional challenge</h3>
-<ol start="10" type="1">
-<li>Find two real-world variables that are correlated.<br>
-Discuss whether the relationship is likely causal, and identify possible confounding variables.</li>
+<ol type="a">
+<li>State the null hypothesis (<span class="math inline">\(H_0\)</span>) and the alternative hypothesis (<span class="math inline">\(H_a\)</span>).</li>
+<li>Calculate the <span class="math inline">\(\chi^2\)</span> test statistic.</li>
+<li>Test the hypothesis of “no association” at the <strong>10%</strong> significance level.</li>
+<li>Would your conclusion change if you used a more stringent <strong>5%</strong> significance level? Explain the trade-off.</li>
 </ol>
 
 
@@ -852,8 +730,8 @@ Discuss whether the relationship is likely causal, and identify possible confoun
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>For more on the relationship between categorical variables, a useful text is Utts and Heckard (2006, Chapter6).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Sometimes, we can write cov(X,Y) = (avg. of products XY) <span class="math inline">\(-\)</span> (avg. of X) <span class="math inline">\(\times\)</span> (avg. of Y).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Can you tell why <span class="math inline">\(df=5\)</span>?<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Recall that we already looked at the idea of independence in probability, i.e.&nbsp;A and B are said to be independent if <span class="math inline">\(P(A|B)=P(A)\)</span> or <span class="math inline">\(P(B|A)=P(B)\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1260,13 +1138,13 @@ Discuss whether the relationship is likely causal, and identify possible confoun
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Ch3.html" class="pagination-link" aria-label="Numerical Summaries">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Numerical Summaries</span></span>
+      <a href="./Ch16.html" class="pagination-link" aria-label="The Test for the Difference in Means">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Test for the Difference in Means</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ch6.html" class="pagination-link" aria-label="The Normal Distribution">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Normal Distribution</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ch18.html" class="pagination-link" aria-label="The F-distribution and ANOVA">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">The F-distribution and ANOVA</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Correlation – Probability &amp; Statistics 101</title>
+<title>15&nbsp; The Test for the Difference in Means – Probability &amp; Statistics 101</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ch6.html" rel="next">
-<link href="./Ch3.html" rel="prev">
+<link href="./Ch17.html" rel="next">
+<link href="./Ch15.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -112,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch16.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Test for the Difference in Means</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +165,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Ch4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
   </div>
 </li>
@@ -231,7 +231,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch16.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ch16.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Test for the Difference in Means</span></span></a>
   </div>
 </li>
@@ -257,20 +257,25 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#graphical-representation" id="toc-graphical-representation" class="nav-link active" data-scroll-target="#graphical-representation"><span class="header-section-number">4.1</span> Graphical representation</a></li>
-  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">4.2</span> Correlation</a></li>
-  <li><a href="#correlation-coefficient" id="toc-correlation-coefficient" class="nav-link" data-scroll-target="#correlation-coefficient"><span class="header-section-number">4.3</span> Correlation coefficient</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">15.1</span> Introduction</a></li>
+  <li><a href="#a-motivating-example-section-a-vs.-section-b" id="toc-a-motivating-example-section-a-vs.-section-b" class="nav-link" data-scroll-target="#a-motivating-example-section-a-vs.-section-b"><span class="header-section-number">15.2</span> A Motivating Example: Section A vs.&nbsp;Section B</a></li>
+  <li><a href="#step-1-formulating-hypotheses" id="toc-step-1-formulating-hypotheses" class="nav-link" data-scroll-target="#step-1-formulating-hypotheses"><span class="header-section-number">15.3</span> Step 1: Formulating Hypotheses</a></li>
+  <li><a href="#step-2-the-test-statistic" id="toc-step-2-the-test-statistic" class="nav-link" data-scroll-target="#step-2-the-test-statistic"><span class="header-section-number">15.4</span> Step 2: The Test Statistic</a>
   <ul class="collapse">
-  <li><a href="#how-correlation-is-computed" id="toc-how-correlation-is-computed" class="nav-link" data-scroll-target="#how-correlation-is-computed"><span class="header-section-number">4.3.1</span> How correlation is computed</a></li>
-  <li><a href="#why-this-method-matters" id="toc-why-this-method-matters" class="nav-link" data-scroll-target="#why-this-method-matters"><span class="header-section-number">4.3.2</span> Why this method matters</a></li>
+  <li><a href="#the-law-of-variances" id="toc-the-law-of-variances" class="nav-link" data-scroll-target="#the-law-of-variances"><span class="header-section-number">15.4.1</span> The Law of Variances</a></li>
+  <li><a href="#calculating-the-ts" id="toc-calculating-the-ts" class="nav-link" data-scroll-target="#calculating-the-ts"><span class="header-section-number">15.4.2</span> Calculating the TS</a></li>
   </ul></li>
-  <li><a href="#association-is-not-causation" id="toc-association-is-not-causation" class="nav-link" data-scroll-target="#association-is-not-causation"><span class="header-section-number">4.4</span> Association is not causation</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.5</span> Exercises</a>
+  <li><a href="#step-3-conclusion" id="toc-step-3-conclusion" class="nav-link" data-scroll-target="#step-3-conclusion"><span class="header-section-number">15.5</span> Step 3: Conclusion</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">15.6</span> Chapter Summary</a></li>
+  <li><a href="#exercises-comparing-two-populations" id="toc-exercises-comparing-two-populations" class="nav-link" data-scroll-target="#exercises-comparing-two-populations"><span class="header-section-number">15.7</span> Exercises: Comparing Two Populations</a>
   <ul class="collapse">
-  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions"><span class="header-section-number">4.5.1</span> Conceptual questions</a></li>
-  <li><a href="#understanding-correlation" id="toc-understanding-correlation" class="nav-link" data-scroll-target="#understanding-correlation"><span class="header-section-number">4.5.2</span> Understanding correlation</a></li>
-  <li><a href="#computation-and-interpretation" id="toc-computation-and-interpretation" class="nav-link" data-scroll-target="#computation-and-interpretation"><span class="header-section-number">4.5.3</span> Computation and interpretation</a></li>
-  <li><a href="#optional-challenge" id="toc-optional-challenge" class="nav-link" data-scroll-target="#optional-challenge"><span class="header-section-number">4.5.4</span> Optional challenge</a></li>
+  <li><a href="#study-habits-and-confidence-intervals" id="toc-study-habits-and-confidence-intervals" class="nav-link" data-scroll-target="#study-habits-and-confidence-intervals">1. Study Habits and Confidence Intervals</a></li>
+  <li><a href="#public-policy-smoking-in-bars-vs.-restaurants" id="toc-public-policy-smoking-in-bars-vs.-restaurants" class="nav-link" data-scroll-target="#public-policy-smoking-in-bars-vs.-restaurants">2. Public Policy: Smoking in Bars vs.&nbsp;Restaurants</a></li>
+  <li><a href="#education-and-income" id="toc-education-and-income" class="nav-link" data-scroll-target="#education-and-income">3. Education and Income</a></li>
+  <li><a href="#e-learning-effectiveness-small-samples" id="toc-e-learning-effectiveness-small-samples" class="nav-link" data-scroll-target="#e-learning-effectiveness-small-samples">4. E-Learning Effectiveness (Small Samples)</a></li>
+  <li><a href="#the-sat-coaching-experiment" id="toc-the-sat-coaching-experiment" class="nav-link" data-scroll-target="#the-sat-coaching-experiment">5. The SAT Coaching Experiment</a></li>
+  <li><a href="#spot-the-error-differences-in-percentages" id="toc-spot-the-error-differences-in-percentages" class="nav-link" data-scroll-target="#spot-the-error-differences-in-percentages">6. Spot the Error: Differences in Percentages</a></li>
+  <li><a href="#the-dependent-draw-problem-advanced" id="toc-the-dependent-draw-problem-advanced" class="nav-link" data-scroll-target="#the-dependent-draw-problem-advanced">7. The Dependent Draw Problem (Advanced)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -280,7 +285,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ch4" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></h1>
+<h1 class="title"><span id="ch16" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Test for the Difference in Means</span></span></h1>
 </div>
 
 
@@ -309,541 +314,211 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>By the end of this chapter, you should be able to:</p>
 <ul>
-<li>distinguish between univariate and bivariate data,</li>
-<li>use graphical tools to describe relationships between two variables,</li>
-<li>explain why means and standard deviations are insufficient for describing association,</li>
-<li>define and interpret the correlation coefficient,</li>
-<li>compute correlation using standard units,</li>
-<li>understand the limitations of correlation, especially with respect to causation.</li>
+<li>Formulate null and alternative hypotheses for comparing two independent populations.</li>
+<li>Calculate the Standard Error of the difference using the law of variances.</li>
+<li>Conduct a hypothesis test to determine if the difference between two sample means is statistically significant.</li>
+<li>Understand the choice between the Normal and <span class="math inline">\(t\)</span>-distribution in a two-sample context.</li>
 </ul>
 </div>
 </div>
-<section id="graphical-representation" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="graphical-representation"><span class="header-section-number">4.1</span> Graphical representation</h2>
-<p>So far, we have focused on a single variable—what is known as <strong>univariate data</strong>—and examined their graphical and numerical summaries. We now turn to <strong>bivariate data</strong>, that is, data involving two variables.</p>
-<p>As economists, we are often interested in understanding relationships between variables—for example, wages and education, CEO performance and salaries, economic growth and foreign aid, and many others. As with univariate data, both <strong>graphical</strong> and <strong>numerical</strong> summaries can be used.</p>
+<section id="introduction" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">15.1</span> Introduction</h2>
+<p>So far, we have focused on inference for a single population. However, in economic research and policy analysis, we are often interested in comparing two different and independent populations. For example:<br>
+- Do students in one section perform better than those in another?<br>
+- Is there a wage gap between two different industries?<br>
+- Does a “treatment” group differ significantly from a “control” group?</p>
+<p>The core question is whether the observed difference between two sample means is a “real” difference or merely a result of random sampling variation (chance).</p>
+</section>
+<section id="a-motivating-example-section-a-vs.-section-b" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="a-motivating-example-section-a-vs.-section-b"><span class="header-section-number">15.2</span> A Motivating Example: Section A vs.&nbsp;Section B</h2>
+<p>Imagine a statistics course given to two separate groups of students. All students sat the same exam, but the results varied:</p>
+<ul>
+<li><strong>Section A (<span class="math inline">\(n_1 = 49\)</span>):</strong><br>
+Average score <span class="math inline">\(\bar{X}_1 = 25\)</span>, <span class="math inline">\(SD_1 = 2\)</span>.</li>
+<li><strong>Section B (<span class="math inline">\(n_2 = 36\)</span>):</strong><br>
+Average score <span class="math inline">\(\bar{X}_2 = 23\)</span>, <span class="math inline">\(SD_2 = 3\)</span>.</li>
+</ul>
+<p>The observed difference is <span class="math inline">\(25 - 23 = 2\)</span> points. Is Section A “smarter,” or is this 2-point gap just a result of chance? To answer this, we need a statistical test.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key graphical tools for two variables
+<span class="screen-reader-only">Note</span>Statistical vs.&nbsp;Actual Difference
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The two most important graphical summaries for bivariate data are:</p>
-<ul>
-<li><strong>Contingency tables</strong>, usually for categorical variables<br>
-</li>
-<li><strong>Scatter diagrams</strong>, usually for quantitative variables</li>
-</ul>
-</div>
-</div>
-<p>A <strong>contingency table</strong> lists the frequency of each combination of values of two categorical variables. For example, a survey of 2,237 people recording gender and handedness might produce the following table.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div id="tbl-income" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.1: Gender and handedness
-</figcaption>
-<div aria-describedby="tbl-income-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Male</th>
-<th>Female</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Right-handed</td>
-<td>934</td>
-<td>1070</td>
-</tr>
-<tr class="even">
-<td>Left-handed</td>
-<td>113</td>
-<td>92</td>
-</tr>
-<tr class="odd">
-<td>Ambidextrous</td>
-<td>20</td>
-<td>8</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>When dealing with <strong>cardinal (quantitative) data</strong>, the relationship between two variables is better visualized using a <strong>scatter diagram</strong>. The figure below shows the association between the duration of eruptions of Old Faithful and the waiting time between eruptions.</p>
-<div id="fig-oldfaithful" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-oldfaithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/scatter_1.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oldfaithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Waiting time and eruption duration of Old Faithful
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="correlation" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="correlation"><span class="header-section-number">4.2</span> Correlation</h2>
-<p>Graphs are informative, but they also have limitations. For this reason, we need <strong>numerical summaries</strong> that describe the relationship between two variables.</p>
-<p>In earlier chapters, we introduced the <strong>mean</strong> and <strong>standard deviation</strong> as the most important numerical summaries for univariate data. One might therefore ask: <em>Why are these not sufficient for bivariate data?</em></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Why means and SDs are not enough
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Two datasets can have the same mean and standard deviation for each variable, yet exhibit very different relationships between those variables.</p>
-</div>
-</div>
-<p>Consider a university that has offered two statistics sections, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, over several years. For each student, midterm and final exam scores (out of 200) are recorded and plotted.</p>
-<div id="fig-scatterscores" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-scatterscores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/scatter-ab.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterscores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Students’ score: Section A and B
-</figcaption>
-</figure>
-</div>
-<p>Points lying on the 45<span class="math inline">\(^\circ\)</span> line represent students whose midterm and final scores are the same.</p>
-<p>If there is a <strong>strong association</strong>, knowing one variable helps predict the other. If the association is weak, knowing one variable provides little predictive power.</p>
-<p>For example, a student in section <span class="math inline">\(A\)</span> who scored 150 on the midterm could plausibly score anywhere between 60 and 160 on the final. In section <span class="math inline">\(B\)</span>, a student with the same midterm score would likely score between 100 and 160. Midterm scores therefore provide better predictive information in section <span class="math inline">\(B\)</span>.</p>
-<p>More strikingly, the <strong>means</strong> and <strong>standard deviations</strong> of both midterm and final scores are almost identical across the two sections. This means that we cannot distinguish the sections using only these summaries.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>We need a new measure
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To capture how tightly points cluster around a line in a scatter diagram, we introduce the <strong>correlation coefficient</strong>, denoted by <span class="math inline">\(r\)</span>.</p>
+<p>Of course, 25 is not the same as 23. In a descriptive sense, the sections are different. But in a <strong>statistical</strong> sense, we are asking if this difference is large enough to conclude that the underlying populations (the “smartness” or ability) are truly different.</p>
 </div>
 </div>
 </section>
-<section id="correlation-coefficient" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="correlation-coefficient"><span class="header-section-number">4.3</span> Correlation coefficient</h2>
-<p>The <strong>correlation coefficient</strong> is a pure number between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="step-1-formulating-hypotheses" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="step-1-formulating-hypotheses"><span class="header-section-number">15.3</span> Step 1: Formulating Hypotheses</h2>
+<p>We frame our question using the difference in population means (<span class="math inline">\(\mu_1 - \mu_2\)</span>).</p>
 <p><span class="math display">\[
--1 \leq Corr(X,Y) \leq 1
+\begin{aligned}
+H_0 &amp;: \mu_1 - \mu_2 = 0 \\
+H_a &amp;: \mu_1 - \mu_2 &gt; 0
+\end{aligned}
 \]</span></p>
-</div>
-</div>
-<p>Furthermore:</p>
-<ul>
-<li><span class="math inline">\(r = 1\)</span> or <span class="math inline">\(r = -1\)</span> indicates <strong>perfect correlation</strong></li>
-<li>A positive value of <span class="math inline">\(r\)</span> indicates a <strong>positive relationship</strong></li>
-<li>A negative value of <span class="math inline">\(r\)</span> indicates a <strong>negative relationship</strong></li>
-</ul>
-<p>The figures below show two variables with the same mean (3) and standard deviation (1), but different correlations.</p>
-<div id="fig-positive-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-positive-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/positive-r.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-positive-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: Positive correlation
-</figcaption>
-</figure>
-</div>
-<div id="fig-negative-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-negative-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/ch4/negative-r.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-negative-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.4: Negative correlation
-</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>In this case, we are using a <strong>one-sided test</strong>, testing specifically if Section A outperforms Section B.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="step-2-the-test-statistic" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="step-2-the-test-statistic"><span class="header-section-number">15.4</span> Step 2: The Test Statistic</h2>
+<p>The test statistic follows the same logic as the one-sample case: how many standard errors is our “observed” value from our “expected” value?</p>
+<p><span class="math display">\[TS = \frac{\text{observed difference} - \text{expected difference}}{\text{SE of the difference}}\]</span></p>
+<section id="the-law-of-variances" class="level3" data-number="15.4.1">
+<h3 data-number="15.4.1" class="anchored" data-anchor-id="the-law-of-variances"><span class="header-section-number">15.4.1</span> The Law of Variances</h3>
+<p>To find the Standard Error for two independent samples, we cannot simply add the SEs. Instead, we use the <strong>law of variances</strong>, which states that for independent variables <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(Var(A + B) = Var(A) + Var(B)\)</span>.</p>
+<p>To get the SE of the difference, we square the individual SEs (to get variances), add them, and then take the square root:</p>
+<p><span class="math display">\[\text{SE of difference} = \sqrt{SE_1^2 + SE_2^2}\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled" title="Standard Error Calculation">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>A technical detail
+<span class="screen-reader-only">Important</span>Standard Error Calculation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If either variable has a standard deviation equal to zero, then <span class="math inline">\(r = 0\)</span>. Correlation requires variation in <em>both</em> variables.</p>
+<p>For our example:<br>
+1. <span class="math inline">\(SE_1 = \displaystyle\frac{SD_1}{\sqrt{n_1}} = \frac{2}{\sqrt{49}} \approx 0.286\)</span><br>
+2. <span class="math inline">\(SE_2 = \displaystyle\frac{SD_2}{\sqrt{n_2}} = \frac{3}{\sqrt{36}} = 0.5\)</span><br>
+3. <span class="math inline">\(SE_{\text{diff}} = \sqrt{0.286^2 + 0.5^2} \approx 0.58\)</span></p>
 </div>
 </div>
-<section id="how-correlation-is-computed" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="how-correlation-is-computed"><span class="header-section-number">4.3.1</span> How correlation is computed</h3>
-<p>To compute the correlation coefficient:</p>
-<ol type="1">
-<li>Convert each variable into <strong>standard units</strong></li>
-<li>Multiply the standard units pairwise</li>
-<li>Take the <strong>average</strong> of these products</li>
+</section>
+<section id="calculating-the-ts" class="level3" data-number="15.4.2">
+<h3 data-number="15.4.2" class="anchored" data-anchor-id="calculating-the-ts"><span class="header-section-number">15.4.2</span> Calculating the TS</h3>
+<p>Substituting our values into the formula:</p>
+<p><span class="math display">\[TS = \frac{(25 - 23) - 0}{0.58} \approx 3.45\]</span></p>
+</section>
+</section>
+<section id="step-3-conclusion" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="step-3-conclusion"><span class="header-section-number">15.5</span> Step 3: Conclusion</h2>
+<p>Does this <span class="math inline">\(TS\)</span> follow a Normal or <span class="math inline">\(t\)</span>-distribution? The <strong>Degrees of Freedom (df)</strong> for a two-sample test is calculated by summing the losses from both samples: <span class="math display">\[df = (n_1 - 1) + (n_2 - 1)\]</span></p>
+<p>For our example, <span class="math inline">\(df = (49 - 1) + (36 - 1) = 83\)</span>. Since this is a large sample, the <span class="math inline">\(t\)</span>-distribution will be almost identical to the Normal distribution.</p>
+<p>And because TS of 3.45 is pretty large we reject the null hypothesis that the mean of both sections is the same.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Exercise for the Reader">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Exercise for the Reader
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using the test statistic of <span class="math inline">\(3.45\)</span> calculated above, conclude the test using:<br>
+1. The <strong>p-value method</strong> (find the area to the right of 3.45).<br>
+2. The <strong>critical value method</strong> (compare 3.45 to <span class="math inline">\(z = 1.645\)</span> for <span class="math inline">\(\alpha = 0.05\)</span>).<br>
+3. The <strong>confidence interval method</strong>.</p>
+</div>
+</div>
+</section>
+<section id="chapter-summary" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">15.6</span> Chapter Summary</h2>
+<ul>
+<li>To compare two means, we test the null hypothesis that the difference is zero (<span class="math inline">\(H_0: \mu_1 - \mu_2 = 0\)</span>).</li>
+<li>The <strong>SE of the difference</strong> is calculated as the square root of the sum of the squared individual SEs.</li>
+<li>If the sample sizes are small, use the <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(df = n_1 + n_2 - 2\)</span>.</li>
+<li>A large test statistic suggests that the observed difference is very unlikely to have occurred by chance.</li>
+</ul>
+<hr>
+</section>
+<section id="exercises-comparing-two-populations" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="exercises-comparing-two-populations"><span class="header-section-number">15.7</span> Exercises: Comparing Two Populations</h2>
+<section id="study-habits-and-confidence-intervals" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="study-habits-and-confidence-intervals">1. Study Habits and Confidence Intervals</h3>
+<p>A university survey sampled 132 male students and 279 female students. It found that <strong>53%</strong> of the men and <strong>48%</strong> of the women study more than 8 hours per week.</p>
+<ol type="a">
+<li>Construct a 95% confidence interval for the proportion of male students and female students separately.</li>
+<li>By looking at these two individual intervals, can you definitively conclude there is a difference between the two populations?</li>
+<li>If the intervals overlap, does that always mean there is no difference? Suggest a more formal method to test for a difference in proportions.</li>
 </ol>
-<p>Standard units measure distance from the mean in terms of standard deviations.</p>
-<p>For the list <span class="math inline">\(1, 3, 4, 5, 7\)</span>, the mean is 4 and the standard deviation is 2. The values in standard units are: <span class="math inline">\(-1.5,\; -0.5,\; 0,\; 0.5,\; 1.5\)</span></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Standard units
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Standard units measure how far a value lies from the mean relative to the spread of the data.</p>
-</div>
-</div>
-<p>Now consider the five points: <span class="math inline">\((1,5), (3,9), (4,7), (5,1), (7,13)\)</span>.</p>
-<p>The mean of <span class="math inline">\(X\)</span> is 4 with <span class="math inline">\(SD_X = 2\)</span>, and the mean of <span class="math inline">\(Y\)</span> is 7 with <span class="math inline">\(SD_Y = 4\)</span>.</p>
-<div id="tbl-calculating-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-calculating-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.2: Calculating the correlation coefficient
-</figcaption>
-<div aria-describedby="tbl-calculating-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</section>
+<section id="public-policy-smoking-in-bars-vs.-restaurants" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="public-policy-smoking-in-bars-vs.-restaurants">2. Public Policy: Smoking in Bars vs.&nbsp;Restaurants</h3>
+<p>Regular customers at a restaurant (<span class="math inline">\(n_1=112\)</span>) and a pub (<span class="math inline">\(n_2=72\)</span>) were asked if they approved of a non-smoking policy.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
-<th><span class="math inline">\(SU_X\)</span></th>
-<th><span class="math inline">\(SU_Y\)</span></th>
-<th>Product</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Restaurant</th>
+<th style="text-align: center;">Pub</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>5</td>
-<td>-1.5</td>
-<td>-0.5</td>
-<td>0.75</td>
+<td style="text-align: left;"><strong>Approve</strong></td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">36</td>
 </tr>
 <tr class="even">
-<td>3</td>
-<td>9</td>
-<td>-0.5</td>
-<td>0.5</td>
-<td>-0.25</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>7</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>1</td>
-<td>0.5</td>
-<td>-1.5</td>
-<td>-0.75</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>13</td>
-<td>1.5</td>
-<td>1.5</td>
-<td>2.25</td>
+<td style="text-align: left;"><strong>Total Sample</strong></td>
+<td style="text-align: center;">112</td>
+<td style="text-align: center;">72</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-<p>The correlation coefficient is the <strong>average of the last column</strong>, which equals <span class="math inline">\(r = 0.4\)</span>.</p>
+<ol type="a">
+<li>Calculate the sample proportions (<span class="math inline">\(\hat{p}_1\)</span> and <span class="math inline">\(\hat{p}_2\)</span>) for both groups.</li>
+<li>Conduct a complete hypothesis test to determine if the opinion of restaurant customers differs significantly from that of pub customers.</li>
+</ol>
 </section>
-<section id="why-this-method-matters" class="level3 callout-example" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="why-this-method-matters"><span class="header-section-number">4.3.2</span> Why this method matters</h3>
-<p>This approach shows that correlation:</p>
+<section id="education-and-income" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="education-and-income">3. Education and Income</h3>
+<p>To study the “return on education,” a researcher takes two random samples:</p>
 <ul>
-<li>has <strong>no units</strong></li>
-<li>is unchanged by rescaling variables</li>
-<li>measures <strong>relative</strong>, not absolute, clustering</li>
+<li><strong>High-School Certificate:</strong> <span class="math inline">\(n=250\)</span>, <span class="math inline">\(\bar{X} = 28,000\)</span> Baht, <span class="math inline">\(SD = 16,000\)</span> Baht.</li>
+<li><strong>University Degree:</strong> <span class="math inline">\(n=200\)</span>, <span class="math inline">\(\bar{X} = 36,400\)</span> Baht, <span class="math inline">\(SD = 19,000\)</span> Baht.</li>
+</ul>
+<p>Is the difference in average income “real,” or can it be attributed to sampling chance? Calculate the test statistic and conclude at the 5% level.</p>
+</section>
+<section id="e-learning-effectiveness-small-samples" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="e-learning-effectiveness-small-samples">4. E-Learning Effectiveness (Small Samples)</h3>
+<p>Promoters of a typing tutor software want to test if their online course increases speed. Two groups were tested:</p>
+<ul>
+<li><strong>Group 1 (Traditional):</strong> 23, 35, 37, 12, 26, 60, 13, 24, 27, 53</li>
+<li><strong>Group 2 (Online Course):</strong> 56, 30, 55, 48, 35, 40, 33, 23</li>
+</ul>
+<ol type="a">
+<li>Conduct a one-sided <span class="math inline">\(t\)</span>-test with <span class="math inline">\(\alpha = 0.10\)</span> to see if the online course results in faster typing speeds.</li>
+<li>Calculate separate 90% confidence intervals for each group. Does the comparison of these intervals lead to the same conclusion as your <span class="math inline">\(t\)</span>-test?</li>
+</ol>
+</section>
+<section id="the-sat-coaching-experiment" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-sat-coaching-experiment">5. The SAT Coaching Experiment</h3>
+<p>An experiment was conducted with 200 students. 100 were randomly assigned to a coaching program (Treatment), and 100 received no coaching (Control).</p>
+<ul>
+<li><strong>Coaching Group:</strong> <span class="math inline">\(\bar{X} = 486\)</span>, <span class="math inline">\(SD = 98\)</span>.</li>
+<li><strong>Control Group:</strong> <span class="math inline">\(\bar{X} = 477\)</span>, <span class="math inline">\(SD = 103\)</span>.</li>
+</ul>
+<p>Did the coaching work? Perform a statistical test and explain whether the results are “economically significant” versus “statistically significant.”</p>
+</section>
+<section id="spot-the-error-differences-in-percentages" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="spot-the-error-differences-in-percentages">6. Spot the Error: Differences in Percentages</h3>
+<p>An investigator comparing the study habits from Question 1 (<span class="math inline">\(53\%\)</span> vs <span class="math inline">\(48\%\)</span>) calculates the test statistic as <span class="math inline">\(z = (53 - 48) / 0.053\)</span>.</p>
+<ul>
+<li>Explain why this calculation is potentially misleading regarding the units (percentages vs.&nbsp;decimals) and the standard error of the difference.</li>
 </ul>
 </section>
-<p>There are many other ways to compute the correlation coefficient, but we will stick to the above method as it reveals best how the correlation coefficient works.</p>
-<p>In many textbooks, the formula for correlation is written as:<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Correlation coefficient
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[
-Corr(X,Y) = \frac{\sum_{i=1}^{n} (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^{n} (X_i - \overline{X})^2} \sqrt{\sum_{i=1}^{n} (Y_i - \overline{Y})^2}}
-\]</span></p>
-<p>Another definition commonly used is:</p>
-<p><span class="math display">\[
-Corr(X,Y) = \displaystyle \frac{\text{Covariance}(X,Y)}{SD_x SD_y}
-\]</span></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Exercise: Correlation coefficients
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Compute the <strong>correlation coefficient</strong> for each of the following datasets.</p>
-<p><strong>(a)</strong></p>
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(X\)</span></th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-<th>3</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(Y\)</span></td>
-<td>5</td>
-<td>3</td>
-<td>5</td>
-<td>7</td>
-<td>3</td>
-<td>3</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>(b)</strong></p>
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(X\)</span></th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-<th>3</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(Y\)</span></td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>3</td>
-<td>1</td>
-<td>4</td>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>(c)</strong></p>
-<div class="exercise-table" style="width:70%; margin:auto; font-size:0.85em;">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(X\)</span></th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-<th>3</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(Y\)</span></td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>6</td>
-<td>6</td>
-<td>8</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Question.</strong><br>
-What do you observe about the values of the correlation coefficients across the three cases?</p>
-</div>
-</div>
-<p>Note that the correlation coefficient is a pure number without any units, which is noted by the conversion to standard units.</p>
-<p>Moreover, the correlation coefficient is *not** affected by any of the three changes: - 1) interchanging the two variables, - 2) adding the same number to all the values of one variable, and - 3) multiplying all the values of one variable by the same positive number.</p>
-<p>This basically means that changing the scale of any of the variables leaves the correlation coefficient unchanged.</p>
+<section id="the-dependent-draw-problem-advanced" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-dependent-draw-problem-advanced">7. The Dependent Draw Problem (Advanced)</h3>
+<p>Consider the “box model” illustrated below, where each ticket drawn represents a single observation containing two variables: a left-hand number and a right-hand number.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/ch4/corr-mag.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<p><img src="figs/ch16/box.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
 </figure>
 </div>
-<p>Be warned, looks can be deceiving. A quick glance at the above scatter plots would easily convince someone that the points in (a) is more tightly clustered, and thus having a correlation coefficient closer to 1, than (b). This cannot be further than the truth, because in fact = 0.7 for both diagrams. (b) is simply a magnification of (a). What is important to realize is that calculating involves converting variables to standard units (deviation from average divided by SD) and therefore it measures clustering not in absolute terms, but in relative terms (more specifically, relative to their standard deviations). That is, although plot (a) may appear more tightly clustered than plot (b), both have <span class="math inline">\(r = 0.7\)</span>. Plot (b) is simply a magnified version of plot (a). Correlation measures clustering <strong>relative to standard deviation</strong>, not in absolute terms.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Correlation measures linear association
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The correlation coefficient captures <strong>linear relationships only</strong>. Nonlinear relationships may have low correlation even when variables are strongly related.</p>
-</div>
-</div>
-</section>
-<section id="association-is-not-causation" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="association-is-not-causation"><span class="header-section-number">4.4</span> Association is not causation</h2>
-<p>The last piece of warning when using correlation coefficients is to realize that what we have is a representation of association, that is how the variables move relative to each other. The correlation coefficient does not establish causation. This is best left to economic theory, which is called upon to interpret and explain the data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Correlation measures <strong>association</strong>, not <strong>causation</strong>.</p>
-</div>
-</div>
-<p>A positive or negative correlation does not explain <em>why</em> variables move together. Establishing causation requires economic theory and careful empirical reasoning.</p>
-<p>For example, education is often thought to cause higher wages because more educated individuals tend to earn more. However, a third factor—such as <strong>individual determination or motivation</strong>—may influence both education and wages.</p>
-<p>Such a factor is known as a <strong>confounding variable</strong>, and its presence can invalidate causal interpretations based solely on correlation.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Takeaway
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Correlation is a powerful descriptive tool, but causal claims require much more than a high value of <span class="math inline">\(r\)</span>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Chapter summary
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Correlation provides a numerical summary of the strength and direction of linear association between two variables.</p>
-<p>Scatter diagrams help visualize relationships, while the correlation coefficient measures how tightly points cluster around a straight line. However, correlation alone cannot establish causation, and careful reasoning is required to interpret empirical relationships correctly.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercises" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.5</span> Exercises</h2>
-<section id="conceptual-questions" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="conceptual-questions"><span class="header-section-number">4.5.1</span> Conceptual questions</h3>
-<ol type="1">
-<li><p>Explain the difference between univariate and bivariate data.</p></li>
-<li><p>Why are scatter diagrams useful for studying relationships between quantitative variables?</p></li>
-<li><p>Explain why two datasets can have identical means and standard deviations but very different correlations.</p></li>
-</ol>
-<hr>
-</section>
-<section id="understanding-correlation" class="level3" data-number="4.5.2">
-<h3 data-number="4.5.2" class="anchored" data-anchor-id="understanding-correlation"><span class="header-section-number">4.5.2</span> Understanding correlation</h3>
-<ol start="4" type="1">
-<li><p>What does the sign of the correlation coefficient indicate?</p></li>
-<li><p>What does the magnitude of the correlation coefficient tell us?</p></li>
-<li><p>Why must both variables exhibit variation for correlation to be meaningful?</p></li>
-</ol>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Common pitfall
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A high correlation does not imply a causal relationship.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="computation-and-interpretation" class="level3" data-number="4.5.3">
-<h3 data-number="4.5.3" class="anchored" data-anchor-id="computation-and-interpretation"><span class="header-section-number">4.5.3</span> Computation and interpretation</h3>
-<ol start="7" type="1">
-<li><p>Explain how converting variables to standard units removes units from the correlation coefficient.</p></li>
-<li><p>Why is correlation unaffected by changes in scale or units?</p></li>
-<li><p>Give an example of a nonlinear relationship that might have low correlation.</p></li>
-</ol>
-<hr>
-</section>
-<section id="optional-challenge" class="level3" data-number="4.5.4">
-<h3 data-number="4.5.4" class="anchored" data-anchor-id="optional-challenge"><span class="header-section-number">4.5.4</span> Optional challenge</h3>
-<ol start="10" type="1">
-<li>Find two real-world variables that are correlated.<br>
-Discuss whether the relationship is likely causal, and identify possible confounding variables.</li>
+<p>One hundred draws are made at random with replacement. One student computes the average of the left-hand numbers, and another computes the average of the right-hand numbers.</p>
+<ol type="a">
+<li>Calculate the average and Standard Error (SE) for the first student (left-hand numbers)</li>
+<li>Calculate the average and SE for the second student (right-hand numbers).</li>
+<li>Can you use the standard “Difference in Means” test (where <span class="math inline">\(SE_{diff} = \sqrt{SE_1^2 + SE_2^2}\)</span>) to test if there is a difference between these two averages?</li>
+<li>Why does the independence of the two samples matter? Since these numbers come from the same tickets, how does that affect your ability to conclude a difference exists?</li>
 </ol>
 
 
@@ -852,8 +527,8 @@ Discuss whether the relationship is likely causal, and identify possible confoun
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>For more on the relationship between categorical variables, a useful text is Utts and Heckard (2006, Chapter6).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Sometimes, we can write cov(X,Y) = (avg. of products XY) <span class="math inline">\(-\)</span> (avg. of X) <span class="math inline">\(\times\)</span> (avg. of Y).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Alternatively, we could have stated the null as <span class="math inline">\(\mu_1 =
+\mu_2\)</span>, which technically is the same, but this would be an <strong>equality of means</strong> test, which is a two-sided test, rather than a <strong>difference in means</strong> test.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1260,13 +935,13 @@ Discuss whether the relationship is likely causal, and identify possible confoun
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Ch3.html" class="pagination-link" aria-label="Numerical Summaries">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Numerical Summaries</span></span>
+      <a href="./Ch15.html" class="pagination-link" aria-label="Hypothesis Testing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ch6.html" class="pagination-link" aria-label="The Normal Distribution">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Normal Distribution</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ch17.html" class="pagination-link" aria-label="The Chi-square Test">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Chi-square Test</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

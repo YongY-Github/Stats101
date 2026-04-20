@@ -324,7 +324,7 @@
     "href": "Ch6.html#using-the-standard-normal-table",
     "title": "5  The Normal Distribution",
     "section": "5.5 Using the standard normal table",
-    "text": "5.5 Using the standard normal table\nYou can acccess the standard normal table from link\nSuppose we want the area between the mean and \\(z = 1.20\\).\nFrom the table:\n\\[\nPr(0 \\le z \\le 1.20) = 0.3849.\n\\]\nInstead of solving\n\\[\nPr(0 \\le z \\le 1.20)\n= \\int_0^{1.20} \\frac{1}{\\sqrt{2\\pi}} e^{-z^2/2} dz,\n\\]\nwe simply look up the value.\n\n\n\n\n\n\nLocate the \\(z\\) value in the first column.\nRead the corresponding area from the table.\n\nHence, \\(Pr(0 \\le z \\le 1.20) = 38.49\\%\\).\n\n5.5.1 Another Example:\nFor \\(z = 1.35\\).\n\nFind 1.3 in the first column.\nMove across to 0.05.\nThe table value is 0.4115.\n\nHence, \\(Pr(0 \\le z \\le 1.38) = 41.15 \\%\\).",
+    "text": "5.5 Using the standard normal table\nYou can acccess the standard normal table from LINK\nSuppose we want the area between the mean and \\(z = 1.20\\).\nFrom the table:\n\\[\nPr(0 \\le z \\le 1.20) = 0.3849.\n\\]\nInstead of solving\n\\[\nPr(0 \\le z \\le 1.20)\n= \\int_0^{1.20} \\frac{1}{\\sqrt{2\\pi}} e^{-z^2/2} dz,\n\\]\nwe simply look up the value.\n\n\n\n\n\n\nLocate the \\(z\\) value in the first column.\nRead the corresponding area from the table.\n\nHence, \\(Pr(0 \\le z \\le 1.20) = 38.49\\%\\).\n\n5.5.1 Another Example:\nFor \\(z = 1.35\\).\n\nFind 1.3 in the first column.\nMove across to 0.05.\nThe table value is 0.4115.\n\nHence, \\(Pr(0 \\le z \\le 1.38) = 41.15 \\%\\).",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>The Normal Distribution</span>"
     ]
@@ -1737,6 +1737,226 @@
     "text": "14.14 Exercises: Statistical Inference and Hypothesis Testing\n\n14.14.1 Proportions and Binary Outcomes\n\nDemographics and Births: Demographers theorize that \\(55\\%\\) of newborns are male. In a specific hospital, 568 out of 1000 consecutive births are male.\n\nAre these data consistent with the demographers’ theory?\nFormulate a null hypothesis and calculate the z-statistic.\n\nThe Fair Coin Test: A coin is tossed 10,000 times and lands heads 5,067 times.\n\n\nFormulate the null and alternative hypotheses to test if the coin is fair.\n\n\nCompute the z-statistic and the p-value.\n\n\nBased on your results, are there “too many” heads to suggest the coin is fair?\n\n\n\n\n\n14.14.2 Inference for Means (Large Samples)\n\nThe Box Model: An investigator treats data as 400 draws made at random from a large box. The null hypothesis states the average is 50; the alternative says the average is more than 50. The sample average is 52.7 with an SD of 25.\n\nCalculate the Standard Error and the z-statistic.\nWhat is your conclusion?\n\nQuality Control in Manufacturing: YY Golf Club Manufacturing Co. uses equipment designed to produce golf balls with an average travel distance of 295 yards. An inspector samples 50 balls for quality control.\n\nDefine the null hypothesis.\nIf the sample mean is significantly different from 295, what action should the inspector take regarding the equipment?\n\nWeights and Measures: An importer claims the average weight of saffron packets is 20 grams. A sample of 36 packets has an average weight of 19.5 grams and a sample standard deviation (\\(SD^+\\)) of 1.0 grams.\n\n\nSet up \\(H_0\\) and \\(H_1\\).\n\n\nCalculate the test statistic.\n\n\nAre the importer’s claims valid at \\(\\alpha = 0.05\\)?\n\n\nRandomness vs. Haphazardness: A lab’s mice have an average weight of 30g (SD 5g). Students haphazardly (without a formal method) chose 25 mice each, resulting in a sample mean of 33g and an SD of 7g.\n\nUse a z-test to determine if “haphazard” selection is statistically equivalent to “random” selection.\n\nThe Box Average: 100 draws are made from a box (\\(n=100\\)). The sample average is 102.7 and the SD is 10.\n\n\nIs it plausible that the box average is actually 100?\n\n\nHow would your conclusion change if the sample average was 101.1 instead?\n\n\n\n\n\n14.14.3 The “Missing Data” Challenge\n\nThe Rain-Soaked Report: Fill in the missing values marked with “—” in the table below.\n\n\n\n\n\n\n\n\n\n\n\n\nn\nMean\nSD\nSE\n95% Confidence Interval\nz-stat (against \\(\\mu=0\\))\n\n\n\n\n30\n5.600\n—\n—\n(3.81081, 7.38919)\n—\n\n\n\n\nCritical Value Method: Using the z-statistic calculated in Question 9, conclude the test at a 5% significance level. Is your conclusion based on a 1-sided or 2-sided test?\n\n\n\n14.14.4 Small Samples and the t-test\n\nMachine Calibration: A machine is calibrated to read 70. Six readings are taken: 72, 79, 65, 84, 67, and 77.\n\nDoes the machine need to be fixed? Conduct a t-test to see if these readings are significantly different from 70.\n\nEmployee Training: Last year, maintenance training took an average of 59 days. The division claims new employees are “better” (faster). A sample of 20 new employees shows the following times:\n\n\n52, 59, 54, 42, 44, 50, 42, 48, 55, 54, 60, 55, 44, 62, 62, 57, 45, 46, 43, 56\n\nSet up the null hypothesis and use the t-table to conclude if the training time has decreased (\\(\\alpha = 0.05\\)).\n\nCereal Packaging: A machine must package boxes with a mean weight of 453 grams. A sample of 50 boxes shows a mean of 449.8 grams and an SD of 5.3. Is the machine functioning properly? Perform a two-sided test.\n\n\n\n14.14.5 Types of Error\n\nCost-Benefit Analysis: A manager considers a new billing system that is only beneficial if the average daily account exceeds Baht 170. A random sample of 400 accounts shows a mean of Baht 178 with an SD of Baht 65. (This is the same example in the chapter)\n\n\nCalculate the probability of Type-I error\n\nIf the true mean is 180 Baht, calculate the the probability of Type-II error\nWhat is the power of the test?",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Hypothesis Testing</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html",
+    "href": "Ch16.html",
+    "title": "15  The Test for the Difference in Means",
+    "section": "",
+    "text": "15.1 Introduction\nSo far, we have focused on inference for a single population. However, in economic research and policy analysis, we are often interested in comparing two different and independent populations. For example:\n- Do students in one section perform better than those in another?\n- Is there a wage gap between two different industries?\n- Does a “treatment” group differ significantly from a “control” group?\nThe core question is whether the observed difference between two sample means is a “real” difference or merely a result of random sampling variation (chance).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#introduction",
+    "href": "Ch16.html#introduction",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.2 Introduction",
+    "text": "15.2 Introduction\nSo far, we have focused on inference for a single population. However, in economic research and policy analysis, we are often interested in comparing two different and independent populations. For example: * Do students in one section perform better than those in another? * Is there a wage gap between two different industries? * Does a “treatment” group differ significantly from a “control” group?\nThe core question is whether the observed difference between two sample means is a “real” difference or merely a result of random sampling variation (chance).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#a-motivating-example-section-a-vs.-section-b",
+    "href": "Ch16.html#a-motivating-example-section-a-vs.-section-b",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.2 A Motivating Example: Section A vs. Section B",
+    "text": "15.2 A Motivating Example: Section A vs. Section B\nImagine a statistics course given to two separate groups of students. All students sat the same exam, but the results varied:\n\nSection A (\\(n_1 = 49\\)):\nAverage score \\(\\bar{X}_1 = 25\\), \\(SD_1 = 2\\).\nSection B (\\(n_2 = 36\\)):\nAverage score \\(\\bar{X}_2 = 23\\), \\(SD_2 = 3\\).\n\nThe observed difference is \\(25 - 23 = 2\\) points. Is Section A “smarter,” or is this 2-point gap just a result of chance? To answer this, we need a statistical test.\n\n\n\n\n\n\nNoteStatistical vs. Actual Difference\n\n\n\nOf course, 25 is not the same as 23. In a descriptive sense, the sections are different. But in a statistical sense, we are asking if this difference is large enough to conclude that the underlying populations (the “smartness” or ability) are truly different.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#step-1-formulating-hypotheses",
+    "href": "Ch16.html#step-1-formulating-hypotheses",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.3 Step 1: Formulating Hypotheses",
+    "text": "15.3 Step 1: Formulating Hypotheses\nWe frame our question using the difference in population means (\\(\\mu_1 - \\mu_2\\)).\n\\[\n\\begin{aligned}\nH_0 &: \\mu_1 - \\mu_2 = 0 \\\\\nH_a &: \\mu_1 - \\mu_2 &gt; 0\n\\end{aligned}\n\\]\nIn this case, we are using a one-sided test, testing specifically if Section A outperforms Section B.1",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#step-2-the-test-statistic",
+    "href": "Ch16.html#step-2-the-test-statistic",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.4 Step 2: The Test Statistic",
+    "text": "15.4 Step 2: The Test Statistic\nThe test statistic follows the same logic as the one-sample case: how many standard errors is our “observed” value from our “expected” value?\n\\[TS = \\frac{\\text{observed difference} - \\text{expected difference}}{\\text{SE of the difference}}\\]\n\n15.4.1 The Law of Variances\nTo find the Standard Error for two independent samples, we cannot simply add the SEs. Instead, we use the law of variances, which states that for independent variables \\(A\\) and \\(B\\), \\(Var(A + B) = Var(A) + Var(B)\\).\nTo get the SE of the difference, we square the individual SEs (to get variances), add them, and then take the square root:\n\\[\\text{SE of difference} = \\sqrt{SE_1^2 + SE_2^2}\\]\n\n\n\n\n\n\nImportantStandard Error Calculation\n\n\n\nFor our example:\n1. \\(SE_1 = \\displaystyle\\frac{SD_1}{\\sqrt{n_1}} = \\frac{2}{\\sqrt{49}} \\approx 0.286\\)\n2. \\(SE_2 = \\displaystyle\\frac{SD_2}{\\sqrt{n_2}} = \\frac{3}{\\sqrt{36}} = 0.5\\)\n3. \\(SE_{\\text{diff}} = \\sqrt{0.286^2 + 0.5^2} \\approx 0.58\\)\n\n\n\n\n15.4.2 Calculating the TS\nSubstituting our values into the formula:\n\\[TS = \\frac{(25 - 23) - 0}{0.58} \\approx 3.45\\]",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#step-3-distribution-and-degrees-of-freedom",
+    "href": "Ch16.html#step-3-distribution-and-degrees-of-freedom",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.5 Step 3: Distribution and Degrees of Freedom",
+    "text": "15.5 Step 3: Distribution and Degrees of Freedom\nDoes this \\(TS\\) follow a Normal or \\(t\\)-distribution? The Degrees of Freedom (df) for a two-sample test is calculated by summing the losses from both samples: \\[df = (n_1 - 1) + (n_2 - 1)\\]\nFor our example, \\(df = (49 - 1) + (36 - 1) = 83\\). Since this is a large sample, the \\(t\\)-distribution will be almost identical to the Normal distribution.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#chapter-summary",
+    "href": "Ch16.html#chapter-summary",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.6 Chapter Summary",
+    "text": "15.6 Chapter Summary\n\nTo compare two means, we test the null hypothesis that the difference is zero (\\(H_0: \\mu_1 - \\mu_2 = 0\\)).\nThe SE of the difference is calculated as the square root of the sum of the squared individual SEs.\nIf the sample sizes are small, use the \\(t\\)-distribution with \\(df = n_1 + n_2 - 2\\).\nA large test statistic suggests that the observed difference is very unlikely to have occurred by chance.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch17.html",
+    "href": "Ch17.html",
+    "title": "16  The Chi-square Test",
+    "section": "",
+    "text": "16.1 Goodness-of-Fit Test\nThe \\(\\chi^2\\)-test (pronounced “kai-square”) is due to the prominent statistician Karl Pearson. While \\(z\\)-tests and \\(t\\)-tests are appropriate for numerical data or binary (0-1) outcomes, the \\(\\chi^2\\)-test is designed for situations involving three or more categories.\nIn this chapter, we examine two primary applications:\nThis test asks whether observed data “fits” a theoretical expectation. For example, consider testing whether a die is fair. If we toss a die 60 times, a fair die should result in each face appearing approximately 10 times.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Chi-square Test</span>"
+    ]
+  },
+  {
+    "objectID": "Ch17.html#goodness-of-fit-test",
+    "href": "Ch17.html#goodness-of-fit-test",
+    "title": "16  The Chi-square Test",
+    "section": "",
+    "text": "16.1.1 Example: Testing a Die\nSuppose we observe the following frequencies after 60 throws:\n\n\n\nOutcome\nObserved Frequency (\\(O\\))\nExpected Frequency (\\(E\\))\n\n\n\n\n1\n4\n10\n\n\n2\n6\n10\n\n\n3\n17\n10\n\n\n4\n16\n10\n\n\n5\n8\n10\n\n\n6\n9\n10\n\n\nSum\n60\n60\n\n\n\nClearly, the observed and expected frequencies differ—for example, there are fewer 1s and more 3s than expected. The \\(\\chi^2\\)-test allows us to determine if these deviations are due to chance or because the die is biased.\n\n\n16.1.2 The \\(\\chi^2\\) Distribution\nUnlike the symmetric \\(z\\) or \\(t\\) distributions, the \\(\\chi^2\\) distribution is skewed to the right, particularly for small degrees of freedom. As the degrees of freedom (\\(df\\)) increase, it begins to look more like a normal distribution.\n\n\n\nChi-square\n\n\nThe \\(\\chi^2\\)-table LINK is read like the student’s t-table. The first column represents the degrees of freedom, while the top row corresponds to the area under the curve to the right of the \\(\\chi^2\\)-values shown below. For example, at \\(df=5\\) and .05 significance level, the \\(\\chi^2\\)-critical value is 14.2.\n\n\n16.1.3 Hypothesis Testing for Goofness-of-fit Test\n\nHypotheses:\n\n\\(H_0\\): The die is fair (Observed fits Expected).\n\\(H_a\\): The die is biased (Bad fit).\n\nTest Statistic (\\(TS\\)): \\[\\chi^2 = \\sum \\frac{(\\text{observed} - \\text{expected})^2}{\\text{expected}}\\]\nDecision Rule:\nAs before, reject the null if the test statistic is larger than the critical value.\nFor our die example, the calculated \\(\\chi^2 = 14.2\\). The degrees of freedom is \\(6 - 1 = 5\\).1\n\nAt \\(\\alpha = 0.05\\) and \\(df = 5\\), the critical value is 11.07.\nSince \\(14.2 &gt; 11.07\\), we reject the null hypothesis. The die is likely biased.\n\n\nLikewise, we can get the p-value from the \\(\\chi^2\\)-table. For \\(df = 5\\), the table shows that the corresponding area to the right of 14.2 is between 5\\(\\%\\) (that is the area to the right of 11.07) and 1\\(\\%\\) (the area to the right of 15.09). In other words, the p-value is between 5 and 1\\(\\%\\), which is less than our depicted \\(\\alpha\\). Hence we reject the null.\n\n\n\n\n\n\nNoteRule of Thumb\n\n\n\nThe \\(\\chi^2\\)-test is most reliable when the expected frequency (\\(E\\)) for each category is 5 or more.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Chi-square Test</span>"
+    ]
+  },
+  {
+    "objectID": "Ch17.html#test-for-independence",
+    "href": "Ch17.html#test-for-independence",
+    "title": "16  The Chi-square Test",
+    "section": "16.2 Test for Independence",
+    "text": "16.2 Test for Independence\nThe \\(\\chi^2\\) test for independence evaluates whether two categorical variables (e.g., Gender and Handedness) are related in the population.2\n\n16.2.1 Example: Handedness and Gender\nA survey of 2,237 people yielded the following data:\n\n\n\n\nMale\nFemale\nTotal\n\n\n\n\nRight-handed\n934\n1070\n2004\n\n\nLeft-handed\n113\n92\n205\n\n\nAmbidextrous\n20\n8\n28\n\n\nTotal\n1067\n1170\n2237\n\n\n\nThe research question is: Are gender and handedness independent? There can be various reasons why a researcher might be interested in such a question. For example, in neurophysiology, it could be hypothesized that women use relatively more their brain’s left-side (i.e. their rational faculty) than men do. This could explain why women are more rational then men. Sociologist on the other hand argue that women are under greater pressure to abide to the social norm than men. The alternative is that handedness is distributed the same for men and women in the population, and any difference in the sample data is due to mere chance. Be as it may, the \\(\\chi^2\\)-test can bring some light to such a question.\nHypotheses:\n\\(H_0\\): Handedness and gender are independent.\n\\(H_a\\): Handedness and gender are not independent.\n\n\n16.2.2 Calculating Expected Frequencies\nIf the variables are independent, the distribution of handedness should be the same for both genders.\n1. Calculate the overall ratio for a category (e.g., Right-handed: \\(2004 / 2237 \\approx 89.6\\%\\)).\n2. Apply this ratio to the gender totals (e.g., Expected Right-handed Males: \\(0.896 \\times 1067 = 956\\)).\nand so on.\n\n\n\n\n\n\n\n\n\n\n\n\nobserved Male\nObserved Female\nRatio (%)\nExpected Male\nExpected Female\n\n\n\n\nRight-handed\n934\n1070\n89.6\n956\n1048\n\n\nLeft-handed\n113\n92\n9.1\n98\n107\n\n\nAmbidextrous\n20\n8\n1.3\n13\n15\n\n\nSum\n1067\n1170\n100\n1067\n1170\n\n\n\n\n\n16.2.3 Comparing Observed and Expected\nApplying the \\(\\chi^2\\) formula to all cells:\n\\[\n\\begin{aligned}\n\\chi^2 &= \\frac{(934-956)^2}{956} + \\frac{(1070-1048)^2}{1048} + \\dots \\\\\n&\\approx 12\n\\end{aligned}\n\\]\nDegrees of Freedom: For a table with \\(r\\) rows and \\(c\\) columns: \\[df = (r - 1) \\times (c - 1)\\] In this case: \\((3 - 1) \\times (2 - 1) = 2\\).\nThe following table shows the difference between the observed and expected values, i.e. the deviations.\n\n\n\n\nMale\nFemale\nSum\n\n\n\n\nRight-handed\n-22\n22\n0\n\n\nLeft-handed\n-15\n15\n0\n\n\nAmbidextrous\n7\n-7\n0\n\n\nSum\n0\n0\n0\n\n\n\nThe bottom row and left-most column show that the vertical and horizontal sums respectively, or what is the sum of deviation, add to zero. This means that we need to know only 2 deviations (of the six), and the others can be automatically found, hence the degrees of freedom is 2. In sum, when testing independence in a \\(m\\times n\\) table with no other constraints on their probabilities, there are \\((m-1) \\times (n-1)\\) degrees of freedom.\n\n\n\n\n\n\nTipDegree of Freedom Logic\n\n\n\nThe \\(df=2\\) reflects the fact that in the deviation table (Observed - Expected), once you know two values in a column, the third is “fixed” because the total deviations must sum to zero.\n\n\n\n\n16.2.4 Conclusion\nAt \\(df=2\\) and \\(\\alpha=0.05\\), the critical value is 5.99. Since our test statistic \\(12 &gt; 5.99\\), we reject the null hypothesis. There is a statistically significant relationship between gender and handedness.\nThe p-value is the area to the right of \\(\\chi^2 = 12\\) at 2 degrees of freedom. From the table, the p-value is less than \\(1\\%\\), which is less than the significance level of \\(5\\%\\), hence we reject the null.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Chi-square Test</span>"
+    ]
+  },
+  {
+    "objectID": "Ch17.html#chapter-summary",
+    "href": "Ch17.html#chapter-summary",
+    "title": "16  The Chi-square Test",
+    "section": "16.3 Chapter Summary",
+    "text": "16.3 Chapter Summary\n\nGoodness-of-Fit compares one sample to a theoretical distribution.\nIndependence compares two categorical variables to each other.\nA large \\(\\chi^2\\) value indicates a large discrepancy between what we see and what we expect, typically leading to a rejection of the null hypothesis.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Chi-square Test</span>"
+    ]
+  },
+  {
+    "objectID": "Ch18.html",
+    "href": "Ch18.html",
+    "title": "17  The F-distribution and ANOVA",
+    "section": "",
+    "text": "17.1 Test for Equality of Variances\nThe \\(F\\)-distribution and Analysis of Variance (ANOVA) are primary examples of the statistical brilliance of R.A. Fisher. In this chapter, we will learn how to test for differences in variability and how to compare multiple means simultaneously—both of which rely on the \\(F\\)-distribution.\nLike the Normal, \\(t\\), and \\(\\chi^2\\) distributions, the \\(F\\)-distribution represents a “family” of curves. Each member is determined by two separate parameters:\n1. The numerator degrees of freedom (\\(v_1\\)).\n2. The denominator degrees of freedom (\\(v_2\\)).\nHere is the LINK for the F-table.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>The F-distribution and ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "Ch18.html#test-for-equality-of-variances",
+    "href": "Ch18.html#test-for-equality-of-variances",
+    "title": "17  The F-distribution and ANOVA",
+    "section": "",
+    "text": "NoteDistribution Relationships\n\n\n\nInterestingly, the distributions we have studied are mathematically linked. For example:\n- The \\(t\\)-distribution is related to \\(F(1, v_2)\\).\n- The \\(\\chi^2\\)-distribution is related to \\(F(v_1, \\infty)\\).\n\n\n\n\n\nF-distribution\n\n\n\n\n17.1.1 Characteristics of the \\(F\\)-distribution\n\nNon-negative: Values range from \\(0\\) to \\(\\infty\\).\nAsymmetric: It is positively skewed, especially at lower degrees of freedom.\nContinuous: It represents the ratio of two independent chi-square variables.\n\n\n\n17.1.2 Example: Internet vs. Utility Stocks\nA stockbroker wants to know if Internet stocks are more volatile/risky (have higher variance) than Utility stocks. Looking at the data, he finds that mean rate of return on a sample of 13 Internet stocks was 12.6 percent with a standard deviation of 4.9 percent, while, the mean rate of return on a sample of 25 utility stocks was 10.9 percent with a standard deviation of 3.1 percent.\n\nInternet Stocks (\\(I\\)): \\(n_I = 13\\), \\(SD_I = 4.9\\%\\).\nUtility Stocks (\\(U\\)): \\(n_U = 25\\), \\(SD_U = 3.1\\%\\).\n\nFormally, we wish to test for equal variances of the two populations, Internet versus utility stocks.\n\n\nHypotheses:\n\n\\(H_0: \\sigma^2_I = \\sigma^2_U\\)\n\n\\(H_a: \\sigma^2_I &gt; \\sigma^2_U\\).\n\nThe Test Statistic: \\[F = \\frac{\\sigma^2_{\\text{larger}}}{\\sigma^2_{\\text{smaller}}} = \\frac{SD^2_I}{SD^2_U} = \\frac{(4.9)^2}{(3.1)^2} \\approx 2.50\\]\nConclusion:\n\nThe degree of freedom for the numerator and the denominator are \\(n_I -1\\) and \\(n_U - 1\\) respectively. and after deciding on the significant level, we read the “critical value” from the corresponding F-table, which is the number where the \\(v_1\\) and \\(v_2\\) column and row intersect.\nHere is a copy of the F-table [LINK].\nIn our example, \\(v_1 = 12\\) and \\(v_2 = 24\\), and the critical value at \\(\\alpha = 0.05\\) is 2.18.\nSince \\(2.50 &gt; 2.18\\), we reject the null hypothesis. The Internet stocks exhibit significantly higher variance.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>The F-distribution and ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "Ch18.html#analysis-of-variance-anova",
+    "href": "Ch18.html#analysis-of-variance-anova",
+    "title": "17  The F-distribution and ANOVA",
+    "section": "17.2 Analysis of Variance (ANOVA)",
+    "text": "17.2 Analysis of Variance (ANOVA)\nWhile the \\(t\\)-test compares the means of two populations, ANOVA tests the equality of means for three or more populations using a single \\(F\\)-statistic. The “beauty” of ANOVA is that it compares variances to draw conclusions about means.\n\n17.2.1 Example: Restaurant Sales\nConsider daily dinner sales at three different restaurant locations:\n\n\n\nDay\nR1\nR2\nR3\n\n\n\n\n1\n13\n10\n18\n\n\n2\n12\n12\n16\n\n\n3\n14\n13\n17\n\n\n4\n12\n11\n17\n\n\n5\n—\n—\n17\n\n\nMean\n12.75\n11.5\n17.0\n\n\n\nWe observe 13 data points, \\(n = 13\\), and 3 restaurants (or 3 treatment groups) denoted \\(k = 3\\). The starting point is to specify the null and alternative hypothesis.\n\nThe average of all data points or Grand Mean (\\(\\overline{X}_G\\)) is 14. Hence, the total variation, \\(\\sum_n (X_n - \\overline{X}_G)\\) is 86. The averages of the restaurants are 12.75, 11.5 and 17 for R1, R2 and R3, respectively.\nHypotheses:\n\\(H_0: \\mu_{R1} = \\mu_{R2} = \\mu_{R3}\\)\n\\(H_a\\): At least one mean is different.\n\n\n17.2.2 The Logic of ANOVA\nANOVA splits total variation into two components:\n1. Between-Group Variation: Variation across the averages of the restaurants. This represents potential “treatment effects” (location quality).\n2. Within-Group Variation: Variation within each restaurant’s daily sales. This represents “chance error” or random noise.\nWe then compare these using the \\(F\\)-ratio: \\[F = \\frac{\\text{Mean Square `Between` (MSB) Variation}}{\\text{Mean Square `Within` (MSW) Variation}}\\]\nThe idea is to split the total variation in the data or total sum of squares into a between groups variation and within groups variation.\nThat is, we calculate the average for each group and then its variation for each restaurant; this is within group variation. Most probably not every data in each group is equal to its group average; there is bound to be some variation, which because there is no reason to think otherwise, we may assume that this variation is in fact due to chance. So the within variation represents chance variation.\nLikewise, the average of different groups (restaurants) should be different, and this may be due to fundamental differences between the groups. Such variation is appropriately called between group variation representing variation because of some factor or treatment.\nThe F-test compares the variation possibly due to some factor or treatment against the chance (within) variation. If these variations are statistically different, then we conclude that the treatment is meaningful, i.e. that there is indeed a difference in the means of at least any two populations. It is best to summarize this in the ANOVA table below.\n\n\n17.2.3 The ANOVA Table\n\n\n\n\n\n\n\n\n\n\nSource of Variation\nSum of Squares (SS)\n\\(df\\)\nMean Square (MS)\n\\(F\\)\n\n\n\n\nBetween (Treatment)\n76.25\n\\(3-1 = 2\\)\n38.125\n39.103\n\n\nWithin (Error)\n9.75\n\\(13-3 = 10\\)\n0.975\n\n\n\nTotal\n86.00\n12\n\n\n\n\n\nThe between groups variation is \\(\\sum_k n_k (\\overline{X}_k - \\overline{X}_G)^2\\), which gives us 76.25. Because total variation = between variation + within variation, we can easily find within variation as \\(86-76.25 = 9.75\\).\nFor total variation, which is nothing more than the total sum of all deviations of each data point from the overall grand mean, we lose one degree of freedom, that is, \\(n-1 = 12\\). The between groups variation treats all numbers in each group equivalently. Hence the deviation of \\(k\\) groups with respect to the overall mean has \\(k-1 = 2\\) degrees of freedom. For each group, the within variation leads to a loss of one degree of freedom in each group. With \\(k\\) groups, the total within group variation will result in \\(n-k = 10\\) degrees of freedom.\nDividing the sum of squares by the degrees of freedom gives the mean sum of squares or variance. And the F-test statistic intuitively compares the average variation across the groups with the chance variation represented by the within group variation.\n\n\n17.2.4 Conclusion\nAt \\(\\alpha = 0.05\\) with \\(v_1=2\\) and \\(v_2=10\\), the critical value is 4.10. Since our \\(F\\)-statistic (\\(39.1\\)) is far greater than 4.10, we reject the null hypothesis. There is a statistically significant difference in the mean sales across the three locations.\n\n\n\n\n\n\nTipVisualizing ANOVA\n\n\n\nIf you were to plot the confidence intervals for these three restaurants, you would likely see that the interval for R3 does not overlap with R1 or R2. This lack of overlap is a visual confirmation of the ANOVA result.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>The F-distribution and ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "Ch18.html#chapter-summary",
+    "href": "Ch18.html#chapter-summary",
+    "title": "17  The F-distribution and ANOVA",
+    "section": "17.3 Chapter Summary",
+    "text": "17.3 Chapter Summary\n\nThe \\(F\\)-test for variances checks if two populations have the same spread.\nANOVA decomposes total variation to check if group means are equal.\nThe \\(F\\)-statistic is a ratio: if the “Between” variation is much larger than the “Within” variation, we conclude the group identities matter.\n\nHere are the exercises rewritten in the Econ-Core style. I have organized them to emphasize real-world data interpretation and the logical flow of statistical testing.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>The F-distribution and ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "Ch17.html#footnotes",
+    "href": "Ch17.html#footnotes",
+    "title": "16  The Chi-square Test",
+    "section": "",
+    "text": "Can you tell why \\(df=5\\)?↩︎\nRecall that we already looked at the idea of independence in probability, i.e. A and B are said to be independent if \\(P(A|B)=P(A)\\) or \\(P(B|A)=P(B)\\).↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>The Chi-square Test</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#step-3-conclusion",
+    "href": "Ch16.html#step-3-conclusion",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.5 Step 3: Conclusion",
+    "text": "15.5 Step 3: Conclusion\nDoes this \\(TS\\) follow a Normal or \\(t\\)-distribution? The Degrees of Freedom (df) for a two-sample test is calculated by summing the losses from both samples: \\[df = (n_1 - 1) + (n_2 - 1)\\]\nFor our example, \\(df = (49 - 1) + (36 - 1) = 83\\). Since this is a large sample, the \\(t\\)-distribution will be almost identical to the Normal distribution.\nAnd because TS of 3.45 is pretty large we reject the null hypothesis that the mean of both sections is the same.\n\n\n\n\n\n\nTipExercise for the Reader\n\n\n\nUsing the test statistic of \\(3.45\\) calculated above, conclude the test using:\n1. The p-value method (find the area to the right of 3.45).\n2. The critical value method (compare 3.45 to \\(z = 1.645\\) for \\(\\alpha = 0.05\\)).\n3. The confidence interval method.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#footnotes",
+    "href": "Ch16.html#footnotes",
+    "title": "15  The Test for the Difference in Means",
+    "section": "",
+    "text": "Alternatively, we could have stated the null as \\(\\mu_1 =\n\\mu_2\\), which technically is the same, but this would be an equality of means test, which is a two-sided test, rather than a difference in means test.↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#greek-letters-with-pronunciation",
+    "href": "index.html#greek-letters-with-pronunciation",
+    "title": "Probability & Statistics 101",
+    "section": "Greek Letters with Pronunciation",
+    "text": "Greek Letters with Pronunciation",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#greek-letters-with-pronunciation-1",
+    "href": "index.html#greek-letters-with-pronunciation-1",
+    "title": "Probability & Statistics 101",
+    "section": "Greek Letters with Pronunciation",
+    "text": "Greek Letters with Pronunciation\n\n\n\n\n\n\n\n\n\nCharacter\nName\nCharacter\nName\n\n\n\n\n\\(\\alpha\\)\nalpha AL-fuh\n\\(\\beta\\)\nbeta BAY-tuh\n\n\n\\(\\gamma\\), \\(\\Gamma\\)\ngamma GAM-muh\n\\(\\delta\\), \\(\\Delta\\)\ndelta DEL-tuh\n\n\n\\(\\epsilon\\)\nepsilon EP-suh-lon\n\\(\\zeta\\)\nzeta ZAY-tuh\n\n\n\\(\\eta\\)\neta AY-tuh\n\\(\\theta\\), \\(\\Theta\\)\ntheta THAY-tuh\n\n\n\\(\\iota\\)\niota eye-OH-tuh\n\\(\\kappa\\)\nkappa KAP-uh\n\n\n\\(\\lambda\\), \\(\\Lambda\\)\nlambda LAM-duh\n\\(\\mu\\)\nmu MEW\n\n\n\\(\\nu\\)\nnu NEW\n\\(\\xi\\), \\(\\Xi\\)\nxi KSIGH\n\n\n\\(o\\)\nomicron OM-uh-CRON\n\\(\\pi\\), \\(\\Pi\\)\npi PIE\n\n\n\\(\\rho\\)\nrho ROW\n\\(\\sigma\\), \\(\\Sigma\\)\nsigma SIG-muh\n\n\n\\(\\tau\\)\ntau TOW (as in cow)\n\\(\\upsilon\\), \\(\\Upsilon\\)\nupsilon OOP-suh-LON\n\n\n\\(\\phi\\), \\(\\Phi\\)\nphi FEE or FI (as in hi)\n\\(\\chi\\)\nchi KI (as in hi)\n\n\n\\(\\psi\\), \\(\\Psi\\)\npsi SIGH or PSIGH\n\\(\\omega\\), \\(\\Omega\\)\nomega oh-MAY-guh\n\n\n\n\n\n\n\n\n\nCapitals shown are the ones that differ from Roman capitals.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "Ch18.html#exercises-variance-and-anova",
+    "href": "Ch18.html#exercises-variance-and-anova",
+    "title": "17  The F-distribution and ANOVA",
+    "section": "17.4 Exercises: Variance and ANOVA",
+    "text": "17.4 Exercises: Variance and ANOVA\n\n1. Comparing Volatility\nYou have two independent populations, A and B. You take 20 draws from Population A, resulting in a standard deviation (\\(SD\\)) of 13. You take 15 draws from Population B, resulting in an \\(SD\\) of 15.\n\n\nState the null and alternative hypotheses for a two-sided test regarding the variances.\n\nCalculate the \\(F\\)-test statistic.\n\nUsing the \\(F\\)-table, can you conclude at the 5% significance level that the variances of the two populations are different? Explain your reasoning briefly.\n\n\n\n2. Water Expenditure in Urban Areas\nThe following table shows the annual expenditure (in millions of Baht) on water for randomly selected households in three different areas.\n\n\n\nArea A\nArea B\nArea C\n\n\n\n\n780\n650\n640\n\n\n690\n689\n689\n\n\n735\n700\n673\n\n\n750\n655\n702\n\n\n766\n680\n681\n\n\n689\n\n\n\n\n\n\nConduct a One-way ANOVA to test the claim that mean water expenditure is identical across the three areas.\nBefore performing the ANOVA, we assume “homoscedasticity” (equal variances). Perform a quick check: are the variations in expenditure across these areas statistically similar enough to justify an ANOVA?\n\n\n\n3. The “Missing Link” ANOVA Table\nA researcher provides you with a partially completed ANOVA table from a study on regional productivity.\n\n\n\n\n\n\n\n\n\n\nSource of Variation\n\\(df\\)\nSum of Squares (SS)\nMean Square (MS)\n\\(F\\)\n\n\n\n\nBetween Groups\n6\n17.5\n—\n—\n\n\nWithin Groups\n—\n—\n—\n\n\n\nTotal\n41\n46.5\n\n\n\n\n\n\nComplete the missing values in the table.\nBased on the degrees of freedom, how many groups were being studied? State the null and alternative hypotheses.\nUsing a 10% level of significance (\\(\\alpha = 0.10\\)), what is your statistical conclusion?\nEstimate the p-value range for this test.\n\n\n\n4. Stock Market Analysis (Incomplete Data)\nAn analyst is comparing the average rate of return for three stock sectors: Utility, Retail, and Banking. Due to a printer error, several values in the output are missing.\nTable 1: ANOVA Output\n\n\n\nSource\n\\(df\\)\nSum of Squares\nMean Square\n\\(F\\)\n\n\n\n\nBetween\n(a)\n86.49\n(b)\n(c)\n\n\nWithin\n13\n42.93\n3.30\n\n\n\nTotal\n(d)\n(e)\n\n\n\n\n\nTable 2: Sector Summary\n\n\n\nStock Type\n\\(n\\)\nMean\n\\(SD\\)\n\n\n\n\nUtility\n5\n17.40\n1.916\n\n\nRetail\n(f)\n11.62\n0.356\n\n\nBanking\n6\n15.40\n(g)\n\n\n\n\nIdentify which of the missing figures (a through g) cannot be calculated using only the visible data.\nUsing \\(\\alpha = 0.05\\), is there a significant difference in the mean rate of return among the three types of stock?\nIf the null hypothesis is rejected, does this automatically prove that Utility stocks perform differently than Retail stocks? Explain the concept of “Post-hoc” testing or pairwise comparisons briefly.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>The F-distribution and ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "Ch16.html#exercises-comparing-two-populations",
+    "href": "Ch16.html#exercises-comparing-two-populations",
+    "title": "15  The Test for the Difference in Means",
+    "section": "15.7 Exercises: Comparing Two Populations",
+    "text": "15.7 Exercises: Comparing Two Populations\n\n1. Study Habits and Confidence Intervals\nA university survey sampled 132 male students and 279 female students. It found that 53% of the men and 48% of the women study more than 8 hours per week.\n\nConstruct a 95% confidence interval for the proportion of male students and female students separately.\nBy looking at these two individual intervals, can you definitively conclude there is a difference between the two populations?\nIf the intervals overlap, does that always mean there is no difference? Suggest a more formal method to test for a difference in proportions.\n\n\n\n2. Public Policy: Smoking in Bars vs. Restaurants\nRegular customers at a restaurant (\\(n_1=112\\)) and a pub (\\(n_2=72\\)) were asked if they approved of a non-smoking policy.\n\n\n\n\nRestaurant\nPub\n\n\n\n\nApprove\n64\n36\n\n\nTotal Sample\n112\n72\n\n\n\n\nCalculate the sample proportions (\\(\\hat{p}_1\\) and \\(\\hat{p}_2\\)) for both groups.\nConduct a complete hypothesis test to determine if the opinion of restaurant customers differs significantly from that of pub customers.\n\n\n\n3. Education and Income\nTo study the “return on education,” a researcher takes two random samples:\n\nHigh-School Certificate: \\(n=250\\), \\(\\bar{X} = 28,000\\) Baht, \\(SD = 16,000\\) Baht.\nUniversity Degree: \\(n=200\\), \\(\\bar{X} = 36,400\\) Baht, \\(SD = 19,000\\) Baht.\n\nIs the difference in average income “real,” or can it be attributed to sampling chance? Calculate the test statistic and conclude at the 5% level.\n\n\n4. E-Learning Effectiveness (Small Samples)\nPromoters of a typing tutor software want to test if their online course increases speed. Two groups were tested:\n\nGroup 1 (Traditional): 23, 35, 37, 12, 26, 60, 13, 24, 27, 53\nGroup 2 (Online Course): 56, 30, 55, 48, 35, 40, 33, 23\n\n\nConduct a one-sided \\(t\\)-test with \\(\\alpha = 0.10\\) to see if the online course results in faster typing speeds.\nCalculate separate 90% confidence intervals for each group. Does the comparison of these intervals lead to the same conclusion as your \\(t\\)-test?\n\n\n\n5. The SAT Coaching Experiment\nAn experiment was conducted with 200 students. 100 were randomly assigned to a coaching program (Treatment), and 100 received no coaching (Control).\n\nCoaching Group: \\(\\bar{X} = 486\\), \\(SD = 98\\).\nControl Group: \\(\\bar{X} = 477\\), \\(SD = 103\\).\n\nDid the coaching work? Perform a statistical test and explain whether the results are “economically significant” versus “statistically significant.”\n\n\n6. Spot the Error: Differences in Percentages\nAn investigator comparing the study habits from Question 1 (\\(53\\%\\) vs \\(48\\%\\)) calculates the test statistic as \\(z = (53 - 48) / 0.053\\).\n\nExplain why this calculation is potentially misleading regarding the units (percentages vs. decimals) and the standard error of the difference.\n\n\n\n7. The Dependent Draw Problem (Advanced)\nConsider the “box model” illustrated below, where each ticket drawn represents a single observation containing two variables: a left-hand number and a right-hand number.\n\n\n\n\n\nOne hundred draws are made at random with replacement. One student computes the average of the left-hand numbers, and another computes the average of the right-hand numbers.\n\nCalculate the average and Standard Error (SE) for the first student (left-hand numbers)\nCalculate the average and SE for the second student (right-hand numbers).\nCan you use the standard “Difference in Means” test (where \\(SE_{diff} = \\sqrt{SE_1^2 + SE_2^2}\\)) to test if there is a difference between these two averages?\nWhy does the independence of the two samples matter? Since these numbers come from the same tickets, how does that affect your ability to conclude a difference exists?",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>The Test for the Difference in Means</span>"
     ]
   }
 ]

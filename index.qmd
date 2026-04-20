@@ -5,3 +5,26 @@ This is an Introduction to Probability and Statistics book written with Quarto f
 To learn more about Quarto books visit <https://quarto.org/docs/books>.
 
 Note: This is a work-in-progress and expect revisions and updates intermittently!
+
+## Greek Letters with Pronunciation
+
+## Greek Letters with Pronunciation
+
+| Character | Name | Character | Name |
+| :--- | :--- | :--- | :--- |
+| $\alpha$ | alpha *AL-fuh* | $\beta$ | beta *BAY-tuh* |
+| $\gamma$, $\Gamma$ | gamma *GAM-muh* | $\delta$, $\Delta$ | delta *DEL-tuh* |
+| $\epsilon$ | epsilon *EP-suh-lon* | $\zeta$ | zeta *ZAY-tuh* |
+| $\eta$ | eta *AY-tuh* | $\theta$, $\Theta$ | theta *THAY-tuh* |
+| $\iota$ | iota *eye-OH-tuh* | $\kappa$ | kappa *KAP-uh* |
+| $\lambda$, $\Lambda$ | lambda *LAM-duh* | $\mu$ | mu *MEW* |
+| $\nu$ | nu *NEW* | $\xi$, $\Xi$ | xi *KSIGH* |
+| $o$ | omicron *OM-uh-CRON* | $\pi$, $\Pi$ | pi *PIE* |
+| $\rho$ | rho *ROW* | $\sigma$, $\Sigma$ | sigma *SIG-muh* |
+| $\tau$ | tau *TOW (as in cow)* | $\upsilon$, $\Upsilon$ | upsilon *OOP-suh-LON* |
+| $\phi$, $\Phi$ | phi *FEE or FI (as in hi)* | $\chi$ | chi *KI (as in hi)* |
+| $\psi$, $\Psi$ | psi *SIGH or PSIGH* | $\omega$, $\Omega$ | omega *oh-MAY-guh* |
+
+::: {.callout-note appearance="simple"}
+Capitals shown are the ones that differ from Roman capitals.
+:::

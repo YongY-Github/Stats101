@@ -21,6 +21,9 @@ book:
     - Ch13.qmd
     - Ch14.qmd
     - Ch15.qmd
+    - Ch16.qmd
+    - Ch17.qmd
+    - Ch18.qmd
 
 bibliography: references.bib
 
