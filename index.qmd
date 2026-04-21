@@ -8,8 +8,6 @@ Note: This is a work-in-progress and expect revisions and updates intermittently
 
 ## Greek Letters with Pronunciation
 
-## Greek Letters with Pronunciation
-
 | Character | Name | Character | Name |
 | :--- | :--- | :--- | :--- |
 | $\alpha$ | alpha *AL-fuh* | $\beta$ | beta *BAY-tuh* |

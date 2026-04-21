@@ -454,7 +454,7 @@ Explain your answer briefly.
 
 ### 3. Interpreting Standard Error {.unnumbered}
 
-A gambling game has an expected value of $0$ and a standard error of $20$ for **100 plays**.
+A gambling game has an expected value of $0 and a standard error of $20 for **100 plays**.
 
 If a player plays 100 times, is it unusual for them to be **down \$50**? Explain using the **empirical rule**.
 
@@ -564,7 +564,7 @@ give or take
 
 ### 7. Choosing How Many Draws to Make {.unnumbered}
 
-You can draw either **10 times with replacement** from the box
+You can draw either **10 times** or **100 times** with replacement from the box
 
 $$
 1,\;-1
@@ -572,7 +572,7 @@ $$
 
 You win **Baht 100** if certain conditions are met.
 
-How many draws should you make?
+How many draws would you choose to make?
 
 #### (a) {.unnumbered}
 

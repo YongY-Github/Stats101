@@ -94,7 +94,7 @@ $$
 $$
 
 
-## A common misunderstanding
+### A common misunderstanding
 
 It is tempting to say:
 
@@ -112,7 +112,7 @@ The correct interpretation is:
 
 > If we repeatedly took samples and constructed confidence intervals, about 95% of those intervals would contain the true population percentage.
 
-## Confidence intervals as repeated sampling
+### Confidence intervals as repeated sampling
 
 Imagine drawing 100 different samples of 2,500 voters.
 
@@ -127,7 +127,7 @@ Some intervals will include the true value. Others will miss it.
 A 95% confidence level means that about 95 out of 100 such intervals will capture the true parameter.
 :::
 
-## Simulation: One poll
+### Simulation: One poll
 
 Let us simulate one poll where the true population support rate is 80%, and each sample contains 2,500 observations.
 
@@ -166,7 +166,7 @@ upper <- p_hat + 2 * se_hat
 round(100 * c(lower, upper), 2)
 ```
 
-## Simulation: 100 confidence intervals
+### Simulation: 100 confidence intervals
 
 Now let us simulate 100 independent samples, each of size 2,500, from a population where the true percentage is 80%.
 
@@ -217,7 +217,7 @@ What percentage of intervals cover the true value?
 mean(results$covers) * 100
 ```
 
-## Plot: 100 confidence intervals
+### Plot: 100 confidence intervals
 
 ```{r}
 #| echo: false
@@ -254,7 +254,7 @@ Each horizontal line is a 95% confidence interval from one sample.
 * Intervals that do not cross it miss the true value.
 :::
 
-## Why some intervals fail
+### Why some intervals fail
 
 Even when the method is correct, some intervals will fail to include the true value. That is not a mistake. It is exactly what a 95% confidence level implies: about 5% of intervals will miss the true value just by chance.
 
@@ -262,7 +262,7 @@ Even when the method is correct, some intervals will fail to include the true va
 A confidence procedure can be reliable without guaranteeing success in every single sample.
 :::
 
-## Deduction vs induction
+### Deduction vs induction
 
 There are two directions of reasoning in statistics:
 
@@ -285,7 +285,7 @@ Statistical inference is about learning about the population from a sample.
 
 ## Exercises
 
-## 1. Graduate earnings {.unnumbered}
+### 1. Graduate earnings {.unnumbered}
 
 A simple random sample of 100 graduates from a certain college found that 48 were earning **Baht 50,000 per month or more**.
 
@@ -295,7 +295,7 @@ A simple random sample of 100 graduates from a certain college found that 48 wer
 
 ---
 
-## 2. Standard error from a box model {.unnumbered}
+### 2. Standard error from a box model {.unnumbered}
 
 Suppose there is a box of 100,000 tickets, each marked either 0 or 1. In fact, **20%** of the tickets are 1s.
 
@@ -307,7 +307,7 @@ A sample of **400 draws** is taken at random.
 
 ---
 
-## 3. Internet use among subscribers {.unnumbered}
+### 3. Internet use among subscribers {.unnumbered}
 
 TRUE company serves **1,000,000 subscribers**. As part of a market survey, a simple random sample of **3,600 people** was taken. In the sample:
 
@@ -326,7 +326,7 @@ Answer the following:
 
 ---
 
-## 4. Polling support for a political party {.unnumbered}
+### 4. Polling support for a political party {.unnumbered}
 
 In a poll of **200 voters**, 92 said that they would vote for the **YY Party**.
 
@@ -337,7 +337,7 @@ In a poll of **200 voters**, 92 said that they would vote for the **YY Party**.
 
 ---
 
-## 5. Percentages in a town population {.unnumbered}
+### 5. Percentages in a town population {.unnumbered}
 
 According to a census, a certain town has **100,000 people aged 18 and over**. Of these:
 
@@ -347,27 +347,27 @@ According to a census, a certain town has **100,000 people aged 18 and over**. O
 
 A simple random sample of **1,600 people** will be drawn from this population.
 
-### (a) Marriage {.unnumbered}
+#### (a) Marriage {.unnumbered}
 
 To study marriage, a box model is needed.
 
 1. Should the box contain **1,600 tickets** or **100,000 tickets**? Explain.
 2. What is the chance that **58%** of the sample are married?
 
-### (b) High income {.unnumbered}
+#### (b) High income {.unnumbered}
 
 To study the proportion earning more than Baht 75,000 per month:
 
 1. Should each ticket in the box show the person’s exact income? Explain.
 2. What is the chance that **11% or more** of the sample earn above Baht 75,000 per month?
 
-### (c) University degree {.unnumbered}
+#### (c) University degree {.unnumbered}
 
 Find the chance that **between 19% and 21%** of the sample have a university degree.
 
 ---
 
-## 6. Health insurance {.unnumbered}
+### 6. Health insurance {.unnumbered}
 
 A survey of **400 people** finds that **80** have health insurance.
 
@@ -377,23 +377,23 @@ A survey of **400 people** finds that **80** have health insurance.
 
 ---
 
-## 7. Consumer survey: televisions and VCRs {.unnumbered}
+### 7. Consumer survey: televisions and VCRs {.unnumbered}
 
 A utility company serves **50,000 households**. As part of a survey of consumer attitudes, it takes a simple random sample of **750 households**. The average number of television sets in the sample is **1.86**, and the sample SD is **0.80**.
 
-### (a) Average number of television sets {.unnumbered}
+#### (a) Average number of television sets {.unnumbered}
 
 1. If possible, construct a **95% confidence interval** for the average number of television sets in all 50,000 households.
 2. If this is not possible, explain why.
 
-### (b) Percentage with VCRs {.unnumbered}
+#### (b) Percentage with VCRs {.unnumbered}
 
 Out of the 750 households in the survey, **351 have VCRs**.
 
 1. Estimate the percentage of all 50,000 households with VCRs.
 2. If possible, construct a **99.7% confidence interval** for that percentage.
 
-### (c) Households without a television {.unnumbered}
+#### (c) Households without a television {.unnumbered}
 
 Among those surveyed, **749 households have at least one television set**.
 
@@ -403,7 +403,7 @@ Among those surveyed, **749 households have at least one television set**.
 
 ---
 
-## 8. Red and blue marbles {.unnumbered}
+### 8. Red and blue marbles {.unnumbered}
 
 A box contains **1 red marble** and **99 blue marbles**. Ten marbles are drawn at random **with replacement**.
 
@@ -417,7 +417,7 @@ A box contains **1 red marble** and **99 blue marbles**. Ten marbles are drawn a
 
 ### Conceptual question
 
-## 9. Point estimates and confidence intervals {.unnumbered}
+### 9. Point estimates and confidence intervals {.unnumbered}
 
 For each statement below, say whether it is **true or false**, and explain briefly.
 
