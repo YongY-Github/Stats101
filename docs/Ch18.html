@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>17&nbsp; The F-distribution and ANOVA – Probability &amp; Statistics 101</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Ch17.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c0e4390afb3e93e2bb4a16285b1382a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch18.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">The F-distribution and ANOVA</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Probability &amp; Statistics 101</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphical Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Numerical Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Normal Distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Elementary Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Probability Distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uniform and Exponential Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Expected Value and Standard Error</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chance Errors in Samples</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bootstrapping and Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The Accuracy of Averages</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Test for the Difference in Means</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Chi-square Test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch18.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">The F-distribution and ANOVA</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#test-for-equality-of-variances" id="toc-test-for-equality-of-variances" class="nav-link active" data-scroll-target="#test-for-equality-of-variances"><span class="header-section-number">17.1</span> Test for Equality of Variances</a>
+  <ul class="collapse">
+  <li><a href="#characteristics-of-the-f-distribution" id="toc-characteristics-of-the-f-distribution" class="nav-link" data-scroll-target="#characteristics-of-the-f-distribution"><span class="header-section-number">17.1.1</span> Characteristics of the <span class="math inline">\(F\)</span>-distribution</a></li>
+  <li><a href="#example-internet-vs.-utility-stocks" id="toc-example-internet-vs.-utility-stocks" class="nav-link" data-scroll-target="#example-internet-vs.-utility-stocks"><span class="header-section-number">17.1.2</span> Example: Internet vs.&nbsp;Utility Stocks</a></li>
+  </ul></li>
+  <li><a href="#analysis-of-variance-anova" id="toc-analysis-of-variance-anova" class="nav-link" data-scroll-target="#analysis-of-variance-anova"><span class="header-section-number">17.2</span> Analysis of Variance (ANOVA)</a>
+  <ul class="collapse">
+  <li><a href="#example-restaurant-sales" id="toc-example-restaurant-sales" class="nav-link" data-scroll-target="#example-restaurant-sales"><span class="header-section-number">17.2.1</span> Example: Restaurant Sales</a></li>
+  <li><a href="#the-logic-of-anova" id="toc-the-logic-of-anova" class="nav-link" data-scroll-target="#the-logic-of-anova"><span class="header-section-number">17.2.2</span> The Logic of ANOVA</a></li>
+  <li><a href="#the-anova-table" id="toc-the-anova-table" class="nav-link" data-scroll-target="#the-anova-table"><span class="header-section-number">17.2.3</span> The ANOVA Table</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">17.2.4</span> Conclusion</a></li>
+  </ul></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">17.3</span> Chapter Summary</a></li>
+  <li><a href="#exercises-variance-and-anova" id="toc-exercises-variance-and-anova" class="nav-link" data-scroll-target="#exercises-variance-and-anova"><span class="header-section-number">17.4</span> Exercises: Variance and ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#comparing-volatility" id="toc-comparing-volatility" class="nav-link" data-scroll-target="#comparing-volatility">1. Comparing Volatility</a></li>
+  <li><a href="#water-expenditure-in-urban-areas" id="toc-water-expenditure-in-urban-areas" class="nav-link" data-scroll-target="#water-expenditure-in-urban-areas">2. Water Expenditure in Urban Areas</a></li>
+  <li><a href="#the-missing-link-anova-table" id="toc-the-missing-link-anova-table" class="nav-link" data-scroll-target="#the-missing-link-anova-table">3. The “Missing Link” ANOVA Table</a></li>
+  <li><a href="#stock-market-analysis-incomplete-data" id="toc-stock-market-analysis-incomplete-data" class="nav-link" data-scroll-target="#stock-market-analysis-incomplete-data">4. Stock Market Analysis (Incomplete Data)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="ch18" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">The F-distribution and ANOVA</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Learning objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you should be able to:</p>
+<ul>
+<li>Describe the characteristics of the <span class="math inline">\(F\)</span>-distribution and its parameters.</li>
+<li>Test for the equality of variances between two independent populations.</li>
+<li>Perform a One-Way Analysis of Variance (ANOVA) to compare means across multiple groups.</li>
+<li>Interpret the ANOVA table to distinguish between “Between-group” and “Within-group” variation.</li>
+</ul>
+</div>
+</div>
+<p>The <span class="math inline">\(F\)</span>-distribution and Analysis of Variance (ANOVA) are primary examples of the statistical brilliance of R.A. Fisher. In this chapter, we will learn how to test for differences in variability and how to compare multiple means simultaneously—both of which rely on the <span class="math inline">\(F\)</span>-distribution.</p>
+<section id="test-for-equality-of-variances" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="test-for-equality-of-variances"><span class="header-section-number">17.1</span> Test for Equality of Variances</h2>
+<p>Like the Normal, <span class="math inline">\(t\)</span>, and <span class="math inline">\(\chi^2\)</span> distributions, the <span class="math inline">\(F\)</span>-distribution represents a “family” of curves. Each member is determined by two separate parameters:<br>
+1. The <strong>numerator</strong> degrees of freedom (<span class="math inline">\(v_1\)</span>).<br>
+2. The <strong>denominator</strong> degrees of freedom (<span class="math inline">\(v_2\)</span>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Distribution Relationships
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Interestingly, the distributions we have studied are mathematically linked. For example:<br>
+- The <span class="math inline">\(t\)</span>-distribution is related to <span class="math inline">\(F(1, v_2)\)</span>.<br>
+- The <span class="math inline">\(\chi^2\)</span>-distribution is related to <span class="math inline">\(F(v_1, \infty)\)</span>.</p>
+</div>
+</div>
+<div id="f-distribution" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/ch18/f-distribution.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>F-distribution</figcaption>
+</figure>
+</div>
+<p>Here is the <a href="figs\ch18\f.pdf" target="_blank">LINK</a> for the F-table.</p>
+<section id="characteristics-of-the-f-distribution" class="level3" data-number="17.1.1">
+<h3 data-number="17.1.1" class="anchored" data-anchor-id="characteristics-of-the-f-distribution"><span class="header-section-number">17.1.1</span> Characteristics of the <span class="math inline">\(F\)</span>-distribution</h3>
+<ul>
+<li><strong>Non-negative:</strong> Values range from <span class="math inline">\(0\)</span> to <span class="math inline">\(\infty\)</span>.</li>
+<li><strong>Asymmetric:</strong> It is positively skewed, especially at lower degrees of freedom.</li>
+<li><strong>Continuous:</strong> It represents the ratio of two independent chi-square variables.</li>
+</ul>
+</section>
+<section id="example-internet-vs.-utility-stocks" class="level3" data-number="17.1.2">
+<h3 data-number="17.1.2" class="anchored" data-anchor-id="example-internet-vs.-utility-stocks"><span class="header-section-number">17.1.2</span> Example: Internet vs.&nbsp;Utility Stocks</h3>
+<p>A stockbroker wants to know if Internet stocks are more volatile/risky (have higher variance) than Utility stocks. Looking at the data, he finds that mean rate of return on a sample of 13 Internet stocks was 12.6 percent with a standard deviation of 4.9 percent, while, the mean rate of return on a sample of 25 utility stocks was 10.9 percent with a standard deviation of 3.1 percent.</p>
+<ul>
+<li><strong>Internet Stocks (<span class="math inline">\(I\)</span>):</strong> <span class="math inline">\(n_I = 13\)</span>, <span class="math inline">\(SD_I = 4.9\%\)</span>.</li>
+<li><strong>Utility Stocks (<span class="math inline">\(U\)</span>):</strong> <span class="math inline">\(n_U = 25\)</span>, <span class="math inline">\(SD_U = 3.1\%\)</span>.</li>
+</ul>
+<p>Formally, we wish to test for equal <strong>variances</strong> of the two populations, Internet versus utility stocks.<br>
+</p>
+<ol type="1">
+<li><p><strong>Hypotheses:</strong></p>
+<ul>
+<li><span class="math inline">\(H_0: \sigma^2_I = \sigma^2_U\)</span><br>
+</li>
+<li><span class="math inline">\(H_a: \sigma^2_I &gt; \sigma^2_U\)</span>.</li>
+</ul></li>
+<li><p><strong>The Test Statistic:</strong> <span class="math display">\[F = \frac{\sigma^2_{\text{larger}}}{\sigma^2_{\text{smaller}}} = \frac{SD^2_I}{SD^2_U} = \frac{(4.9)^2}{(3.1)^2} \approx 2.50\]</span></p></li>
+<li><p><strong>Conclusion:</strong></p></li>
+</ol>
+<p>The degree of freedom for the numerator and the denominator are <span class="math inline">\(n_I -1\)</span> and <span class="math inline">\(n_U - 1\)</span> respectively. and after deciding on the significant level, we read the “critical value” from the corresponding F-table, which is the number where the <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> column and row intersect.</p>
+<p>Here is a copy of the F-table [LINK].</p>
+<p>In our example, <span class="math inline">\(v_1 = 12\)</span> and <span class="math inline">\(v_2 = 24\)</span>, and the critical value at <span class="math inline">\(\alpha = 0.05\)</span> is <strong>2.18</strong>.</p>
+<p>Since <span class="math inline">\(2.50 &gt; 2.18\)</span>, we reject the null hypothesis. The Internet stocks exhibit significantly higher variance.</p>
+<hr>
+</section>
+</section>
+<section id="analysis-of-variance-anova" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="analysis-of-variance-anova"><span class="header-section-number">17.2</span> Analysis of Variance (ANOVA)</h2>
+<p>While the <span class="math inline">\(t\)</span>-test compares the means of <strong>two</strong> populations, <strong>ANOVA</strong> tests the equality of means for <strong>three or more</strong> populations using a single <span class="math inline">\(F\)</span>-statistic. The “beauty” of ANOVA is that it compares variances to draw conclusions about means.</p>
+<section id="example-restaurant-sales" class="level3" data-number="17.2.1">
+<h3 data-number="17.2.1" class="anchored" data-anchor-id="example-restaurant-sales"><span class="header-section-number">17.2.1</span> Example: Restaurant Sales</h3>
+<p>Consider daily dinner sales at three different restaurant locations:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Day</th>
+<th style="text-align: center;">R1</th>
+<th style="text-align: center;">R2</th>
+<th style="text-align: center;">R3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Mean</strong></td>
+<td style="text-align: center;"><strong>12.75</strong></td>
+<td style="text-align: center;"><strong>11.5</strong></td>
+<td style="text-align: center;"><strong>17.0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>We observe 13 data points, <span class="math inline">\(n = 13\)</span>, and 3 restaurants (or 3 treatment groups) denoted <span class="math inline">\(k = 3\)</span>. The starting point is to specify the null and alternative hypothesis.<br>
+</p>
+<p>The average of all data points or <code>Grand Mean</code> (<span class="math inline">\(\overline{X}_G\)</span>) is 14. Hence, the total variation, <span class="math inline">\(\sum_n (X_n - \overline{X}_G)\)</span> is 86. The averages of the restaurants are 12.75, 11.5 and 17 for R1, R2 and R3, respectively.</p>
+<p><strong>Hypotheses:</strong><br>
+<span class="math inline">\(H_0: \mu_{R1} = \mu_{R2} = \mu_{R3}\)</span><br>
+<span class="math inline">\(H_a\)</span>: At least one mean is different.</p>
+</section>
+<section id="the-logic-of-anova" class="level3" data-number="17.2.2">
+<h3 data-number="17.2.2" class="anchored" data-anchor-id="the-logic-of-anova"><span class="header-section-number">17.2.2</span> The Logic of ANOVA</h3>
+<p>ANOVA splits total variation into two components:<br>
+1. <strong>Between-Group Variation:</strong> Variation across the averages of the restaurants. This represents potential “treatment effects” (location quality).<br>
+2. <strong>Within-Group Variation:</strong> Variation within each restaurant’s daily sales. This represents “chance error” or random noise.</p>
+<p>We then compare these using the <span class="math inline">\(F\)</span>-ratio: <span class="math display">\[F = \frac{\text{Mean Square `Between` (MSB) Variation}}{\text{Mean Square `Within` (MSW) Variation}}\]</span></p>
+<p>The idea is to split the total variation in the data or <strong>total sum of squares</strong> into a <code>between groups</code> variation and <code>within groups</code> variation.</p>
+<p>That is, we calculate the average for each group and then its variation for each restaurant; this is <code>within group</code> variation. Most probably not every data in each group is equal to its group average; there is bound to be some variation, which because there is no reason to think otherwise, we may assume that this variation is in fact due to chance. So the <code>within variation</code> represents <strong>chance variation</strong>.</p>
+<p>Likewise, the average of different groups (restaurants) should be different, and this may be due to fundamental differences between the groups. Such variation is appropriately called <code>between group</code> variation representing variation because of some factor or treatment.</p>
+<p>The F-test compares the variation possibly due to some factor or treatment against the chance (within) variation. If these variations are statistically different, then we conclude that the treatment is meaningful, i.e.&nbsp;that there is indeed a difference in the means of at least any two populations. It is best to summarize this in the ANOVA table below.</p>
+</section>
+<section id="the-anova-table" class="level3" data-number="17.2.3">
+<h3 data-number="17.2.3" class="anchored" data-anchor-id="the-anova-table"><span class="header-section-number">17.2.3</span> The ANOVA Table</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th style="text-align: center;">Sum of Squares (SS)</th>
+<th style="text-align: center;"><span class="math inline">\(df\)</span></th>
+<th style="text-align: center;">Mean Square (MS)</th>
+<th style="text-align: center;"><span class="math inline">\(F\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Between</strong> (Treatment)</td>
+<td style="text-align: center;">76.25</td>
+<td style="text-align: center;"><span class="math inline">\(3-1 = 2\)</span></td>
+<td style="text-align: center;">38.125</td>
+<td style="text-align: center;"><strong>39.103</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Within</strong> (Error)</td>
+<td style="text-align: center;">9.75</td>
+<td style="text-align: center;"><span class="math inline">\(13-3 = 10\)</span></td>
+<td style="text-align: center;">0.975</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>86.00</strong></td>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>between groups</code> variation is <span class="math inline">\(\sum_k n_k (\overline{X}_k - \overline{X}_G)^2\)</span>, which gives us 76.25. Because <code>total variation = between variation + within variation</code>, we can easily find <code>within variation</code> as <span class="math inline">\(86-76.25 = 9.75\)</span>.</p>
+<p>For total variation, which is nothing more than the total sum of all deviations of each data point from the overall grand mean, we lose one degree of freedom, that is, <span class="math inline">\(n-1 = 12\)</span>. The between groups variation treats all numbers in each group equivalently. Hence the deviation of <span class="math inline">\(k\)</span> groups with respect to the overall mean has <span class="math inline">\(k-1 = 2\)</span> degrees of freedom. For each group, the within variation leads to a loss of one degree of freedom in each group. With <span class="math inline">\(k\)</span> groups, the total within group variation will result in <span class="math inline">\(n-k = 10\)</span> degrees of freedom.</p>
+<p>Dividing the sum of squares by the degrees of freedom gives the <strong>mean sum of squares</strong> or variance. And the F-test statistic intuitively compares the average variation across the groups with the chance variation represented by the within group variation.</p>
+</section>
+<section id="conclusion" class="level3" data-number="17.2.4">
+<h3 data-number="17.2.4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">17.2.4</span> Conclusion</h3>
+<p>At <span class="math inline">\(\alpha = 0.05\)</span> with <span class="math inline">\(v_1=2\)</span> and <span class="math inline">\(v_2=10\)</span>, the critical value is <strong>4.10</strong>. Since our <span class="math inline">\(F\)</span>-statistic (<span class="math inline">\(39.1\)</span>) is far greater than 4.10, we <strong>reject the null hypothesis</strong>. There is a statistically significant difference in the mean sales across the three locations.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Visualizing ANOVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you were to plot the confidence intervals for these three restaurants, you would likely see that the interval for R3 does not overlap with R1 or R2. This lack of overlap is a visual confirmation of the ANOVA result.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="chapter-summary" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">17.3</span> Chapter Summary</h2>
+<ul>
+<li>The <strong><span class="math inline">\(F\)</span>-test for variances</strong> checks if two populations have the same spread.</li>
+<li><strong>ANOVA</strong> decomposes total variation to check if group means are equal.</li>
+<li>The <span class="math inline">\(F\)</span>-statistic is a ratio: if the “Between” variation is much larger than the “Within” variation, we conclude the group identities matter.</li>
+</ul>
+<p>Here are the exercises rewritten in the <strong>Econ-Core</strong> style. I have organized them to emphasize real-world data interpretation and the logical flow of statistical testing.</p>
+<hr>
+</section>
+<section id="exercises-variance-and-anova" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="exercises-variance-and-anova"><span class="header-section-number">17.4</span> Exercises: Variance and ANOVA</h2>
+<section id="comparing-volatility" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="comparing-volatility">1. Comparing Volatility</h3>
+<p>You have two independent populations, A and B. You take 20 draws from Population A, resulting in a standard deviation (<span class="math inline">\(SD\)</span>) of 13. You take 15 draws from Population B, resulting in an <span class="math inline">\(SD\)</span> of 15.<br>
+</p>
+<ol type="a">
+<li>State the null and alternative hypotheses for a two-sided test regarding the variances.<br>
+</li>
+<li>Calculate the <span class="math inline">\(F\)</span>-test statistic.<br>
+</li>
+<li>Using the <span class="math inline">\(F\)</span>-table, can you conclude at the 5% significance level that the variances of the two populations are different? Explain your reasoning briefly.</li>
+</ol>
+</section>
+<section id="water-expenditure-in-urban-areas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="water-expenditure-in-urban-areas">2. Water Expenditure in Urban Areas</h3>
+<p>The following table shows the annual expenditure (in millions of Baht) on water for randomly selected households in three different areas.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Area A</th>
+<th style="text-align: center;">Area B</th>
+<th style="text-align: center;">Area C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">780</td>
+<td style="text-align: center;">650</td>
+<td style="text-align: center;">640</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">690</td>
+<td style="text-align: center;">689</td>
+<td style="text-align: center;">689</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">735</td>
+<td style="text-align: center;">700</td>
+<td style="text-align: center;">673</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">655</td>
+<td style="text-align: center;">702</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">766</td>
+<td style="text-align: center;">680</td>
+<td style="text-align: center;">681</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">689</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Conduct a One-way ANOVA to test the claim that mean water expenditure is identical across the three areas.</li>
+<li>Before performing the ANOVA, we assume “homoscedasticity” (equal variances). Perform a quick check: are the variations in expenditure across these areas statistically similar enough to justify an ANOVA?</li>
+</ol>
+</section>
+<section id="the-missing-link-anova-table" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-missing-link-anova-table">3. The “Missing Link” ANOVA Table</h3>
+<p>A researcher provides you with a partially completed ANOVA table from a study on regional productivity.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th style="text-align: center;"><span class="math inline">\(df\)</span></th>
+<th style="text-align: center;">Sum of Squares (SS)</th>
+<th style="text-align: center;">Mean Square (MS)</th>
+<th style="text-align: center;"><span class="math inline">\(F\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between Groups</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">17.5</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within Groups</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>41</strong></td>
+<td style="text-align: center;"><strong>46.5</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Complete the missing values in the table.</li>
+<li>Based on the degrees of freedom, how many groups were being studied? State the null and alternative hypotheses.</li>
+<li>Using a 10% level of significance (<span class="math inline">\(\alpha = 0.10\)</span>), what is your statistical conclusion?</li>
+<li>Estimate the p-value range for this test.</li>
+</ol>
+</section>
+<section id="stock-market-analysis-incomplete-data" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="stock-market-analysis-incomplete-data">4. Stock Market Analysis (Incomplete Data)</h3>
+<p>An analyst is comparing the average rate of return for three stock sectors: <strong>Utility</strong>, <strong>Retail</strong>, and <strong>Banking</strong>. Due to a printer error, several values in the output are missing.</p>
+<p><strong>Table 1: ANOVA Output</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: center;"><span class="math inline">\(df\)</span></th>
+<th style="text-align: center;">Sum of Squares</th>
+<th style="text-align: center;">Mean Square</th>
+<th style="text-align: center;"><span class="math inline">\(F\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between</td>
+<td style="text-align: center;"><strong>(a)</strong></td>
+<td style="text-align: center;">86.49</td>
+<td style="text-align: center;"><strong>(b)</strong></td>
+<td style="text-align: center;"><strong>(c)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">42.93</td>
+<td style="text-align: center;">3.30</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>(d)</strong></td>
+<td style="text-align: center;"><strong>(e)</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 2: Sector Summary</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Stock Type</th>
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">Mean</th>
+<th style="text-align: center;"><span class="math inline">\(SD\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Utility</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">17.40</td>
+<td style="text-align: center;">1.916</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Retail</td>
+<td style="text-align: center;"><strong>(f)</strong></td>
+<td style="text-align: center;">11.62</td>
+<td style="text-align: center;">0.356</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Banking</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">15.40</td>
+<td style="text-align: center;"><strong>(g)</strong></td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Identify which of the missing figures (a through g) <strong>cannot</strong> be calculated using only the visible data.</li>
+<li>Using <span class="math inline">\(\alpha = 0.05\)</span>, is there a significant difference in the mean rate of return among the three types of stock?</li>
+<li>If the null hypothesis is rejected, does this automatically prove that Utility stocks perform differently than Retail stocks? Explain the concept of “Post-hoc” testing or pairwise comparisons briefly.</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Ch17.html" class="pagination-link" aria-label="The Chi-square Test">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">The Chi-square Test</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
